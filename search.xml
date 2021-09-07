@@ -19,14 +19,9 @@
 ]]></content>
   </entry>
   <entry>
-    <title>我的第一篇文章</title>
-    <url>/2021/08/27/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<h2 id="測試"><a href="#測試" class="headerlink" title="測試"></a>測試</h2>]]></content>
-  </entry>
-  <entry>
-    <title>jswordcomparetable</title>
-    <url>/2021/09/07/jswordcomparetable/</url>
-    <content><![CDATA[<h1 id="JS-JavaScript-學習常用字：大陸-台灣對照表"><a href="#JS-JavaScript-學習常用字：大陸-台灣對照表" class="headerlink" title="[JS] JavaScript 學習常用字：大陸/台灣對照表"></a>[JS] JavaScript 學習常用字：大陸/台灣對照表</h1><p>以下整理了幾個在學習 JavaScript 中常見的詞語。</p>
+    <title>JavaScript 學習常用字：大陸/台灣對照表</title>
+    <url>/2021/09/07/jswordcompare/</url>
+    <content><![CDATA[<p>以下整理了幾個在學習 JavaScript 中常見的詞語。</p>
 <table>
 <thead>
 <tr>
@@ -179,7 +174,7 @@
 <p>資料來源：<a href="https://zh.wikibooks.org/zh-tw/%E5%A4%A7%E9%99%86%E5%8F%B0%E6%B9%BE%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%9C%AF%E8%AF%AD%E5%AF%B9%E7%85%A7%E8%A1%A8">大陸台灣計算機術語對照表 </a></p>
 ]]></content>
       <tags>
-        <tag>js</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
 </search>
