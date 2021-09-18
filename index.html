@@ -127,6 +127,11 @@
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
 
   </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
@@ -187,7 +192,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://shinyu0430.github.io/2021/09/18/filterchildposition/">
+    <link itemprop="mainEntityOfPage" href="https://shinyu0430.github.io/2021/09/18/cssfilter/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/headshot.png">
@@ -201,7 +206,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/09/18/filterchildposition/" class="post-title-link" itemprop="url">CSS Filter 影響子元素的解決辦法</a>
+            <a href="/2021/09/18/cssfilter/" class="post-title-link" itemprop="url">CSS-filter 濾鏡效果</a>
         </h2>
 
         <div class="post-meta">
@@ -212,7 +217,16 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2021-09-18 19:00:57 / 修改時間：20:11:49" itemprop="dateCreated datePublished" datetime="2021-09-18T19:00:57+08:00">2021-09-18</time>
+              <time title="創建時間：2021-09-18 20:33:14 / 修改時間：21:46:22" itemprop="dateCreated datePublished" datetime="2021-09-18T20:33:14+08:00">2021-09-18</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML%E3%80%81CSS/" itemprop="url" rel="index"><span itemprop="name">HTML、CSS</span></a>
+                </span>
             </span>
 
           
@@ -224,8 +238,109 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/2021/09/18/filterchildposition/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/09/18/filterchildposition/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/09/18/cssfilter/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/09/18/cssfilter/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>我們可以使用 CSS Filter 直接在元素上加上濾鏡效果，<br>先來個所有濾鏡效果的呈現 DEMO：</p>
+<p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="gOReYWK" data-user="0430shinyu" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/0430shinyu/pen/gOReYWK">
+  </a> by 蔡蔡 Mavis (<a target="_blank" rel="noopener" href="https://codepen.io/0430shinyu">@0430shinyu</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="10-種-filter-濾鏡效果"><a href="#10-種-filter-濾鏡效果" class="headerlink" title="10 種 filter 濾鏡效果"></a>10 種 filter 濾鏡效果</h2><p>filter 效果一共有 10 種，其中最常使用的是第 1 個 <code>blur()</code> 和第 8 個的 <code>opacity()</code>。</p>
+<h3 id="1-blur-模糊效果"><a href="#1-blur-模糊效果" class="headerlink" title="1. blur() 模糊效果"></a>1. blur() 模糊效果</h3><p>函示內放入模糊的程度，值越大越模糊</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">blur</span>(<span class="number">5px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-brightness-調整亮度"><a href="#2-brightness-調整亮度" class="headerlink" title="2. brightness() 調整亮度"></a>2. brightness() 調整亮度</h3><p>函示內放入 % 數來調整亮度，<br><code>&lt; 100%</code> 會減少亮度，<br><code>&gt; 100%</code> 會增加亮度。<br><code>0%</code> 會呈現全黑，預設值為 <code>1</code> 。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">brightness</span>(<span class="number">2</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/09/18/cssfilter/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://shinyu0430.github.io/2021/09/18/filterchildproblem/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headshot.png">
+      <meta itemprop="name" content="Mavis Tsai">
+      <meta itemprop="description" content="Mavis 的前端技術部落格，包含 HTML、CSS、Vue、JavaScript、Vue、React">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mavis">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/18/filterchildproblem/" class="post-title-link" itemprop="url">CSS Filter 影響子元素的解決辦法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2021-09-18 19:00:57 / 修改時間：21:45:47" itemprop="dateCreated datePublished" datetime="2021-09-18T19:00:57+08:00">2021-09-18</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML%E3%80%81CSS/" itemprop="url" rel="index"><span itemprop="name">HTML、CSS</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2021/09/18/filterchildproblem/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/09/18/filterchildproblem/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -241,7 +356,7 @@
 
       
           <p>透過 filter 我們可以為元素加上不同的效果，像是模糊，色彩偏移等。<br>但我們可能會發現一個奇怪的現象：</p>
-<h2 id="filter-導致-position-失效"><a href="#filter-導致-position-失效" class="headerlink" title="filter 導致 position 失效"></a>filter 導致 position 失效</h2><p>在這個範例中，我們先設定兩個 <code>.box</code>，再分別在子元素 <code>.box div</code> 加上 <code>position:fixed</code>，右邊的子元素再單獨設定<code>filter:grayscale(1)</code>。</p>
+<h2 id="filter-導致-position-失效"><a href="#filter-導致-position-失效" class="headerlink" title="filter 導致 position 失效"></a>filter 導致 position 失效</h2><p>在這個範例中，我們先設定兩個 <code>.box</code>，再分別在子元素 <code>.box div</code> 加上 <code>position:fixed</code>，第二個<code>.box</code>再單獨設定<code>filter:grayscale(1)</code>。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;position:fixed&quot;</span>&gt;</span>I am fixed on scroll<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span> <span class="attr">style</span>=<span class="string">&quot;filter:grayscale(1)&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;position:fixed&quot;</span>&gt;</span>I move with the scroll<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>從下面的 CodePen 範例中，我們可以發現向下滾動後，加上了 filter 的 <code>.box div</code> 不會跟著移動。</p>
 <p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="XWgZLaV" data-user="0430shinyu" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
@@ -251,14 +366,13 @@
 </p>
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
-
 <p>會這樣改變的原因是因為，加上了 filter 後，子元素不再以 Viewport 做為基準，<br>而是以設定了 filter 的 <code>.box</code> 為基準。</p>
 <p>更詳細的說明可以參考 <a target="_blank" rel="noopener" href="https://drafts.fxtf.org/filter-effects/#FilterProperty">W3C</a> 的解釋，大意就是當 <code>filter</code> 的屬性不是 <code>none</code> 時，除非 filter 是設定在根節點（<code>HTML</code>）上，不然會為有設定 <code>position:absolute</code> 或 <code>position:fixed</code> 的子元素產生一個新的容器，使得這些子元素的定位基準變成這些新的容器。</p>
 <p>另外，這個現象也會發生在 <code>transform</code> 上喔！</p>
 <p><strong>解決方案</strong><br>我們可以透過將 filter 設定在子元素來解決。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/09/18/filterchildposition/#more" rel="contents">
+              <a class="btn" href="/2021/09/18/filterchildproblem/#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -307,7 +421,16 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2021-09-18 15:00:05 / 修改時間：16:20:24" itemprop="dateCreated datePublished" datetime="2021-09-18T15:00:05+08:00">2021-09-18</time>
+              <time title="創建時間：2021-09-18 15:00:05 / 修改時間：20:43:07" itemprop="dateCreated datePublished" datetime="2021-09-18T15:00:05+08:00">2021-09-18</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML%E3%80%81CSS/" itemprop="url" rel="index"><span itemprop="name">HTML、CSS</span></a>
+                </span>
             </span>
 
           
@@ -415,8 +538,17 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-09-18 16:20:15" itemprop="dateModified" datetime="2021-09-18T16:20:15+08:00">2021-09-18</time>
+                <time title="修改時間：2021-09-18 20:42:49" itemprop="dateModified" datetime="2021-09-18T20:42:49+08:00">2021-09-18</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+                </span>
+            </span>
 
           
   
@@ -686,9 +818,15 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">文章</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">

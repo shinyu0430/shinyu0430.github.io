@@ -156,6 +156,9 @@
 </tbody></table>
 <p>資料來源：<a href="https://zh.wikibooks.org/zh-tw/%E5%A4%A7%E9%99%86%E5%8F%B0%E6%B9%BE%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%9C%AF%E8%AF%AD%E5%AF%B9%E7%85%A7%E8%A1%A8">大陸台灣計算機術語對照表 </a></p>
 ]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
       <tags>
         <tag>JavaScript</tag>
       </tags>
@@ -191,15 +194,68 @@
 
 <p>如果希望了解其他的 CSS 縮寫，可以查看 <a href="https://www.kobzarev.com/wp-content/uploads/cheatsheets/css/css-cheat-sheet.pdf">CSS-Shorthand-Cheat-Sheet.pdf</a></p>
 ]]></content>
+      <categories>
+        <category>HTML、CSS</category>
+      </categories>
       <tags>
-        <tag>HTML、CSS</tag>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CSS-filter 濾鏡效果</title>
+    <url>/2021/09/18/cssfilter/</url>
+    <content><![CDATA[<p>我們可以使用 CSS Filter 直接在元素上加上濾鏡效果，<br>先來個所有濾鏡效果的呈現 DEMO：</p>
+<p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="gOReYWK" data-user="0430shinyu" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/0430shinyu/pen/gOReYWK">
+  </a> by 蔡蔡 Mavis (<a href="https://codepen.io/0430shinyu">@0430shinyu</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="10-種-filter-濾鏡效果"><a href="#10-種-filter-濾鏡效果" class="headerlink" title="10 種 filter 濾鏡效果"></a>10 種 filter 濾鏡效果</h2><p>filter 效果一共有 10 種，其中最常使用的是第 1 個 <code>blur()</code> 和第 8 個的 <code>opacity()</code>。</p>
+<h3 id="1-blur-模糊效果"><a href="#1-blur-模糊效果" class="headerlink" title="1. blur() 模糊效果"></a>1. blur() 模糊效果</h3><p>函示內放入模糊的程度，值越大越模糊</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">blur</span>(<span class="number">5px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-brightness-調整亮度"><a href="#2-brightness-調整亮度" class="headerlink" title="2. brightness() 調整亮度"></a>2. brightness() 調整亮度</h3><p>函示內放入 % 數來調整亮度，<br><code>&lt; 100%</code> 會減少亮度，<br><code>&gt; 100%</code> 會增加亮度。<br><code>0%</code> 會呈現全黑，預設值為 <code>1</code> 。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">brightness</span>(<span class="number">2</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-contrast-調整對比度"><a href="#3-contrast-調整對比度" class="headerlink" title="3. contrast() 調整對比度"></a>3. contrast() 調整對比度</h3><p>函示內放入 % 數來調整對比度，<br><code>&lt; 100%</code> 會減少對比度，<br><code>&gt; 100%</code> 會增加對比度。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">contrast</span>(<span class="number">200%</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-drop-shadow-陰影效果"><a href="#4-drop-shadow-陰影效果" class="headerlink" title="4. drop-shadow() 陰影效果"></a>4. drop-shadow() 陰影效果</h3><p>這個函數的特性和 box-shadow 的屬性很相似，<br>但 drop-shadow 可以製作和物件不透明區域完全相同形狀的陰影，詳細比較可以參考<a href="http://blog.shihshih.com/drop-shadow-vs-box-shadow/">這篇文章</a></p>
+<p><code>drop-shadow()</code> 可帶入的 4 個參數分別為：</p>
+<ol>
+<li>(必填)offset-x：陰影水平偏移量的長度</li>
+<li>(必填)offset-y：陰影垂直偏移量的長度</li>
+<li>blur-radius：隱影模糊程度，值越大越模糊</li>
+<li>color：陰影顏色<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">drop-shadow</span>(<span class="number">16px</span> <span class="number">16px</span> <span class="number">10px</span> black)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="5-grayscale-調整灰階程度"><a href="#5-grayscale-調整灰階程度" class="headerlink" title="5. grayscale() 調整灰階程度"></a>5. grayscale() 調整灰階程度</h3><p>函示內放入 % 數或、0-1 來調整圖像灰度，<br>值介於 0-100% 或 0-1，<br>0% 和 0 代表顏色不變，為預設值，100% 和 1 代表變黑白的。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="attribute">filter</span>:<span class="built_in">grayscale</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="6-hue-rotate-色相相轉"><a href="#6-hue-rotate-色相相轉" class="headerlink" title="6. hue-rotate() 色相相轉"></a>6. hue-rotate() 色相相轉</h3><p>透過色相旋轉來調整顏色呈現，函示內放入 deg 色環角度值來調整圖像灰度，<br>值介於 0deg - 360deg 間，超過 <code>360deg</code> 的值相當於繞了一圈。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">hue-rotate</span>(<span class="number">90deg</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="7-invert-負面效果"><a href="#7-invert-負面效果" class="headerlink" title="7. invert() 負面效果"></a>7. invert() 負面效果</h3><p>所謂的負片就是反轉成顏色和明暗程度，<br>函示內放入 % 數設定反轉的程度，值介於 0-100% 間，預設值為 0%。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">invert</span>(<span class="number">100%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="8-opactiy-調整透明度"><a href="#8-opactiy-調整透明度" class="headerlink" title="8.opactiy 調整透明度"></a>8.opactiy 調整透明度</h3><p>函示內放入 % 數設定透明度，值介於 0-100% 間，預設值為 100%。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">opacity</span>(<span class="number">50%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="9-saturate-調整飽和度"><a href="#9-saturate-調整飽和度" class="headerlink" title="9.saturate() 調整飽和度"></a>9.saturate() 調整飽和度</h3><p>函示內放入 % 數設定飽和度，預設值為 1<br><code>&lt;100%</code> 越來越不飽和<br><code>&gt;100％</code> 高度飽和</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">saturate</span>(<span class="number">200%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="10-sepia-深褐色效果"><a href="#10-sepia-深褐色效果" class="headerlink" title="10. sepia() 深褐色效果"></a>10. sepia() 深褐色效果</h3><p>函示內放入 % 數設定深褐色的程度，值介於 0-100% 之間，預設值是 0。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">sepia</span>(<span class="number">100%</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="複合效果"><a href="#複合效果" class="headerlink" title="複合效果"></a>複合效果</h3><p>除了單獨的使用濾鏡外，我們也可以組合任意數量的函數來設定效果。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 同時設定對比度、亮度、飽和度*/</span></span><br><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">contrast</span>(<span class="number">175%</span>) <span class="built_in">brightness</span>(<span class="number">3%</span>) <span class="built_in">saturate</span>(<span class="number">200%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上就是不同 filter 的介紹，實作上如果有遇到子元素被 filter 影響的問題，<br>可以參考這篇文章 -<a href="https://shinyu0430.github.io/2021/09/18/filterchildproblem/">CSS Filter 影響子元素的解決辦法</a></p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/filter">MDN Web Docs-filter</a></p>
+]]></content>
+      <categories>
+        <category>HTML、CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
       </tags>
   </entry>
   <entry>
     <title>CSS Filter 影響子元素的解決辦法</title>
-    <url>/2021/09/18/filterchildposition/</url>
+    <url>/2021/09/18/filterchildproblem/</url>
     <content><![CDATA[<p>透過 filter 我們可以為元素加上不同的效果，像是模糊，色彩偏移等。<br>但我們可能會發現一個奇怪的現象：</p>
-<h2 id="filter-導致-position-失效"><a href="#filter-導致-position-失效" class="headerlink" title="filter 導致 position 失效"></a>filter 導致 position 失效</h2><p>在這個範例中，我們先設定兩個 <code>.box</code>，再分別在子元素 <code>.box div</code> 加上 <code>position:fixed</code>，右邊的子元素再單獨設定<code>filter:grayscale(1)</code>。</p>
+<h2 id="filter-導致-position-失效"><a href="#filter-導致-position-失效" class="headerlink" title="filter 導致 position 失效"></a>filter 導致 position 失效</h2><p>在這個範例中，我們先設定兩個 <code>.box</code>，再分別在子元素 <code>.box div</code> 加上 <code>position:fixed</code>，第二個<code>.box</code>再單獨設定<code>filter:grayscale(1)</code>。</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;position:fixed&quot;</span>&gt;</span>I am fixed on scroll<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span> <span class="attr">style</span>=<span class="string">&quot;filter:grayscale(1)&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;position:fixed&quot;</span>&gt;</span>I move with the scroll<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>從下面的 CodePen 範例中，我們可以發現向下滾動後，加上了 filter 的 <code>.box div</code> 不會跟著移動。</p>
 <p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="XWgZLaV" data-user="0430shinyu" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
@@ -208,7 +264,6 @@
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
-
 
 <p>會這樣改變的原因是因為，加上了 filter 後，子元素不再以 Viewport 做為基準，<br>而是以設定了 filter 的 <code>.box</code> 為基準。</p>
 <p>更詳細的說明可以參考 <a href="https://drafts.fxtf.org/filter-effects/#FilterProperty">W3C</a> 的解釋，大意就是當 <code>filter</code> 的屬性不是 <code>none</code> 時，除非 filter 是設定在根節點（<code>HTML</code>）上，不然會為有設定 <code>position:absolute</code> 或 <code>position:fixed</code> 的子元素產生一個新的容器，使得這些子元素的定位基準變成這些新的容器。</p>
@@ -245,8 +300,11 @@
 <h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://stackoverflow.com/questions/52937708/why-does-applying-a-css-filter-on-the-parent-break-the-child-positioning">Why does applying a CSS-Filter on the parent break the child positioning?</a></p>
 <p><a href="https://blog.csdn.net/qq_41883423/article/details/105867026">CSS：filter（滤镜）修饰父元素背景，影响子元素问题解决</a></p>
 ]]></content>
+      <categories>
+        <category>HTML、CSS</category>
+      </categories>
       <tags>
-        <tag>HTML、CSS</tag>
+        <tag>CSS</tag>
       </tags>
   </entry>
 </search>
