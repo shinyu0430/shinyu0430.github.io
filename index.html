@@ -212,7 +212,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2021-09-18 15:00:05 / 修改時間：15:58:56" itemprop="dateCreated datePublished" datetime="2021-09-18T15:00:05+08:00">2021-09-18</time>
+              <time title="創建時間：2021-09-18 15:00:05 / 修改時間：16:05:09" itemprop="dateCreated datePublished" datetime="2021-09-18T15:00:05+08:00">2021-09-18</time>
             </span>
 
           
@@ -247,17 +247,22 @@
 </style>
 <p>在撰寫 CSS 的時候，我們常會使用到 Margin 和 Padding 來調整元素的位置，<br>而透過簡寫可以讓我們的 CSS 更加整潔。</p>
 <p>Margin 和 Padding 的縮寫方式是相同的，有四種寫法：</p>
+<span id="more"></span>
 <ol>
-<li><code>margin: 10px</code>：margin:上下左右<br>同時設定「上下左右」的間距<br><img src="https://i.imgur.com/RqJy4GM.png"><span id="more"></span></li>
-<li><code>margin:10px 20px</code>：margin:上下 左右<br>分別設定「上下」和「左右」的間距<br><img src="https://i.imgur.com/9j4szx2.png"></li>
-<li><code>margin:10px 20px 30px</code>：margin:上 左右 下<br>分別設定「上」、「左右」和「下」的間距<br><img src="https://i.imgur.com/NPcVL8c.png"></li>
-<li><code>margin:10px 30px 40px 20px</code>：margin: 上 右 下 左<br>分別設定「上」、「右」、「下」和「左」的間距<br><img src="https://i.imgur.com/I9mJQ89.png"></li>
+<li><p><code>margin: 10px</code>：margin:上下左右<br>同時設定「上下左右」的間距<br><img src="https://i.imgur.com/RqJy4GM.png"></p>
+</li>
+<li><p><code>margin:10px 20px</code>：margin:上下 左右<br>分別設定「上下」和「左右」的間距<br><img src="https://i.imgur.com/9j4szx2.png"></p>
+</li>
+<li><p><code>margin:10px 20px 30px</code>：margin:上 左右 下<br>分別設定「上」、「左右」和「下」的間距<br><img src="https://i.imgur.com/NPcVL8c.png"></p>
+</li>
+<li><p><code>margin:10px 30px 40px 20px</code>：margin: 上 右 下 左<br>分別設定「上」、「右」、「下」和「左」的間距<br><img src="https://i.imgur.com/I9mJQ89.png"></p>
+</li>
 </ol>
 <h2 id="縮寫練習"><a href="#縮寫練習" class="headerlink" title="縮寫練習"></a>縮寫練習</h2><h3 id="練習一"><a href="#練習一" class="headerlink" title="練習一"></a>練習一</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">10px</span> <span class="number">20px</span> <span class="number">30px</span> <span class="number">20px</span>; <span class="comment">/* 上、右、下、左 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>按照第三種方法簡化後，可以寫成：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">10px</span> <span class="number">20px</span> <span class="number">30px</span>; <span class="comment">/* 上、左右、下 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="練習二"><a href="#練習二" class="headerlink" title="練習二"></a>練習二</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">padding-top</span>:<span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">padding-bottom</span>:<span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="練習二"><a href="#練習二" class="headerlink" title="練習二"></a>練習二</h3>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/09/18/marginpaddingshorthand/#more" rel="contents">
