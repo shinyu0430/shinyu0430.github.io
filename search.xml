@@ -64,7 +64,7 @@
 </p>
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
-<p>會這樣改變的原因是因為，加上了 filter 後，子元素不再以 Viewport 做為基準，<br>而是以設定了 filter 的 <code>.box</code> 為基準。</p>
+<p>會這樣改變的原因是因為，加上了 filter 後子元素不再以 Viewport 做為基準，<br>而是以設定了 filter 的 <code>.box</code> 為基準。</p>
 <p>更詳細的說明可以參考 <a href="https://drafts.fxtf.org/filter-effects/#FilterProperty">W3C</a> 的解釋，大意就是當 <code>filter</code> 的屬性不是 <code>none</code> 時，除非 filter 是設定在根節點（<code>HTML</code>）上，不然會為有設定 <code>position:absolute</code> 或 <code>position:fixed</code> 的子元素產生一個新的容器，使得這些子元素的定位基準變成這些新的容器。</p>
 <p>另外，這個現象也會發生在 <code>transform</code> 上喔！</p>
 <p><strong>解決方案</strong><br>我們可以透過將 filter 設定在子元素來解決。</p>
@@ -336,5 +336,35 @@
       <tags>
         <tag>CSS</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>免費圖片空間 Imgur 使用教學</title>
+    <url>/2021/09/19/imgurturtorial/</url>
+    <content><![CDATA[<style>
+    img{
+        width:70%;
+    }
+</style>
+
+<p>Imgur 是一個網路相簿網站，2009年創立，主要提供免費的相片儲存服務，現今每日使用者達數百萬。Imgur 最大的優點就是它沒有流量限制，也不需要註冊帳號就可以直接使用，使用上非常方便。</p>
+<h2 id="Imgur-網頁介紹"><a href="#Imgur-網頁介紹" class="headerlink" title="Imgur 網頁介紹"></a>Imgur 網頁介紹</h2><p>進到 imgur 的網頁後，我們可以看到下方有許多其他使用者上傳的圖片，<br><img src="https://imgur.com/XJfw5tc.jpg"><br>我們也可以透過上方的搜尋欄，搜尋特定的圖片<br><img src="https://imgur.com/k2sSTN1.jpg"></p>
+<h2 id="上傳檔案"><a href="#上傳檔案" class="headerlink" title="上傳檔案"></a>上傳檔案</h2><p>如果我們想要上傳圖片，可以點擊首頁左上方的 New Post<br><img src="https://imgur.com/56WlOl4.jpg"><br>點擊後會跳轉到這個畫面，可以透過拖移或是點擊的方式上傳我們本地端的圖片，imgur 支援多種圖片格式，單張非動畫圖片最大容量限制為 20 MB，每小時最多上傳 50 張，詳細限制可以參考<a href="https://help.imgur.com/hc/en-us/articles/115000083326-What-files-can-I-upload-What-is-the-size-limit-">Imgur Help</a>的說明。</p>
+<p><img src="https://imgur.com/TWYw3Mm.jpg"><br>成功上傳後會出現這樣的畫面，雖然前面有提到首頁可以看到其他使用者上傳的圖片，但<strong>預設</strong>上傳的圖片是<strong>不會</strong>連結到 Imgur 社群的喔，如果希望上傳到社群，可以替圖片加上標題(title)和說明(description)，再點擊「To Community」就可以公開囉。<br><img src="https://imgur.com/iOHIZ9E.jpg"><br>複製圖片網址的方式也很簡單，將滑鼠移到圖片上，並點擊 Copy link 就能成功複製圖片網址了（<a href="https://imgur.com/ipZyGmJ.jpg">https://imgur.com/ipZyGmJ.jpg</a>），點擊「···」則可以對圖片進行編輯（調整大小、旋轉圖片）、分享連結、下載、刪除。<br><img src="https://imgur.com/rhF08TY.jpg"></p>
+<h2 id="在-HTML-中插入外部圖片"><a href="#在-HTML-中插入外部圖片" class="headerlink" title="在 HTML 中插入外部圖片"></a>在 HTML 中插入外部圖片</h2><p>使用 Imgur 在 HTML 中插入圖片有兩種方式</p>
+<ol>
+<li>將 Imgur 嵌入<br>呈現效果如下：<blockquote class="imgur-embed-pub" lang="en" data-id="rhF08TY"><a href="https://imgur.com/rhF08TY">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script></li>
+</ol>
+<p>使用的方式為點擊圖片上方的「···」，選取 Get share links<br><img src="https://imgur.com/yE1mDlY.jpg"><br>再複製 HTML Embed 的語法，貼上到我們的網頁中。<br><img src="https://imgur.com/vdEGgvT.jpg"></p>
+<ol start="2">
+<li>使用 img 語法<br>如果不希望保留 Imgur 的外框，可以直接使用 img 標籤，呈現效果如下：<img src="https://imgur.com/ipZyGmJ.jpg" alt="範例圖片"> </li>
+</ol>
+<p>，並放入我們點擊 Copy Link 得到的「<a href="https://imgur.com/ipZyGmJ%E3%80%8D%EF%BC%8C%E5%9C%A8%E5%BE%8C%E9%9D%A2">https://imgur.com/ipZyGmJ」，在後面</a> <strong>加上副檔名<code>.jpg</code></strong> ，就可以正確插入圖片囉。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://imgur.com/ipZyGmJ.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;範例圖片&quot;</span>&gt;</span> </span><br></pre></td></tr></table></figure>
+
+<h2 id="帳號註冊"><a href="#帳號註冊" class="headerlink" title="帳號註冊"></a>帳號註冊</h2><p>如果我們希望上傳後還能對這些圖片進行管理的話，可以註冊 Imgur 帳號。註冊的方式也很簡單，到首頁點擊右上方的 SignUp 就可以註冊了。<br><img src="https://imgur.com/VuWJi0Q.jpg"><br>成功登入後我們就可以在這管理自己上傳的圖片囉。<br><img src="https://imgur.com/o5CzMa2.jpg"></p>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
   </entry>
 </search>
