@@ -69,9 +69,9 @@
 <p>另外，這個現象也會發生在 <code>transform</code> 上喔！</p>
 <p><strong>解決方案</strong><br>我們可以透過將 filter 設定在子元素來解決。</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;position:fixed;filter:grayscale(1)&quot;</span>&gt;</span>I move with the scroll<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="XWgZLaV" data-user="0430shinyu" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-  <span>See the Pen <a href="https://codepen.io/0430shinyu/pen/XWgZLaV">
-  css-filter-child-position</a> by 蔡蔡 Mavis (<a href="https://codepen.io/0430shinyu">@0430shinyu</a>)
+<p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="ExXQBwL" data-user="0430shinyu" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/0430shinyu/pen/ExXQBwL">
+  css-filter-child-position-resolve</a> by 蔡蔡 Mavis (<a href="https://codepen.io/0430shinyu">@0430shinyu</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
