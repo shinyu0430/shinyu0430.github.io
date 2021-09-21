@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"shinyu0430.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="以下整理了幾個在學習 JavaScript 中常見的詞語。">
+  <meta name="description" content="前言在 CSS3 中新增了幾個設置寬度屬性的關鍵字：max-width、min-width、fit-content 就讓我們來一一了解這些觀念吧！ 注意：這裡的「寬度」指的是語意上的寬度，而不是 CSS 的 width，也就是說，如果文字方向是垂直的或在 flexbox 或 Grid 中，這些值也對 CSS 的 height 有效。另外，它們在 min-width、min-height、max-w">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript 學習常用字：大陸&#x2F;台灣對照表">
-<meta property="og:url" content="https://shinyu0430.github.io/2021/09/07/jswordcompare/index.html">
+<meta property="og:title" content="CSS 寬度自適應： max-width、min-width、fit-content 介紹">
+<meta property="og:url" content="https://shinyu0430.github.io/2021/09/21/maxwidthminwidthfitcontent/index.html">
 <meta property="og:site_name" content="Mavis">
-<meta property="og:description" content="以下整理了幾個在學習 JavaScript 中常見的詞語。">
+<meta property="og:description" content="前言在 CSS3 中新增了幾個設置寬度屬性的關鍵字：max-width、min-width、fit-content 就讓我們來一一了解這些觀念吧！ 注意：這裡的「寬度」指的是語意上的寬度，而不是 CSS 的 width，也就是說，如果文字方向是垂直的或在 flexbox 或 Grid 中，這些值也對 CSS 的 height 有效。另外，它們在 min-width、min-height、max-w">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2021-09-07T02:44:35.738Z">
-<meta property="article:modified_time" content="2021-09-18T12:42:49.520Z">
+<meta property="article:published_time" content="2021-09-21T02:48:07.000Z">
+<meta property="article:modified_time" content="2021-09-21T09:05:12.894Z">
 <meta property="article:author" content="Mavis Tsai">
-<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="CSS">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://shinyu0430.github.io/2021/09/07/jswordcompare/">
+<link rel="canonical" href="https://shinyu0430.github.io/2021/09/21/maxwidthminwidthfitcontent/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>JavaScript 學習常用字：大陸/台灣對照表 | Mavis</title>
+  <title>CSS 寬度自適應： max-width、min-width、fit-content 介紹 | Mavis</title>
   
 
 
@@ -196,7 +196,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://shinyu0430.github.io/2021/09/07/jswordcompare/">
+    <link itemprop="mainEntityOfPage" href="https://shinyu0430.github.io/2021/09/21/maxwidthminwidthfitcontent/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/headshot.png">
@@ -209,7 +209,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          JavaScript 學習常用字：大陸/台灣對照表
+          CSS 寬度自適應： max-width、min-width、fit-content 介紹
         </h1>
 
         <div class="post-meta">
@@ -218,23 +218,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
+              
 
-              <time title="創建時間：2021-09-07 10:44:35" itemprop="dateCreated datePublished" datetime="2021-09-07T10:44:35+08:00">2021-09-07</time>
+              <time title="創建時間：2021-09-21 10:48:07 / 修改時間：17:05:12" itemprop="dateCreated datePublished" datetime="2021-09-21T10:48:07+08:00">2021-09-21</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-09-18 20:42:49" itemprop="dateModified" datetime="2021-09-18T20:42:49+08:00">2021-09-18</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分類於</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+                  <a href="/categories/HTML%E3%80%81CSS/" itemprop="url" rel="index"><span itemprop="name">HTML、CSS</span></a>
                 </span>
             </span>
 
@@ -247,8 +241,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/2021/09/07/jswordcompare/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/09/07/jswordcompare/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/09/21/maxwidthminwidthfitcontent/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/09/21/maxwidthminwidthfitcontent/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -263,158 +257,69 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>以下整理了幾個在學習 JavaScript 中常見的詞語。</p>
-<span id="more"></span>
-<table>
-<thead>
-<tr>
-<th>英文</th>
-<th>台灣</th>
-<th>大陸</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>array</td>
-<td>陣列</td>
-<td>數組</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td>布林值</td>
-<td>布尔值</td>
-</tr>
-<tr>
-<td>cache</td>
-<td>快取</td>
-<td>緩存</td>
-</tr>
-<tr>
-<td>call</td>
-<td>呼叫</td>
-<td>調用</td>
-</tr>
-<tr>
-<td>callback</td>
-<td>回呼</td>
-<td>回调</td>
-</tr>
-<tr>
-<td>class</td>
-<td>類別</td>
-<td>类</td>
-</tr>
-<tr>
-<td>context</td>
-<td>背景關係</td>
-<td>上下文</td>
-</tr>
-<tr>
-<td>declaration</td>
-<td>宣告</td>
-<td>声明</td>
-</tr>
-<tr>
-<td>destructor</td>
-<td>解構式</td>
-<td>析构函数</td>
-</tr>
-<tr>
-<td>entity</td>
-<td>物體</td>
-<td>实体</td>
-</tr>
-<tr>
-<td>expression</td>
-<td>運算式</td>
-<td>表达式</td>
-</tr>
-<tr>
-<td>function</td>
-<td>函式</td>
-<td>函数</td>
-</tr>
-<tr>
-<td>global</td>
-<td>全域</td>
-<td>全局</td>
-</tr>
-<tr>
-<td>invoke</td>
-<td>喚起</td>
-<td>调用</td>
-</tr>
-<tr>
-<td>local</td>
-<td>區域</td>
-<td>局部</td>
-</tr>
-<tr>
-<td>loop</td>
-<td>迴圈</td>
-<td>循环</td>
-</tr>
-<tr>
-<td>memory</td>
-<td>記憶體</td>
-<td>内存</td>
-</tr>
-<tr>
-<td>module</td>
-<td>模組</td>
-<td>模块</td>
-</tr>
-<tr>
-<td>object</td>
-<td>物件</td>
-<td>对象</td>
-</tr>
-<tr>
-<td>return</td>
-<td>回傳、傳回</td>
-<td>返回</td>
-</tr>
-<tr>
-<td>string</td>
-<td>字串</td>
-<td>字符串</td>
-</tr>
-<tr>
-<td>type</td>
-<td>型別</td>
-<td>类型</td>
-</tr>
-<tr>
-<td>variable</td>
-<td>變數</td>
-<td>变量</td>
-</tr>
-<tr>
-<td>recursion</td>
-<td>遞迴</td>
-<td>递归</td>
-</tr>
-<tr>
-<td>run</td>
-<td>執行</td>
-<td>運行</td>
-</tr>
-<tr>
-<td>object</td>
-<td>物件</td>
-<td>对象</td>
-</tr>
-<tr>
-<td>constructor</td>
-<td>建構式</td>
-<td>构造函数</td>
-</tr>
-<tr>
-<td>batch</td>
-<td>批次</td>
-<td>批量</td>
-</tr>
-</tbody></table>
-<p>資料來源：<a target="_blank" rel="noopener" href="https://zh.wikibooks.org/zh-tw/%E5%A4%A7%E9%99%86%E5%8F%B0%E6%B9%BE%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%9C%AF%E8%AF%AD%E5%AF%B9%E7%85%A7%E8%A1%A8">大陸台灣計算機術語對照表 </a></p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在 CSS3 中新增了幾個設置寬度屬性的關鍵字：<code>max-width</code>、<code>min-width</code>、<code>fit-content</code> 就讓我們來一一了解這些觀念吧！</p>
+<p>注意：這裡的「寬度」指的是語意上的寬度，而不是 CSS 的 width，也就是說，如果文字方向是垂直的或在 flexbox 或 Grid 中，這些值也對 CSS 的 height 有效。另外，它們在 min-width、min-height、max-width、max-height 中也都是有效的。</p>
+<h2 id="max-content：寬度等於內容最大寬度"><a href="#max-content：寬度等於內容最大寬度" class="headerlink" title="max-content：寬度等於內容最大寬度"></a>max-content：寬度等於內容最大寬度</h2><blockquote>
+<p>The max-content sizing keyword represents the intrinsic maximum width or height of the content. For text content this means that the content will not wrap at all even if it causes overflows. –<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/max-content">MDN Web Docs</a></p>
+</blockquote>
+<p>max-content 表示內容固有的最大的寬度或高度，以 text 內容來說，就算會溢出（overflow）也不會換行。</p>
+<p>我們可以從下面的範例中看到，當我們在 <code>item</code> 加上 <code>max-content</code> 後，文字便不會換行，做用和 <code>white-space:nowrap</code> 很相似。</p>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="ZEyowRg" data-user="0430shinyu" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/0430shinyu/pen/ZEyowRg">
+  </a> by 蔡蔡 Mavis (<a target="_blank" rel="noopener" href="https://codepen.io/0430shinyu">@0430shinyu</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+
+<h2 id="min-content：寬度等於內容最小寬度"><a href="#min-content：寬度等於內容最小寬度" class="headerlink" title="min-content：寬度等於內容最小寬度"></a>min-content：寬度等於內容最小寬度</h2><blockquote>
+<p>The smallest size a box could take that doesn’t lead to overflow that could be avoided by choosing a larger size. — <a target="_blank" rel="noopener" href="https://www.w3.org/TR/css-sizing-3/#min-content">W3C</a></p>
+</blockquote>
+<p>min-content 表示最小不會造成溢出（overflow）的寬度。對於文字（text）內容來說，會變得與最長的單詞一樣的寬度。</p>
+<p>以下面這個範例來看，我們可以看到加上了 <code>min-content</code> 的 <code>item</code> ，會以最長單字（consecteturctetur）的寬度作為 <code>item</code> 的寬度。</p>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="VwWxgEW" data-user="0430shinyu" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/0430shinyu/pen/VwWxgEW">
+  css-max-content-demo</a> by 蔡蔡 Mavis (<a target="_blank" rel="noopener" href="https://codepen.io/0430shinyu">@0430shinyu</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<p>再來我們可以查看下方這個範例，會發現未加上 <code>min-content</code> 的區塊元素 item 會繼承父成的寬度 ，而加上了 <code>min-content</code> 的 item 則以圖片的寬度做為 item 的寬度，這是因為 <code>width:100px</code> 的圖片是最小不會造成溢出（overflow）的寬度。</p>
+<p class="codepen" data-height="400" data-default-tab="html,result" data-slug-hash="jOwxoRR" data-user="0430shinyu" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/0430shinyu/pen/jOwxoRR">
+  css-min-content-demo</a> by 蔡蔡 Mavis (<a target="_blank" rel="noopener" href="https://codepen.io/0430shinyu">@0430shinyu</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+
+<h2 id="fit-content：依照內容寬度伸縮"><a href="#fit-content：依照內容寬度伸縮" class="headerlink" title="fit-content：依照內容寬度伸縮"></a>fit-content：依照內容寬度伸縮</h2><blockquote>
+<p>The fit-content behaves as fit-content(stretch). In practice this means that the box will use the available space, but never more than max-content. –<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/max-content">MDN Web Docs</a></p>
+</blockquote>
+<p>fit-content 會讓元素使用可用空間，但不會大於 max-content。</p>
+<p>在下面這個範例中可以看到，區塊元素 <code>item</code> 加上 <code>fit-content</code> 後，寬度會與內容寬度相同。</p>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="dyReERp" data-user="0430shinyu" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/0430shinyu/pen/dyReERp">
+  css-fill-available</a> by 蔡蔡 Mavis (<a target="_blank" rel="noopener" href="https://codepen.io/0430shinyu">@0430shinyu</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<p>這個特性在處理區塊水平置中上非常方便</p>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="wvejVBK" data-user="0430shinyu" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/0430shinyu/pen/wvejVBK">
+  css-fit-content-demo</a> by 蔡蔡 Mavis (<a target="_blank" rel="noopener" href="https://codepen.io/0430shinyu">@0430shinyu</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>最後，在針對三個做個總結：</p>
+<ol>
+<li>max-content：寬度等於子元素最小寬度</li>
+<li>min-content：寬度等於子元素最大寬度</li>
+<li>fit-content：<br>如果可用空間比<code>max-content</code>大，寬度就等於 <code>max-content</code>，<br>如果可用空間比<code>max-content</code>小，寬度就等於可用空間的寬，<br>如果可用空間比<code>min-content</code>小，那麼寬度就等於 <code>min-content</code>。</li>
+</ol>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/51285308/how-do-min-content-and-max-content-work">How do min-content and max-content work?</a></p>
 
     </div>
 
@@ -424,7 +329,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
           </div>
 
         
@@ -437,11 +342,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2021/09/18/marginpaddingshorthand/" rel="next" title="Margin 和 Padding 的簡寫">
-      Margin 和 Padding 的簡寫 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/09/20/javascriptstringmethod/" rel="prev" title="JavaScript 字串方法整理">
+      <i class="fa fa-chevron-left"></i> JavaScript 字串方法整理
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -507,6 +412,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#max-content%EF%BC%9A%E5%AF%AC%E5%BA%A6%E7%AD%89%E6%96%BC%E5%85%A7%E5%AE%B9%E6%9C%80%E5%A4%A7%E5%AF%AC%E5%BA%A6"><span class="nav-number">2.</span> <span class="nav-text">max-content：寬度等於內容最大寬度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#min-content%EF%BC%9A%E5%AF%AC%E5%BA%A6%E7%AD%89%E6%96%BC%E5%85%A7%E5%AE%B9%E6%9C%80%E5%B0%8F%E5%AF%AC%E5%BA%A6"><span class="nav-number">3.</span> <span class="nav-text">min-content：寬度等於內容最小寬度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fit-content%EF%BC%9A%E4%BE%9D%E7%85%A7%E5%85%A7%E5%AE%B9%E5%AF%AC%E5%BA%A6%E4%BC%B8%E7%B8%AE"><span class="nav-number">4.</span> <span class="nav-text">fit-content：依照內容寬度伸縮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AA%9E"><span class="nav-number">5.</span> <span class="nav-text">結語</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number">6.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -658,9 +564,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://shinyu0430.github.io/2021/09/07/jswordcompare/";
-    this.page.identifier = "2021/09/07/jswordcompare/";
-    this.page.title = "JavaScript 學習常用字：大陸/台灣對照表";
+    this.page.url = "https://shinyu0430.github.io/2021/09/21/maxwidthminwidthfitcontent/";
+    this.page.identifier = "2021/09/21/maxwidthminwidthfitcontent/";
+    this.page.title = "CSS 寬度自適應： max-width、min-width、fit-content 介紹";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {

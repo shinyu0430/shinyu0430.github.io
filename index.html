@@ -192,6 +192,207 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://shinyu0430.github.io/2021/09/21/maxwidthminwidthfitcontent/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headshot.png">
+      <meta itemprop="name" content="Mavis Tsai">
+      <meta itemprop="description" content="Mavis 的前端技術部落格，包含 HTML、CSS、Vue、JavaScript、Vue、React">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mavis">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/21/maxwidthminwidthfitcontent/" class="post-title-link" itemprop="url">CSS 寬度自適應： max-width、min-width、fit-content 介紹</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2021-09-21 10:48:07 / 修改時間：17:05:12" itemprop="dateCreated datePublished" datetime="2021-09-21T10:48:07+08:00">2021-09-21</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML%E3%80%81CSS/" itemprop="url" rel="index"><span itemprop="name">HTML、CSS</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2021/09/21/maxwidthminwidthfitcontent/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/09/21/maxwidthminwidthfitcontent/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在 CSS3 中新增了幾個設置寬度屬性的關鍵字：<code>max-width</code>、<code>min-width</code>、<code>fit-content</code> 就讓我們來一一了解這些觀念吧！</p>
+<p>注意：這裡的「寬度」指的是語意上的寬度，而不是 CSS 的 width，也就是說，如果文字方向是垂直的或在 flexbox 或 Grid 中，這些值也對 CSS 的 height 有效。另外，它們在 min-width、min-height、max-width、max-height 中也都是有效的。</p>
+<h2 id="max-content：寬度等於內容最大寬度"><a href="#max-content：寬度等於內容最大寬度" class="headerlink" title="max-content：寬度等於內容最大寬度"></a>max-content：寬度等於內容最大寬度</h2><blockquote>
+<p>The max-content sizing keyword represents the intrinsic maximum width or height of the content. For text content this means that the content will not wrap at all even if it causes overflows. –<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/max-content">MDN Web Docs</a></p>
+</blockquote>
+<p>max-content 表示內容固有的最大的寬度或高度，以 text 內容來說，就算會溢出（overflow）也不會換行。</p>
+<p>我們可以從下面的範例中看到，當我們在 <code>item</code> 加上 <code>max-content</code> 後，文字便不會換行，做用和 <code>white-space:nowrap</code> 很相似。</p>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="ZEyowRg" data-user="0430shinyu" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/0430shinyu/pen/ZEyowRg">
+  </a> by 蔡蔡 Mavis (<a target="_blank" rel="noopener" href="https://codepen.io/0430shinyu">@0430shinyu</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+
+<h2 id="min-content：寬度等於內容最小寬度"><a href="#min-content：寬度等於內容最小寬度" class="headerlink" title="min-content：寬度等於內容最小寬度"></a>min-content：寬度等於內容最小寬度</h2><blockquote>
+<p>The smallest size a box could take that doesn’t lead to overflow that could be avoided by choosing a larger size. — <a target="_blank" rel="noopener" href="https://www.w3.org/TR/css-sizing-3/#min-content">W3C</a></p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/09/21/maxwidthminwidthfitcontent/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://shinyu0430.github.io/2021/09/20/javascriptstringmethod/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headshot.png">
+      <meta itemprop="name" content="Mavis Tsai">
+      <meta itemprop="description" content="Mavis 的前端技術部落格，包含 HTML、CSS、Vue、JavaScript、Vue、React">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mavis">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/20/javascriptstringmethod/" class="post-title-link" itemprop="url">JavaScript 字串方法整理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2021-09-20 16:55:45" itemprop="dateCreated datePublished" datetime="2021-09-20T16:55:45+08:00">2021-09-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-09-21 17:01:47" itemprop="dateModified" datetime="2021-09-21T17:01:47+08:00">2021-09-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2021/09/20/javascriptstringmethod/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/09/20/javascriptstringmethod/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>以下針對不同類型的字串方法做分類整理：</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/09/20/javascriptstringmethod/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://shinyu0430.github.io/2021/09/19/imgurturtorial/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -215,10 +416,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2021-09-19 12:06:45 / 修改時間：12:59:35" itemprop="dateCreated datePublished" datetime="2021-09-19T12:06:45+08:00">2021-09-19</time>
+              <time title="創建時間：2021-09-19 12:06:45" itemprop="dateCreated datePublished" datetime="2021-09-19T12:06:45+08:00">2021-09-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-09-20 13:01:39" itemprop="dateModified" datetime="2021-09-20T13:01:39+08:00">2021-09-20</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -261,14 +468,6 @@
 </style>
 
 <p>Imgur 是一個網路相簿網站，2009年創立，主要提供免費的相片儲存服務，現今每日使用者達數百萬。Imgur 最大的優點就是它沒有流量限制，也不需要註冊帳號就可以直接使用，使用上非常方便。</p>
-<h2 id="Imgur-網頁介紹"><a href="#Imgur-網頁介紹" class="headerlink" title="Imgur 網頁介紹"></a>Imgur 網頁介紹</h2><p>進到 imgur 的網頁後，我們可以看到下方有許多其他使用者上傳的圖片，<br><img src="https://imgur.com/XJfw5tc.jpg"><br>我們也可以透過上方的搜尋欄，搜尋特定的圖片<br><img src="https://imgur.com/k2sSTN1.jpg"></p>
-<h2 id="上傳檔案"><a href="#上傳檔案" class="headerlink" title="上傳檔案"></a>上傳檔案</h2><p>如果我們想要上傳圖片，可以點擊首頁左上方的 New Post<br><img src="https://imgur.com/56WlOl4.jpg"><br>點擊後會跳轉到這個畫面，可以透過拖移或是點擊的方式上傳我們本地端的圖片，imgur 支援多種圖片格式，單張非動畫圖片最大容量限制為 20 MB，每小時最多上傳 50 張，詳細限制可以參考<a target="_blank" rel="noopener" href="https://help.imgur.com/hc/en-us/articles/115000083326-What-files-can-I-upload-What-is-the-size-limit-">Imgur Help</a>的說明。</p>
-<p><img src="https://imgur.com/TWYw3Mm.jpg"><br>成功上傳後會出現這樣的畫面，雖然前面有提到首頁可以看到其他使用者上傳的圖片，但<strong>預設</strong>上傳的圖片是<strong>不會</strong>連結到 Imgur 社群的喔，如果希望上傳到社群，可以替圖片加上標題(title)和說明(description)，再點擊「To Community」就可以公開囉。<br><img src="https://imgur.com/iOHIZ9E.jpg"><br>複製圖片網址的方式也很簡單，將滑鼠移到圖片上，並點擊 Copy link 就能成功複製圖片網址了（<a target="_blank" rel="noopener" href="https://imgur.com/ipZyGmJ.jpg">https://imgur.com/ipZyGmJ.jpg</a>），點擊「···」則可以對圖片進行編輯（調整大小、旋轉圖片）、分享連結、下載、刪除。<br><img src="https://imgur.com/rhF08TY.jpg"></p>
-<h2 id="在-HTML-中插入外部圖片"><a href="#在-HTML-中插入外部圖片" class="headerlink" title="在 HTML 中插入外部圖片"></a>在 HTML 中插入外部圖片</h2><p>使用 Imgur 在 HTML 中插入圖片有兩種方式</p>
-<ol>
-<li>將 Imgur 嵌入<br>呈現效果如下：<blockquote class="imgur-embed-pub" lang="en" data-id="rhF08TY"><a target="_blank" rel="noopener" href="https://imgur.com/rhF08TY">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script></li>
-</ol>
-<p>使用的方式為點擊圖片上方的「···」，選取 Get share links<br><img src="https://imgur.com/yE1mDlY.jpg"><br>再複製 HTML Embed 的語法，貼上到我們的網頁中。<br><img src="https://imgur.com/vdEGgvT.jpg"></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/09/19/imgurturtorial/#more" rel="contents">
@@ -358,21 +557,6 @@
 
       
           <p>行內區塊(<code>inline-block</code>)可以讓我們可以以行內（<code>inline</code>）的方式呈現，但同時擁有（<code>block</code>）的屬性，不過，在設定寬度上我們可能會遇到一個奇怪的問題：</p>
-<span id="more"></span>
-<p>假設我們想要新增兩個在同行的 div 元素，並讓他們各佔一半，我們會這樣撰寫：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>CHILD<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>CHILD<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span> <span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#d8e2dc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>我們可能會預期畫面出現<br><img src="https://imgur.com/rUFostx.jpg"><br>卻發現結果兩個子元素沒有在同一行<br><img src="https://imgur.com/sfRoQzu.jpg"><br>而會有這樣的問題是因為<strong>換行符號</strong>。我們在第一個 <code>div</code> 標籤後方加上的換行符號，會相等於空白符號，這個空白符號的寬度加上兩個子元素的寬度就會超過 100%，導致兩個子元素無法放在同一行。</p>
-<p><strong>解決辦法有幾種：</strong></p>
-<ol>
-<li><p>刪除換行符號<br>最簡單的方式就是直接刪除換行符號，不過這會造成 HTML 結構的可讀性變差。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>CHILD<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span>CHILD<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li><p>將字體大小設為 0<br>知道是因為空白符號造成無法在同行後，我們可以聯想到只要將字體設為 0 ，這個空白就不會佔有空間了。</p>
-</li>
-</ol>
-<p>實作放事就是直接在父層加上 font-size:0 （記得子層如果有文字要記得設定字體大小喔）。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">0</span>; <span class="comment">/* 隱藏空白符號 */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span> <span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">16px</span>;  <span class="comment">/* 設定子元素字體大小 */</span></span><br><span class="line">  <span class="attribute">width</span>:<span class="number">50%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/09/19/inlineblockwidth50/#more" rel="contents">
@@ -430,7 +614,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-09-19 11:31:56" itemprop="dateModified" datetime="2021-09-19T11:31:56+08:00">2021-09-19</time>
+                <time title="修改時間：2021-09-20 17:47:05" itemprop="dateModified" datetime="2021-09-20T17:47:05+08:00">2021-09-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -684,22 +868,6 @@
 </style>
 <p>在撰寫 CSS 的時候，我們常會使用到 Margin 和 Padding 來調整元素的位置，<br>而透過簡寫可以讓我們的 CSS 更加整潔。</p>
 <p>Margin 和 Padding 的縮寫方式是相同的，有四種寫法：</p>
-<span id="more"></span>
-<ol>
-<li><p><code>margin: 10px</code>：margin:上下左右<br>同時設定「上下左右」的間距<br><img src="https://i.imgur.com/RqJy4GM.png"></p>
-</li>
-<li><p><code>margin:10px 20px</code>：margin:上下 左右<br>分別設定「上下」和「左右」的間距<br><img src="https://i.imgur.com/9j4szx2.png"></p>
-</li>
-<li><p><code>margin:10px 20px 30px</code>：margin:上 左右 下<br>分別設定「上」、「左右」和「下」的間距<br><img src="https://i.imgur.com/NPcVL8c.png"></p>
-</li>
-<li><p><code>margin:10px 30px 40px 20px</code>：margin: 上 右 下 左<br>分別設定「上」、「右」、「下」和「左」的間距<br><img src="https://i.imgur.com/I9mJQ89.png"></p>
-</li>
-</ol>
-<h2 id="縮寫練習"><a href="#縮寫練習" class="headerlink" title="縮寫練習"></a>縮寫練習</h2><h3 id="練習一"><a href="#練習一" class="headerlink" title="練習一"></a>練習一</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">10px</span> <span class="number">20px</span> <span class="number">30px</span> <span class="number">20px</span>; <span class="comment">/* 上、右、下、左 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>按照第三種方法簡化後，可以寫成：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">10px</span> <span class="number">20px</span> <span class="number">30px</span>; <span class="comment">/* 上、左右、下 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="練習二"><a href="#練習二" class="headerlink" title="練習二"></a>練習二</h3>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/09/18/marginpaddingshorthand/#more" rel="contents">
@@ -795,158 +963,6 @@
 
       
           <p>以下整理了幾個在學習 JavaScript 中常見的詞語。</p>
-<span id="more"></span>
-<table>
-<thead>
-<tr>
-<th>英文</th>
-<th>台灣</th>
-<th>大陸</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>array</td>
-<td>陣列</td>
-<td>數組</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td>布林值</td>
-<td>布尔值</td>
-</tr>
-<tr>
-<td>cache</td>
-<td>快取</td>
-<td>緩存</td>
-</tr>
-<tr>
-<td>call</td>
-<td>呼叫</td>
-<td>調用</td>
-</tr>
-<tr>
-<td>callback</td>
-<td>回呼</td>
-<td>回调</td>
-</tr>
-<tr>
-<td>class</td>
-<td>類別</td>
-<td>类</td>
-</tr>
-<tr>
-<td>context</td>
-<td>背景關係</td>
-<td>上下文</td>
-</tr>
-<tr>
-<td>declaration</td>
-<td>宣告</td>
-<td>声明</td>
-</tr>
-<tr>
-<td>destructor</td>
-<td>解構式</td>
-<td>析构函数</td>
-</tr>
-<tr>
-<td>entity</td>
-<td>物體</td>
-<td>实体</td>
-</tr>
-<tr>
-<td>expression</td>
-<td>運算式</td>
-<td>表达式</td>
-</tr>
-<tr>
-<td>function</td>
-<td>函式</td>
-<td>函数</td>
-</tr>
-<tr>
-<td>global</td>
-<td>全域</td>
-<td>全局</td>
-</tr>
-<tr>
-<td>invoke</td>
-<td>喚起</td>
-<td>调用</td>
-</tr>
-<tr>
-<td>local</td>
-<td>區域</td>
-<td>局部</td>
-</tr>
-<tr>
-<td>loop</td>
-<td>迴圈</td>
-<td>循环</td>
-</tr>
-<tr>
-<td>memory</td>
-<td>記憶體</td>
-<td>内存</td>
-</tr>
-<tr>
-<td>module</td>
-<td>模組</td>
-<td>模块</td>
-</tr>
-<tr>
-<td>object</td>
-<td>物件</td>
-<td>对象</td>
-</tr>
-<tr>
-<td>return</td>
-<td>回傳、傳回</td>
-<td>返回</td>
-</tr>
-<tr>
-<td>string</td>
-<td>字串</td>
-<td>字符串</td>
-</tr>
-<tr>
-<td>type</td>
-<td>型別</td>
-<td>类型</td>
-</tr>
-<tr>
-<td>variable</td>
-<td>變數</td>
-<td>变量</td>
-</tr>
-<tr>
-<td>recursion</td>
-<td>遞迴</td>
-<td>递归</td>
-</tr>
-<tr>
-<td>run</td>
-<td>執行</td>
-<td>運行</td>
-</tr>
-<tr>
-<td>object</td>
-<td>物件</td>
-<td>对象</td>
-</tr>
-<tr>
-<td>constructor</td>
-<td>建構式</td>
-<td>构造函数</td>
-</tr>
-<tr>
-<td>batch</td>
-<td>批次</td>
-<td>批量</td>
-</tr>
-</tbody></table>
-<p>資料來源：<a target="_blank" rel="noopener" href="https://zh.wikibooks.org/zh-tw/%E5%A4%A7%E9%99%86%E5%8F%B0%E6%B9%BE%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%9C%AF%E8%AF%AD%E5%AF%B9%E7%85%A7%E8%A1%A8">大陸台灣計算機術語對照表 </a></p>
-
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/09/07/jswordcompare/#more" rel="contents">
@@ -1037,7 +1053,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
