@@ -591,10 +591,10 @@ table th:first-of-type {
       </tags>
   </entry>
   <entry>
-    <title>使用 Validate.JS 輕鬆完成表單驗證</title>
+    <title>使用 Validate.JS 簡易完成表單驗證功能</title>
     <url>/2022/01/09/validatejs/</url>
     <content><![CDATA[<p><img src="https://i.imgur.com/ziX6OaG.png"></p>
-<h2 id="什麼是-Validate-JS"><a href="#什麼是-Validate-JS" class="headerlink" title="什麼是 Validate.JS"></a>什麼是 Validate.JS</h2><p><a href="https://validatejs.org/">Validate.JS</a> 是一個表單驗證的函式庫，使用 Validate.JS 我們可以方便、快速的完成表單驗證的功能！<a href="https://validatejs.org/examples.html">點擊這裡</a>可以查看官網的簡易範例。</p>
+<h2 id="什麼是-Validate-JS"><a href="#什麼是-Validate-JS" class="headerlink" title="什麼是 Validate.JS"></a>什麼是 Validate.JS</h2><p><a href="https://validatejs.org/">Validate.JS</a> 是一個表單驗證的函式庫，使用 Validate.JS 可以讓我們方便、快速的完成表單驗證的功能！<a href="https://validatejs.org/examples.html">點擊這裡</a>可以先查看官網的簡易範例。</p>
 <h2 id="如何使用-Validate-JS"><a href="#如何使用-Validate-JS" class="headerlink" title="如何使用 Validate.JS"></a>如何使用 Validate.JS</h2><h3 id="下載-Validate-JS"><a href="#下載-Validate-JS" class="headerlink" title="下載 Validate.JS"></a>下載 Validate.JS</h3><p>首先，我們可以透過不同的方式下載  Validate.JS</p>
 <ol>
 <li>CDN <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script src=<span class="string">&quot;https//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js&quot;</span>&gt;        &lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
