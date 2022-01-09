@@ -192,6 +192,102 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://shinyu0430.github.io/2022/01/09/validatejs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headshot.png">
+      <meta itemprop="name" content="Mavis Tsai">
+      <meta itemprop="description" content="Mavis 的前端技術部落格，包含 HTML、CSS、JavaScript...等">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mavis">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/01/09/validatejs/" class="post-title-link" itemprop="url">使用 Validate.JS 輕鬆完成表單驗證</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2022-01-09 12:20:16 / 修改時間：13:27:07" itemprop="dateCreated datePublished" datetime="2022-01-09T12:20:16+08:00">2022-01-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2022/01/09/validatejs/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/01/09/validatejs/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://i.imgur.com/ziX6OaG.png"></p>
+<h2 id="什麼是-Validate-JS"><a href="#什麼是-Validate-JS" class="headerlink" title="什麼是 Validate.JS"></a>什麼是 Validate.JS</h2><p><a target="_blank" rel="noopener" href="https://validatejs.org/">Validate.JS</a> 是一個表單驗證的函式庫，使用 Validate.JS 我們可以方便、快速的完成表單驗證的功能！<a target="_blank" rel="noopener" href="https://validatejs.org/examples.html">點擊這裡</a>可以查看官網的簡易範例。</p>
+<h2 id="如何使用-Validate-JS"><a href="#如何使用-Validate-JS" class="headerlink" title="如何使用 Validate.JS"></a>如何使用 Validate.JS</h2><h3 id="下載-Validate-JS"><a href="#下載-Validate-JS" class="headerlink" title="下載 Validate.JS"></a>下載 Validate.JS</h3><p>首先，我們可以透過不同的方式下載  Validate.JS</p>
+<ol>
+<li>CDN <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">&quot;https//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js&quot;</span>&gt;        &lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
+<li>npm <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$npm install --save validate.js</span><br><span class="line"><span class="keyword">var</span> validate = <span class="built_in">require</span>(<span class="string">&quot;validate.js&quot;</span>);</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="使用-Validate-JS-驗證欄位是否填寫"><a href="#使用-Validate-JS-驗證欄位是否填寫" class="headerlink" title="使用 Validate.JS 驗證欄位是否填寫"></a>使用 Validate.JS 驗證欄位是否填寫</h3><p>這邊先來介紹一下 validate.js 驗證器的基本格式，<br>    </p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;attribute&gt;: &#123; </span><br><span class="line">&lt;validator name&gt;: &lt;validator options&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;屬性&gt;: &#123; // 屬性對應到 input 的 name</span><br><span class="line">&lt;驗證器名稱&gt;: &lt;驗證器選項&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/01/09/validatejs/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://shinyu0430.github.io/2021/09/21/maxwidthminwidthfitcontent/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1053,7 +1149,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -1093,7 +1189,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
