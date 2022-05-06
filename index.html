@@ -192,6 +192,293 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://shinyu0430.github.io/2022/05/06/springUploadImage/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headshot.png">
+      <meta itemprop="name" content="Mavis Tsai">
+      <meta itemprop="description" content="Mavis 的前端技術部落格，包含 HTML、CSS、JavaScript...等">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mavis">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/05/06/springUploadImage/" class="post-title-link" itemprop="url">SpringMVC 中透過 MultipartFile 實現上傳圖片以及瀏覽圖片</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2022-05-06 11:30:05 / 修改時間：11:38:36" itemprop="dateCreated datePublished" datetime="2022-05-06T11:30:05+08:00">2022-05-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2022/05/06/springUploadImage/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/05/06/springUploadImage/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><img src="https://i.imgur.com/MVsF1h9.png"></p>
+<h2 id="配置資源"><a href="#配置資源" class="headerlink" title="配置資源"></a>配置資源</h2><p>由於 Spring 的 CommonsMultipartResolver 依賴Apache Commons FileUpload 函式庫，Apache Commons FileUpload 依賴於Apache Commons IO，所以在開始實作前我們必須先將這兩個函式庫匯入專案中。</p>
+<p>檢查 web&gt;lib 是否有以下兩個資源:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">commons-fileupload-1.2.2.jar</span><br><span class="line">commons-io-2.1.jar</span><br></pre></td></tr></table></figure>
+
+<p>接著，由於SpringMVC 使用 MultipartFile 來進行檔案上傳，所以我們要在 spring-servlet.xml 配置 MultipartResolve:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;multipartResolver&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 單位bytes--&gt;</span> </span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxUploadSize&quot;</span> <span class="attr">value</span>=<span class="string">&quot;20971520&quot;</span> /&gt;</span> <span class="comment">&lt;!-- 20MB --&gt;</span><span class="comment">&lt;!-- 全部檔案最大上上傳大小, -1代表不限制 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxUploadSizePerFile&quot;</span> <span class="attr">value</span>=<span class="string">&quot;5242880&quot;</span>/&gt;</span> <span class="comment">&lt;!-- 5MB --&gt;</span><span class="comment">&lt;!-- 每個檔案最大上傳大小, -1代表不限制 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxInMemorySize&quot;</span> <span class="attr">value</span>=<span class="string">&quot;1048576&quot;</span> /&gt;</span> <span class="comment">&lt;!-- 1MB --&gt;</span><span class="comment">&lt;!-- 檔案上傳最大的暫存記憶體大小,預設為10240 bytes(1KB) --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;defaultEncoding&quot;</span> <span class="attr">value</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><em>若沒有配置會出現以下錯誤:<br>java.lang.IllegalStateException: Unable to process parts as no multi-part configuration has been provided</em></p>
+<h2 id="程式碼實作-上傳圖片"><a href="#程式碼實作-上傳圖片" class="headerlink" title="程式碼實作 - 上傳圖片"></a>程式碼實作 - 上傳圖片</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/05/06/springUploadImage/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://shinyu0430.github.io/2022/05/06/springKaptcha/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headshot.png">
+      <meta itemprop="name" content="Mavis Tsai">
+      <meta itemprop="description" content="Mavis 的前端技術部落格，包含 HTML、CSS、JavaScript...等">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mavis">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/05/06/springKaptcha/" class="post-title-link" itemprop="url">Spring MVC 中使用 Kaptcha 簡易完成圖形驗證碼</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2022-05-06 11:22:29 / 修改時間：11:27:58" itemprop="dateCreated datePublished" datetime="2022-05-06T11:22:29+08:00">2022-05-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2022/05/06/springKaptcha/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/05/06/springKaptcha/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://i.imgur.com/RHwFh07.png"></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>圖形驗證碼是驗證碼（CAPTCHA）的一種。驗證碼（CAPTCHA）是 Completely Automated Public Turing test to tell Computers and Humans Apart的縮寫，它是一種區分電腦或人類的自動程式。</p>
+<p>而我們可以使用 kaptcha 來生成驗證碼，它是一個基於 SimpleCaptcha 的開源程式碼，使用它我們可以快速的生成各式各樣的驗證碼。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/05/06/springKaptcha/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://shinyu0430.github.io/2022/01/30/vue3-vcloak/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headshot.png">
+      <meta itemprop="name" content="Mavis Tsai">
+      <meta itemprop="description" content="Mavis 的前端技術部落格，包含 HTML、CSS、JavaScript...等">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mavis">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/01/30/vue3-vcloak/" class="post-title-link" itemprop="url">Vue - 使用 v-cloak 隱藏未編譯的程式碼</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2022-01-30 17:56:55 / 修改時間：18:24:19" itemprop="dateCreated datePublished" datetime="2022-01-30T17:56:55+08:00">2022-01-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2022/01/30/vue3-vcloak/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/01/30/vue3-vcloak/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>當我們使用 Vue 時，如果網路速度慢，Vue 未載入完成，還沒經 Vue 解析的內容就會渲染到頁面上。這時我們可以使用 v-cloak 隱藏未編譯的 <code>&#123;&#123;&#125;&#125;</code> 標籤。</p>
+<p>範例中我們使用 <code>setTimeout</code> 來模擬網速慢的情境。可以看到在編譯結束前並不會顯示第一個有加上 v-cloak 的 <code>div</code>。</p>
+<iframe height="300" style="width: 100%;" scrolling="no" title="vee-validate 範例" src="https://codepen.io/0430shinyu/embed/preview/oNojPXM?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/0430shinyu/pen/oNojPXM">
+  vee-validate 範例</a> by 蔡蔡 Mavis (<a target="_blank" rel="noopener" href="https://codepen.io/0430shinyu">@0430shinyu</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.
+</iframe>
+
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a target="_blank" rel="noopener" href="https://v3.cn.vuejs.org/api/directives.html#v-cloak">Vue3 官方文件</a></p>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/01/30/vue3-vcloak/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://shinyu0430.github.io/2022/01/09/validatejs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -891,198 +1178,11 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://shinyu0430.github.io/2021/09/18/marginpaddingshorthand/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headshot.png">
-      <meta itemprop="name" content="Mavis Tsai">
-      <meta itemprop="description" content="Mavis 的前端技術部落格，包含 HTML、CSS、JavaScript...等">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mavis">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/18/marginpaddingshorthand/" class="post-title-link" itemprop="url">Margin 和 Padding 的簡寫</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-              
-
-              <time title="創建時間：2021-09-18 15:00:05 / 修改時間：20:43:07" itemprop="dateCreated datePublished" datetime="2021-09-18T15:00:05+08:00">2021-09-18</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTML%E3%80%81CSS/" itemprop="url" rel="index"><span itemprop="name">HTML、CSS</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2021/09/18/marginpaddingshorthand/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/09/18/marginpaddingshorthand/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <style>
-    img{
-        width:50%
-    }
-</style>
-<p>在撰寫 CSS 的時候，我們常會使用到 Margin 和 Padding 來調整元素的位置，<br>而透過簡寫可以讓我們的 CSS 更加整潔。</p>
-<p>Margin 和 Padding 的縮寫方式是相同的，有四種寫法：</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/09/18/marginpaddingshorthand/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://shinyu0430.github.io/2021/09/07/jswordcompare/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headshot.png">
-      <meta itemprop="name" content="Mavis Tsai">
-      <meta itemprop="description" content="Mavis 的前端技術部落格，包含 HTML、CSS、JavaScript...等">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mavis">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/07/jswordcompare/" class="post-title-link" itemprop="url">JavaScript 學習常用字：大陸/台灣對照表</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2021-09-07 10:44:35" itemprop="dateCreated datePublished" datetime="2021-09-07T10:44:35+08:00">2021-09-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-09-18 20:42:49" itemprop="dateModified" datetime="2021-09-18T20:42:49+08:00">2021-09-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2021/09/07/jswordcompare/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/09/07/jswordcompare/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>以下整理了幾個在學習 JavaScript 中常見的詞語。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/09/07/jswordcompare/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一頁"></i></a>
+  </nav>
 
 
 
@@ -1149,20 +1249,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>

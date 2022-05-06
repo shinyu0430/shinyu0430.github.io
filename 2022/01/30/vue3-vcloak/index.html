@@ -20,17 +20,20 @@
     var CONFIG = {"hostname":"shinyu0430.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Mavis 的前端技術部落格，包含 HTML、CSS、JavaScript...等">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mavis">
-<meta property="og:url" content="https://shinyu0430.github.io/archives/2021/index.html">
+  <meta name="description" content="當我們使用 Vue 時，如果網路速度慢，Vue 未載入完成，還沒經 Vue 解析的內容就會渲染到頁面上。這時我們可以使用 v-cloak 隱藏未編譯的 &amp;#123;&amp;#123;&amp;#125;&amp;#125; 標籤。 範例中我們使用 setTimeout 來模擬網速慢的情境。可以看到在編譯結束前並不會顯示第一個有加上 v-cloak 的 div。    See the Pen    vee-validat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue - 使用 v-cloak 隱藏未編譯的程式碼">
+<meta property="og:url" content="https://shinyu0430.github.io/2022/01/30/vue3-vcloak/index.html">
 <meta property="og:site_name" content="Mavis">
-<meta property="og:description" content="Mavis 的前端技術部落格，包含 HTML、CSS、JavaScript...等">
+<meta property="og:description" content="當我們使用 Vue 時，如果網路速度慢，Vue 未載入完成，還沒經 Vue 解析的內容就會渲染到頁面上。這時我們可以使用 v-cloak 隱藏未編譯的 &amp;#123;&amp;#123;&amp;#125;&amp;#125; 標籤。 範例中我們使用 setTimeout 來模擬網速慢的情境。可以看到在編譯結束前並不會顯示第一個有加上 v-cloak 的 div。    See the Pen    vee-validat">
 <meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2022-01-30T09:56:55.000Z">
+<meta property="article:modified_time" content="2022-01-30T10:24:19.876Z">
 <meta property="article:author" content="Mavis Tsai">
+<meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://shinyu0430.github.io/archives/2021/">
+<link rel="canonical" href="https://shinyu0430.github.io/2022/01/30/vue3-vcloak/">
 
 
 <script id="page-configurations">
@@ -38,12 +41,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-TW'
   };
 </script>
 
-  <title>歸檔 | Mavis</title>
+  <title>Vue - 使用 v-cloak 隱藏未編譯的程式碼 | Mavis</title>
   
 
 
@@ -186,196 +189,132 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://shinyu0430.github.io/2022/01/30/vue3-vcloak/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headshot.png">
+      <meta itemprop="name" content="Mavis Tsai">
+      <meta itemprop="description" content="Mavis 的前端技術部落格，包含 HTML、CSS、JavaScript...等">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mavis">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Vue - 使用 v-cloak 隱藏未編譯的程式碼
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2022-01-30 17:56:55 / 修改時間：18:24:19" itemprop="dateCreated datePublished" datetime="2022-01-30T17:56:55+08:00">2022-01-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
+                </span>
+            </span>
+
+          
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共有 12 篇文章。 繼續努力。</span>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2022/01/30/vue3-vcloak/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/01/30/vue3-vcloak/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+        <p>當我們使用 Vue 時，如果網路速度慢，Vue 未載入完成，還沒經 Vue 解析的內容就會渲染到頁面上。這時我們可以使用 v-cloak 隱藏未編譯的 <code>&#123;&#123;&#125;&#125;</code> 標籤。</p>
+<p>範例中我們使用 <code>setTimeout</code> 來模擬網速慢的情境。可以看到在編譯結束前並不會顯示第一個有加上 v-cloak 的 <code>div</code>。</p>
+<iframe height="300" style="width: 100%;" scrolling="no" title="vee-validate 範例" src="https://codepen.io/0430shinyu/embed/preview/oNojPXM?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/0430shinyu/pen/oNojPXM">
+  vee-validate 範例</a> by 蔡蔡 Mavis (<a target="_blank" rel="noopener" href="https://codepen.io/0430shinyu">@0430shinyu</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.
+</iframe>
+
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a target="_blank" rel="noopener" href="https://v3.cn.vuejs.org/api/directives.html#v-cloak">Vue3 官方文件</a></p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-09-21T10:48:07+08:00"
-              content="2021-09-21">
-          09-21
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Vue/" rel="tag"># Vue</a>
+          </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/09/21/maxwidthminwidthfitcontent/" itemprop="url">
-            <span itemprop="name">CSS 寬度自適應： max-width、min-width、fit-content 介紹</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-09-20T16:55:45+08:00"
-              content="2021-09-20">
-          09-20
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/09/20/javascriptstringmethod/" itemprop="url">
-            <span itemprop="name">JavaScript 字串方法整理</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-09-19T12:06:45+08:00"
-              content="2021-09-19">
-          09-19
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/09/19/imgurturtorial/" itemprop="url">
-            <span itemprop="name">免費圖片空間 Imgur 使用教學</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-09-19T10:07:14+08:00"
-              content="2021-09-19">
-          09-19
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/09/19/inlineblockwidth50/" itemprop="url">
-            <span itemprop="name">解決兩個寬度 50％ 的子元素無法在同行的問題</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-09-18T20:33:14+08:00"
-              content="2021-09-18">
-          09-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/09/18/cssfilter/" itemprop="url">
-            <span itemprop="name">CSS Filter 濾鏡效果</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-09-18T19:00:57+08:00"
-              content="2021-09-18">
-          09-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/09/18/filterchildproblem/" itemprop="url">
-            <span itemprop="name">CSS Filter 影響子元素的解決辦法</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-09-18T15:00:05+08:00"
-              content="2021-09-18">
-          09-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/09/18/marginpaddingshorthand/" itemprop="url">
-            <span itemprop="name">Margin 和 Padding 的簡寫</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-09-07T10:44:35+08:00"
-              content="2021-09-07">
-          09-07
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/09/07/jswordcompare/" itemprop="url">
-            <span itemprop="name">JavaScript 學習常用字：大陸/台灣對照表</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
     </div>
   </div>
-  
-  
-  
 
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/01/09/validatejs/" rel="prev" title="使用 Validate.JS 簡易完成表單驗證功能">
+      <i class="fa fa-chevron-left"></i> 使用 Validate.JS 簡易完成表單驗證功能
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/05/06/springKaptcha/" rel="next" title="Spring MVC 中使用 Kaptcha 簡易完成圖形驗證碼">
+      Spring MVC 中使用 Kaptcha 簡易完成圖形驗證碼 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
 
           </div>
           
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -422,6 +361,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number">1.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -570,6 +510,26 @@
   }
   // defer loading until the whole page loading is completed
   window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://shinyu0430.github.io/2022/01/30/vue3-vcloak/";
+    this.page.identifier = "2022/01/30/vue3-vcloak/";
+    this.page.title = "Vue - 使用 v-cloak 隱藏未編譯的程式碼";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://mavistsai.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
 </script>
 
 </body>

@@ -700,4 +700,261 @@ table th:first-of-type {
         <tag>JavaScript</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Vue - 使用 v-cloak 隱藏未編譯的程式碼</title>
+    <url>/2022/01/30/vue3-vcloak/</url>
+    <content><![CDATA[<p>當我們使用 Vue 時，如果網路速度慢，Vue 未載入完成，還沒經 Vue 解析的內容就會渲染到頁面上。這時我們可以使用 v-cloak 隱藏未編譯的 <code>&#123;&#123;&#125;&#125;</code> 標籤。</p>
+<p>範例中我們使用 <code>setTimeout</code> 來模擬網速慢的情境。可以看到在編譯結束前並不會顯示第一個有加上 v-cloak 的 <code>div</code>。</p>
+<iframe height="300" style="width: 100%;" scrolling="no" title="vee-validate 範例" src="https://codepen.io/0430shinyu/embed/preview/oNojPXM?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/0430shinyu/pen/oNojPXM">
+  vee-validate 範例</a> by 蔡蔡 Mavis (<a href="https://codepen.io/0430shinyu">@0430shinyu</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://v3.cn.vuejs.org/api/directives.html#v-cloak">Vue3 官方文件</a></p>
+]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring MVC 中使用 Kaptcha 簡易完成圖形驗證碼</title>
+    <url>/2022/05/06/springKaptcha/</url>
+    <content><![CDATA[<p><img src="https://i.imgur.com/RHwFh07.png"></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>圖形驗證碼是驗證碼（CAPTCHA）的一種。驗證碼（CAPTCHA）是 Completely Automated Public Turing test to tell Computers and Humans Apart的縮寫，它是一種區分電腦或人類的自動程式。</p>
+<p>而我們可以使用 kaptcha 來生成驗證碼，它是一個基於 SimpleCaptcha 的開源程式碼，使用它我們可以快速的生成各式各樣的驗證碼。</p>
+<span id="more"></span>
+
+<h2 id="實作"><a href="#實作" class="headerlink" title="實作"></a>實作</h2><ol>
+<li><p>下載 kaptcha 資源<br>下載連結:<a href="https://code.google.com/archive/p/kaptcha/downloads">https://code.google.com/archive/p/kaptcha/downloads</a><br>解壓縮之後將  kaptcha-2.3.2.jar 移至專案底下(放置位置：WEB-INF&gt;lib)</p>
+</li>
+<li><p>配置文件<br>接著我們需要配置 kaptcha 的 servlet 還有樣式，可直接在 spring-servlet.xml 中貼上:</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;captchaProducer&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.google.code.kaptcha.impl.DefaultKaptcha&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;config&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">&quot;com.google.code.kaptcha.util.Config&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">props</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">&quot;kaptcha.image.width&quot;</span>&gt;</span>65<span class="tag">&lt;/<span class="name">prop</span>&gt;</span> //驗證碼圖片寬度</span><br><span class="line">                    <span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">&quot;kaptcha.image.height&quot;</span>&gt;</span>30<span class="tag">&lt;/<span class="name">prop</span>&gt;</span> // 驗證碼圖片高度</span><br><span class="line">                    <span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">&quot;kaptcha.textproducer.font.size&quot;</span>&gt;</span>25<span class="tag">&lt;/<span class="name">prop</span>&gt;</span>// 字體大小</span><br><span class="line">                    <span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">&quot;kaptcha.textproducer.font.color&quot;</span>&gt;</span>red<span class="tag">&lt;/<span class="name">prop</span>&gt;</span> // 顏色</span><br><span class="line">                    <span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">&quot;kaptcha.textproducer.font.names&quot;</span>&gt;</span>Arial<span class="tag">&lt;/<span class="name">prop</span>&gt;</span> // 字體</span><br><span class="line">                    <span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">&quot;kaptcha.textproducer.char.length&quot;</span>&gt;</span>4<span class="tag">&lt;/<span class="name">prop</span>&gt;</span> // 驗證碼長度</span><br><span class="line">                    <span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">&quot;kaptcha.obscurificator.impl&quot;</span>&gt;</span>com.google.code.kaptcha.impl.ShadowGimpy<span class="tag">&lt;/<span class="name">prop</span>&gt;</span> // 驗證碼樣式引擎，預設 WaterRipple</span><br><span class="line">                    <span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">&quot;kaptcha.noise.impl&quot;</span>&gt;</span>com.google.code.kaptcha.impl.NoNoise<span class="tag">&lt;/<span class="name">prop</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">props</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>詳細的配置屬性如下:</p>
+<table>
+<thead>
+<tr>
+<th>配置屬性</th>
+<th>敘述</th>
+<th>可輸入值</th>
+<th>預設值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>kaptcha.border</td>
+<td>图片邊框</td>
+<td>yes,no</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>kaptcha.border.color</td>
+<td>邊框顏色</td>
+<td>rgb 或者 white,black,blue</td>
+<td>black</td>
+</tr>
+<tr>
+<td>kaptcha.border.thickness</td>
+<td>邊框厚度</td>
+<td>&gt;0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>kaptcha.image.width</td>
+<td>驗證碼圖片寬</td>
+<td>&gt;0</td>
+<td>200</td>
+</tr>
+<tr>
+<td>kaptcha.image.height</td>
+<td>驗證碼圖片高</td>
+<td>&gt;0</td>
+<td>50</td>
+</tr>
+<tr>
+<td>kaptcha.producer.impl</td>
+<td>驗證碼圖片實現類</td>
+<td></td>
+<td>com.google.code.kaptcha.impl.DefaultKaptcha</td>
+</tr>
+<tr>
+<td>kaptcha.textproducer.impl</td>
+<td>驗證碼文字實現類</td>
+<td></td>
+<td>com.google.code.kaptcha.text.impl.DefaultTextCreator</td>
+</tr>
+<tr>
+<td>kaptcha.textproducer.char.string</td>
+<td>驗證碼文字集合</td>
+<td></td>
+<td>abcde2345678gfynmnpwx</td>
+</tr>
+<tr>
+<td>kaptcha.textproducer.char.length</td>
+<td>驗證碼字元長度</td>
+<td></td>
+<td>5</td>
+</tr>
+<tr>
+<td>kaptcha.textproducer.font.names</td>
+<td>字體</td>
+<td></td>
+<td>Arial, Courier</td>
+</tr>
+<tr>
+<td>kaptcha.textproducer.font.size</td>
+<td>字體大小</td>
+<td></td>
+<td>40px</td>
+</tr>
+<tr>
+<td>kaptcha.textproducer.font.color</td>
+<td>字體顏色</td>
+<td>r,g,b  或者 white,black,blue</td>
+<td>black</td>
+</tr>
+<tr>
+<td>kaptcha.textproducer.char.space</td>
+<td>字元間隔</td>
+<td></td>
+<td>2</td>
+</tr>
+<tr>
+<td>kaptcha.noise.impl</td>
+<td>干擾實現類</td>
+<td></td>
+<td>com.google.code.kaptcha.impl.DefaultNoise</td>
+</tr>
+<tr>
+<td>kaptcha.noise.color</td>
+<td>干擾的顏色</td>
+<td>r,g,b 或者 white,black,blue</td>
+<td>black</td>
+</tr>
+<tr>
+<td>kaptcha.obscurificator.impl</td>
+<td>圖片樣式</td>
+<td>水纹com.google.code.kaptcha.impl.WaterRipple<br>魚眼com.google.code.kaptcha.impl.FishEyeGimpy<br>陰影com.google.code.kaptcha.impl.ShadowGimpy</td>
+<td>com.google.code.kaptcha.impl.WaterRipple</td>
+</tr>
+<tr>
+<td>kaptcha.background.impl</td>
+<td>背景實現類</td>
+<td></td>
+<td>com.google.code.kaptcha.impl.DefaultBackground</td>
+</tr>
+<tr>
+<td>kaptcha.background.clear.from</td>
+<td>背景顏色漸變，開始顏色</td>
+<td></td>
+<td>lightGray</td>
+</tr>
+<tr>
+<td>kaptcha.background.clear.to</td>
+<td>背景顏色漸變，結束顏色</td>
+<td></td>
+<td>white</td>
+</tr>
+<tr>
+<td>kaptcha.word.impl</td>
+<td>文字渲染器</td>
+<td></td>
+<td>com.google.code.kaptcha.text.impl.DefaultWordRenderer</td>
+</tr>
+<tr>
+<td>kaptcha.session.key</td>
+<td>session key</td>
+<td></td>
+<td>KAPTCHA_SESSION_KEY</td>
+</tr>
+<tr>
+<td>kaptcha.session.date</td>
+<td>session date</td>
+<td></td>
+<td>KAPTCHA_SESSION_DATE</td>
+</tr>
+</tbody>
+</table>
+
+<ol>
+<li>撰寫 controller 層<br>配置好設定後，我們就可以來設定控制層，<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> controller;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UtilController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> Producer verifyCodeProducer;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping(path = &quot;/getVerifyCodeImage&quot;, method = RequestMethod.GET)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getVerifyCodeImage</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> </span>&#123;</span><br><span class="line">    response.setContentType(<span class="string">&quot;image/jpeg&quot;</span>); <span class="comment">// 設定為回傳一個 jpg 檔案</span></span><br><span class="line">    String capText = verifyCodeProducer.createText(); <span class="comment">// 建立驗證碼文字</span></span><br><span class="line">    BufferedImage bi = verifyCodeProducer.createImage(capText) ;<span class="comment">// 使用驗證碼文字建立驗證碼圖片</span></span><br><span class="line"></span><br><span class="line">    HttpSession session = request.getSession();</span><br><span class="line">    session.setAttribute(Constants.KAPTCHA_SESSION_KEY, capText);</span><br><span class="line"></span><br><span class="line">    ServletOutputStream out = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        out = response.getOutputStream(); <span class="comment">// 取得 ServletOutputStream 實例</span></span><br><span class="line">        ImageIO.write(bi, <span class="string">&quot;jpg&quot;</span>, out); <span class="comment">// 輸出圖片</span></span><br><span class="line">        out.flush();  <span class="comment">// 強制請求清空緩存區</span></span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        System.out.println(e);</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        IOUtils.closeQuietly(out);</span><br><span class="line">    &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>接著我們輸入:<a href="http://localhost:8080/%EF%BD%9B%E4%BD%A0%E7%9A%84%E5%B0%88%E6%A1%88%E5%90%8D%E7%A8%B1%EF%BD%9D/getVerifyCodeImage">http://localhost:8080/{你的專案名稱}/getVerifyCodeImage</a>，就可以看到我們剛剛設定好的圖片。</p>
+<p><img src="https://i.imgur.com/TipFhS7.jpg"></p>
+<ol start="5">
+<li><p>撰寫 view 層<br>JSP 的部分</p>
+ <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Login.jsp --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;chknumber&quot;</span>&gt;</span></span><br><span class="line">   輸入驗證碼： <span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">&quot;kaptcha&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">id</span>=<span class="string">&quot;kaptcha&quot;</span> <span class="attr">maxlength</span>=<span class="string">&quot;4&quot;</span> <span class="attr">class</span>=<span class="string">&quot;chknumber_input&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;$&#123;pageContext.request.contextPath&#125;/getVerifyCodeImage&quot;</span> <span class="attr">id</span>=<span class="string">&quot;kaptchaImage&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;changeCode()&quot;</span>&gt;</span>看不到嗎？點我換驗證碼<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p> JS的部分</p>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;         </span><br><span class="line">    $(<span class="string">&#x27;#kaptchaImage&#x27;</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">         $(<span class="built_in">this</span>).hide().attr(<span class="string">&#x27;src&#x27;</span>, <span class="string">&#x27;$&#123;pageContext.request.contextPath&#125;/getVerifyCodeImage?&#x27;</span> + <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*<span class="number">100</span>) ).fadeIn(); </span><br><span class="line">    &#125;);  </span><br><span class="line">&#125;); </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeCode</span>(<span class="params"></span>) </span>&#123;  </span><br><span class="line">    $(<span class="string">&#x27;#kaptchaImage&#x27;</span>).hide().attr(<span class="string">&#x27;src&#x27;</span>, <span class="string">&#x27;$&#123;pageContext.request.contextPath&#125;/getVerifyCodeImage?&#x27;</span> + <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*<span class="number">100</span>) ).fadeIn();  </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<p> *註解：因為瀏覽器的快取會存取圖片，所以需要在request 後方加上隨機值讓他像新的請求。</p>
+</li>
+<li><p>取的我們設定的驗證碼<br>前面在設定驗證碼時，我們有將其存在 Session　中，所以我們在其他 Controller 中透過<code>getSession()</code> 取得剛剛設定的驗證碼字元。</p>
+ <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String kaptchaExpected = (String) request.getSession().getAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);</span><br><span class="line">System.out.println(kaptchaExpected);</span><br></pre></td></tr></table></figure>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>關於CAPTCHA 有個有趣的小故事，設計出 CAPTCHA 的馮安將這個系統簡稱為 CAPTCHA 是因為CAPTCHA聽起來像是英文的「抓到你了」。</p>
+</li>
+</ol>
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p>kaptcha文件 - HowToUse.wiki<br><a href="https://code.google.com/archive/p/kaptcha/wikis/HowToUse.wiki">https://code.google.com/archive/p/kaptcha/wikis/HowToUse.wiki</a></p>
+<p>Spring mvc框架下使用kaptcha生成驗證碼<br><a href="https://www.programminghunter.com/article/3631604970/">https://www.programminghunter.com/article/3631604970/</a></p>
+<p>spring mvc 使用kaptcha配置生成驗證碼例項<br><a href="https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/310104/">https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/310104/</a></p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java,</tag>
+        <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringMVC 中透過 MultipartFile 實現上傳圖片以及瀏覽圖片</title>
+    <url>/2022/05/06/springUploadImage/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><img src="https://i.imgur.com/MVsF1h9.png"></p>
+<h2 id="配置資源"><a href="#配置資源" class="headerlink" title="配置資源"></a>配置資源</h2><p>由於 Spring 的 CommonsMultipartResolver 依賴Apache Commons FileUpload 函式庫，Apache Commons FileUpload 依賴於Apache Commons IO，所以在開始實作前我們必須先將這兩個函式庫匯入專案中。</p>
+<p>檢查 web&gt;lib 是否有以下兩個資源:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">commons-fileupload-1.2.2.jar</span><br><span class="line">commons-io-2.1.jar</span><br></pre></td></tr></table></figure>
+
+<p>接著，由於SpringMVC 使用 MultipartFile 來進行檔案上傳，所以我們要在 spring-servlet.xml 配置 MultipartResolve:</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;multipartResolver&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 單位bytes--&gt;</span> </span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxUploadSize&quot;</span> <span class="attr">value</span>=<span class="string">&quot;20971520&quot;</span> /&gt;</span> <span class="comment">&lt;!-- 20MB --&gt;</span><span class="comment">&lt;!-- 全部檔案最大上上傳大小, -1代表不限制 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxUploadSizePerFile&quot;</span> <span class="attr">value</span>=<span class="string">&quot;5242880&quot;</span>/&gt;</span> <span class="comment">&lt;!-- 5MB --&gt;</span><span class="comment">&lt;!-- 每個檔案最大上傳大小, -1代表不限制 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxInMemorySize&quot;</span> <span class="attr">value</span>=<span class="string">&quot;1048576&quot;</span> /&gt;</span> <span class="comment">&lt;!-- 1MB --&gt;</span><span class="comment">&lt;!-- 檔案上傳最大的暫存記憶體大小,預設為10240 bytes(1KB) --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;defaultEncoding&quot;</span> <span class="attr">value</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><em>若沒有配置會出現以下錯誤:<br>java.lang.IllegalStateException: Unable to process parts as no multi-part configuration has been provided</em></p>
+<h2 id="程式碼實作-上傳圖片"><a href="#程式碼實作-上傳圖片" class="headerlink" title="程式碼實作 - 上傳圖片"></a>程式碼實作 - 上傳圖片</h2><h3 id="建立資料表"><a href="#建立資料表" class="headerlink" title="建立資料表"></a>建立資料表</h3><p>在 SQL Server 中建立存放圖片的資料表（其他資料庫的語法可能不太一樣要注意一下）</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Image(</span><br><span class="line">	[id] [<span class="type">nchar</span>](<span class="number">32</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">PRIMARY</span> KEY,</span><br><span class="line">	[data] [<span class="type">varbinary</span>](max) <span class="keyword">NOT</span> <span class="keyword">NULL</span></span><br><span class="line">) </span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/GrgI8g2.png"></p>
+<h3 id="上傳圖片-前端"><a href="#上傳圖片-前端" class="headerlink" title="上傳圖片:前端"></a>上傳圖片:前端</h3><p>前端畫面的 form 表單記得需要加上 multipart/form-data，它是屬於 Content-Type 的其中之一，可以避免對字元編碼（Encoding），直接傳送二進位資料到後端。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">&quot;form&quot;</span> <span class="attr">enctype</span>=<span class="string">&quot;multipart/form-data&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">&quot;file&quot;</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">id</span>=<span class="string">&quot;image-input&quot;</span> <span class="attr">accept</span>=<span class="string">&quot;image/jpeg, image/png, image/jpg&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">id</span>=<span class="string">&quot;form-btn&quot;</span>&gt;</span></span><br><span class="line">        上傳圖片</span><br><span class="line">    <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>這裡我們使用 jQuery AJAX 去向後端發送我們上傳的圖片</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;#form-btn&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">let</span> formData = <span class="keyword">new</span> FormData($(<span class="string">&quot;#form&quot;</span>)[<span class="number">0</span>]);</span><br><span class="line">	formData.append(<span class="string">&quot;file&quot;</span>,$(<span class="string">&quot;#form&quot;</span>)[<span class="number">0</span>])</span><br><span class="line">	$.ajax(&#123;</span><br><span class="line">		<span class="attr">type</span> : <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">		<span class="attr">url</span> : <span class="string">&#x27;uploadImage&#x27;</span>,</span><br><span class="line">		<span class="attr">processData</span>:<span class="literal">false</span>,</span><br><span class="line">		<span class="attr">contentType</span> : <span class="literal">false</span>,</span><br><span class="line">		<span class="attr">data</span> :formData,</span><br><span class="line">		<span class="attr">success</span>:<span class="function"><span class="keyword">function</span>(<span class="params">rs</span>)</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(rs)</span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="attr">error</span> : <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(e)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="上傳圖片-後端"><a href="#上傳圖片-後端" class="headerlink" title="上傳圖片:後端"></a>上傳圖片:後端</h3><p>後端使用 MultipartFile 來接收檔案，它包含二進位資料和檔案名稱，接收到檔案後再透過 getInputStream() 轉換成 inputStream。</p>
+<p>這裡我們使用 BufferedInputStream 創建了一個輸入流。這是因為 InputStream 是一個抽像類，我們不能直接創建InputStream的物件。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(value=&quot;/uploadImage&quot;,method=RequestMethod.POST)</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">multipartResolver</span><span class="params">(<span class="meta">@RequestParam(value=&quot;file&quot;)</span> MultipartFile file)</span> </span>&#123;</span><br><span class="line">		InputStream stream = <span class="keyword">new</span> BufferedInputStream(file.getInputStream());</span><br><span class="line">		String result = util.uploadImage(stream);</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 Dao 中將剛剛取得到的 inputStream 輸入我們的資料表中。這裡我使用 UUID 建立 id，如果有別的需求也可以自行修改。成功新增後，後端會回傳新增的圖片id，而我們可以在前面的 AJAX success 中接收到它。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.util.UUID;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.jdbc.core.JdbcTemplate;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UtilDao</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	JdbcTemplate jdbcTemplate;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">uploadImage</span><span class="params">(InputStream stream)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			String sql = <span class="string">&quot;insert into Image(id,data) OUTPUT INSERTED.ID values(?,?)&quot;</span>;</span><br><span class="line">			String id = getUUID();</span><br><span class="line">			<span class="keyword">return</span> jdbcTemplate.queryForObject(sql, <span class="keyword">new</span> Object[] &#123; id, stream &#125;, String.class);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			System.out.println(e);</span><br><span class="line">			<span class="keyword">return</span> <span class="string">&quot;0&quot;</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getUUID</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		String uuid = UUID.randomUUID().toString().replaceAll(<span class="string">&quot;-&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> uuid;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="程式碼實作-瀏覽圖片"><a href="#程式碼實作-瀏覽圖片" class="headerlink" title="程式碼實作 - 瀏覽圖片"></a>程式碼實作 - 瀏覽圖片</h2><h3 id="瀏覽圖片-前端"><a href="#瀏覽圖片-前端" class="headerlink" title="瀏覽圖片:前端"></a>瀏覽圖片:前端</h3><p>前面我們已經成功將圖片存進資料庫，接著就要來嘗試顯示出我們加入的圖片。在前端我們可以透過 GET 加上 URL 中的 id 參數來顯示對應的圖片:<code>http://localhost:8080/專案名稱/getImage?id=???</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;img src=&quot;/getImage?id=baa2d08bd84340faa1b2&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="瀏覽圖片-後端"><a href="#瀏覽圖片-後端" class="headerlink" title="瀏覽圖片:後端"></a>瀏覽圖片:後端</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(value=&quot;/getImage&quot;,method=RequestMethod.GET)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getDBImage</span><span class="params">(<span class="meta">@RequestParam(value=&quot;id&quot;)</span> String id,HttpServletRequest  request,HttpServletResponse response)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">byte</span>[] data = util.getImage(id);</span><br><span class="line">        response.setContentType(<span class="string">&quot;image/png&quot;</span>); <span class="comment">// 設定為回傳一個 png 檔案</span></span><br><span class="line">        ByteArrayInputStream bis = <span class="keyword">new</span> ByteArrayInputStream(data);</span><br><span class="line">        BufferedImage bImage = ImageIO.read(bis); <span class="comment">//  //讀取影象到影象緩衝區</span></span><br><span class="line">        ServletOutputStream out = response.getOutputStream(); <span class="comment">// 取得 ServletOutputStream 實例</span></span><br><span class="line">        ImageIO.write(bImage, <span class="string">&quot;png&quot;</span>, out);</span><br><span class="line">        out.close();</span><br><span class="line">    &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">        <span class="comment">// 錯誤處理</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">byte</span>[] getImage(String id) &#123;</span><br><span class="line">        String sql = <span class="string">&quot;select data from Image where id =?&quot;</span>;</span><br><span class="line">        <span class="keyword">byte</span>[] data = jdbcTemplate.queryForObject(sql, <span class="keyword">new</span> Object[] &#123; id &#125;, <span class="keyword">byte</span>[].class);</span><br><span class="line">        <span class="keyword">return</span> data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p>Spring MVC 上傳檔案 java.lang.IllegalStateException: Unable to process parts as no multi-part configuration has been provided<br><a href="https://matthung0807.blogspot.com/2018/03/spring-mvc-javalangillegalstateexceptio.html">https://matthung0807.blogspot.com/2018/03/spring-mvc-javalangillegalstateexceptio.html</a></p>
+<p>HTML:Form表單標籤的Enctype屬性的作用及應用示例介紹<br><a href="https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/544448/">https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/544448/</a></p>
+<p>Upload and Download Files with JDBC to SQL Servers<br><a href="https://www.codeproject.com/Articles/872109/Upload-and-Download-Files-with-JDBC-to-SQL-Servers">https://www.codeproject.com/Articles/872109/Upload-and-Download-Files-with-JDBC-to-SQL-Servers</a></p>
+<p>使用CommonsMultipartFile获取ajax上传的文件<br><a href="https://blog.csdn.net/qq_34377830/article/details/88045561">https://blog.csdn.net/qq_34377830/article/details/88045561</a></p>
+<p>使用ajax，Jquery，Spring Boot，MultipartFile實現檔案上傳功能<br><a href="https://www.796t.com/content/1547351102.html">https://www.796t.com/content/1547351102.html</a></p>
+<p>JavaWeb(實現文件上傳)（一）<br><a href="https://www.796t.com/content/1513886170.html">https://www.796t.com/content/1513886170.html</a></p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java,</tag>
+        <tag>Spring</tag>
+      </tags>
+  </entry>
 </search>
