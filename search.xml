@@ -594,8 +594,10 @@ table th:first-of-type {
     <title>[資管所][MIS申論題][103中山資管]何謂互補資產？企業IT/IS的引進為何需要互補資產？...</title>
     <url>/2023/03/04/misComplementaryAsset/</url>
     <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><img src="https://imgur.com/pAtCmTx.jpg"></p>
-<h2 id="回答"><a href="#回答" class="headerlink" title="回答"></a>回答</h2><p>一、何謂互補性資產（Complemantary Asset,CA）<br>（一）定義：能夠在各方面支援、強化「創新資產本身」，促使「創新資產成功」之資產。<br>（二）圖示：<br>    <img src="https://imgur.com/wnMYlwN.jpg" width="50%"></p>
-<p>二、為何企業需要互補資產？<br>    學生以 Leavitt 的鑽石模型做為說明構面，並以廣達電腦導入 ERP 系統成功為例</p>
+<h2 id="回答"><a href="#回答" class="headerlink" title="回答"></a>回答</h2><p>一、何謂互補性資產（Complemantary Asset,CA）<br>（一）定義：能夠在各方面支援、強化「創新資產本身」，促使「創新資產成功」之資產。<br>（二）圖示：<br>    <img src="https://imgur.com/wnMYlwN.jpg" width="40%"></p>
+<p>二、為何企業引進 IT/IS 需要互補資產<br>    （一）前言：Leavitt 鑽石模型意涵<br>    1. 說明：組織由四個主要元素人、任務、組織結構、科技所構成，任一個元素的任何變革都會對其他元素產生直接的影響。<br>    2. 圖示<br>    <img src="https://imgur.com/GwSmJ6N.jpg" width="40%"><br>    （二）說明</p>
+<pre><code>學生以上述的鑽石模型做為說明構面，並以廣達電腦導入 ERP 系統成功為例
+</code></pre>
 <table>
 <thead>
 <tr>
@@ -616,13 +618,13 @@ table th:first-of-type {
 <td>具有相應的企業流程</td>
 </tr>
 </tbody></table>
-<p>三、學生認為最主要的互補資產<br>（一）互補資產類型</p>
+<p>三、學生認為最主要的互補資產<br>（一）IT/IS 的互補資產類型</p>
 <ol>
 <li>組織性資產：<br>例如：支持效率的支持性組織文化、有效率的企業流程</li>
 <li>管理性資產：<br> 例如：高階主管的支持、強調團隊合作的工作環境</li>
 <li>社會性資產：<br> 例如：網際網路與電信基礎建設、公平的法律、委外廠商的協助</li>
 </ol>
-<p>（二）最主要的互補資產<br>    學生以接續上述之廣達電腦導入 ERP 案例做說明</p>
+<p>（二）最主要的IT/IS 互補資產<br>    學生以接續上述之廣達電腦導入 ERP 案例做說明</p>
 <table>
 <thead>
 <tr>
@@ -643,7 +645,7 @@ table th:first-of-type {
 <td>組織性資產：持續維護所花費的成本及相關人力配置</td>
 </tr>
 </tbody></table>
-<p>學生認為三者缺一不可，需相互支援。</p>
+<p>學生認為三者在缺一不可，需相互支援。</p>
 ]]></content>
       <categories>
         <category>MIS 申論題</category>
