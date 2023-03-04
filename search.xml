@@ -107,6 +107,67 @@
       </tags>
   </entry>
   <entry>
+    <title>免費圖片空間 Imgur 使用教學</title>
+    <url>/2021/09/19/imgurturtorial/</url>
+    <content><![CDATA[<style>
+    img{
+        width:70%;
+    }
+</style>
+
+<p>Imgur 是一個網路相簿網站，2009年創立，主要提供免費的相片儲存服務，現今每日使用者達數百萬。Imgur 最大的優點就是它沒有流量限制，也不需要註冊帳號就可以直接使用，使用上非常方便。</p>
+<span id="more"></span>
+<h2 id="Imgur-網頁介紹"><a href="#Imgur-網頁介紹" class="headerlink" title="Imgur 網頁介紹"></a>Imgur 網頁介紹</h2><p>進到 imgur 的網頁後，我們可以看到下方有許多其他使用者上傳的圖片，<br><img src="https://imgur.com/XJfw5tc.jpg"><br>我們也可以透過上方的搜尋欄，搜尋特定的圖片<br><img src="https://imgur.com/k2sSTN1.jpg"></p>
+<h2 id="上傳檔案"><a href="#上傳檔案" class="headerlink" title="上傳檔案"></a>上傳檔案</h2><p>如果我們想要上傳圖片，可以點擊首頁左上方的 New Post<br><img src="https://imgur.com/56WlOl4.jpg"><br>點擊後會跳轉到這個畫面，可以透過拖移或是點擊的方式上傳我們本地端的圖片，imgur 支援多種圖片格式，單張非動畫圖片最大容量限制為 20 MB，每小時最多上傳 50 張，詳細限制可以參考<a href="https://help.imgur.com/hc/en-us/articles/115000083326-What-files-can-I-upload-What-is-the-size-limit-">Imgur Help</a>的說明。</p>
+<p><img src="https://imgur.com/TWYw3Mm.jpg"><br>成功上傳後會出現這樣的畫面，雖然前面有提到首頁可以看到其他使用者上傳的圖片，但<strong>預設</strong>上傳的圖片是<strong>不會</strong>連結到 Imgur 社群的喔，如果希望上傳到社群，可以替圖片加上標題(title)和說明(description)，再點擊「To Community」就可以公開囉。<br><img src="https://imgur.com/iOHIZ9E.jpg"><br>複製圖片網址的方式也很簡單，將滑鼠移到圖片上，並點擊 Copy link 就能成功複製圖片網址了（<a href="https://imgur.com/ipZyGmJ.jpg">https://imgur.com/ipZyGmJ.jpg</a>），點擊「···」則可以對圖片進行編輯（調整大小、旋轉圖片）、分享連結、下載、刪除。<br><img src="https://imgur.com/rhF08TY.jpg"></p>
+<h2 id="在-HTML-中插入外部圖片"><a href="#在-HTML-中插入外部圖片" class="headerlink" title="在 HTML 中插入外部圖片"></a>在 HTML 中插入外部圖片</h2><p>使用 Imgur 在 HTML 中插入圖片有兩種方式</p>
+<ol>
+<li>將 Imgur 嵌入<br>呈現效果如下：<blockquote class="imgur-embed-pub" lang="en" data-id="rhF08TY"><a href="https://imgur.com/rhF08TY">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script></li>
+</ol>
+<p>使用的方式為點擊圖片上方的「···」，選取 Get share links<br><img src="https://imgur.com/yE1mDlY.jpg"><br>再複製 HTML Embed 的語法，貼上到我們的網頁中。<br><img src="https://imgur.com/vdEGgvT.jpg"></p>
+<ol start="2">
+<li>使用 img 語法<br>如果不希望保留 Imgur 的外框，可以直接使用 img 標籤，呈現效果如下：<img src="https://imgur.com/ipZyGmJ.jpg" alt="範例圖片"> </li>
+</ol>
+<p>，並放入我們點擊 Copy Link 得到的「<a href="https://imgur.com/ipZyGmJ%E3%80%8D%EF%BC%8C%E5%9C%A8%E5%BE%8C%E9%9D%A2">https://imgur.com/ipZyGmJ」，在後面</a> <strong>加上副檔名<code>.jpg</code></strong> ，就可以正確插入圖片囉。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://imgur.com/ipZyGmJ.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;範例圖片&quot;</span>&gt;</span> </span><br></pre></td></tr></table></figure>
+
+<h2 id="帳號註冊"><a href="#帳號註冊" class="headerlink" title="帳號註冊"></a>帳號註冊</h2><p>如果我們希望上傳後還能對這些圖片進行管理的話，可以註冊 Imgur 帳號。註冊的方式也很簡單，到首頁點擊右上方的 SignUp 就可以註冊了。<br><img src="https://imgur.com/VuWJi0Q.jpg"><br>成功登入後我們就可以在這管理自己上傳的圖片囉。<br><img src="https://imgur.com/o5CzMa2.jpg"></p>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>解決兩個寬度 50％ 的子元素無法在同行的問題</title>
+    <url>/2021/09/19/inlineblockwidth50/</url>
+    <content><![CDATA[<p>行內區塊(<code>inline-block</code>)可以讓我們可以以行內（<code>inline</code>）的方式呈現，但同時擁有（<code>block</code>）的屬性，不過，在設定寬度上我們可能會遇到一個奇怪的問題：</p>
+<span id="more"></span>
+<p>假設我們想要新增兩個在同行的 div 元素，並讓他們各佔一半，我們會這樣撰寫：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>CHILD<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>CHILD<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span> <span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#d8e2dc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我們可能會預期畫面出現<br><img src="https://imgur.com/rUFostx.jpg"><br>卻發現結果兩個子元素沒有在同一行<br><img src="https://imgur.com/sfRoQzu.jpg"><br>而會有這樣的問題是因為<strong>換行符號</strong>。我們在第一個 <code>div</code> 標籤後方加上的換行符號，會相等於空白符號，這個空白符號的寬度加上兩個子元素的寬度就會超過 100%，導致兩個子元素無法放在同一行。</p>
+<p><strong>解決辦法有幾種：</strong></p>
+<ol>
+<li><p>刪除換行符號<br>最簡單的方式就是直接刪除換行符號，不過這會造成 HTML 結構的可讀性變差。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>CHILD<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span>CHILD<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>將字體大小設為 0<br>知道是因為空白符號造成無法在同行後，我們可以聯想到只要將字體設為 0 ，這個空白就不會佔有空間了。</p>
+</li>
+</ol>
+<p>實作放事就是直接在父層加上 font-size:0 （記得子層如果有文字要記得設定字體大小喔）。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">0</span>; <span class="comment">/* 隱藏空白符號 */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span> <span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">16px</span>;  <span class="comment">/* 設定子元素字體大小 */</span></span><br><span class="line">  <span class="attribute">width</span>:<span class="number">50%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>除了這些也可以使用負的 margin、letter-spacing、word-spacing 調整，但個人覺得沒有那麼實用，以上就是行內區塊無法同行的解決辦法說明囉。</p>
+<p><strong>參考資料</strong><br><a href="https://www.zhangxinxu.com/wordpress/2010/11/%E6%8B%9C%E6%8B%9C%E4%BA%86%E6%B5%AE%E5%8A%A8%E5%B8%83%E5%B1%80-%E5%9F%BA%E4%BA%8Edisplayinline-block%E7%9A%84%E5%88%97%E8%A1%A8%E5%B8%83%E5%B1%80/">拜拜了,浮动布局-基于display:inline-block的列表布局</a></p>
+]]></content>
+      <categories>
+        <category>HTML、CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JavaScript 學習常用字：大陸/台灣對照表</title>
     <url>/2021/09/07/jswordcompare/</url>
     <content><![CDATA[<p>以下整理了幾個在學習 JavaScript 中常見的詞語。</p>
@@ -306,67 +367,6 @@
       <tags>
         <tag>CSS</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>解決兩個寬度 50％ 的子元素無法在同行的問題</title>
-    <url>/2021/09/19/inlineblockwidth50/</url>
-    <content><![CDATA[<p>行內區塊(<code>inline-block</code>)可以讓我們可以以行內（<code>inline</code>）的方式呈現，但同時擁有（<code>block</code>）的屬性，不過，在設定寬度上我們可能會遇到一個奇怪的問題：</p>
-<span id="more"></span>
-<p>假設我們想要新增兩個在同行的 div 元素，並讓他們各佔一半，我們會這樣撰寫：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>CHILD<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>CHILD<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span> <span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#d8e2dc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>我們可能會預期畫面出現<br><img src="https://imgur.com/rUFostx.jpg"><br>卻發現結果兩個子元素沒有在同一行<br><img src="https://imgur.com/sfRoQzu.jpg"><br>而會有這樣的問題是因為<strong>換行符號</strong>。我們在第一個 <code>div</code> 標籤後方加上的換行符號，會相等於空白符號，這個空白符號的寬度加上兩個子元素的寬度就會超過 100%，導致兩個子元素無法放在同一行。</p>
-<p><strong>解決辦法有幾種：</strong></p>
-<ol>
-<li><p>刪除換行符號<br>最簡單的方式就是直接刪除換行符號，不過這會造成 HTML 結構的可讀性變差。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>CHILD<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span>CHILD<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li><p>將字體大小設為 0<br>知道是因為空白符號造成無法在同行後，我們可以聯想到只要將字體設為 0 ，這個空白就不會佔有空間了。</p>
-</li>
-</ol>
-<p>實作放事就是直接在父層加上 font-size:0 （記得子層如果有文字要記得設定字體大小喔）。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">0</span>; <span class="comment">/* 隱藏空白符號 */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span> <span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">16px</span>;  <span class="comment">/* 設定子元素字體大小 */</span></span><br><span class="line">  <span class="attribute">width</span>:<span class="number">50%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>除了這些也可以使用負的 margin、letter-spacing、word-spacing 調整，但個人覺得沒有那麼實用，以上就是行內區塊無法同行的解決辦法說明囉。</p>
-<p><strong>參考資料</strong><br><a href="https://www.zhangxinxu.com/wordpress/2010/11/%E6%8B%9C%E6%8B%9C%E4%BA%86%E6%B5%AE%E5%8A%A8%E5%B8%83%E5%B1%80-%E5%9F%BA%E4%BA%8Edisplayinline-block%E7%9A%84%E5%88%97%E8%A1%A8%E5%B8%83%E5%B1%80/">拜拜了,浮动布局-基于display:inline-block的列表布局</a></p>
-]]></content>
-      <categories>
-        <category>HTML、CSS</category>
-      </categories>
-      <tags>
-        <tag>CSS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>免費圖片空間 Imgur 使用教學</title>
-    <url>/2021/09/19/imgurturtorial/</url>
-    <content><![CDATA[<style>
-    img{
-        width:70%;
-    }
-</style>
-
-<p>Imgur 是一個網路相簿網站，2009年創立，主要提供免費的相片儲存服務，現今每日使用者達數百萬。Imgur 最大的優點就是它沒有流量限制，也不需要註冊帳號就可以直接使用，使用上非常方便。</p>
-<span id="more"></span>
-<h2 id="Imgur-網頁介紹"><a href="#Imgur-網頁介紹" class="headerlink" title="Imgur 網頁介紹"></a>Imgur 網頁介紹</h2><p>進到 imgur 的網頁後，我們可以看到下方有許多其他使用者上傳的圖片，<br><img src="https://imgur.com/XJfw5tc.jpg"><br>我們也可以透過上方的搜尋欄，搜尋特定的圖片<br><img src="https://imgur.com/k2sSTN1.jpg"></p>
-<h2 id="上傳檔案"><a href="#上傳檔案" class="headerlink" title="上傳檔案"></a>上傳檔案</h2><p>如果我們想要上傳圖片，可以點擊首頁左上方的 New Post<br><img src="https://imgur.com/56WlOl4.jpg"><br>點擊後會跳轉到這個畫面，可以透過拖移或是點擊的方式上傳我們本地端的圖片，imgur 支援多種圖片格式，單張非動畫圖片最大容量限制為 20 MB，每小時最多上傳 50 張，詳細限制可以參考<a href="https://help.imgur.com/hc/en-us/articles/115000083326-What-files-can-I-upload-What-is-the-size-limit-">Imgur Help</a>的說明。</p>
-<p><img src="https://imgur.com/TWYw3Mm.jpg"><br>成功上傳後會出現這樣的畫面，雖然前面有提到首頁可以看到其他使用者上傳的圖片，但<strong>預設</strong>上傳的圖片是<strong>不會</strong>連結到 Imgur 社群的喔，如果希望上傳到社群，可以替圖片加上標題(title)和說明(description)，再點擊「To Community」就可以公開囉。<br><img src="https://imgur.com/iOHIZ9E.jpg"><br>複製圖片網址的方式也很簡單，將滑鼠移到圖片上，並點擊 Copy link 就能成功複製圖片網址了（<a href="https://imgur.com/ipZyGmJ.jpg">https://imgur.com/ipZyGmJ.jpg</a>），點擊「···」則可以對圖片進行編輯（調整大小、旋轉圖片）、分享連結、下載、刪除。<br><img src="https://imgur.com/rhF08TY.jpg"></p>
-<h2 id="在-HTML-中插入外部圖片"><a href="#在-HTML-中插入外部圖片" class="headerlink" title="在 HTML 中插入外部圖片"></a>在 HTML 中插入外部圖片</h2><p>使用 Imgur 在 HTML 中插入圖片有兩種方式</p>
-<ol>
-<li>將 Imgur 嵌入<br>呈現效果如下：<blockquote class="imgur-embed-pub" lang="en" data-id="rhF08TY"><a href="https://imgur.com/rhF08TY">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script></li>
-</ol>
-<p>使用的方式為點擊圖片上方的「···」，選取 Get share links<br><img src="https://imgur.com/yE1mDlY.jpg"><br>再複製 HTML Embed 的語法，貼上到我們的網頁中。<br><img src="https://imgur.com/vdEGgvT.jpg"></p>
-<ol start="2">
-<li>使用 img 語法<br>如果不希望保留 Imgur 的外框，可以直接使用 img 標籤，呈現效果如下：<img src="https://imgur.com/ipZyGmJ.jpg" alt="範例圖片"> </li>
-</ol>
-<p>，並放入我們點擊 Copy Link 得到的「<a href="https://imgur.com/ipZyGmJ%E3%80%8D%EF%BC%8C%E5%9C%A8%E5%BE%8C%E9%9D%A2">https://imgur.com/ipZyGmJ」，在後面</a> <strong>加上副檔名<code>.jpg</code></strong> ，就可以正確插入圖片囉。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://imgur.com/ipZyGmJ.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;範例圖片&quot;</span>&gt;</span> </span><br></pre></td></tr></table></figure>
-
-<h2 id="帳號註冊"><a href="#帳號註冊" class="headerlink" title="帳號註冊"></a>帳號註冊</h2><p>如果我們希望上傳後還能對這些圖片進行管理的話，可以註冊 Imgur 帳號。註冊的方式也很簡單，到首頁點擊右上方的 SignUp 就可以註冊了。<br><img src="https://imgur.com/VuWJi0Q.jpg"><br>成功登入後我們就可以在這管理自己上傳的圖片囉。<br><img src="https://imgur.com/o5CzMa2.jpg"></p>
-]]></content>
-      <categories>
-        <category>其他</category>
-      </categories>
   </entry>
   <entry>
     <title>JavaScript 字串方法整理</title>
@@ -591,133 +591,66 @@ table th:first-of-type {
       </tags>
   </entry>
   <entry>
-    <title>使用 Validate.JS 簡易完成表單驗證功能</title>
-    <url>/2022/01/09/validatejs/</url>
-    <content><![CDATA[<p><img src="https://i.imgur.com/ziX6OaG.png"></p>
-<h2 id="什麼是-Validate-JS"><a href="#什麼是-Validate-JS" class="headerlink" title="什麼是 Validate.JS"></a>什麼是 Validate.JS</h2><p><a href="https://validatejs.org/">Validate.JS</a> 是一個表單驗證的函式庫，使用 Validate.JS 可以讓我們方便、快速的完成表單驗證的功能！<a href="https://validatejs.org/examples.html">點擊這裡</a>可以先查看官網的簡易範例。</p>
-<h2 id="如何使用-Validate-JS"><a href="#如何使用-Validate-JS" class="headerlink" title="如何使用 Validate.JS"></a>如何使用 Validate.JS</h2><h3 id="下載-Validate-JS"><a href="#下載-Validate-JS" class="headerlink" title="下載 Validate.JS"></a>下載 Validate.JS</h3><p>首先，我們可以透過不同的方式下載  Validate.JS</p>
+    <title>[資管所][MIS申論題][103中山資管]何謂互補資產？企業IT/IS的引進為何需要互補資產？...</title>
+    <url>/2023/03/04/misComplementaryAsset/</url>
+    <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><img src="https://imgur.com/pAtCmTx.jpg"></p>
+<h2 id="回答"><a href="#回答" class="headerlink" title="回答"></a>回答</h2><p>一、何謂互補性資產（Complemantary Asset,CA）<br>（一）定義：能夠在各方面支援、強化「創新資產本身」，促使「創新資產成功」之資產。<br>（二）圖示：<br>    <img src="https://imgur.com/wnMYlwN.jpg" width="50%"></p>
+<p>二、為何企業需要互補資產？<br>    學生以 Leavitt 的鑽石模型做為說明構面，並以廣達電腦導入 ERP 系統成功為例</p>
+<table>
+<thead>
+<tr>
+<th>構面（如何影響科技）</th>
+<th>說明(廣達電腦)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>人-&gt;科技</td>
+<td>資訊部門工作加重及需要大量跨部門溝通，員工接受與配合</td>
+</tr>
+<tr>
+<td>組織結構-&gt;科技</td>
+<td>建立組織共同的目標，加大變革動力</td>
+</tr>
+<tr>
+<td>任務-&gt;科技</td>
+<td>具有相應的企業流程</td>
+</tr>
+</tbody></table>
+<p>三、學生認為最主要的互補資產<br>（一）互補資產類型</p>
 <ol>
-<li>CDN <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script src=<span class="string">&quot;https//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js&quot;</span>&gt;        &lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
-<li>npm <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$npm install --save validate.js</span><br><span class="line"><span class="keyword">var</span> validate = <span class="built_in">require</span>(<span class="string">&quot;validate.js&quot;</span>);</span><br></pre></td></tr></table></figure></li>
+<li>組織性資產：<br>例如：支持效率的支持性組織文化、有效率的企業流程</li>
+<li>管理性資產：<br> 例如：高階主管的支持、強調團隊合作的工作環境</li>
+<li>社會性資產：<br> 例如：網際網路與電信基礎建設、公平的法律、委外廠商的協助</li>
 </ol>
-<h3 id="使用-Validate-JS-驗證欄位是否填寫"><a href="#使用-Validate-JS-驗證欄位是否填寫" class="headerlink" title="使用 Validate.JS 驗證欄位是否填寫"></a>使用 Validate.JS 驗證欄位是否填寫</h3><p>這邊先來介紹一下 validate.js 驗證器的基本格式，<br>    <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;attribute&gt;: &#123; </span><br><span class="line">&lt;validator name&gt;: &lt;validator options&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;屬性&gt;: &#123; // 屬性對應到 input 的 name</span><br><span class="line">&lt;驗證器名稱&gt;: &lt;驗證器選項&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>而帶入語法後會長這樣：<br>    <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// username 是必填欄位</span></span><br><span class="line"><span class="attr">username</span>: &#123; <span class="comment">// 屬性會對應到 input 的 name，等於選取 `&lt;input name=&quot;username&quot;&gt;`</span></span><br><span class="line">    <span class="attr">presence</span>: <span class="literal">true</span>, </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>驗證器（validator）和驗證器選項（validator options）有很多。首先，我們先練習使用 Validate.JS 幫助我們判斷欄位是否填寫，我們需要用<code>validate()</code>函示來驗證欄位，帶入的參數如下：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 透過驗證器（constraints）來驗證屬性（attributes），validate(屬性, 驗證器, [options]);</span></span><br><span class="line">validate(attributes, constraints, [options]);</span><br></pre></td></tr></table></figure>
-
-<p>這裡的屬性（attributes）可以帶入<strong>物件</strong>或是<strong>表單（form）元素</strong>，如下：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// constraints 驗證器</span></span><br><span class="line"><span class="keyword">let</span> constraints = &#123;</span><br><span class="line">  <span class="attr">name</span>: &#123;</span><br><span class="line">    <span class="attr">presence</span>: <span class="literal">true</span> <span class="comment">// name 欄位必填</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 屬性以物件帶入</span></span><br><span class="line">validate(&#123;<span class="attr">username</span>: <span class="string">&quot;nick&quot;</span>, <span class="attr">password</span>: <span class="string">&quot;better&quot;</span>&#125;, constraints);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 屬性以 form 元素帶入</span></span><br><span class="line"><span class="keyword">const</span> form = <span class="built_in">document</span>.querySelector(<span class="string">&quot;#form&quot;</span>);</span><br><span class="line">validate(form, constraints);</span><br></pre></td></tr></table></figure>
-
-<p><code>validate()</code> 執行後，驗證屬性，回傳錯誤訊息（如果沒有錯誤就不會回傳任何結果）</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> constraints = &#123;</span><br><span class="line">  <span class="attr">name</span>: &#123;</span><br><span class="line">    <span class="attr">presence</span>: <span class="literal">true</span> <span class="comment">// name 欄位必填</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//驗證正確，回傳 undefined</span></span><br><span class="line">validate(&#123;<span class="attr">name</span>: <span class="string">&quot;nick&quot;</span>&#125;, constraints);</span><br><span class="line"></span><br><span class="line"><span class="comment">//驗證錯誤，回傳 &#123;&quot;name&quot;:[&quot;Name can&#x27;t be blank&quot;]&#125;</span></span><br><span class="line">validate(&#123;<span class="attr">name</span>: <span class="string">&quot;&quot;</span>&#125;, constraints);</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>注意：<br>validate({}, from: {email: true});// 驗證正確，回傳undefined</p>
-<p>原因是， null 和 undefined 是合法的值，所以如果不希望使用者輸入空的值，就要記得加上 presence: true。</p>
-</blockquote>
-<p>了解了 <code>validate()</code> 的用法後，就可以搭配 form 標單寫成如下：</p>
-<p class="codepen" data-height="300" data-default-tab="js,result" data-slug-hash="LYzJWyx" data-user="0430shinyu" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-  <span>See the Pen <a href="https://codepen.io/0430shinyu/pen/LYzJWyx">
-  validate.js  範例一</a> by 蔡蔡 Mavis (<a href="https://codepen.io/0430shinyu">@0430shinyu</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
-
-<p>送出空白欄位後，我們就可以在 console 面板看到回傳錯誤提示物件（若欄位填寫正確則會回傳 undefined。）：<br><img src="https://i.imgur.com/97dJi4d.png"></p>
-<h3 id="使用-Validate-JS-驗證欄位各種情境"><a href="#使用-Validate-JS-驗證欄位各種情境" class="headerlink" title="使用 Validate.JS 驗證欄位各種情境"></a>使用 Validate.JS 驗證欄位各種情境</h3><p>除了驗證欄位是否填寫以外，Validate.JS 還包含了以下不同種的驗證：</p>
-<p><strong>1. datetime</strong></p>
-<p>datetime 可以用來驗證日期和時間。</p>
-<p>在使用此驗證器之前，我們需要設置 parse 和 format 函數，<br>以及載入 moment.js(<a href="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js">https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js</a>)</p>
-<blockquote>
-<p>moment.js 是一切和時間有關的的解析、轉換、設置、格式化日期的 JavaScript 函式庫</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">validate.extend(validate.validators.datetime, &#123;</span><br><span class="line">  <span class="attr">parse</span>: <span class="function"><span class="keyword">function</span>(<span class="params">value, options</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> +moment.utc(value);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">format</span>: <span class="function"><span class="keyword">function</span>(<span class="params">value, options</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> format = options.dateOnly ? <span class="string">&quot;YYYY-MM-DD&quot;</span> : <span class="string">&quot;YYYY-MM-DD hh:mm:ss&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> moment.utc(value).format(format);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>之後就可以使用 <code>datetime: true</code> 判斷是否符合格式 YYYY-MM-DD 或 YYYY-MM-DD hh:mm:ss，另外，也可以加上 <code>dateOnly: true</code> 限制只判斷格式是否符合 YYYY-MM-DD</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">validate(&#123;<span class="attr">departure</span>: <span class="string">&quot;2013-12-11 10:09:08&quot;</span>&#125;, &#123;<span class="attr">departure</span>: &#123;<span class="attr">datetime</span>: <span class="literal">true</span>&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; 驗證正確，回傳 undefined</span></span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">departure</span>: <span class="string">&quot;2013-12-11 10:09:08&quot;</span>&#125;, &#123;<span class="attr">departure</span>: &#123;<span class="attr">datetime</span>: &#123;<span class="attr">dateOnly</span>: <span class="literal">true</span>&#125;&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;departure&quot;: [&quot;Departure must be valid date&quot;]&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>我們也可以搭配 <a href="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js">moment.js</a> 和 latest（日期前）與 earliest（日期後） 做年齡的判斷</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> constraints = &#123;</span><br><span class="line">  <span class="attr">birthday</span>: &#123;</span><br><span class="line">    <span class="attr">datetime</span>: &#123;</span><br><span class="line">      <span class="attr">dateOnly</span>: <span class="literal">true</span>, <span class="comment">// 確認是否符合有效格式 YYYY-MM-DD</span></span><br><span class="line">      <span class="attr">latest</span>: moment.utc().subtract(<span class="number">18</span>, <span class="string">&#x27;years&#x27;</span>), <span class="comment">//年齡必須在 18 歲以上</span></span><br><span class="line">      <span class="attr">message</span>: <span class="string">&quot;^You need to be at least 18 years old&quot;</span> <span class="comment">// 回傳的錯誤訊息</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">validate(&#123;<span class="attr">birthday</span>: <span class="string">&quot;3013-11-14&quot;</span>&#125;, constraints);</span><br><span class="line"><span class="comment">// &#123;&quot;birthday&quot;: [&quot;You need to be at least 18 years old&quot;]&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>2. email</strong></p>
-<p>email 可以判斷信箱是否為有效格式</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> constraints = &#123;</span><br><span class="line">  <span class="attr">from</span>: &#123;</span><br><span class="line">    <span class="attr">email</span>: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">from</span>: <span class="string">&quot;nicklas@ansman&quot;</span>&#125;, constraints);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;email&quot;: [&quot;From is not a valid email&quot;]&#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// Upper cased emails are allowed</span></span><br><span class="line">validate(&#123;<span class="attr">from</span>: <span class="string">&quot;NICKLAS@ANSMAN.SE&quot;</span>&#125;, constraints);</span><br><span class="line"><span class="comment">// =&gt; 驗證正確，回傳 undefined</span></span><br></pre></td></tr></table></figure>
-
-<p>email 一樣也可以透過 message 回傳錯誤訊息，如果希望 messsage 省略預設的屬性名稱（form）可以加上 ^ 寫成 “^doesn’t look like a valid email”。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">constraints = &#123;</span><br><span class="line">  <span class="attr">from</span>: &#123;</span><br><span class="line">    <span class="attr">email</span>: &#123;</span><br><span class="line">      <span class="attr">message</span>: <span class="string">&quot;doesn&#x27;t look like a valid email&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">from</span>: <span class="string">&quot;foobar&quot;</span>&#125;, constraints);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;email&quot;: [&quot;From doesn&#x27;t look like a valid email&quot;]&#125;</span></span><br></pre></td></tr></table></figure>
-<p><strong>3.equality</strong><br>equality 可用來驗證屬性是否等於另一個屬性，常使用在設定密碼時的密碼確認。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> constraints = &#123;</span><br><span class="line">  <span class="attr">confirmPassword</span>: &#123;</span><br><span class="line">    <span class="attr">equality</span>: <span class="string">&quot;password&quot;</span> <span class="comment">//要判斷是否相同的對屬性</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">password</span>: <span class="string">&quot;foo&quot;</span>, <span class="attr">confirmPassword</span>: <span class="string">&quot;foo&quot;</span>&#125;, constraints);</span><br><span class="line"><span class="comment">// =&gt; 驗證正確，回傳 undefined</span></span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">password</span>: <span class="string">&quot;foo&quot;</span>, <span class="attr">confirmPassword</span>: <span class="string">&quot;bar&quot;</span>&#125;, constraints);</span><br><span class="line"><span class="comment">// =&gt; &#123;confirmPassword: [&quot;Confirm password is not equal to password&quot;]&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>4.exclusion</strong><br>Exclusion 可用來驗證值是否在特定陣列中，如果在陣列中就排除</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> restrictedDomains = ;</span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">subdomain</span>: <span class="string">&quot;tw&quot;</span>&#125;, &#123;<span class="attr">subdomain</span>: &#123;<span class="attr">exclusion</span>: [<span class="string">&quot;jp&quot;</span>, <span class="string">&quot;ch&quot;</span>]&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; 驗證正確，回傳undefined</span></span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">subdomain</span>: <span class="string">&quot;jp&quot;</span>&#125;, &#123;<span class="attr">subdomain</span>: &#123;<span class="attr">exclusion</span>: [<span class="string">&quot;jp&quot;</span>, <span class="string">&quot;ch&quot;</span>]&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;size&quot;: [&quot;jp is restricted&quot;]&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>我們也可以使用 within 搭配 ${value} </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> constraints = &#123;</span><br><span class="line">  <span class="attr">subdomain</span>: &#123;</span><br><span class="line">    <span class="attr">exclusion</span>: &#123;</span><br><span class="line">      <span class="attr">within</span>: &#123;<span class="attr">jp</span>: <span class="string">&quot;Japan&quot;</span>, <span class="attr">ch</span>: <span class="string">&quot;China&quot;</span>&#125;,</span><br><span class="line">      <span class="attr">message</span>: <span class="string">&quot;^We don&#x27;t support %&#123;value&#125; right now, sorry&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">subdomain</span>: <span class="string">&quot;jp&quot;</span>&#125;, constraints);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;subdomain&quot;: [&quot;We don&#x27;t support Japan right now, sorry&quot;]&#125;</span></span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">subdomain</span>: <span class="string">&quot;com&quot;</span>&#125;, constraints);</span><br><span class="line"><span class="comment">// =&gt; 驗證正確，undefined</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>5.inclusion</strong><br>Inclusion 可用來驗證值是否在特定陣列中，如果不在陣列中就排除</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> sizes = [<span class="string">&quot;small&quot;</span>, <span class="string">&quot;medium&quot;</span>, <span class="string">&quot;large&quot;</span>];</span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="string">&quot;small&quot;</span>&#125;, &#123;<span class="attr">size</span>: &#123;<span class="attr">inclusion</span>: sizes&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; undefined</span></span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">size</span>: <span class="string">&quot;xlarge&quot;</span>&#125;, &#123;<span class="attr">size</span>: &#123;<span class="attr">inclusion</span>: sizes&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;size&quot;: [&quot;xlarge is not included in the list&quot;]&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> constraints = &#123;</span><br><span class="line">  <span class="attr">size</span>: &#123;</span><br><span class="line">    <span class="attr">inclusion</span>: &#123;</span><br><span class="line">      <span class="attr">within</span>: &#123;<span class="string">&quot;Small&quot;</span>: <span class="string">&quot;s&quot;</span>, <span class="string">&quot;Medium&quot;</span>: <span class="string">&quot;m&quot;</span>, <span class="string">&quot;Large&quot;</span>: <span class="string">&quot;l&quot;</span>&#125;,</span><br><span class="line">      <span class="attr">message</span>: <span class="string">&quot;^We&#x27;re currently out of %&#123;value&#125;&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">size</span>: <span class="string">&quot;Extra large&quot;</span>&#125;, constraints);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;size&quot;: [&quot;We&#x27;re currently out of Extra large&quot;]&#125;</span></span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">size</span>: <span class="string">&quot;Medium&quot;</span>&#125;, constraints);</span><br><span class="line"><span class="comment">// =&gt; 驗證正確，回傳 undefined</span></span><br></pre></td></tr></table></figure>
-<p><strong>6.format</strong><br>format 可以使用正規表達式驗證欄位是否符合，Validate.JS 沒有提供的格式（如：郵遞區號），就可以使用 format 做驗證</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> pattern = <span class="regexp">/\d&#123;5&#125;(-\d&#123;4&#125;)?/</span>;</span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">zipCode</span>: <span class="string">&quot;foobar&quot;</span>&#125;, &#123;<span class="attr">zipCode</span>: &#123;<span class="attr">format</span>: pattern&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;zipCode&quot;: [&quot;Zip code is invalid&quot;]&#125;;</span></span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">zipCode</span>: <span class="string">&quot;12345&quot;</span>&#125;, &#123;<span class="attr">zipCode</span>: &#123;<span class="attr">format</span>: pattern&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; 驗證正確，回傳 undefined</span></span><br></pre></td></tr></table></figure>
-<p>如果需要使用到 flags 需要再另外加上</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> constraints = &#123;</span><br><span class="line">  <span class="attr">username</span>: &#123;</span><br><span class="line">    <span class="attr">format</span>: &#123;</span><br><span class="line">      <span class="attr">pattern</span>: <span class="string">&quot;[a-z0-9]+&quot;</span>,</span><br><span class="line">      <span class="attr">flags</span>: <span class="string">&quot;i&quot;</span>,</span><br><span class="line">      <span class="attr">message</span>: <span class="string">&quot;can only contain a-z and 0-9&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">username</span>: <span class="string">&quot;Nicklas!&quot;</span>&#125;, constraints);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;username&quot;: [&quot;Username can only contain a-z and 0-9&quot;]&#125;</span></span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">username</span>: <span class="string">&quot;Nicklas&quot;</span>&#125;, constraints);</span><br><span class="line"><span class="comment">// =&gt; 驗證正確，回傳 undefined</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>7.length</strong></p>
-<p>length 可以用來判斷是否符合長度，is 代表等於，代表小於，代表大於，也可使用<br> tooShort、tooLong、notValid 和 wrongLength 修改預設錯誤訊息</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> constraints = &#123;</span><br><span class="line">  <span class="attr">key1</span>: &#123;<span class="attr">length</span>: &#123;<span class="attr">is</span>: <span class="number">3</span>&#125;&#125;, <span class="comment">// 長度等於 3</span></span><br><span class="line">  <span class="attr">key2</span>: &#123;<span class="attr">length</span>: &#123;<span class="attr">minimum</span>: <span class="number">20</span>&#125;&#125;, <span class="comment">// 長度小於 20</span></span><br><span class="line">  <span class="attr">key3</span>: &#123;<span class="attr">length</span>: &#123;<span class="attr">maximum</span>: <span class="number">3</span>&#125;&#125;, <span class="comment">// 長度大於 3</span></span><br><span class="line">  <span class="attr">key4</span>: &#123;</span><br><span class="line">    <span class="attr">length</span>: &#123;</span><br><span class="line">      <span class="attr">minimum</span>: <span class="number">3</span>, </span><br><span class="line">      <span class="attr">tooShort</span>: <span class="string">&quot;needs to have %&#123;count&#125; words or more&quot;</span>, </span><br><span class="line">      <span class="attr">tokenizer</span>: <span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> value.split(<span class="regexp">/\s+/g</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">validate(&#123;&#125;, constraints);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> values = &#123;</span><br><span class="line">  <span class="attr">key1</span>: <span class="string">&quot;wrong length&quot;</span>,</span><br><span class="line">  <span class="attr">key2</span>: <span class="string">&quot;too short&quot;</span>,</span><br><span class="line">  <span class="attr">key3</span>: <span class="string">&quot;too long&quot;</span>,</span><br><span class="line">  <span class="attr">key4</span>: <span class="string">&quot;too short&quot;</span></span><br><span class="line">&#125;;</span><br><span class="line">validate(values, constraints);</span><br><span class="line"><span class="comment">// =&gt; &#123;</span></span><br><span class="line"><span class="comment">//   &quot;key1&quot;: [&quot;Key1 is the wrong length (should be 3 characters)&quot;],</span></span><br><span class="line"><span class="comment">//   &quot;key2&quot;: [&quot;Key2 is too short (minimum is 20 characters)&quot;],</span></span><br><span class="line"><span class="comment">//   &quot;key3&quot;: [&quot;Key3 is too long (maximum is 3 characters)&quot;],</span></span><br><span class="line"><span class="comment">//   &quot;key4&quot;: [&quot;Key4 needs to have 3 words or more&quot;]</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>8.numericality</strong></p>
-<p>numericality可以判斷是否只填入數字，沒有填入其他型態的內容。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">validate(&#123;<span class="attr">duration</span>: <span class="string">&quot;foobar&quot;</span>&#125;, &#123;<span class="attr">duration</span>: &#123;<span class="attr">numericality</span>: <span class="literal">true</span>&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;duration&quot;: [&quot;Duration is not a number&quot;]&#125;</span></span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">duration</span>: <span class="string">&quot;3&quot;</span>&#125;, &#123;<span class="attr">duration</span>: &#123;<span class="attr">numericality</span>: <span class="literal">true</span>&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; 驗證正確，回傳 undefined</span></span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">duration</span>: <span class="string">&quot;03&quot;</span>&#125;, &#123;<span class="attr">duration</span>: &#123;<span class="attr">numericality</span>: <span class="literal">true</span>&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; 驗證正確，回傳 undefined</span></span><br></pre></td></tr></table></figure>
-<p>strict：數字不可以0作為開頭</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">validate(&#123;<span class="attr">duration</span>: <span class="string">&quot;03&quot;</span>&#125;, &#123;<span class="attr">duration</span>: &#123;<span class="attr">numericality</span>: &#123;<span class="attr">strict</span>: <span class="literal">true</span>&#125;&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;duration&quot;: [&quot;Duration must be a valid number&quot;]&#125;</span></span><br></pre></td></tr></table></figure>
-<p>noStrings：數字不可以0作為開頭</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">validate(&#123;<span class="attr">duration</span>: <span class="string">&quot;3&quot;</span>&#125;, &#123;<span class="attr">duration</span>: &#123;<span class="attr">numericality</span>: &#123;<span class="attr">noStrings</span>: <span class="literal">true</span>&#125;&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;duration&quot;: [&quot;Duration is not a number&quot;]&#125;</span></span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">duration</span>: <span class="number">3</span>&#125;, &#123;<span class="attr">duration</span>: &#123;<span class="attr">numericality</span>: &#123;<span class="attr">noStrings</span>: <span class="literal">true</span>&#125;&#125;&#125;)</span><br><span class="line"><span class="comment">// 驗證正確，回傳 undefined</span></span><br></pre></td></tr></table></figure>
-<p>noStrings：數字可以整除數字 n</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">validate(&#123;<span class="attr">duration</span>: <span class="string">&quot;7&quot;</span>&#125;, &#123;<span class="attr">duration</span>: &#123;<span class="attr">numericality</span>: &#123;<span class="attr">divisibleBy</span>: <span class="number">3</span>&#125;&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;duration&quot;: [&quot;Duration must be divisible by 3&quot;]&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>還有其他不同的設定：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> constraints = &#123;</span><br><span class="line">  <span class="attr">duration</span>: &#123;</span><br><span class="line">    <span class="attr">numericality</span>: &#123;</span><br><span class="line">      <span class="attr">onlyInteger</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">greaterThan</span>: <span class="number">0</span>, <span class="comment">// 大於 0</span></span><br><span class="line">      <span class="attr">lessThanOrEqualTo</span>: <span class="number">30</span>, <span class="comment">// 小於或等於 30</span></span><br><span class="line">      <span class="attr">even</span>: <span class="literal">true</span>, <span class="comment">//偶數</span></span><br><span class="line">      <span class="attr">notEven</span>: <span class="string">&quot;must be evenly divisible by two&quot;</span> <span class="comment">// 非偶數回傳的錯誤訊息</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">duration</span>: <span class="number">3.14</span>&#125;, constraints);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;duration&quot;: [&quot;Duration must be an integer&quot;]&#125;</span></span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">duration</span>: <span class="number">4711</span>&#125;, constraints);</span><br><span class="line"><span class="comment">// =&gt; &#123;</span></span><br><span class="line"><span class="comment">//   &quot;duration&quot;: [</span></span><br><span class="line"><span class="comment">//     &quot;Duration must be less than or equal to 30&quot;,</span></span><br><span class="line"><span class="comment">//     &quot;Duration must be evenly divisible by two&quot;</span></span><br><span class="line"><span class="comment">//   ]</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
-<p><strong>9.url</strong></p>
-<p>url 可以判斷網址是否有效。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">validate(&#123;<span class="attr">website</span>: <span class="string">&quot;http://google.com&quot;</span>&#125;, &#123;<span class="attr">website</span>: &#123;<span class="attr">url</span>: <span class="literal">true</span>&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; undefined</span></span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">website</span>: <span class="string">&quot;google.com&quot;</span>&#125;, &#123;<span class="attr">website</span>: &#123;<span class="attr">url</span>: <span class="literal">true</span>&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;website&quot;: [&quot;Website is not a valid url&quot;]&#125;</span></span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">website</span>: <span class="string">&quot;ftp://google.com&quot;</span>&#125;, &#123;<span class="attr">website</span>: &#123;<span class="attr">url</span>: <span class="literal">true</span>&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;website&quot;: [&quot;Website is not a valid url&quot;]&#125;</span></span><br></pre></td></tr></table></figure>
-<p>schemes ：允許的 schemes，預設為 [“http”, “https”]。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">validate(&#123;<span class="attr">website</span>: <span class="string">&quot;ftp://google.com&quot;</span>&#125;, &#123;</span><br><span class="line">  <span class="attr">website</span>: &#123;</span><br><span class="line">    <span class="attr">url</span>: &#123;</span><br><span class="line">      <span class="attr">schemes</span>: [<span class="string">&quot;ftp&quot;</span>]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// =&gt; undefined</span></span><br></pre></td></tr></table></figure>
-
-<p>allowLocal：允許 local 主機名稱，如：10.0.1.1 或 localhost。預設為 false</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">validate(&#123;<span class="attr">website</span>: <span class="string">&quot;http://localhost&quot;</span>&#125;, &#123;<span class="attr">website</span>: &#123;<span class="attr">url</span>: <span class="literal">true</span>&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;website&quot;: [&quot;Website is not a valid url&quot;]&#125;</span></span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">website</span>: <span class="string">&quot;http://localhost&quot;</span>&#125;, &#123;</span><br><span class="line">  <span class="attr">website</span>: &#123;</span><br><span class="line">    <span class="attr">url</span>: &#123;</span><br><span class="line">      <span class="attr">allowLocal</span>: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// =&gt; undefined</span></span><br></pre></td></tr></table></figure>
-<h3 id="回傳結果給使用者"><a href="#回傳結果給使用者" class="headerlink" title="回傳結果給使用者"></a>回傳結果給使用者</h3><p>前面我們已經了解到如何使用 Validate.js 做驗證，但只在 console 面板顯示錯誤提示，無法真正提醒使用者。我們可以透過點擊送出按鈕後隱藏、顯示文字來提醒使用者，例如：</p>
-<p class="codepen" data-height="300" data-default-tab="js,result" data-slug-hash="yLzxMRy" data-user="0430shinyu" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-  <span>See the Pen <a href="https://codepen.io/0430shinyu/pen/yLzxMRy">
-  validate.js  範例二</a> by 蔡蔡 Mavis (<a href="https://codepen.io/0430shinyu">@0430shinyu</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
-
-
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://validatejs.org/">Validate.JS 官網</a></p>
+<p>（二）最主要的互補資產<br>    學生以接續上述之廣達電腦導入 ERP 案例做說明</p>
+<table>
+<thead>
+<tr>
+<th>構面</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>導入前</td>
+<td>管理性資產：需要高階管理員促進/激勵變革</td>
+</tr>
+<tr>
+<td>導入中</td>
+<td>社會性資產：需要合適的 ERP 系統廠商和導入顧問</td>
+</tr>
+<tr>
+<td>導入後</td>
+<td>組織性資產：持續維護所花費的成本及相關人力配置</td>
+</tr>
+</tbody></table>
+<p>學生認為三者缺一不可，需相互支援。</p>
 ]]></content>
       <categories>
-        <category>JavaScript</category>
+        <category>MIS 申論題</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Vue - 使用 v-cloak 隱藏未編譯的程式碼</title>
-    <url>/2022/01/30/vue3-vcloak/</url>
-    <content><![CDATA[<p>當我們使用 Vue 時，如果網路速度慢，Vue 未載入完成，還沒經 Vue 解析的內容就會渲染到頁面上。這時我們可以使用 v-cloak 隱藏未編譯的 <code>&#123;&#123;&#125;&#125;</code> 標籤。</p>
-<p>範例中我們使用 <code>setTimeout</code> 來模擬網速慢的情境。可以看到在編譯結束前並不會顯示第一個有加上 v-cloak 的 <code>div</code>。</p>
-<iframe height="300" style="width: 100%;" scrolling="no" title="vee-validate 範例" src="https://codepen.io/0430shinyu/embed/preview/oNojPXM?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href="https://codepen.io/0430shinyu/pen/oNojPXM">
-  vee-validate 範例</a> by 蔡蔡 Mavis (<a href="https://codepen.io/0430shinyu">@0430shinyu</a>)
-  on <a href="https://codepen.io">CodePen</a>.
-</iframe>
-
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://v3.cn.vuejs.org/api/directives.html#v-cloak">Vue3 官方文件</a></p>
-]]></content>
-      <categories>
-        <category>Vue</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
+        <tag>MIS</tag>
+        <tag>資管所</tag>
       </tags>
   </entry>
   <entry>
@@ -910,6 +843,116 @@ table th:first-of-type {
       </tags>
   </entry>
   <entry>
+    <title>使用 Validate.JS 簡易完成表單驗證功能</title>
+    <url>/2022/01/09/validatejs/</url>
+    <content><![CDATA[<p><img src="https://i.imgur.com/ziX6OaG.png"></p>
+<h2 id="什麼是-Validate-JS"><a href="#什麼是-Validate-JS" class="headerlink" title="什麼是 Validate.JS"></a>什麼是 Validate.JS</h2><p><a href="https://validatejs.org/">Validate.JS</a> 是一個表單驗證的函式庫，使用 Validate.JS 可以讓我們方便、快速的完成表單驗證的功能！<a href="https://validatejs.org/examples.html">點擊這裡</a>可以先查看官網的簡易範例。</p>
+<h2 id="如何使用-Validate-JS"><a href="#如何使用-Validate-JS" class="headerlink" title="如何使用 Validate.JS"></a>如何使用 Validate.JS</h2><h3 id="下載-Validate-JS"><a href="#下載-Validate-JS" class="headerlink" title="下載 Validate.JS"></a>下載 Validate.JS</h3><p>首先，我們可以透過不同的方式下載  Validate.JS</p>
+<ol>
+<li>CDN <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script src=<span class="string">&quot;https//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js&quot;</span>&gt;        &lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
+<li>npm <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$npm install --save validate.js</span><br><span class="line"><span class="keyword">var</span> validate = <span class="built_in">require</span>(<span class="string">&quot;validate.js&quot;</span>);</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="使用-Validate-JS-驗證欄位是否填寫"><a href="#使用-Validate-JS-驗證欄位是否填寫" class="headerlink" title="使用 Validate.JS 驗證欄位是否填寫"></a>使用 Validate.JS 驗證欄位是否填寫</h3><p>這邊先來介紹一下 validate.js 驗證器的基本格式，<br>    <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;attribute&gt;: &#123; </span><br><span class="line">&lt;validator name&gt;: &lt;validator options&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;屬性&gt;: &#123; // 屬性對應到 input 的 name</span><br><span class="line">&lt;驗證器名稱&gt;: &lt;驗證器選項&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>而帶入語法後會長這樣：<br>    <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// username 是必填欄位</span></span><br><span class="line"><span class="attr">username</span>: &#123; <span class="comment">// 屬性會對應到 input 的 name，等於選取 `&lt;input name=&quot;username&quot;&gt;`</span></span><br><span class="line">    <span class="attr">presence</span>: <span class="literal">true</span>, </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>驗證器（validator）和驗證器選項（validator options）有很多。首先，我們先練習使用 Validate.JS 幫助我們判斷欄位是否填寫，我們需要用<code>validate()</code>函示來驗證欄位，帶入的參數如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 透過驗證器（constraints）來驗證屬性（attributes），validate(屬性, 驗證器, [options]);</span></span><br><span class="line">validate(attributes, constraints, [options]);</span><br></pre></td></tr></table></figure>
+
+<p>這裡的屬性（attributes）可以帶入<strong>物件</strong>或是<strong>表單（form）元素</strong>，如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// constraints 驗證器</span></span><br><span class="line"><span class="keyword">let</span> constraints = &#123;</span><br><span class="line">  <span class="attr">name</span>: &#123;</span><br><span class="line">    <span class="attr">presence</span>: <span class="literal">true</span> <span class="comment">// name 欄位必填</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 屬性以物件帶入</span></span><br><span class="line">validate(&#123;<span class="attr">username</span>: <span class="string">&quot;nick&quot;</span>, <span class="attr">password</span>: <span class="string">&quot;better&quot;</span>&#125;, constraints);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 屬性以 form 元素帶入</span></span><br><span class="line"><span class="keyword">const</span> form = <span class="built_in">document</span>.querySelector(<span class="string">&quot;#form&quot;</span>);</span><br><span class="line">validate(form, constraints);</span><br></pre></td></tr></table></figure>
+
+<p><code>validate()</code> 執行後，驗證屬性，回傳錯誤訊息（如果沒有錯誤就不會回傳任何結果）</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> constraints = &#123;</span><br><span class="line">  <span class="attr">name</span>: &#123;</span><br><span class="line">    <span class="attr">presence</span>: <span class="literal">true</span> <span class="comment">// name 欄位必填</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//驗證正確，回傳 undefined</span></span><br><span class="line">validate(&#123;<span class="attr">name</span>: <span class="string">&quot;nick&quot;</span>&#125;, constraints);</span><br><span class="line"></span><br><span class="line"><span class="comment">//驗證錯誤，回傳 &#123;&quot;name&quot;:[&quot;Name can&#x27;t be blank&quot;]&#125;</span></span><br><span class="line">validate(&#123;<span class="attr">name</span>: <span class="string">&quot;&quot;</span>&#125;, constraints);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：<br>validate({}, from: {email: true});// 驗證正確，回傳undefined</p>
+<p>原因是， null 和 undefined 是合法的值，所以如果不希望使用者輸入空的值，就要記得加上 presence: true。</p>
+</blockquote>
+<p>了解了 <code>validate()</code> 的用法後，就可以搭配 form 標單寫成如下：</p>
+<p class="codepen" data-height="300" data-default-tab="js,result" data-slug-hash="LYzJWyx" data-user="0430shinyu" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/0430shinyu/pen/LYzJWyx">
+  validate.js  範例一</a> by 蔡蔡 Mavis (<a href="https://codepen.io/0430shinyu">@0430shinyu</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<p>送出空白欄位後，我們就可以在 console 面板看到回傳錯誤提示物件（若欄位填寫正確則會回傳 undefined。）：<br><img src="https://i.imgur.com/97dJi4d.png"></p>
+<h3 id="使用-Validate-JS-驗證欄位各種情境"><a href="#使用-Validate-JS-驗證欄位各種情境" class="headerlink" title="使用 Validate.JS 驗證欄位各種情境"></a>使用 Validate.JS 驗證欄位各種情境</h3><p>除了驗證欄位是否填寫以外，Validate.JS 還包含了以下不同種的驗證：</p>
+<p><strong>1. datetime</strong></p>
+<p>datetime 可以用來驗證日期和時間。</p>
+<p>在使用此驗證器之前，我們需要設置 parse 和 format 函數，<br>以及載入 moment.js(<a href="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js">https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js</a>)</p>
+<blockquote>
+<p>moment.js 是一切和時間有關的的解析、轉換、設置、格式化日期的 JavaScript 函式庫</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">validate.extend(validate.validators.datetime, &#123;</span><br><span class="line">  <span class="attr">parse</span>: <span class="function"><span class="keyword">function</span>(<span class="params">value, options</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> +moment.utc(value);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">format</span>: <span class="function"><span class="keyword">function</span>(<span class="params">value, options</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> format = options.dateOnly ? <span class="string">&quot;YYYY-MM-DD&quot;</span> : <span class="string">&quot;YYYY-MM-DD hh:mm:ss&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> moment.utc(value).format(format);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>之後就可以使用 <code>datetime: true</code> 判斷是否符合格式 YYYY-MM-DD 或 YYYY-MM-DD hh:mm:ss，另外，也可以加上 <code>dateOnly: true</code> 限制只判斷格式是否符合 YYYY-MM-DD</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">validate(&#123;<span class="attr">departure</span>: <span class="string">&quot;2013-12-11 10:09:08&quot;</span>&#125;, &#123;<span class="attr">departure</span>: &#123;<span class="attr">datetime</span>: <span class="literal">true</span>&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; 驗證正確，回傳 undefined</span></span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">departure</span>: <span class="string">&quot;2013-12-11 10:09:08&quot;</span>&#125;, &#123;<span class="attr">departure</span>: &#123;<span class="attr">datetime</span>: &#123;<span class="attr">dateOnly</span>: <span class="literal">true</span>&#125;&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;departure&quot;: [&quot;Departure must be valid date&quot;]&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>我們也可以搭配 <a href="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js">moment.js</a> 和 latest（日期前）與 earliest（日期後） 做年齡的判斷</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> constraints = &#123;</span><br><span class="line">  <span class="attr">birthday</span>: &#123;</span><br><span class="line">    <span class="attr">datetime</span>: &#123;</span><br><span class="line">      <span class="attr">dateOnly</span>: <span class="literal">true</span>, <span class="comment">// 確認是否符合有效格式 YYYY-MM-DD</span></span><br><span class="line">      <span class="attr">latest</span>: moment.utc().subtract(<span class="number">18</span>, <span class="string">&#x27;years&#x27;</span>), <span class="comment">//年齡必須在 18 歲以上</span></span><br><span class="line">      <span class="attr">message</span>: <span class="string">&quot;^You need to be at least 18 years old&quot;</span> <span class="comment">// 回傳的錯誤訊息</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">validate(&#123;<span class="attr">birthday</span>: <span class="string">&quot;3013-11-14&quot;</span>&#125;, constraints);</span><br><span class="line"><span class="comment">// &#123;&quot;birthday&quot;: [&quot;You need to be at least 18 years old&quot;]&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>2. email</strong></p>
+<p>email 可以判斷信箱是否為有效格式</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> constraints = &#123;</span><br><span class="line">  <span class="attr">from</span>: &#123;</span><br><span class="line">    <span class="attr">email</span>: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">from</span>: <span class="string">&quot;nicklas@ansman&quot;</span>&#125;, constraints);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;email&quot;: [&quot;From is not a valid email&quot;]&#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// Upper cased emails are allowed</span></span><br><span class="line">validate(&#123;<span class="attr">from</span>: <span class="string">&quot;NICKLAS@ANSMAN.SE&quot;</span>&#125;, constraints);</span><br><span class="line"><span class="comment">// =&gt; 驗證正確，回傳 undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>email 一樣也可以透過 message 回傳錯誤訊息，如果希望 messsage 省略預設的屬性名稱（form）可以加上 ^ 寫成 “^doesn’t look like a valid email”。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">constraints = &#123;</span><br><span class="line">  <span class="attr">from</span>: &#123;</span><br><span class="line">    <span class="attr">email</span>: &#123;</span><br><span class="line">      <span class="attr">message</span>: <span class="string">&quot;doesn&#x27;t look like a valid email&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">from</span>: <span class="string">&quot;foobar&quot;</span>&#125;, constraints);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;email&quot;: [&quot;From doesn&#x27;t look like a valid email&quot;]&#125;</span></span><br></pre></td></tr></table></figure>
+<p><strong>3.equality</strong><br>equality 可用來驗證屬性是否等於另一個屬性，常使用在設定密碼時的密碼確認。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> constraints = &#123;</span><br><span class="line">  <span class="attr">confirmPassword</span>: &#123;</span><br><span class="line">    <span class="attr">equality</span>: <span class="string">&quot;password&quot;</span> <span class="comment">//要判斷是否相同的對屬性</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">password</span>: <span class="string">&quot;foo&quot;</span>, <span class="attr">confirmPassword</span>: <span class="string">&quot;foo&quot;</span>&#125;, constraints);</span><br><span class="line"><span class="comment">// =&gt; 驗證正確，回傳 undefined</span></span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">password</span>: <span class="string">&quot;foo&quot;</span>, <span class="attr">confirmPassword</span>: <span class="string">&quot;bar&quot;</span>&#125;, constraints);</span><br><span class="line"><span class="comment">// =&gt; &#123;confirmPassword: [&quot;Confirm password is not equal to password&quot;]&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>4.exclusion</strong><br>Exclusion 可用來驗證值是否在特定陣列中，如果在陣列中就排除</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> restrictedDomains = ;</span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">subdomain</span>: <span class="string">&quot;tw&quot;</span>&#125;, &#123;<span class="attr">subdomain</span>: &#123;<span class="attr">exclusion</span>: [<span class="string">&quot;jp&quot;</span>, <span class="string">&quot;ch&quot;</span>]&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; 驗證正確，回傳undefined</span></span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">subdomain</span>: <span class="string">&quot;jp&quot;</span>&#125;, &#123;<span class="attr">subdomain</span>: &#123;<span class="attr">exclusion</span>: [<span class="string">&quot;jp&quot;</span>, <span class="string">&quot;ch&quot;</span>]&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;size&quot;: [&quot;jp is restricted&quot;]&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>我們也可以使用 within 搭配 ${value} </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> constraints = &#123;</span><br><span class="line">  <span class="attr">subdomain</span>: &#123;</span><br><span class="line">    <span class="attr">exclusion</span>: &#123;</span><br><span class="line">      <span class="attr">within</span>: &#123;<span class="attr">jp</span>: <span class="string">&quot;Japan&quot;</span>, <span class="attr">ch</span>: <span class="string">&quot;China&quot;</span>&#125;,</span><br><span class="line">      <span class="attr">message</span>: <span class="string">&quot;^We don&#x27;t support %&#123;value&#125; right now, sorry&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">subdomain</span>: <span class="string">&quot;jp&quot;</span>&#125;, constraints);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;subdomain&quot;: [&quot;We don&#x27;t support Japan right now, sorry&quot;]&#125;</span></span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">subdomain</span>: <span class="string">&quot;com&quot;</span>&#125;, constraints);</span><br><span class="line"><span class="comment">// =&gt; 驗證正確，undefined</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>5.inclusion</strong><br>Inclusion 可用來驗證值是否在特定陣列中，如果不在陣列中就排除</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> sizes = [<span class="string">&quot;small&quot;</span>, <span class="string">&quot;medium&quot;</span>, <span class="string">&quot;large&quot;</span>];</span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="string">&quot;small&quot;</span>&#125;, &#123;<span class="attr">size</span>: &#123;<span class="attr">inclusion</span>: sizes&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; undefined</span></span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">size</span>: <span class="string">&quot;xlarge&quot;</span>&#125;, &#123;<span class="attr">size</span>: &#123;<span class="attr">inclusion</span>: sizes&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;size&quot;: [&quot;xlarge is not included in the list&quot;]&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> constraints = &#123;</span><br><span class="line">  <span class="attr">size</span>: &#123;</span><br><span class="line">    <span class="attr">inclusion</span>: &#123;</span><br><span class="line">      <span class="attr">within</span>: &#123;<span class="string">&quot;Small&quot;</span>: <span class="string">&quot;s&quot;</span>, <span class="string">&quot;Medium&quot;</span>: <span class="string">&quot;m&quot;</span>, <span class="string">&quot;Large&quot;</span>: <span class="string">&quot;l&quot;</span>&#125;,</span><br><span class="line">      <span class="attr">message</span>: <span class="string">&quot;^We&#x27;re currently out of %&#123;value&#125;&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">size</span>: <span class="string">&quot;Extra large&quot;</span>&#125;, constraints);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;size&quot;: [&quot;We&#x27;re currently out of Extra large&quot;]&#125;</span></span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">size</span>: <span class="string">&quot;Medium&quot;</span>&#125;, constraints);</span><br><span class="line"><span class="comment">// =&gt; 驗證正確，回傳 undefined</span></span><br></pre></td></tr></table></figure>
+<p><strong>6.format</strong><br>format 可以使用正規表達式驗證欄位是否符合，Validate.JS 沒有提供的格式（如：郵遞區號），就可以使用 format 做驗證</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> pattern = <span class="regexp">/\d&#123;5&#125;(-\d&#123;4&#125;)?/</span>;</span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">zipCode</span>: <span class="string">&quot;foobar&quot;</span>&#125;, &#123;<span class="attr">zipCode</span>: &#123;<span class="attr">format</span>: pattern&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;zipCode&quot;: [&quot;Zip code is invalid&quot;]&#125;;</span></span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">zipCode</span>: <span class="string">&quot;12345&quot;</span>&#125;, &#123;<span class="attr">zipCode</span>: &#123;<span class="attr">format</span>: pattern&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; 驗證正確，回傳 undefined</span></span><br></pre></td></tr></table></figure>
+<p>如果需要使用到 flags 需要再另外加上</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> constraints = &#123;</span><br><span class="line">  <span class="attr">username</span>: &#123;</span><br><span class="line">    <span class="attr">format</span>: &#123;</span><br><span class="line">      <span class="attr">pattern</span>: <span class="string">&quot;[a-z0-9]+&quot;</span>,</span><br><span class="line">      <span class="attr">flags</span>: <span class="string">&quot;i&quot;</span>,</span><br><span class="line">      <span class="attr">message</span>: <span class="string">&quot;can only contain a-z and 0-9&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">username</span>: <span class="string">&quot;Nicklas!&quot;</span>&#125;, constraints);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;username&quot;: [&quot;Username can only contain a-z and 0-9&quot;]&#125;</span></span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">username</span>: <span class="string">&quot;Nicklas&quot;</span>&#125;, constraints);</span><br><span class="line"><span class="comment">// =&gt; 驗證正確，回傳 undefined</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>7.length</strong></p>
+<p>length 可以用來判斷是否符合長度，is 代表等於，代表小於，代表大於，也可使用<br> tooShort、tooLong、notValid 和 wrongLength 修改預設錯誤訊息</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> constraints = &#123;</span><br><span class="line">  <span class="attr">key1</span>: &#123;<span class="attr">length</span>: &#123;<span class="attr">is</span>: <span class="number">3</span>&#125;&#125;, <span class="comment">// 長度等於 3</span></span><br><span class="line">  <span class="attr">key2</span>: &#123;<span class="attr">length</span>: &#123;<span class="attr">minimum</span>: <span class="number">20</span>&#125;&#125;, <span class="comment">// 長度小於 20</span></span><br><span class="line">  <span class="attr">key3</span>: &#123;<span class="attr">length</span>: &#123;<span class="attr">maximum</span>: <span class="number">3</span>&#125;&#125;, <span class="comment">// 長度大於 3</span></span><br><span class="line">  <span class="attr">key4</span>: &#123;</span><br><span class="line">    <span class="attr">length</span>: &#123;</span><br><span class="line">      <span class="attr">minimum</span>: <span class="number">3</span>, </span><br><span class="line">      <span class="attr">tooShort</span>: <span class="string">&quot;needs to have %&#123;count&#125; words or more&quot;</span>, </span><br><span class="line">      <span class="attr">tokenizer</span>: <span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> value.split(<span class="regexp">/\s+/g</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">validate(&#123;&#125;, constraints);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> values = &#123;</span><br><span class="line">  <span class="attr">key1</span>: <span class="string">&quot;wrong length&quot;</span>,</span><br><span class="line">  <span class="attr">key2</span>: <span class="string">&quot;too short&quot;</span>,</span><br><span class="line">  <span class="attr">key3</span>: <span class="string">&quot;too long&quot;</span>,</span><br><span class="line">  <span class="attr">key4</span>: <span class="string">&quot;too short&quot;</span></span><br><span class="line">&#125;;</span><br><span class="line">validate(values, constraints);</span><br><span class="line"><span class="comment">// =&gt; &#123;</span></span><br><span class="line"><span class="comment">//   &quot;key1&quot;: [&quot;Key1 is the wrong length (should be 3 characters)&quot;],</span></span><br><span class="line"><span class="comment">//   &quot;key2&quot;: [&quot;Key2 is too short (minimum is 20 characters)&quot;],</span></span><br><span class="line"><span class="comment">//   &quot;key3&quot;: [&quot;Key3 is too long (maximum is 3 characters)&quot;],</span></span><br><span class="line"><span class="comment">//   &quot;key4&quot;: [&quot;Key4 needs to have 3 words or more&quot;]</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>8.numericality</strong></p>
+<p>numericality可以判斷是否只填入數字，沒有填入其他型態的內容。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">validate(&#123;<span class="attr">duration</span>: <span class="string">&quot;foobar&quot;</span>&#125;, &#123;<span class="attr">duration</span>: &#123;<span class="attr">numericality</span>: <span class="literal">true</span>&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;duration&quot;: [&quot;Duration is not a number&quot;]&#125;</span></span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">duration</span>: <span class="string">&quot;3&quot;</span>&#125;, &#123;<span class="attr">duration</span>: &#123;<span class="attr">numericality</span>: <span class="literal">true</span>&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; 驗證正確，回傳 undefined</span></span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">duration</span>: <span class="string">&quot;03&quot;</span>&#125;, &#123;<span class="attr">duration</span>: &#123;<span class="attr">numericality</span>: <span class="literal">true</span>&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; 驗證正確，回傳 undefined</span></span><br></pre></td></tr></table></figure>
+<p>strict：數字不可以0作為開頭</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">validate(&#123;<span class="attr">duration</span>: <span class="string">&quot;03&quot;</span>&#125;, &#123;<span class="attr">duration</span>: &#123;<span class="attr">numericality</span>: &#123;<span class="attr">strict</span>: <span class="literal">true</span>&#125;&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;duration&quot;: [&quot;Duration must be a valid number&quot;]&#125;</span></span><br></pre></td></tr></table></figure>
+<p>noStrings：數字不可以0作為開頭</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">validate(&#123;<span class="attr">duration</span>: <span class="string">&quot;3&quot;</span>&#125;, &#123;<span class="attr">duration</span>: &#123;<span class="attr">numericality</span>: &#123;<span class="attr">noStrings</span>: <span class="literal">true</span>&#125;&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;duration&quot;: [&quot;Duration is not a number&quot;]&#125;</span></span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">duration</span>: <span class="number">3</span>&#125;, &#123;<span class="attr">duration</span>: &#123;<span class="attr">numericality</span>: &#123;<span class="attr">noStrings</span>: <span class="literal">true</span>&#125;&#125;&#125;)</span><br><span class="line"><span class="comment">// 驗證正確，回傳 undefined</span></span><br></pre></td></tr></table></figure>
+<p>noStrings：數字可以整除數字 n</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">validate(&#123;<span class="attr">duration</span>: <span class="string">&quot;7&quot;</span>&#125;, &#123;<span class="attr">duration</span>: &#123;<span class="attr">numericality</span>: &#123;<span class="attr">divisibleBy</span>: <span class="number">3</span>&#125;&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;duration&quot;: [&quot;Duration must be divisible by 3&quot;]&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>還有其他不同的設定：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> constraints = &#123;</span><br><span class="line">  <span class="attr">duration</span>: &#123;</span><br><span class="line">    <span class="attr">numericality</span>: &#123;</span><br><span class="line">      <span class="attr">onlyInteger</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">greaterThan</span>: <span class="number">0</span>, <span class="comment">// 大於 0</span></span><br><span class="line">      <span class="attr">lessThanOrEqualTo</span>: <span class="number">30</span>, <span class="comment">// 小於或等於 30</span></span><br><span class="line">      <span class="attr">even</span>: <span class="literal">true</span>, <span class="comment">//偶數</span></span><br><span class="line">      <span class="attr">notEven</span>: <span class="string">&quot;must be evenly divisible by two&quot;</span> <span class="comment">// 非偶數回傳的錯誤訊息</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">duration</span>: <span class="number">3.14</span>&#125;, constraints);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;duration&quot;: [&quot;Duration must be an integer&quot;]&#125;</span></span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">duration</span>: <span class="number">4711</span>&#125;, constraints);</span><br><span class="line"><span class="comment">// =&gt; &#123;</span></span><br><span class="line"><span class="comment">//   &quot;duration&quot;: [</span></span><br><span class="line"><span class="comment">//     &quot;Duration must be less than or equal to 30&quot;,</span></span><br><span class="line"><span class="comment">//     &quot;Duration must be evenly divisible by two&quot;</span></span><br><span class="line"><span class="comment">//   ]</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+<p><strong>9.url</strong></p>
+<p>url 可以判斷網址是否有效。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">validate(&#123;<span class="attr">website</span>: <span class="string">&quot;http://google.com&quot;</span>&#125;, &#123;<span class="attr">website</span>: &#123;<span class="attr">url</span>: <span class="literal">true</span>&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; undefined</span></span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">website</span>: <span class="string">&quot;google.com&quot;</span>&#125;, &#123;<span class="attr">website</span>: &#123;<span class="attr">url</span>: <span class="literal">true</span>&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;website&quot;: [&quot;Website is not a valid url&quot;]&#125;</span></span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">website</span>: <span class="string">&quot;ftp://google.com&quot;</span>&#125;, &#123;<span class="attr">website</span>: &#123;<span class="attr">url</span>: <span class="literal">true</span>&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;website&quot;: [&quot;Website is not a valid url&quot;]&#125;</span></span><br></pre></td></tr></table></figure>
+<p>schemes ：允許的 schemes，預設為 [“http”, “https”]。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">validate(&#123;<span class="attr">website</span>: <span class="string">&quot;ftp://google.com&quot;</span>&#125;, &#123;</span><br><span class="line">  <span class="attr">website</span>: &#123;</span><br><span class="line">    <span class="attr">url</span>: &#123;</span><br><span class="line">      <span class="attr">schemes</span>: [<span class="string">&quot;ftp&quot;</span>]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// =&gt; undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>allowLocal：允許 local 主機名稱，如：10.0.1.1 或 localhost。預設為 false</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">validate(&#123;<span class="attr">website</span>: <span class="string">&quot;http://localhost&quot;</span>&#125;, &#123;<span class="attr">website</span>: &#123;<span class="attr">url</span>: <span class="literal">true</span>&#125;&#125;);</span><br><span class="line"><span class="comment">// =&gt; &#123;&quot;website&quot;: [&quot;Website is not a valid url&quot;]&#125;</span></span><br><span class="line"></span><br><span class="line">validate(&#123;<span class="attr">website</span>: <span class="string">&quot;http://localhost&quot;</span>&#125;, &#123;</span><br><span class="line">  <span class="attr">website</span>: &#123;</span><br><span class="line">    <span class="attr">url</span>: &#123;</span><br><span class="line">      <span class="attr">allowLocal</span>: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// =&gt; undefined</span></span><br></pre></td></tr></table></figure>
+<h3 id="回傳結果給使用者"><a href="#回傳結果給使用者" class="headerlink" title="回傳結果給使用者"></a>回傳結果給使用者</h3><p>前面我們已經了解到如何使用 Validate.js 做驗證，但只在 console 面板顯示錯誤提示，無法真正提醒使用者。我們可以透過點擊送出按鈕後隱藏、顯示文字來提醒使用者，例如：</p>
+<p class="codepen" data-height="300" data-default-tab="js,result" data-slug-hash="yLzxMRy" data-user="0430shinyu" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/0430shinyu/pen/yLzxMRy">
+  validate.js  範例二</a> by 蔡蔡 Mavis (<a href="https://codepen.io/0430shinyu">@0430shinyu</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://validatejs.org/">Validate.JS 官網</a></p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SpringMVC 中透過 MultipartFile 實現上傳圖片以及瀏覽圖片</title>
     <url>/2022/05/06/springUploadImage/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><img src="https://i.imgur.com/MVsF1h9.png"></p>
@@ -955,6 +998,26 @@ table th:first-of-type {
       <tags>
         <tag>Java,</tag>
         <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue - 使用 v-cloak 隱藏未編譯的程式碼</title>
+    <url>/2022/01/30/vue3-vcloak/</url>
+    <content><![CDATA[<p>當我們使用 Vue 時，如果網路速度慢，Vue 未載入完成，還沒經 Vue 解析的內容就會渲染到頁面上。這時我們可以使用 v-cloak 隱藏未編譯的 <code>&#123;&#123;&#125;&#125;</code> 標籤。</p>
+<p>範例中我們使用 <code>setTimeout</code> 來模擬網速慢的情境。可以看到在編譯結束前並不會顯示第一個有加上 v-cloak 的 <code>div</code>。</p>
+<iframe height="300" style="width: 100%;" scrolling="no" title="vee-validate 範例" src="https://codepen.io/0430shinyu/embed/preview/oNojPXM?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/0430shinyu/pen/oNojPXM">
+  vee-validate 範例</a> by 蔡蔡 Mavis (<a href="https://codepen.io/0430shinyu">@0430shinyu</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://v3.cn.vuejs.org/api/directives.html#v-cloak">Vue3 官方文件</a></p>
+]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
       </tags>
   </entry>
 </search>
