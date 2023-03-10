@@ -594,10 +594,9 @@ table th:first-of-type {
     <title>[資管所][MIS申論題][103中山資管]何謂互補資產？企業IT/IS的引進為何需要互補資產？...</title>
     <url>/2023/03/04/misComplementaryAsset/</url>
     <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><img src="https://imgur.com/pAtCmTx.jpg"></p>
-<h2 id="回答"><a href="#回答" class="headerlink" title="回答"></a>回答</h2><p>一、何謂互補性資產（Complemantary Asset,CA）<br>（一）定義：能夠在各方面支援、強化「創新資產本身」，促使「創新資產成功」之資產。<br>（二）圖示：<br>    <img src="https://imgur.com/wnMYlwN.jpg" width="40%"></p>
-<p>二、為何企業引進 IT/IS 需要互補資產<br>    （一）前言：Leavitt 鑽石模型意涵<br>    1. 說明：組織由四個主要元素人、任務、組織結構、科技所構成，任一個元素的任何變革都會對其他元素產生直接的影響。<br>    2. 圖示<br>    <img src="https://imgur.com/GwSmJ6N.jpg" width="40%"><br>    （二）說明</p>
-<pre><code>學生以上述的鑽石模型做為說明構面，並以廣達電腦導入 ERP 系統成功為例
-</code></pre>
+<h2 id="答題"><a href="#答題" class="headerlink" title="答題"></a>答題</h2><p>一、何謂互補性資產（Complemantary Asset,CA）<br>（一）定義：能夠在各方面支援、強化「創新資產本身」，促使「創新資產成功」之資產。<br>（二）圖示：<br>    <img src="https://imgur.com/wnMYlwN.jpg" width="40%"></p>
+<p>二、為何企業引進 IT/IS 需要互補資產<br>（一）前言：Leavitt 鑽石模型意涵<br>    1. 說明：組織由四個主要元素人、任務、組織結構、科技所構成，任一個元素的任何變革都會對其他元素產生直接的影響。<br>    2. 圖示<br>    <img src="https://imgur.com/GwSmJ6N.jpg" width="40%"><br>（二）說明</p>
+<p>學生以上述的鑽石模型做為說明構面，並以廣達電腦導入 ERP 系統成功為例</p>
 <table>
 <thead>
 <tr>
@@ -1020,6 +1019,85 @@ table th:first-of-type {
       </categories>
       <tags>
         <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[資管所][MIS申論題]申論題練習題整理</title>
+    <url>/2023/03/10/misProposalCollect/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在準備資管研究所時，練習了一些資訊管理導論 MIS 的申論題，以下整理了過去練習過的題目，希望可以提供給需要的考生做參考。</p>
+<h3 id="台大"><a href="#台大" class="headerlink" title="台大"></a>台大</h3><h3 id="政大"><a href="#政大" class="headerlink" title="政大"></a>政大</h3><h3 id="中山"><a href="#中山" class="headerlink" title="中山"></a>中山</h3><p><em>103</em><br><a href="">5.互補資產</a></p>
+<h2 id="交大"><a href="#交大" class="headerlink" title="交大"></a>交大</h2><p><em>103</em><br><a href="">資訊系統比較</a></p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3>]]></content>
+      <categories>
+        <category>資管所：MIS 申論題</category>
+      </categories>
+      <tags>
+        <tag>MIS</tag>
+        <tag>資管所</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[資管所][MIS申論題][103交大資管]以 Simon IDC 模型做資訊系統的比較</title>
+    <url>/2023/03/10/misSimonIDC/</url>
+    <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p>採用資訊科技主要的目的之一為協助人們進行決策，以期得更好的結果。請針對 Simon(1960)所提出的 IDC 模式來討論資訊科技可以協助決策的過程，進而提升決策的成果。請比較並討論下列的資訊系統：DSS、GSS、EIS。(25%)</p>
+<h2 id="答題"><a href="#答題" class="headerlink" title="答題"></a>答題</h2><p>一、三者如何支援決策<br>（一）DSS 支援 IDC 模型<br>(1) I（Intelligence 情報）：無法支援<br>(2) D（Design 設計）：DSS 的「目標尋找分析模式」可支援分析如果要達到特定目標需投入多少輸入<br>(3) C（Choice 選擇）：<br>    a. DSS 的「敏感度分析模式」可比較自變數改變後，應變數的變化<br>    b. DSS 的「模式模擬分析」可進入大量模擬測驗，以預測在不同環境下系統所能產生的結果</p>
+<p>（二） GDSS 支援 IDC<br>(1) I（Intelligence 情報）：無法支援<br>(2) D（Design 設計）：GDSS 的「平行溝通」以及「匿名性」能增加更多設計階段的意見輸入，而「群體記憶」和「過程結構」可提升討論效率<br>(3) C（Choice 選擇）：上述特性也可促進方案的選擇</p>
+<p>（三）EIS 支援  IDC 模型<br>(1) I（Intelligence 情報）：透過趨勢圖發現問題點<br>(2) D（Design 設計）：無法支援，因高階主管的問題結構化程度低依賴直覺，對設計方法較無幫助<br>(3) C（Choice 選擇）：無法支援，原因同上</p>
+<p>二、比較三個系統</p>
+<p>（一）以組織階層比較 EIS、DSS</p>
+<table>
+<thead>
+<tr>
+<th>資訊系統</th>
+<th>DSS</th>
+<th>ESS</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>使用者</td>
+<td>中階管理者</td>
+<td>高階管理者</td>
+</tr>
+<tr>
+<td>決策問題</td>
+<td>半結構化</td>
+<td>非結構化</td>
+</tr>
+</tbody></table>
+<p>（二）以決策人數比較 DSS、GDSS</p>
+<table>
+<thead>
+<tr>
+<th>資訊系統</th>
+<th>DSS</th>
+<th>ESS</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>使用者</td>
+<td>個人</td>
+<td>群體</td>
+</tr>
+<tr>
+<td>決策問題</td>
+<td>半結構化</td>
+<td>非結構化</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="補充說明"><a href="#補充說明" class="headerlink" title="補充說明"></a>補充說明</h2><ol>
+<li><p>不建議使用以下寫法，因為 IDC 模型的決策者需要是同一個人<br>（一）I：可支援 DSS、EIS<br>（二）D：可支援 DSS、GSS<br>（三）C：可支援 DSS、GSS</p>
+</li>
+<li><p>不建議使用以下寫法，三者分類標準不同<br>（一）DSS vs EIS vs GSS</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>資管所：MIS 申論題</category>
+      </categories>
+      <tags>
+        <tag>MIS</tag>
+        <tag>資管所</tag>
       </tags>
   </entry>
 </search>
