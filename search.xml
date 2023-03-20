@@ -595,7 +595,9 @@ table th:first-of-type {
     <url>/2023/03/04/misComplementaryAsset/</url>
     <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><img src="https://imgur.com/pAtCmTx.jpg"></p>
 <h2 id="答題"><a href="#答題" class="headerlink" title="答題"></a>答題</h2><p>一、何謂互補性資產（Complemantary Asset,CA）<br>（一）定義：能夠在各方面支援、強化「創新資產本身」，促使「創新資產成功」之資產。<br>（二）圖示：<br>    <img src="https://imgur.com/wnMYlwN.jpg" width="40%"></p>
-<p>二、為何企業引進 IT/IS 需要互補資產<br>（一）前言：Leavitt 鑽石模型意涵<br>    1. 說明：組織由四個主要元素人、任務、組織結構、科技所構成，任一個元素的任何變革都會對其他元素產生直接的影響。<br>    2. 圖示<br>    <img src="https://imgur.com/GwSmJ6N.jpg" width="40%"><br>（二）說明</p>
+<p>二、為何企業引進 IT/IS 需要互補資產<br>（一）前言：Leavitt 鑽石模型意涵<br>    1. 說明：組織由四個主要元素人、任務、組織結構、科技所構成，任一個元素的任何變革都會對其他元素產生直接的影響。<br>    2. 圖示<br>    <img src="https://imgur.com/GwSmJ6N.jpg" width="40%"></p>
+<span id="more"></span> 
+<p>（二）說明</p>
 <p>學生以上述的鑽石模型做為說明構面，並以廣達電腦導入 ERP 系統成功為例</p>
 <table>
 <thead>
@@ -1026,6 +1028,7 @@ table th:first-of-type {
     <url>/2023/03/10/misProposalCollect/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在準備資管研究所時，練習了一些資訊管理導論 MIS 的申論題，以下整理了過去練習過的題目，希望可以提供給需要的考生做參考。</p>
 <h3 id="台大"><a href="#台大" class="headerlink" title="台大"></a>台大</h3><h3 id="政大"><a href="#政大" class="headerlink" title="政大"></a>政大</h3><h3 id="中山"><a href="#中山" class="headerlink" title="中山"></a>中山</h3><p><em>103</em><br><a href="">5.互補資產</a></p>
+<p><em>112</em><br><a href="">1.資訊系統成功模式</a></p>
 <h2 id="交大"><a href="#交大" class="headerlink" title="交大"></a>交大</h2><p><em>103</em><br><a href="">資訊系統比較</a></p>
 <h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3>]]></content>
       <categories>
@@ -1040,10 +1043,10 @@ table th:first-of-type {
     <title>[資管所][MIS申論題][103交大資管]以 Simon IDC 模型做資訊系統的比較</title>
     <url>/2023/03/10/misSimonIDC/</url>
     <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p>採用資訊科技主要的目的之一為協助人們進行決策，以期得更好的結果。請針對 Simon(1960)所提出的 IDC 模式來討論資訊科技可以協助決策的過程，進而提升決策的成果。請比較並討論下列的資訊系統：DSS、GSS、EIS。(25%)</p>
-<h2 id="答題"><a href="#答題" class="headerlink" title="答題"></a>答題</h2><p>一、三者如何支援決策<br>（一）DSS 支援 IDC 模型<br>(1) I（Intelligence 情報）：無法支援<br>(2) D（Design 設計）：DSS 的「目標尋找分析模式」可支援分析如果要達到特定目標需投入多少輸入<br>(3) C（Choice 選擇）：<br>    a. DSS 的「敏感度分析模式」可比較自變數改變後，應變數的變化<br>    b. DSS 的「模式模擬分析」可進入大量模擬測驗，以預測在不同環境下系統所能產生的結果</p>
+<h2 id="答題"><a href="#答題" class="headerlink" title="答題"></a>答題</h2><p><strong>一、三者如何支援決策</strong><br>（一）DSS 支援 IDC 模型<br>(1) I（Intelligence 情報）：無法支援<br>(2) D（Design 設計）：DSS 的「目標尋找分析模式」可支援分析如果要達到特定目標需投入多少輸入<br>(3) C（Choice 選擇）：<br>    a. DSS 的「敏感度分析模式」可比較自變數改變後，應變數的變化<br>    b. DSS 的「模式模擬分析」可進入大量模擬測驗，以預測在不同環境下系統所能產生的結果</p>
 <p>（二） GDSS 支援 IDC<br>(1) I（Intelligence 情報）：無法支援<br>(2) D（Design 設計）：GDSS 的「平行溝通」以及「匿名性」能增加更多設計階段的意見輸入，而「群體記憶」和「過程結構」可提升討論效率<br>(3) C（Choice 選擇）：上述特性也可促進方案的選擇</p>
 <p>（三）EIS 支援  IDC 模型<br>(1) I（Intelligence 情報）：透過趨勢圖發現問題點<br>(2) D（Design 設計）：無法支援，因高階主管的問題結構化程度低依賴直覺，對設計方法較無幫助<br>(3) C（Choice 選擇）：無法支援，原因同上</p>
-<p>二、比較三個系統</p>
+<p><strong>二、比較三個系統</strong></p>
 <p>（一）以組織階層比較 EIS、DSS</p>
 <table>
 <thead>
@@ -1091,6 +1094,283 @@ table th:first-of-type {
 <li><p>不建議使用以下寫法，三者分類標準不同<br>（一）DSS vs EIS vs GSS</p>
 </li>
 </ol>
+]]></content>
+      <categories>
+        <category>資管所：MIS 申論題</category>
+      </categories>
+      <tags>
+        <tag>MIS</tag>
+        <tag>資管所</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[資管所][MIS申論題][112中山資管] 人工智慧再組織的應用日益廣泛，請就以下問題回答...</title>
+    <url>/2023/03/12/misAI/</url>
+    <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><img src="https://imgur.com/x8jfPFR.jpg"></p>
+<span id="more"></span> 
+<h2 id="答題"><a href="#答題" class="headerlink" title="答題"></a>答題</h2><p><strong>一、何謂人工智慧</strong><br>（一）定義：一個能表現人類智商的電腦系統<br>（二）重要核心技術領域：</p>
+<ol>
+<li>電腦視覺（Computer Vision）：指用攝影機和電腦代替人眼對目標進行辨識、跟蹤和測量</li>
+<li>自然語言處理（NLP）：處理及解讀文字和資料，包含翻譯以及非結構化資料處理等</li>
+</ol>
+<p><strong>二、人工智慧如何支援企業</strong><br>學生以 Porter 的價值鏈作為說明的構面<br>（一）主要活動</p>
+<ol>
+<li>進料後勤：最佳化原料的組合，以調整進料量</li>
+<li>生產作業：透過智慧工廠讓組裝、測試、包裝自動化，減少人力支出</li>
+<li>出貨後勤：最佳化產品運送、訂單管理、成品倉儲，以降低成本</li>
+<li>行銷與銷售：透過分析社群媒體上的言論，了解顧客，並調整行銷策略，使顧客了解產品/服務特性並產生價值</li>
+<li>售後服務：以<br>提供加強買賣雙方關係的服務。Ex.產品安裝、維修、教學、零件更換</li>
+</ol>
+<p>（二）輔助活動</p>
+<ol>
+<li>採購：評估最佳更換辦公用具、機器設備的時間點</li>
+<li>人力資源管理：預測新進員工未來的表現/離職率等</li>
+</ol>
+<p>三、RPA 應用場景<br>（一）RPA（Robotic Process Automation，機器人流程自動化）</p>
+<ol>
+<li>定義：使用軟體機器人或程式碼片段來實現自動化</li>
+</ol>
+<p>（二）舉例說明</p>
+]]></content>
+      <categories>
+        <category>資管所：MIS 申論題</category>
+      </categories>
+      <tags>
+        <tag>MIS</tag>
+        <tag>資管所</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>misAICategory</title>
+    <url>/2023/03/12/misAICategory/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>[資管所][MIS申論題][112中山資管] 電子商務發展的趨勢之一為虛實整合、線上線下（O2O）的整合，進行形成所謂的全通路經營模式（Omni-Channel）...</title>
+    <url>/2023/03/12/misOmnichannel/</url>
+    <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><img src="https://imgur.com/lym8eOq.jpg"></p>
+<h2 id="答題"><a href="#答題" class="headerlink" title="答題"></a>答題</h2><p>一、何謂全通路經營模式<br>（一）定義：以消費者為核心，透過實體通路與虛擬通路的融合，讓會員在不同通路有一致的體驗</p>
+<p>（二）企業發展全通路原因<br>由短期利益到長期策略依序說明</p>
+<ol>
+<li>開拓線下業務：市場型態不同</li>
+<li>增加顧客體驗：通路差異</li>
+<li>收集顧客資料 ：全方面了解顧客(線上/線下)</li>
+<li>開創新興服務(BM)：例如 Amazon 無人商店技術「Just Walk Out」 授權給其他大型超市，打造無人商店服務</li>
+</ol>
+<p>二、舉例說明：以 Uniqlo 為例<br>（一）企業核心策略</p>
+<ol>
+<li>以消費者為中心：溝通、服務、生產、配送方式會隨著消費者的需要而不斷調整</li>
+<li>資訊完整串連：資訊是核心，串聯生產、製造等所有流程，同時串起線上跟線下銷售</li>
+</ol>
+<p>（二）實際說明</p>
+<ol>
+<li>線下連結線上：「掃碼購」能讓顧客只要用 App 掃描商品條碼，就可以自行查詢庫存、得到穿搭推薦</li>
+<li>線上連結線下：「U 先取」讓消費者能在線上下單，再到離自己最近的店舖取貨</li>
+<li>兩者整合：可在會員 APP 上查詢線上/線下消費記錄</li>
+</ol>
+]]></content>
+      <categories>
+        <category>資管所：MIS 申論題</category>
+      </categories>
+      <tags>
+        <tag>MIS</tag>
+        <tag>資管所</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[資管所][MIS申論題][112中山資管]資訊人員的重要職責之一為確保資訊系統的成功實施...</title>
+    <url>/2023/03/04/misISSuccessModel/</url>
+    <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><img src="https://imgur.com/VDCeXyI.jpg"></p>
+<h2 id="答題"><a href="#答題" class="headerlink" title="答題"></a>答題</h2><p>一、舉例資訊系統成模式<br>學生以<br><img src="https://imgur.com/MvZHK3r.jpg"></p>
+<p>上述六大面為因果關係，成功的資訊系統需要先有好的系統品質和資訊品質，<br>而資訊系統成效評估指標分別為：</p>
+<ol>
+<li>系統品質：系統效率、使用的便利性、使用者需求落實</li>
+<li>資訊品質：重要性、有用性、清楚性</li>
+<li>資訊使用率：重複使用次數、上線時閒、使用規律性</li>
+<li>使用者滿意度：軟體滿意度、決策滿意度</li>
+<li>對個人影響：資訊了解度、決策所需時間、個人意願</li>
+<li>對組織的影響：節省的人力、整體產能的提升、增加的市場佔有率</li>
+</ol>
+<p>二、資訊系統實施失敗的因素</p>
+<p>（一） <strong>資訊品質</strong><br>    - 設計：在初期設計時未能掌握使用者需求，造成介面不佳、設計複雜，無法與作業流程相互配合<br>    - 資料：系統存放的資料不正確，特定的系統功能因為缺少某塊資料，而無法正常運作<br>    - 即時性：資料即時性低，無法即時提拱有用的資訊<br>（二） <strong>系統品質</strong><br>    - 成本 ：忽略導入所需的成本，造成系統所帶來的價值，無法彌補支出費用<br>    - 作業 ：系統運行不佳，作業當機，造成工作流程上延誤</p>
+<p>三、影響使用者抗拒資訊系統的因素</p>
+<ol>
+<li>習慣：人們常依循著自己熟悉的方式處理舊事物</li>
+<li>經濟因素：將低原有收入水準、失去擁有的事物</li>
+<li>選擇資訊過程偏差：因個人認知不同，對資料篩選而形成偏差</li>
+<li>安全感：變革產生的不確定性，產生安全感巨大的威脅</li>
+<li>害怕面對不確定性：變革後的情況無法預期或掌控而恐懼</li>
+</ol>
+]]></content>
+      <categories>
+        <category>資管所：MIS 申論題</category>
+      </categories>
+      <tags>
+        <tag>MIS</tag>
+        <tag>資管所</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[資管所][MIS申論題][105台大資管] 請說明何謂「長尾理論」以及「網路外部性」，並舉例說明這兩種網路經濟法則如何改變經營模式</title>
+    <url>/2023/03/13/misBullwhipEffectNetworkExternality/</url>
+    <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><img src="https://imgur.com/e0qwJLW.jpg"></p>
+<span id="more"></span> 
+<h2 id="答題"><a href="#答題" class="headerlink" title="答題"></a>答題</h2><p>一、長尾理論</p>
+<ol>
+<li>定義：網路突破過去地理、配銷限制，使大量商品能被消費者搜尋得到，進而銷售出去</li>
+</ol>
+<p>二、網路外部性</p>
+<ol>
+<li>定義：對某物的需求取決於他人對相同物品的需求或購買人數而定。以平台為例，使用者人數會影響使用者需求</li>
+</ol>
+<p>三、兩者如何改變企業經營模式<br>    學生以影音串流平台 Netflix 為例說明</p>
+<ol>
+<li><p>長尾理論</p>
+<ol>
+<li>打破配銷限制：平台不受限於配銷空間、存貨成本等限制，可大量上架影音，加粗長尾</li>
+<li>打破資訊限制：使用者透過平台以及演算法提供個人化推薦讓使用者可以注意到冷門影集，加長長尾</li>
+<li>打破地理限制：平台可接觸到全世界的使用者，發展國際化事業，加粗長尾</li>
+</ol>
+</li>
+<li><p>網路外部性</p>
+<ol>
+<li>提升同邊網路外部性：Netflix 能夠激起使用者的討論，像是韓國的魷魚遊戲即造成社群轟動</li>
+<li>提升跨邊網路外部性：當越多使用者加入，投資者投資影集的意願及增加</li>
+</ol>
+</li>
+<li><p>商業模式的改變</p>
+<ol>
+<li>過去：郵寄檔案給消費者</li>
+<li>現在：採串流平台訂閱制，線上串流平台與線上訂用戶收取費用</li>
+</ol>
+</li>
+</ol>
+<hr>
+<p>其他在準備考試期間寫的 MIS 申論題整理：<br><a href="https://shinyu0430.github.io/2023/03/10/misProposalCollect/">[資管所][MIS申論題]申論題練習題整理</a></p>
+]]></content>
+      <categories>
+        <category>資管所：MIS 申論題</category>
+      </categories>
+      <tags>
+        <tag>MIS</tag>
+        <tag>資管所</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[資管所][MIS申論題][100成大資管] Name three main e-commerce business models and use Apple, Google, and Amazon to serve as an example to describe that category.</title>
+    <url>/2023/03/13/misThreeBusinessModel/</url>
+    <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><img src="https://imgur.com/EncUJTI.jpg"></p>
+<span id="more"></span> 
+<h2 id="答題"><a href="#答題" class="headerlink" title="答題"></a>答題</h2><p><strong>一、商業模式(Business Model,BM)</strong></p>
+<ol>
+<li>定義：為實現客戶價值最大化，把能使企業運行的內外要素整合在一起，形成完整具高效率與核心競爭力的系統。 </li>
+<li>說明：現今企業商業模式多樣化，原因如下:：<ol>
+<li>單一事業到企業多角化發展: 許多企業不再只注重單一事業滿過多角經營創造新的成長機會，延伸核心能力 </li>
+<li>管道企業→平台企業：平台生產與通路成本趨近於0，且能有效運用正向網路效應，快速增加使用者，企業運用平台經濟增加收益。 </li>
+<li>單通路→全通路: 為收集更多顧客资料，企業以消費者為中心執行線上線下的資源整合，打造一致的體驗，有效運用線上及線下優點，創造更大的收益。</li>
+</ol>
+</li>
+</ol>
+<p> <strong>二、三者 BM 改變</strong></p>
+<ol>
+<li><p>Apple: 原為傳統管道企業販售手機等 3C 產品，今日發展之重要 BM：</p>
+<ol>
+<li>市場創造者: 以 Apple store 平台連接內容供應商與消費者</li>
+<li>內容供應商: 提供 Apple Music、Apple TV 等內容訂閱服務</li>
+</ol>
+</li>
+<li><p>Google: 原為搜尋引擎，今日發展之重要 BM：</p>
+<ol>
+<li>廣告獲利模式：以 Adsense 提供關鍵字廣告，為最大獲利來源</li>
+<li>服務供應商： 提供 Google Drive 雲端存放空間、Gmail 信箱</li>
+<li>實體產品販售: 推出 Google pixel 手機</li>
+</ol>
+</li>
+<li><p>Amazon 原為書籍販售平台，今日發展之重要 BM：</p>
+<ol>
+<li>市場創造者：Amazon Market Place 提供第三方賣家販售商品的平台</li>
+<li>內容供應商：提供 Amazon Music 訂閱服務</li>
+<li>服務供應商：提供 AWS 雲端運算服務</li>
+<li>線下店面：由線上至線下，建立 Amazon Go、Amazon Books 等實體商店，發展全通路</li>
+</ol>
+</li>
+</ol>
+<p><strong>三、今日三個主要商業模式</strong><br>學生以前述三企業商業模式改變總結今日主要 BM</p>
+<ol>
+<li>市場創造者：透過平台連結買賣雙方，收入來源為從中收取費用</li>
+</ol>
+<ul>
+<li>執行重點：如何吸引雙方，提高顧客黏著度，例如：<ul>
+<li>Amazon 透過交叉補貼，讓使用者搜尋、比價階段皆不需要收費</li>
+<li>Apple Store 透過嚴格控制內容品質，提高使用者下載意願</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>內容供應商提供數位內容來取得收入</li>
+</ol>
+<ul>
+<li>執行重點：數位商品生產一單位邊際成本趨近於 0，大量販售以增加利潤，例如：<ul>
+<li>Apple Music 及 Amazon Music 皆提供家庭訂閱服務，以優惠的價格，吸引多個使用者同時訂閱，提高市場佔有率</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li>服務供應商：提供 web2.0 應用服務或資料儲存服務</li>
+</ol>
+<ul>
+<li>執行重點：如何提供穩定可靠的服務，例如：<ul>
+<li>AWS 以優勢的 IT 技術創造穩定的雲端服務，吸引從小型企業到大型企業的客戶</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>其他在準備考試期間寫的 MIS 申論題整理：<br><a href="https://shinyu0430.github.io/2023/03/10/misProposalCollect/">[資管所][MIS申論題]申論題練習題整理</a></p>
+]]></content>
+      <categories>
+        <category>資管所：MIS 申論題</category>
+      </categories>
+      <tags>
+        <tag>MIS</tag>
+        <tag>資管所</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[資管所][MIS申論題][107政大資管] Omnichannel retailing is a critical topic in recent years...</title>
+    <url>/2023/03/13/misAmazonOmnichannel/</url>
+    <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><img src="https://imgur.com/JMa9FIm.jpg"></p>
+<span id="more"></span> 
+<h2 id="答題"><a href="#答題" class="headerlink" title="答題"></a>答題</h2><p>一、何謂全通路<br>（一）定義：以消費者為核心，透過實體通路與虛擬通路的融合，讓會員在不同通路有一致的體驗<br>（二）舉例：以 Uniqlo 為例<br>    1. 線下連結線上：「掃碼購」能讓顧客只要用 App 掃描商品條碼，就可以自行查詢庫存、得到穿搭推薦<br>    2. 線上連結線下：「U 先取」讓消費者能在線上下單，再到離自己最近的店舖取貨<br>    3. 兩者整合：可在會員 APP 上查詢線上/線下消費記錄</p>
+<p>二、Amazon 推廣線下原因</p>
+<ol>
+<li>增加顧客體驗：活用網路的顧客關係<ul>
+<li>Amazon Go：成為探索美食的新空間，有了全新的消費體驗</li>
+</ul>
+</li>
+<li>突破電商平台的限制<ul>
+<li>Amazon Go：開設 Amazon Go 進軍生鮮產品</li>
+</ul>
+</li>
+<li>以熱賣商品促進消費<ul>
+<li>Amazon Books：只販賣熱門書籍，避免過多選擇讓人陷入抉擇困難的心理負擔</li>
+</ul>
+</li>
+<li>收集顧客資料：更準確評估消費者心理<ul>
+<li>Amazon Go：店內感測器收集顧客在商店裡的移動方式、拿起了哪些商品、實際購買了哪些商品，全盤掌握來店時間、停留時間</li>
+</ul>
+</li>
+<li>更加貼近顧客：滿足顧客需求<ul>
+<li>Amazon Fresh：實體店面加入 amazon 網購的配送網路，也可當作退貨的據點</li>
+</ul>
+</li>
+<li>創新的商業模式：<ul>
+<li>Amazon 無人商店技術「Just Walk Out」授權給其他大型超市，打造無人商店服務</li>
+</ul>
+</li>
+</ol>
+<p>三、結論<br>雖然線上通路具有許多優勢，但仍有許多無法替代線下通路的功能，企業若能有效整合兩者，即可創造競爭優勢</p>
+<hr>
+<p>其他在準備考試期間寫的 MIS 申論題整理：<br><a href="https://shinyu0430.github.io/2023/03/10/misProposalCollect/">[資管所][MIS申論題]申論題練習題整理</a></p>
 ]]></content>
       <categories>
         <category>資管所：MIS 申論題</category>
