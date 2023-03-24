@@ -138,36 +138,6 @@
       </categories>
   </entry>
   <entry>
-    <title>解決兩個寬度 50％ 的子元素無法在同行的問題</title>
-    <url>/2021/09/19/inlineblockwidth50/</url>
-    <content><![CDATA[<p>行內區塊(<code>inline-block</code>)可以讓我們可以以行內（<code>inline</code>）的方式呈現，但同時擁有（<code>block</code>）的屬性，不過，在設定寬度上我們可能會遇到一個奇怪的問題：</p>
-<span id="more"></span>
-<p>假設我們想要新增兩個在同行的 div 元素，並讓他們各佔一半，我們會這樣撰寫：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>CHILD<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>CHILD<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span> <span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#d8e2dc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>我們可能會預期畫面出現<br><img src="https://imgur.com/rUFostx.jpg"><br>卻發現結果兩個子元素沒有在同一行<br><img src="https://imgur.com/sfRoQzu.jpg"><br>而會有這樣的問題是因為<strong>換行符號</strong>。我們在第一個 <code>div</code> 標籤後方加上的換行符號，會相等於空白符號，這個空白符號的寬度加上兩個子元素的寬度就會超過 100%，導致兩個子元素無法放在同一行。</p>
-<p><strong>解決辦法有幾種：</strong></p>
-<ol>
-<li><p>刪除換行符號<br>最簡單的方式就是直接刪除換行符號，不過這會造成 HTML 結構的可讀性變差。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>CHILD<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span>CHILD<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li><p>將字體大小設為 0<br>知道是因為空白符號造成無法在同行後，我們可以聯想到只要將字體設為 0 ，這個空白就不會佔有空間了。</p>
-</li>
-</ol>
-<p>實作放事就是直接在父層加上 font-size:0 （記得子層如果有文字要記得設定字體大小喔）。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">0</span>; <span class="comment">/* 隱藏空白符號 */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span> <span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">16px</span>;  <span class="comment">/* 設定子元素字體大小 */</span></span><br><span class="line">  <span class="attribute">width</span>:<span class="number">50%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>除了這些也可以使用負的 margin、letter-spacing、word-spacing 調整，但個人覺得沒有那麼實用，以上就是行內區塊無法同行的解決辦法說明囉。</p>
-<p><strong>參考資料</strong><br><a href="https://www.zhangxinxu.com/wordpress/2010/11/%E6%8B%9C%E6%8B%9C%E4%BA%86%E6%B5%AE%E5%8A%A8%E5%B8%83%E5%B1%80-%E5%9F%BA%E4%BA%8Edisplayinline-block%E7%9A%84%E5%88%97%E8%A1%A8%E5%B8%83%E5%B1%80/">拜拜了,浮动布局-基于display:inline-block的列表布局</a></p>
-]]></content>
-      <categories>
-        <category>HTML、CSS</category>
-      </categories>
-      <tags>
-        <tag>CSS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JavaScript 學習常用字：大陸/台灣對照表</title>
     <url>/2021/09/07/jswordcompare/</url>
     <content><![CDATA[<p>以下整理了幾個在學習 JavaScript 中常見的詞語。</p>
@@ -591,6 +561,127 @@ table th:first-of-type {
       </tags>
   </entry>
   <entry>
+    <title>[資管所][MIS申論題][107政大資管] Omnichannel retailing is a critical topic in recent years...</title>
+    <url>/2023/03/13/misAmazonOmnichannel/</url>
+    <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><img src="https://imgur.com/JMa9FIm.jpg"></p>
+<span id="more"></span> 
+<h2 id="答題"><a href="#答題" class="headerlink" title="答題"></a>答題</h2><p>一、何謂全通路<br>（一）定義：以消費者為核心，透過實體通路與虛擬通路的融合，讓會員在不同通路有一致的體驗<br>（二）舉例：以 Uniqlo 為例<br>    1. 線下連結線上：「掃碼購」能讓顧客只要用 App 掃描商品條碼，就可以自行查詢庫存、得到穿搭推薦<br>    2. 線上連結線下：「U 先取」讓消費者能在線上下單，再到離自己最近的店舖取貨<br>    3. 兩者整合：可在會員 APP 上查詢線上/線下消費記錄</p>
+<p>二、Amazon 推廣線下原因</p>
+<ol>
+<li>增加顧客體驗：活用網路的顧客關係<ul>
+<li>Amazon Go：成為探索美食的新空間，有了全新的消費體驗</li>
+</ul>
+</li>
+<li>突破電商平台的限制<ul>
+<li>Amazon Go：開設 Amazon Go 進軍生鮮產品</li>
+</ul>
+</li>
+<li>以熱賣商品促進消費<ul>
+<li>Amazon Books：只販賣熱門書籍，避免過多選擇讓人陷入抉擇困難的心理負擔</li>
+</ul>
+</li>
+<li>收集顧客資料：更準確評估消費者心理<ul>
+<li>Amazon Go：店內感測器收集顧客在商店裡的移動方式、拿起了哪些商品、實際購買了哪些商品，全盤掌握來店時間、停留時間</li>
+</ul>
+</li>
+<li>更加貼近顧客：滿足顧客需求<ul>
+<li>Amazon Fresh：實體店面加入 amazon 網購的配送網路，也可當作退貨的據點</li>
+</ul>
+</li>
+<li>創新的商業模式：<ul>
+<li>Amazon 無人商店技術「Just Walk Out」授權給其他大型超市，打造無人商店服務</li>
+</ul>
+</li>
+</ol>
+<p>三、結論<br>雖然線上通路具有許多優勢，但仍有許多無法替代線下通路的功能，企業若能有效整合兩者，即可創造競爭優勢</p>
+<hr>
+<p>其他在準備考試期間寫的 MIS 申論題整理：<br><a href="https://shinyu0430.github.io/2023/03/10/misProposalCollect/">[資管所][MIS申論題]申論題練習題整理</a></p>
+]]></content>
+      <categories>
+        <category>資管所：MIS 申論題</category>
+      </categories>
+      <tags>
+        <tag>MIS</tag>
+        <tag>資管所</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[資管所][MIS申論題][105台大資管] 請說明何謂「長尾理論」以及「網路外部性」，並舉例說明這兩種網路經濟法則如何改變經營模式</title>
+    <url>/2023/03/13/misBullwhipEffectNetworkExternality/</url>
+    <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><img src="https://imgur.com/e0qwJLW.jpg"></p>
+<span id="more"></span> 
+<h2 id="答題"><a href="#答題" class="headerlink" title="答題"></a>答題</h2><p>一、長尾理論</p>
+<ol>
+<li>定義：網路突破過去地理、配銷限制，使大量商品能被消費者搜尋得到，進而銷售出去</li>
+</ol>
+<p>二、網路外部性</p>
+<ol>
+<li>定義：對某物的需求取決於他人對相同物品的需求或購買人數而定。以平台為例，使用者人數會影響使用者需求</li>
+</ol>
+<p>三、兩者如何改變企業經營模式<br>    學生以影音串流平台 Netflix 為例說明</p>
+<ol>
+<li><p>長尾理論</p>
+<ol>
+<li>打破配銷限制：平台不受限於配銷空間、存貨成本等限制，可大量上架影音，加粗長尾</li>
+<li>打破資訊限制：使用者透過平台以及演算法提供個人化推薦讓使用者可以注意到冷門影集，加長長尾</li>
+<li>打破地理限制：平台可接觸到全世界的使用者，發展國際化事業，加粗長尾</li>
+</ol>
+</li>
+<li><p>網路外部性</p>
+<ol>
+<li>提升同邊網路外部性：Netflix 能夠激起使用者的討論，像是韓國的魷魚遊戲即造成社群轟動</li>
+<li>提升跨邊網路外部性：當越多使用者加入，投資者投資影集的意願及增加</li>
+</ol>
+</li>
+<li><p>商業模式的改變</p>
+<ol>
+<li>過去：郵寄檔案給消費者</li>
+<li>現在：採串流平台訂閱制，線上串流平台與線上訂用戶收取費用</li>
+</ol>
+</li>
+</ol>
+<hr>
+<p>其他在準備考試期間寫的 MIS 申論題整理：<br><a href="https://shinyu0430.github.io/2023/03/10/misProposalCollect/">[資管所][MIS申論題]申論題練習題整理</a></p>
+]]></content>
+      <categories>
+        <category>資管所：MIS 申論題</category>
+      </categories>
+      <tags>
+        <tag>MIS</tag>
+        <tag>資管所</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解決兩個寬度 50％ 的子元素無法在同行的問題</title>
+    <url>/2021/09/19/inlineblockwidth50/</url>
+    <content><![CDATA[<p>行內區塊(<code>inline-block</code>)可以讓我們可以以行內（<code>inline</code>）的方式呈現，但同時擁有（<code>block</code>）的屬性，不過，在設定寬度上我們可能會遇到一個奇怪的問題：</p>
+<span id="more"></span>
+<p>假設我們想要新增兩個在同行的 div 元素，並讓他們各佔一半，我們會這樣撰寫：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>CHILD<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>CHILD<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span> <span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#d8e2dc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我們可能會預期畫面出現<br><img src="https://imgur.com/rUFostx.jpg"><br>卻發現結果兩個子元素沒有在同一行<br><img src="https://imgur.com/sfRoQzu.jpg"><br>而會有這樣的問題是因為<strong>換行符號</strong>。我們在第一個 <code>div</code> 標籤後方加上的換行符號，會相等於空白符號，這個空白符號的寬度加上兩個子元素的寬度就會超過 100%，導致兩個子元素無法放在同一行。</p>
+<p><strong>解決辦法有幾種：</strong></p>
+<ol>
+<li><p>刪除換行符號<br>最簡單的方式就是直接刪除換行符號，不過這會造成 HTML 結構的可讀性變差。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>CHILD<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span>CHILD<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>將字體大小設為 0<br>知道是因為空白符號造成無法在同行後，我們可以聯想到只要將字體設為 0 ，這個空白就不會佔有空間了。</p>
+</li>
+</ol>
+<p>實作放事就是直接在父層加上 font-size:0 （記得子層如果有文字要記得設定字體大小喔）。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">0</span>; <span class="comment">/* 隱藏空白符號 */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span> <span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">16px</span>;  <span class="comment">/* 設定子元素字體大小 */</span></span><br><span class="line">  <span class="attribute">width</span>:<span class="number">50%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>除了這些也可以使用負的 margin、letter-spacing、word-spacing 調整，但個人覺得沒有那麼實用，以上就是行內區塊無法同行的解決辦法說明囉。</p>
+<p><strong>參考資料</strong><br><a href="https://www.zhangxinxu.com/wordpress/2010/11/%E6%8B%9C%E6%8B%9C%E4%BA%86%E6%B5%AE%E5%8A%A8%E5%B8%83%E5%B1%80-%E5%9F%BA%E4%BA%8Edisplayinline-block%E7%9A%84%E5%88%97%E8%A1%A8%E5%B8%83%E5%B1%80/">拜拜了,浮动布局-基于display:inline-block的列表布局</a></p>
+]]></content>
+      <categories>
+        <category>HTML、CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[資管所][MIS申論題][103中山資管]何謂互補資產？企業IT/IS的引進為何需要互補資產？...</title>
     <url>/2023/03/04/misComplementaryAsset/</url>
     <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><img src="https://imgur.com/pAtCmTx.jpg"></p>
@@ -647,6 +738,234 @@ table th:first-of-type {
 </tr>
 </tbody></table>
 <p>學生認為三者在缺一不可，需相互支援。</p>
+]]></content>
+      <categories>
+        <category>資管所：MIS 申論題</category>
+      </categories>
+      <tags>
+        <tag>MIS</tag>
+        <tag>資管所</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[資管所][MIS申論題][112中山資管]資訊人員的重要職責之一為確保資訊系統的成功實施...</title>
+    <url>/2023/03/04/misISSuccessModel/</url>
+    <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><img src="https://imgur.com/VDCeXyI.jpg"></p>
+<h2 id="答題"><a href="#答題" class="headerlink" title="答題"></a>答題</h2><p>一、舉例資訊系統成模式<br>學生以<br><img src="https://imgur.com/MvZHK3r.jpg"></p>
+<p>上述六大面為因果關係，成功的資訊系統需要先有好的系統品質和資訊品質，<br>而資訊系統成效評估指標分別為：</p>
+<ol>
+<li>系統品質：系統效率、使用的便利性、使用者需求落實</li>
+<li>資訊品質：重要性、有用性、清楚性</li>
+<li>資訊使用率：重複使用次數、上線時閒、使用規律性</li>
+<li>使用者滿意度：軟體滿意度、決策滿意度</li>
+<li>對個人影響：資訊了解度、決策所需時間、個人意願</li>
+<li>對組織的影響：節省的人力、整體產能的提升、增加的市場佔有率</li>
+</ol>
+<p>二、資訊系統實施失敗的因素</p>
+<p>（一） <strong>資訊品質</strong><br>    - 設計：在初期設計時未能掌握使用者需求，造成介面不佳、設計複雜，無法與作業流程相互配合<br>    - 資料：系統存放的資料不正確，特定的系統功能因為缺少某塊資料，而無法正常運作<br>    - 即時性：資料即時性低，無法即時提拱有用的資訊<br>（二） <strong>系統品質</strong><br>    - 成本 ：忽略導入所需的成本，造成系統所帶來的價值，無法彌補支出費用<br>    - 作業 ：系統運行不佳，作業當機，造成工作流程上延誤</p>
+<p>三、影響使用者抗拒資訊系統的因素</p>
+<ol>
+<li>習慣：人們常依循著自己熟悉的方式處理舊事物</li>
+<li>經濟因素：將低原有收入水準、失去擁有的事物</li>
+<li>選擇資訊過程偏差：因個人認知不同，對資料篩選而形成偏差</li>
+<li>安全感：變革產生的不確定性，產生安全感巨大的威脅</li>
+<li>害怕面對不確定性：變革後的情況無法預期或掌控而恐懼</li>
+</ol>
+]]></content>
+      <categories>
+        <category>資管所：MIS 申論題</category>
+      </categories>
+      <tags>
+        <tag>MIS</tag>
+        <tag>資管所</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[資管所][MIS申論題][112中山資管] 電子商務發展的趨勢之一為虛實整合、線上線下（O2O）的整合，進行形成所謂的全通路經營模式（Omni-Channel）...</title>
+    <url>/2023/03/12/misOmnichannel/</url>
+    <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><img src="https://imgur.com/lym8eOq.jpg"></p>
+<h2 id="答題"><a href="#答題" class="headerlink" title="答題"></a>答題</h2><p>一、何謂全通路經營模式<br>（一）定義：以消費者為核心，透過實體通路與虛擬通路的融合，讓會員在不同通路有一致的體驗</p>
+<p>（二）企業發展全通路原因<br>由短期利益到長期策略依序說明</p>
+<ol>
+<li>開拓線下業務：市場型態不同</li>
+<li>增加顧客體驗：通路差異</li>
+<li>收集顧客資料 ：全方面了解顧客(線上/線下)</li>
+<li>開創新興服務(BM)：例如 Amazon 無人商店技術「Just Walk Out」 授權給其他大型超市，打造無人商店服務</li>
+</ol>
+<p>二、舉例說明：以 Uniqlo 為例<br>（一）企業核心策略</p>
+<ol>
+<li>以消費者為中心：溝通、服務、生產、配送方式會隨著消費者的需要而不斷調整</li>
+<li>資訊完整串連：資訊是核心，串聯生產、製造等所有流程，同時串起線上跟線下銷售</li>
+</ol>
+<p>（二）實際說明</p>
+<ol>
+<li>線下連結線上：「掃碼購」能讓顧客只要用 App 掃描商品條碼，就可以自行查詢庫存、得到穿搭推薦</li>
+<li>線上連結線下：「U 先取」讓消費者能在線上下單，再到離自己最近的店舖取貨</li>
+<li>兩者整合：可在會員 APP 上查詢線上/線下消費記錄</li>
+</ol>
+]]></content>
+      <categories>
+        <category>資管所：MIS 申論題</category>
+      </categories>
+      <tags>
+        <tag>MIS</tag>
+        <tag>資管所</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[資管所][MIS申論題]申論題練習題整理</title>
+    <url>/2023/03/10/misProposalCollect/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在準備資管研究所時，練習了一些資訊管理導論 MIS 的申論題，以下整理了過去練習過的題目，希望可以提供給需要的考生做參考。緩慢整理中……</p>
+<span id="more"></span> 
+<h3 id="台大"><a href="#台大" class="headerlink" title="台大"></a>台大</h3><p><em>105</em><br><a href="https://shinyu0430.github.io/2023/03/13/misBullwhipEffectNetworkExternality/">2.長尾理論/網路外部性</a></p>
+<h3 id="政大"><a href="#政大" class="headerlink" title="政大"></a>政大</h3><p><em>107</em><br><a href="https://shinyu0430.github.io/2023/03/13/misAmazonOmnichannel/">2.全通路</a></p>
+<h3 id="中山"><a href="#中山" class="headerlink" title="中山"></a>中山</h3><p><em>112</em><br><a href="https://shinyu0430.github.io/2023/03/04/misISSuccessModel/">1.資訊系統成功模式</a><br><em>103</em><br><a href="https://shinyu0430.github.io/2023/03/04/misComplementaryAsset/">5.互補資產</a></p>
+<p><em>112</em><br><a href="">1.資訊系統成功模式</a></p>
+<h2 id="交大"><a href="#交大" class="headerlink" title="交大"></a>交大</h2><p><em>103</em><br><a href="https://shinyu0430.github.io/2023/03/10/misSimonIDC/">資訊系統比較</a></p>
+<h2 id="成大"><a href="#成大" class="headerlink" title="成大"></a>成大</h2><p>_100<br><a href="https://shinyu0430.github.io/2023/03/13/misThreeBusinessModel/">電商平台商業模式</a></p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3>]]></content>
+      <categories>
+        <category>資管所：MIS 申論題</category>
+      </categories>
+      <tags>
+        <tag>MIS</tag>
+        <tag>資管所</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[資管所][MIS申論題][103交大資管]以 Simon IDC 模型做資訊系統的比較</title>
+    <url>/2023/03/10/misSimonIDC/</url>
+    <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p>採用資訊科技主要的目的之一為協助人們進行決策，以期得更好的結果。請針對 Simon(1960)所提出的 IDC 模式來討論資訊科技可以協助決策的過程，進而提升決策的成果。請比較並討論下列的資訊系統：DSS、GSS、EIS。(25%)</p>
+<h2 id="答題"><a href="#答題" class="headerlink" title="答題"></a>答題</h2><p><strong>一、三者如何支援決策</strong><br>（一）DSS 支援 IDC 模型<br>(1) I（Intelligence 情報）：無法支援<br>(2) D（Design 設計）：DSS 的「目標尋找分析模式」可支援分析如果要達到特定目標需投入多少輸入<br>(3) C（Choice 選擇）：<br>    a. DSS 的「敏感度分析模式」可比較自變數改變後，應變數的變化<br>    b. DSS 的「模式模擬分析」可進入大量模擬測驗，以預測在不同環境下系統所能產生的結果</p>
+<p>（二） GDSS 支援 IDC<br>(1) I（Intelligence 情報）：無法支援<br>(2) D（Design 設計）：GDSS 的「平行溝通」以及「匿名性」能增加更多設計階段的意見輸入，而「群體記憶」和「過程結構」可提升討論效率<br>(3) C（Choice 選擇）：上述特性也可促進方案的選擇</p>
+<p>（三）EIS 支援  IDC 模型<br>(1) I（Intelligence 情報）：透過趨勢圖發現問題點<br>(2) D（Design 設計）：無法支援，因高階主管的問題結構化程度低依賴直覺，對設計方法較無幫助<br>(3) C（Choice 選擇）：無法支援，原因同上</p>
+<p><strong>二、比較三個系統</strong></p>
+<p>（一）以組織階層比較 EIS、DSS</p>
+<table>
+<thead>
+<tr>
+<th>資訊系統</th>
+<th>DSS</th>
+<th>ESS</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>使用者</td>
+<td>中階管理者</td>
+<td>高階管理者</td>
+</tr>
+<tr>
+<td>決策問題</td>
+<td>半結構化</td>
+<td>非結構化</td>
+</tr>
+</tbody></table>
+<p>（二）以決策人數比較 DSS、GDSS</p>
+<table>
+<thead>
+<tr>
+<th>資訊系統</th>
+<th>DSS</th>
+<th>ESS</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>使用者</td>
+<td>個人</td>
+<td>群體</td>
+</tr>
+<tr>
+<td>決策問題</td>
+<td>半結構化</td>
+<td>非結構化</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="補充說明"><a href="#補充說明" class="headerlink" title="補充說明"></a>補充說明</h2><ol>
+<li><p>不建議使用以下寫法，因為 IDC 模型的決策者需要是同一個人<br>（一）I：可支援 DSS、EIS<br>（二）D：可支援 DSS、GSS<br>（三）C：可支援 DSS、GSS</p>
+</li>
+<li><p>不建議使用以下寫法，三者分類標準不同<br>（一）DSS vs EIS vs GSS</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>資管所：MIS 申論題</category>
+      </categories>
+      <tags>
+        <tag>MIS</tag>
+        <tag>資管所</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[資管所][MIS申論題][100成大資管] Name three main e-commerce business models and use Apple, Google, and Amazon to serve as an example to describe that category.</title>
+    <url>/2023/03/13/misThreeBusinessModel/</url>
+    <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><img src="https://imgur.com/EncUJTI.jpg"></p>
+<span id="more"></span> 
+<h2 id="答題"><a href="#答題" class="headerlink" title="答題"></a>答題</h2><p><strong>一、商業模式(Business Model,BM)</strong></p>
+<ol>
+<li>定義：為實現客戶價值最大化，把能使企業運行的內外要素整合在一起，形成完整具高效率與核心競爭力的系統。 </li>
+<li>說明：現今企業商業模式多樣化，原因如下:：<ol>
+<li>單一事業到企業多角化發展: 許多企業不再只注重單一事業滿過多角經營創造新的成長機會，延伸核心能力 </li>
+<li>管道企業→平台企業：平台生產與通路成本趨近於0，且能有效運用正向網路效應，快速增加使用者，企業運用平台經濟增加收益。 </li>
+<li>單通路→全通路: 為收集更多顧客资料，企業以消費者為中心執行線上線下的資源整合，打造一致的體驗，有效運用線上及線下優點，創造更大的收益。</li>
+</ol>
+</li>
+</ol>
+<p> <strong>二、三者 BM 改變</strong></p>
+<ol>
+<li><p>Apple: 原為傳統管道企業販售手機等 3C 產品，今日發展之重要 BM：</p>
+<ol>
+<li>市場創造者: 以 Apple store 平台連接內容供應商與消費者</li>
+<li>內容供應商: 提供 Apple Music、Apple TV 等內容訂閱服務</li>
+</ol>
+</li>
+<li><p>Google: 原為搜尋引擎，今日發展之重要 BM：</p>
+<ol>
+<li>廣告獲利模式：以 Adsense 提供關鍵字廣告，為最大獲利來源</li>
+<li>服務供應商： 提供 Google Drive 雲端存放空間、Gmail 信箱</li>
+<li>實體產品販售: 推出 Google pixel 手機</li>
+</ol>
+</li>
+<li><p>Amazon 原為書籍販售平台，今日發展之重要 BM：</p>
+<ol>
+<li>市場創造者：Amazon Market Place 提供第三方賣家販售商品的平台</li>
+<li>內容供應商：提供 Amazon Music 訂閱服務</li>
+<li>服務供應商：提供 AWS 雲端運算服務</li>
+<li>線下店面：由線上至線下，建立 Amazon Go、Amazon Books 等實體商店，發展全通路</li>
+</ol>
+</li>
+</ol>
+<p><strong>三、今日三個主要商業模式</strong><br>學生以前述三企業商業模式改變總結今日主要 BM</p>
+<ol>
+<li>市場創造者：透過平台連結買賣雙方，收入來源為從中收取費用</li>
+</ol>
+<ul>
+<li>執行重點：如何吸引雙方，提高顧客黏著度，例如：<ul>
+<li>Amazon 透過交叉補貼，讓使用者搜尋、比價階段皆不需要收費</li>
+<li>Apple Store 透過嚴格控制內容品質，提高使用者下載意願</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>內容供應商提供數位內容來取得收入</li>
+</ol>
+<ul>
+<li>執行重點：數位商品生產一單位邊際成本趨近於 0，大量販售以增加利潤，例如：<ul>
+<li>Apple Music 及 Amazon Music 皆提供家庭訂閱服務，以優惠的價格，吸引多個使用者同時訂閱，提高市場佔有率</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li>服務供應商：提供 web2.0 應用服務或資料儲存服務</li>
+</ol>
+<ul>
+<li>執行重點：如何提供穩定可靠的服務，例如：<ul>
+<li>AWS 以優勢的 IT 技術創造穩定的雲端服務，吸引從小型企業到大型企業的客戶</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>其他在準備考試期間寫的 MIS 申論題整理：<br><a href="https://shinyu0430.github.io/2023/03/10/misProposalCollect/">[資管所][MIS申論題]申論題練習題整理</a></p>
 ]]></content>
       <categories>
         <category>資管所：MIS 申論題</category>
@@ -846,6 +1165,54 @@ table th:first-of-type {
       </tags>
   </entry>
   <entry>
+    <title>SpringMVC 中透過 MultipartFile 實現上傳圖片以及瀏覽圖片</title>
+    <url>/2022/05/06/springUploadImage/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><img src="https://i.imgur.com/MVsF1h9.png"></p>
+<h2 id="配置資源"><a href="#配置資源" class="headerlink" title="配置資源"></a>配置資源</h2><p>由於 Spring 的 CommonsMultipartResolver 依賴Apache Commons FileUpload 函式庫，Apache Commons FileUpload 依賴於Apache Commons IO，所以在開始實作前我們必須先將這兩個函式庫匯入專案中。</p>
+<p>檢查 web&gt;lib 是否有以下兩個資源:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">commons-fileupload-1.2.2.jar</span><br><span class="line">commons-io-2.1.jar</span><br></pre></td></tr></table></figure>
+
+<p>接著，由於SpringMVC 使用 MultipartFile 來進行檔案上傳，所以我們要在 spring-servlet.xml 配置 MultipartResolve:</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;multipartResolver&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 單位bytes--&gt;</span> </span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxUploadSize&quot;</span> <span class="attr">value</span>=<span class="string">&quot;20971520&quot;</span> /&gt;</span> <span class="comment">&lt;!-- 20MB --&gt;</span><span class="comment">&lt;!-- 全部檔案最大上上傳大小, -1代表不限制 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxUploadSizePerFile&quot;</span> <span class="attr">value</span>=<span class="string">&quot;5242880&quot;</span>/&gt;</span> <span class="comment">&lt;!-- 5MB --&gt;</span><span class="comment">&lt;!-- 每個檔案最大上傳大小, -1代表不限制 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxInMemorySize&quot;</span> <span class="attr">value</span>=<span class="string">&quot;1048576&quot;</span> /&gt;</span> <span class="comment">&lt;!-- 1MB --&gt;</span><span class="comment">&lt;!-- 檔案上傳最大的暫存記憶體大小,預設為10240 bytes(1KB) --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;defaultEncoding&quot;</span> <span class="attr">value</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><em>若沒有配置會出現以下錯誤:<br>java.lang.IllegalStateException: Unable to process parts as no multi-part configuration has been provided</em></p>
+<h2 id="程式碼實作-上傳圖片"><a href="#程式碼實作-上傳圖片" class="headerlink" title="程式碼實作 - 上傳圖片"></a>程式碼實作 - 上傳圖片</h2><h3 id="建立資料表"><a href="#建立資料表" class="headerlink" title="建立資料表"></a>建立資料表</h3><p>在 SQL Server 中建立存放圖片的資料表（其他資料庫的語法可能不太一樣要注意一下）</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Image(</span><br><span class="line">	[id] [<span class="type">nchar</span>](<span class="number">32</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">PRIMARY</span> KEY,</span><br><span class="line">	[data] [<span class="type">varbinary</span>](max) <span class="keyword">NOT</span> <span class="keyword">NULL</span></span><br><span class="line">) </span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/GrgI8g2.png"></p>
+<h3 id="上傳圖片-前端"><a href="#上傳圖片-前端" class="headerlink" title="上傳圖片:前端"></a>上傳圖片:前端</h3><p>前端畫面的 form 表單記得需要加上 multipart/form-data，它是屬於 Content-Type 的其中之一，可以避免對字元編碼（Encoding），直接傳送二進位資料到後端。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">&quot;form&quot;</span> <span class="attr">enctype</span>=<span class="string">&quot;multipart/form-data&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">&quot;file&quot;</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">id</span>=<span class="string">&quot;image-input&quot;</span> <span class="attr">accept</span>=<span class="string">&quot;image/jpeg, image/png, image/jpg&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">id</span>=<span class="string">&quot;form-btn&quot;</span>&gt;</span></span><br><span class="line">        上傳圖片</span><br><span class="line">    <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>這裡我們使用 jQuery AJAX 去向後端發送我們上傳的圖片</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;#form-btn&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">let</span> formData = <span class="keyword">new</span> FormData($(<span class="string">&quot;#form&quot;</span>)[<span class="number">0</span>]);</span><br><span class="line">	formData.append(<span class="string">&quot;file&quot;</span>,$(<span class="string">&quot;#form&quot;</span>)[<span class="number">0</span>])</span><br><span class="line">	$.ajax(&#123;</span><br><span class="line">		<span class="attr">type</span> : <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">		<span class="attr">url</span> : <span class="string">&#x27;uploadImage&#x27;</span>,</span><br><span class="line">		<span class="attr">processData</span>:<span class="literal">false</span>,</span><br><span class="line">		<span class="attr">contentType</span> : <span class="literal">false</span>,</span><br><span class="line">		<span class="attr">data</span> :formData,</span><br><span class="line">		<span class="attr">success</span>:<span class="function"><span class="keyword">function</span>(<span class="params">rs</span>)</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(rs)</span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="attr">error</span> : <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(e)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="上傳圖片-後端"><a href="#上傳圖片-後端" class="headerlink" title="上傳圖片:後端"></a>上傳圖片:後端</h3><p>後端使用 MultipartFile 來接收檔案，它包含二進位資料和檔案名稱，接收到檔案後再透過 getInputStream() 轉換成 inputStream。</p>
+<p>這裡我們使用 BufferedInputStream 創建了一個輸入流。這是因為 InputStream 是一個抽像類，我們不能直接創建InputStream的物件。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(value=&quot;/uploadImage&quot;,method=RequestMethod.POST)</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">multipartResolver</span><span class="params">(<span class="meta">@RequestParam(value=&quot;file&quot;)</span> MultipartFile file)</span> </span>&#123;</span><br><span class="line">		InputStream stream = <span class="keyword">new</span> BufferedInputStream(file.getInputStream());</span><br><span class="line">		String result = util.uploadImage(stream);</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 Dao 中將剛剛取得到的 inputStream 輸入我們的資料表中。這裡我使用 UUID 建立 id，如果有別的需求也可以自行修改。成功新增後，後端會回傳新增的圖片id，而我們可以在前面的 AJAX success 中接收到它。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.util.UUID;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.jdbc.core.JdbcTemplate;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UtilDao</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	JdbcTemplate jdbcTemplate;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">uploadImage</span><span class="params">(InputStream stream)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			String sql = <span class="string">&quot;insert into Image(id,data) OUTPUT INSERTED.ID values(?,?)&quot;</span>;</span><br><span class="line">			String id = getUUID();</span><br><span class="line">			<span class="keyword">return</span> jdbcTemplate.queryForObject(sql, <span class="keyword">new</span> Object[] &#123; id, stream &#125;, String.class);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			System.out.println(e);</span><br><span class="line">			<span class="keyword">return</span> <span class="string">&quot;0&quot;</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getUUID</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		String uuid = UUID.randomUUID().toString().replaceAll(<span class="string">&quot;-&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> uuid;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="程式碼實作-瀏覽圖片"><a href="#程式碼實作-瀏覽圖片" class="headerlink" title="程式碼實作 - 瀏覽圖片"></a>程式碼實作 - 瀏覽圖片</h2><h3 id="瀏覽圖片-前端"><a href="#瀏覽圖片-前端" class="headerlink" title="瀏覽圖片:前端"></a>瀏覽圖片:前端</h3><p>前面我們已經成功將圖片存進資料庫，接著就要來嘗試顯示出我們加入的圖片。在前端我們可以透過 GET 加上 URL 中的 id 參數來顯示對應的圖片:<code>http://localhost:8080/專案名稱/getImage?id=???</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;img src=&quot;/getImage?id=baa2d08bd84340faa1b2&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="瀏覽圖片-後端"><a href="#瀏覽圖片-後端" class="headerlink" title="瀏覽圖片:後端"></a>瀏覽圖片:後端</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(value=&quot;/getImage&quot;,method=RequestMethod.GET)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getDBImage</span><span class="params">(<span class="meta">@RequestParam(value=&quot;id&quot;)</span> String id,HttpServletRequest  request,HttpServletResponse response)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">byte</span>[] data = util.getImage(id);</span><br><span class="line">        response.setContentType(<span class="string">&quot;image/png&quot;</span>); <span class="comment">// 設定為回傳一個 png 檔案</span></span><br><span class="line">        ByteArrayInputStream bis = <span class="keyword">new</span> ByteArrayInputStream(data);</span><br><span class="line">        BufferedImage bImage = ImageIO.read(bis); <span class="comment">//  //讀取影象到影象緩衝區</span></span><br><span class="line">        ServletOutputStream out = response.getOutputStream(); <span class="comment">// 取得 ServletOutputStream 實例</span></span><br><span class="line">        ImageIO.write(bImage, <span class="string">&quot;png&quot;</span>, out);</span><br><span class="line">        out.close();</span><br><span class="line">    &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">        <span class="comment">// 錯誤處理</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">byte</span>[] getImage(String id) &#123;</span><br><span class="line">        String sql = <span class="string">&quot;select data from Image where id =?&quot;</span>;</span><br><span class="line">        <span class="keyword">byte</span>[] data = jdbcTemplate.queryForObject(sql, <span class="keyword">new</span> Object[] &#123; id &#125;, <span class="keyword">byte</span>[].class);</span><br><span class="line">        <span class="keyword">return</span> data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p>Spring MVC 上傳檔案 java.lang.IllegalStateException: Unable to process parts as no multi-part configuration has been provided<br><a href="https://matthung0807.blogspot.com/2018/03/spring-mvc-javalangillegalstateexceptio.html">https://matthung0807.blogspot.com/2018/03/spring-mvc-javalangillegalstateexceptio.html</a></p>
+<p>HTML:Form表單標籤的Enctype屬性的作用及應用示例介紹<br><a href="https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/544448/">https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/544448/</a></p>
+<p>Upload and Download Files with JDBC to SQL Servers<br><a href="https://www.codeproject.com/Articles/872109/Upload-and-Download-Files-with-JDBC-to-SQL-Servers">https://www.codeproject.com/Articles/872109/Upload-and-Download-Files-with-JDBC-to-SQL-Servers</a></p>
+<p>使用CommonsMultipartFile获取ajax上传的文件<br><a href="https://blog.csdn.net/qq_34377830/article/details/88045561">https://blog.csdn.net/qq_34377830/article/details/88045561</a></p>
+<p>使用ajax，Jquery，Spring Boot，MultipartFile實現檔案上傳功能<br><a href="https://www.796t.com/content/1547351102.html">https://www.796t.com/content/1547351102.html</a></p>
+<p>JavaWeb(實現文件上傳)（一）<br><a href="https://www.796t.com/content/1513886170.html">https://www.796t.com/content/1513886170.html</a></p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java,</tag>
+        <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用 Validate.JS 簡易完成表單驗證功能</title>
     <url>/2022/01/09/validatejs/</url>
     <content><![CDATA[<p><img src="https://i.imgur.com/ziX6OaG.png"></p>
@@ -956,54 +1323,6 @@ table th:first-of-type {
       </tags>
   </entry>
   <entry>
-    <title>SpringMVC 中透過 MultipartFile 實現上傳圖片以及瀏覽圖片</title>
-    <url>/2022/05/06/springUploadImage/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><img src="https://i.imgur.com/MVsF1h9.png"></p>
-<h2 id="配置資源"><a href="#配置資源" class="headerlink" title="配置資源"></a>配置資源</h2><p>由於 Spring 的 CommonsMultipartResolver 依賴Apache Commons FileUpload 函式庫，Apache Commons FileUpload 依賴於Apache Commons IO，所以在開始實作前我們必須先將這兩個函式庫匯入專案中。</p>
-<p>檢查 web&gt;lib 是否有以下兩個資源:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">commons-fileupload-1.2.2.jar</span><br><span class="line">commons-io-2.1.jar</span><br></pre></td></tr></table></figure>
-
-<p>接著，由於SpringMVC 使用 MultipartFile 來進行檔案上傳，所以我們要在 spring-servlet.xml 配置 MultipartResolve:</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;multipartResolver&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 單位bytes--&gt;</span> </span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxUploadSize&quot;</span> <span class="attr">value</span>=<span class="string">&quot;20971520&quot;</span> /&gt;</span> <span class="comment">&lt;!-- 20MB --&gt;</span><span class="comment">&lt;!-- 全部檔案最大上上傳大小, -1代表不限制 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxUploadSizePerFile&quot;</span> <span class="attr">value</span>=<span class="string">&quot;5242880&quot;</span>/&gt;</span> <span class="comment">&lt;!-- 5MB --&gt;</span><span class="comment">&lt;!-- 每個檔案最大上傳大小, -1代表不限制 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxInMemorySize&quot;</span> <span class="attr">value</span>=<span class="string">&quot;1048576&quot;</span> /&gt;</span> <span class="comment">&lt;!-- 1MB --&gt;</span><span class="comment">&lt;!-- 檔案上傳最大的暫存記憶體大小,預設為10240 bytes(1KB) --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;defaultEncoding&quot;</span> <span class="attr">value</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><em>若沒有配置會出現以下錯誤:<br>java.lang.IllegalStateException: Unable to process parts as no multi-part configuration has been provided</em></p>
-<h2 id="程式碼實作-上傳圖片"><a href="#程式碼實作-上傳圖片" class="headerlink" title="程式碼實作 - 上傳圖片"></a>程式碼實作 - 上傳圖片</h2><h3 id="建立資料表"><a href="#建立資料表" class="headerlink" title="建立資料表"></a>建立資料表</h3><p>在 SQL Server 中建立存放圖片的資料表（其他資料庫的語法可能不太一樣要注意一下）</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Image(</span><br><span class="line">	[id] [<span class="type">nchar</span>](<span class="number">32</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">PRIMARY</span> KEY,</span><br><span class="line">	[data] [<span class="type">varbinary</span>](max) <span class="keyword">NOT</span> <span class="keyword">NULL</span></span><br><span class="line">) </span><br></pre></td></tr></table></figure>
-<p><img src="https://i.imgur.com/GrgI8g2.png"></p>
-<h3 id="上傳圖片-前端"><a href="#上傳圖片-前端" class="headerlink" title="上傳圖片:前端"></a>上傳圖片:前端</h3><p>前端畫面的 form 表單記得需要加上 multipart/form-data，它是屬於 Content-Type 的其中之一，可以避免對字元編碼（Encoding），直接傳送二進位資料到後端。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">&quot;form&quot;</span> <span class="attr">enctype</span>=<span class="string">&quot;multipart/form-data&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">&quot;file&quot;</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">id</span>=<span class="string">&quot;image-input&quot;</span> <span class="attr">accept</span>=<span class="string">&quot;image/jpeg, image/png, image/jpg&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">id</span>=<span class="string">&quot;form-btn&quot;</span>&gt;</span></span><br><span class="line">        上傳圖片</span><br><span class="line">    <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>這裡我們使用 jQuery AJAX 去向後端發送我們上傳的圖片</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;#form-btn&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">let</span> formData = <span class="keyword">new</span> FormData($(<span class="string">&quot;#form&quot;</span>)[<span class="number">0</span>]);</span><br><span class="line">	formData.append(<span class="string">&quot;file&quot;</span>,$(<span class="string">&quot;#form&quot;</span>)[<span class="number">0</span>])</span><br><span class="line">	$.ajax(&#123;</span><br><span class="line">		<span class="attr">type</span> : <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">		<span class="attr">url</span> : <span class="string">&#x27;uploadImage&#x27;</span>,</span><br><span class="line">		<span class="attr">processData</span>:<span class="literal">false</span>,</span><br><span class="line">		<span class="attr">contentType</span> : <span class="literal">false</span>,</span><br><span class="line">		<span class="attr">data</span> :formData,</span><br><span class="line">		<span class="attr">success</span>:<span class="function"><span class="keyword">function</span>(<span class="params">rs</span>)</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(rs)</span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="attr">error</span> : <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(e)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="上傳圖片-後端"><a href="#上傳圖片-後端" class="headerlink" title="上傳圖片:後端"></a>上傳圖片:後端</h3><p>後端使用 MultipartFile 來接收檔案，它包含二進位資料和檔案名稱，接收到檔案後再透過 getInputStream() 轉換成 inputStream。</p>
-<p>這裡我們使用 BufferedInputStream 創建了一個輸入流。這是因為 InputStream 是一個抽像類，我們不能直接創建InputStream的物件。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(value=&quot;/uploadImage&quot;,method=RequestMethod.POST)</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">multipartResolver</span><span class="params">(<span class="meta">@RequestParam(value=&quot;file&quot;)</span> MultipartFile file)</span> </span>&#123;</span><br><span class="line">		InputStream stream = <span class="keyword">new</span> BufferedInputStream(file.getInputStream());</span><br><span class="line">		String result = util.uploadImage(stream);</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在 Dao 中將剛剛取得到的 inputStream 輸入我們的資料表中。這裡我使用 UUID 建立 id，如果有別的需求也可以自行修改。成功新增後，後端會回傳新增的圖片id，而我們可以在前面的 AJAX success 中接收到它。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.util.UUID;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.jdbc.core.JdbcTemplate;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UtilDao</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	JdbcTemplate jdbcTemplate;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">uploadImage</span><span class="params">(InputStream stream)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			String sql = <span class="string">&quot;insert into Image(id,data) OUTPUT INSERTED.ID values(?,?)&quot;</span>;</span><br><span class="line">			String id = getUUID();</span><br><span class="line">			<span class="keyword">return</span> jdbcTemplate.queryForObject(sql, <span class="keyword">new</span> Object[] &#123; id, stream &#125;, String.class);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			System.out.println(e);</span><br><span class="line">			<span class="keyword">return</span> <span class="string">&quot;0&quot;</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getUUID</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		String uuid = UUID.randomUUID().toString().replaceAll(<span class="string">&quot;-&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> uuid;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="程式碼實作-瀏覽圖片"><a href="#程式碼實作-瀏覽圖片" class="headerlink" title="程式碼實作 - 瀏覽圖片"></a>程式碼實作 - 瀏覽圖片</h2><h3 id="瀏覽圖片-前端"><a href="#瀏覽圖片-前端" class="headerlink" title="瀏覽圖片:前端"></a>瀏覽圖片:前端</h3><p>前面我們已經成功將圖片存進資料庫，接著就要來嘗試顯示出我們加入的圖片。在前端我們可以透過 GET 加上 URL 中的 id 參數來顯示對應的圖片:<code>http://localhost:8080/專案名稱/getImage?id=???</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;img src=&quot;/getImage?id=baa2d08bd84340faa1b2&quot;&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="瀏覽圖片-後端"><a href="#瀏覽圖片-後端" class="headerlink" title="瀏覽圖片:後端"></a>瀏覽圖片:後端</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(value=&quot;/getImage&quot;,method=RequestMethod.GET)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getDBImage</span><span class="params">(<span class="meta">@RequestParam(value=&quot;id&quot;)</span> String id,HttpServletRequest  request,HttpServletResponse response)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">byte</span>[] data = util.getImage(id);</span><br><span class="line">        response.setContentType(<span class="string">&quot;image/png&quot;</span>); <span class="comment">// 設定為回傳一個 png 檔案</span></span><br><span class="line">        ByteArrayInputStream bis = <span class="keyword">new</span> ByteArrayInputStream(data);</span><br><span class="line">        BufferedImage bImage = ImageIO.read(bis); <span class="comment">//  //讀取影象到影象緩衝區</span></span><br><span class="line">        ServletOutputStream out = response.getOutputStream(); <span class="comment">// 取得 ServletOutputStream 實例</span></span><br><span class="line">        ImageIO.write(bImage, <span class="string">&quot;png&quot;</span>, out);</span><br><span class="line">        out.close();</span><br><span class="line">    &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">        <span class="comment">// 錯誤處理</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">byte</span>[] getImage(String id) &#123;</span><br><span class="line">        String sql = <span class="string">&quot;select data from Image where id =?&quot;</span>;</span><br><span class="line">        <span class="keyword">byte</span>[] data = jdbcTemplate.queryForObject(sql, <span class="keyword">new</span> Object[] &#123; id &#125;, <span class="keyword">byte</span>[].class);</span><br><span class="line">        <span class="keyword">return</span> data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p>Spring MVC 上傳檔案 java.lang.IllegalStateException: Unable to process parts as no multi-part configuration has been provided<br><a href="https://matthung0807.blogspot.com/2018/03/spring-mvc-javalangillegalstateexceptio.html">https://matthung0807.blogspot.com/2018/03/spring-mvc-javalangillegalstateexceptio.html</a></p>
-<p>HTML:Form表單標籤的Enctype屬性的作用及應用示例介紹<br><a href="https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/544448/">https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/544448/</a></p>
-<p>Upload and Download Files with JDBC to SQL Servers<br><a href="https://www.codeproject.com/Articles/872109/Upload-and-Download-Files-with-JDBC-to-SQL-Servers">https://www.codeproject.com/Articles/872109/Upload-and-Download-Files-with-JDBC-to-SQL-Servers</a></p>
-<p>使用CommonsMultipartFile获取ajax上传的文件<br><a href="https://blog.csdn.net/qq_34377830/article/details/88045561">https://blog.csdn.net/qq_34377830/article/details/88045561</a></p>
-<p>使用ajax，Jquery，Spring Boot，MultipartFile實現檔案上傳功能<br><a href="https://www.796t.com/content/1547351102.html">https://www.796t.com/content/1547351102.html</a></p>
-<p>JavaWeb(實現文件上傳)（一）<br><a href="https://www.796t.com/content/1513886170.html">https://www.796t.com/content/1513886170.html</a></p>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java,</tag>
-        <tag>Spring</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Vue - 使用 v-cloak 隱藏未編譯的程式碼</title>
     <url>/2022/01/30/vue3-vcloak/</url>
     <content><![CDATA[<p>當我們使用 Vue 時，如果網路速度慢，Vue 未載入完成，還沒經 Vue 解析的內容就會渲染到頁面上。這時我們可以使用 v-cloak 隱藏未編譯的 <code>&#123;&#123;&#125;&#125;</code> 標籤。</p>
@@ -1024,325 +1343,6 @@ table th:first-of-type {
       </tags>
   </entry>
   <entry>
-    <title>[資管所][MIS申論題]申論題練習題整理</title>
-    <url>/2023/03/10/misProposalCollect/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在準備資管研究所時，練習了一些資訊管理導論 MIS 的申論題，以下整理了過去練習過的題目，希望可以提供給需要的考生做參考。緩慢整理中……</p>
-<span id="more"></span> 
-<h3 id="台大"><a href="#台大" class="headerlink" title="台大"></a>台大</h3><p><em>105</em><br><a href="https://shinyu0430.github.io/2023/03/13/misBullwhipEffectNetworkExternality/">2.長尾理論/網路外部性</a></p>
-<h3 id="政大"><a href="#政大" class="headerlink" title="政大"></a>政大</h3><p><em>107</em><br><a href="https://shinyu0430.github.io/2023/03/13/misAmazonOmnichannel/">2.全通路</a></p>
-<h3 id="中山"><a href="#中山" class="headerlink" title="中山"></a>中山</h3><p><em>112</em><br><a href="https://shinyu0430.github.io/2023/03/04/misISSuccessModel/">1.資訊系統成功模式</a><br><em>103</em><br><a href="https://shinyu0430.github.io/2023/03/04/misComplementaryAsset/">5.互補資產</a></p>
-<p><em>112</em><br><a href="">1.資訊系統成功模式</a></p>
-<h2 id="交大"><a href="#交大" class="headerlink" title="交大"></a>交大</h2><p><em>103</em><br><a href="https://shinyu0430.github.io/2023/03/10/misSimonIDC/">資訊系統比較</a></p>
-<h2 id="成大"><a href="#成大" class="headerlink" title="成大"></a>成大</h2><p>_100<br><a href="https://shinyu0430.github.io/2023/03/13/misThreeBusinessModel/">電商平台商業模式</a></p>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3>]]></content>
-      <categories>
-        <category>資管所：MIS 申論題</category>
-      </categories>
-      <tags>
-        <tag>MIS</tag>
-        <tag>資管所</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[資管所][MIS申論題][103交大資管]以 Simon IDC 模型做資訊系統的比較</title>
-    <url>/2023/03/10/misSimonIDC/</url>
-    <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p>採用資訊科技主要的目的之一為協助人們進行決策，以期得更好的結果。請針對 Simon(1960)所提出的 IDC 模式來討論資訊科技可以協助決策的過程，進而提升決策的成果。請比較並討論下列的資訊系統：DSS、GSS、EIS。(25%)</p>
-<h2 id="答題"><a href="#答題" class="headerlink" title="答題"></a>答題</h2><p><strong>一、三者如何支援決策</strong><br>（一）DSS 支援 IDC 模型<br>(1) I（Intelligence 情報）：無法支援<br>(2) D（Design 設計）：DSS 的「目標尋找分析模式」可支援分析如果要達到特定目標需投入多少輸入<br>(3) C（Choice 選擇）：<br>    a. DSS 的「敏感度分析模式」可比較自變數改變後，應變數的變化<br>    b. DSS 的「模式模擬分析」可進入大量模擬測驗，以預測在不同環境下系統所能產生的結果</p>
-<p>（二） GDSS 支援 IDC<br>(1) I（Intelligence 情報）：無法支援<br>(2) D（Design 設計）：GDSS 的「平行溝通」以及「匿名性」能增加更多設計階段的意見輸入，而「群體記憶」和「過程結構」可提升討論效率<br>(3) C（Choice 選擇）：上述特性也可促進方案的選擇</p>
-<p>（三）EIS 支援  IDC 模型<br>(1) I（Intelligence 情報）：透過趨勢圖發現問題點<br>(2) D（Design 設計）：無法支援，因高階主管的問題結構化程度低依賴直覺，對設計方法較無幫助<br>(3) C（Choice 選擇）：無法支援，原因同上</p>
-<p><strong>二、比較三個系統</strong></p>
-<p>（一）以組織階層比較 EIS、DSS</p>
-<table>
-<thead>
-<tr>
-<th>資訊系統</th>
-<th>DSS</th>
-<th>ESS</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>使用者</td>
-<td>中階管理者</td>
-<td>高階管理者</td>
-</tr>
-<tr>
-<td>決策問題</td>
-<td>半結構化</td>
-<td>非結構化</td>
-</tr>
-</tbody></table>
-<p>（二）以決策人數比較 DSS、GDSS</p>
-<table>
-<thead>
-<tr>
-<th>資訊系統</th>
-<th>DSS</th>
-<th>ESS</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>使用者</td>
-<td>個人</td>
-<td>群體</td>
-</tr>
-<tr>
-<td>決策問題</td>
-<td>半結構化</td>
-<td>非結構化</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="補充說明"><a href="#補充說明" class="headerlink" title="補充說明"></a>補充說明</h2><ol>
-<li><p>不建議使用以下寫法，因為 IDC 模型的決策者需要是同一個人<br>（一）I：可支援 DSS、EIS<br>（二）D：可支援 DSS、GSS<br>（三）C：可支援 DSS、GSS</p>
-</li>
-<li><p>不建議使用以下寫法，三者分類標準不同<br>（一）DSS vs EIS vs GSS</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>資管所：MIS 申論題</category>
-      </categories>
-      <tags>
-        <tag>MIS</tag>
-        <tag>資管所</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[資管所][MIS申論題][112中山資管] 電子商務發展的趨勢之一為虛實整合、線上線下（O2O）的整合，進行形成所謂的全通路經營模式（Omni-Channel）...</title>
-    <url>/2023/03/12/misOmnichannel/</url>
-    <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><img src="https://imgur.com/lym8eOq.jpg"></p>
-<h2 id="答題"><a href="#答題" class="headerlink" title="答題"></a>答題</h2><p>一、何謂全通路經營模式<br>（一）定義：以消費者為核心，透過實體通路與虛擬通路的融合，讓會員在不同通路有一致的體驗</p>
-<p>（二）企業發展全通路原因<br>由短期利益到長期策略依序說明</p>
-<ol>
-<li>開拓線下業務：市場型態不同</li>
-<li>增加顧客體驗：通路差異</li>
-<li>收集顧客資料 ：全方面了解顧客(線上/線下)</li>
-<li>開創新興服務(BM)：例如 Amazon 無人商店技術「Just Walk Out」 授權給其他大型超市，打造無人商店服務</li>
-</ol>
-<p>二、舉例說明：以 Uniqlo 為例<br>（一）企業核心策略</p>
-<ol>
-<li>以消費者為中心：溝通、服務、生產、配送方式會隨著消費者的需要而不斷調整</li>
-<li>資訊完整串連：資訊是核心，串聯生產、製造等所有流程，同時串起線上跟線下銷售</li>
-</ol>
-<p>（二）實際說明</p>
-<ol>
-<li>線下連結線上：「掃碼購」能讓顧客只要用 App 掃描商品條碼，就可以自行查詢庫存、得到穿搭推薦</li>
-<li>線上連結線下：「U 先取」讓消費者能在線上下單，再到離自己最近的店舖取貨</li>
-<li>兩者整合：可在會員 APP 上查詢線上/線下消費記錄</li>
-</ol>
-]]></content>
-      <categories>
-        <category>資管所：MIS 申論題</category>
-      </categories>
-      <tags>
-        <tag>MIS</tag>
-        <tag>資管所</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[資管所][MIS申論題][112中山資管]資訊人員的重要職責之一為確保資訊系統的成功實施...</title>
-    <url>/2023/03/04/misISSuccessModel/</url>
-    <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><img src="https://imgur.com/VDCeXyI.jpg"></p>
-<h2 id="答題"><a href="#答題" class="headerlink" title="答題"></a>答題</h2><p>一、舉例資訊系統成模式<br>學生以<br><img src="https://imgur.com/MvZHK3r.jpg"></p>
-<p>上述六大面為因果關係，成功的資訊系統需要先有好的系統品質和資訊品質，<br>而資訊系統成效評估指標分別為：</p>
-<ol>
-<li>系統品質：系統效率、使用的便利性、使用者需求落實</li>
-<li>資訊品質：重要性、有用性、清楚性</li>
-<li>資訊使用率：重複使用次數、上線時閒、使用規律性</li>
-<li>使用者滿意度：軟體滿意度、決策滿意度</li>
-<li>對個人影響：資訊了解度、決策所需時間、個人意願</li>
-<li>對組織的影響：節省的人力、整體產能的提升、增加的市場佔有率</li>
-</ol>
-<p>二、資訊系統實施失敗的因素</p>
-<p>（一） <strong>資訊品質</strong><br>    - 設計：在初期設計時未能掌握使用者需求，造成介面不佳、設計複雜，無法與作業流程相互配合<br>    - 資料：系統存放的資料不正確，特定的系統功能因為缺少某塊資料，而無法正常運作<br>    - 即時性：資料即時性低，無法即時提拱有用的資訊<br>（二） <strong>系統品質</strong><br>    - 成本 ：忽略導入所需的成本，造成系統所帶來的價值，無法彌補支出費用<br>    - 作業 ：系統運行不佳，作業當機，造成工作流程上延誤</p>
-<p>三、影響使用者抗拒資訊系統的因素</p>
-<ol>
-<li>習慣：人們常依循著自己熟悉的方式處理舊事物</li>
-<li>經濟因素：將低原有收入水準、失去擁有的事物</li>
-<li>選擇資訊過程偏差：因個人認知不同，對資料篩選而形成偏差</li>
-<li>安全感：變革產生的不確定性，產生安全感巨大的威脅</li>
-<li>害怕面對不確定性：變革後的情況無法預期或掌控而恐懼</li>
-</ol>
-]]></content>
-      <categories>
-        <category>資管所：MIS 申論題</category>
-      </categories>
-      <tags>
-        <tag>MIS</tag>
-        <tag>資管所</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[資管所][MIS申論題][105台大資管] 請說明何謂「長尾理論」以及「網路外部性」，並舉例說明這兩種網路經濟法則如何改變經營模式</title>
-    <url>/2023/03/13/misBullwhipEffectNetworkExternality/</url>
-    <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><img src="https://imgur.com/e0qwJLW.jpg"></p>
-<span id="more"></span> 
-<h2 id="答題"><a href="#答題" class="headerlink" title="答題"></a>答題</h2><p>一、長尾理論</p>
-<ol>
-<li>定義：網路突破過去地理、配銷限制，使大量商品能被消費者搜尋得到，進而銷售出去</li>
-</ol>
-<p>二、網路外部性</p>
-<ol>
-<li>定義：對某物的需求取決於他人對相同物品的需求或購買人數而定。以平台為例，使用者人數會影響使用者需求</li>
-</ol>
-<p>三、兩者如何改變企業經營模式<br>    學生以影音串流平台 Netflix 為例說明</p>
-<ol>
-<li><p>長尾理論</p>
-<ol>
-<li>打破配銷限制：平台不受限於配銷空間、存貨成本等限制，可大量上架影音，加粗長尾</li>
-<li>打破資訊限制：使用者透過平台以及演算法提供個人化推薦讓使用者可以注意到冷門影集，加長長尾</li>
-<li>打破地理限制：平台可接觸到全世界的使用者，發展國際化事業，加粗長尾</li>
-</ol>
-</li>
-<li><p>網路外部性</p>
-<ol>
-<li>提升同邊網路外部性：Netflix 能夠激起使用者的討論，像是韓國的魷魚遊戲即造成社群轟動</li>
-<li>提升跨邊網路外部性：當越多使用者加入，投資者投資影集的意願及增加</li>
-</ol>
-</li>
-<li><p>商業模式的改變</p>
-<ol>
-<li>過去：郵寄檔案給消費者</li>
-<li>現在：採串流平台訂閱制，線上串流平台與線上訂用戶收取費用</li>
-</ol>
-</li>
-</ol>
-<hr>
-<p>其他在準備考試期間寫的 MIS 申論題整理：<br><a href="https://shinyu0430.github.io/2023/03/10/misProposalCollect/">[資管所][MIS申論題]申論題練習題整理</a></p>
-]]></content>
-      <categories>
-        <category>資管所：MIS 申論題</category>
-      </categories>
-      <tags>
-        <tag>MIS</tag>
-        <tag>資管所</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[資管所][MIS申論題][100成大資管] Name three main e-commerce business models and use Apple, Google, and Amazon to serve as an example to describe that category.</title>
-    <url>/2023/03/13/misThreeBusinessModel/</url>
-    <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><img src="https://imgur.com/EncUJTI.jpg"></p>
-<span id="more"></span> 
-<h2 id="答題"><a href="#答題" class="headerlink" title="答題"></a>答題</h2><p><strong>一、商業模式(Business Model,BM)</strong></p>
-<ol>
-<li>定義：為實現客戶價值最大化，把能使企業運行的內外要素整合在一起，形成完整具高效率與核心競爭力的系統。 </li>
-<li>說明：現今企業商業模式多樣化，原因如下:：<ol>
-<li>單一事業到企業多角化發展: 許多企業不再只注重單一事業滿過多角經營創造新的成長機會，延伸核心能力 </li>
-<li>管道企業→平台企業：平台生產與通路成本趨近於0，且能有效運用正向網路效應，快速增加使用者，企業運用平台經濟增加收益。 </li>
-<li>單通路→全通路: 為收集更多顧客资料，企業以消費者為中心執行線上線下的資源整合，打造一致的體驗，有效運用線上及線下優點，創造更大的收益。</li>
-</ol>
-</li>
-</ol>
-<p> <strong>二、三者 BM 改變</strong></p>
-<ol>
-<li><p>Apple: 原為傳統管道企業販售手機等 3C 產品，今日發展之重要 BM：</p>
-<ol>
-<li>市場創造者: 以 Apple store 平台連接內容供應商與消費者</li>
-<li>內容供應商: 提供 Apple Music、Apple TV 等內容訂閱服務</li>
-</ol>
-</li>
-<li><p>Google: 原為搜尋引擎，今日發展之重要 BM：</p>
-<ol>
-<li>廣告獲利模式：以 Adsense 提供關鍵字廣告，為最大獲利來源</li>
-<li>服務供應商： 提供 Google Drive 雲端存放空間、Gmail 信箱</li>
-<li>實體產品販售: 推出 Google pixel 手機</li>
-</ol>
-</li>
-<li><p>Amazon 原為書籍販售平台，今日發展之重要 BM：</p>
-<ol>
-<li>市場創造者：Amazon Market Place 提供第三方賣家販售商品的平台</li>
-<li>內容供應商：提供 Amazon Music 訂閱服務</li>
-<li>服務供應商：提供 AWS 雲端運算服務</li>
-<li>線下店面：由線上至線下，建立 Amazon Go、Amazon Books 等實體商店，發展全通路</li>
-</ol>
-</li>
-</ol>
-<p><strong>三、今日三個主要商業模式</strong><br>學生以前述三企業商業模式改變總結今日主要 BM</p>
-<ol>
-<li>市場創造者：透過平台連結買賣雙方，收入來源為從中收取費用</li>
-</ol>
-<ul>
-<li>執行重點：如何吸引雙方，提高顧客黏著度，例如：<ul>
-<li>Amazon 透過交叉補貼，讓使用者搜尋、比價階段皆不需要收費</li>
-<li>Apple Store 透過嚴格控制內容品質，提高使用者下載意願</li>
-</ul>
-</li>
-</ul>
-<ol start="2">
-<li>內容供應商提供數位內容來取得收入</li>
-</ol>
-<ul>
-<li>執行重點：數位商品生產一單位邊際成本趨近於 0，大量販售以增加利潤，例如：<ul>
-<li>Apple Music 及 Amazon Music 皆提供家庭訂閱服務，以優惠的價格，吸引多個使用者同時訂閱，提高市場佔有率</li>
-</ul>
-</li>
-</ul>
-<ol start="3">
-<li>服務供應商：提供 web2.0 應用服務或資料儲存服務</li>
-</ol>
-<ul>
-<li>執行重點：如何提供穩定可靠的服務，例如：<ul>
-<li>AWS 以優勢的 IT 技術創造穩定的雲端服務，吸引從小型企業到大型企業的客戶</li>
-</ul>
-</li>
-</ul>
-<hr>
-<p>其他在準備考試期間寫的 MIS 申論題整理：<br><a href="https://shinyu0430.github.io/2023/03/10/misProposalCollect/">[資管所][MIS申論題]申論題練習題整理</a></p>
-]]></content>
-      <categories>
-        <category>資管所：MIS 申論題</category>
-      </categories>
-      <tags>
-        <tag>MIS</tag>
-        <tag>資管所</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[資管所][MIS申論題][107政大資管] Omnichannel retailing is a critical topic in recent years...</title>
-    <url>/2023/03/13/misAmazonOmnichannel/</url>
-    <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><img src="https://imgur.com/JMa9FIm.jpg"></p>
-<span id="more"></span> 
-<h2 id="答題"><a href="#答題" class="headerlink" title="答題"></a>答題</h2><p>一、何謂全通路<br>（一）定義：以消費者為核心，透過實體通路與虛擬通路的融合，讓會員在不同通路有一致的體驗<br>（二）舉例：以 Uniqlo 為例<br>    1. 線下連結線上：「掃碼購」能讓顧客只要用 App 掃描商品條碼，就可以自行查詢庫存、得到穿搭推薦<br>    2. 線上連結線下：「U 先取」讓消費者能在線上下單，再到離自己最近的店舖取貨<br>    3. 兩者整合：可在會員 APP 上查詢線上/線下消費記錄</p>
-<p>二、Amazon 推廣線下原因</p>
-<ol>
-<li>增加顧客體驗：活用網路的顧客關係<ul>
-<li>Amazon Go：成為探索美食的新空間，有了全新的消費體驗</li>
-</ul>
-</li>
-<li>突破電商平台的限制<ul>
-<li>Amazon Go：開設 Amazon Go 進軍生鮮產品</li>
-</ul>
-</li>
-<li>以熱賣商品促進消費<ul>
-<li>Amazon Books：只販賣熱門書籍，避免過多選擇讓人陷入抉擇困難的心理負擔</li>
-</ul>
-</li>
-<li>收集顧客資料：更準確評估消費者心理<ul>
-<li>Amazon Go：店內感測器收集顧客在商店裡的移動方式、拿起了哪些商品、實際購買了哪些商品，全盤掌握來店時間、停留時間</li>
-</ul>
-</li>
-<li>更加貼近顧客：滿足顧客需求<ul>
-<li>Amazon Fresh：實體店面加入 amazon 網購的配送網路，也可當作退貨的據點</li>
-</ul>
-</li>
-<li>創新的商業模式：<ul>
-<li>Amazon 無人商店技術「Just Walk Out」授權給其他大型超市，打造無人商店服務</li>
-</ul>
-</li>
-</ol>
-<p>三、結論<br>雖然線上通路具有許多優勢，但仍有許多無法替代線下通路的功能，企業若能有效整合兩者，即可創造競爭優勢</p>
-<hr>
-<p>其他在準備考試期間寫的 MIS 申論題整理：<br><a href="https://shinyu0430.github.io/2023/03/10/misProposalCollect/">[資管所][MIS申論題]申論題練習題整理</a></p>
-]]></content>
-      <categories>
-        <category>資管所：MIS 申論題</category>
-      </categories>
-      <tags>
-        <tag>MIS</tag>
-        <tag>資管所</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>112/2023 資管所(管理組)正取心得（政/山/央/興/北）</title>
     <url>/2023/03/22/IMPrepare/</url>
     <content><![CDATA[<img src="https://imgur.com/CI6VlId.jpg">
@@ -1353,7 +1353,7 @@ table th:first-of-type {
 <span id="more"></span> 
 <h1 id="零、前言"><a href="#零、前言" class="headerlink" title="零、前言"></a>零、前言</h1><p><strong>這篇文章和補習班的獎學金沒有關係呦</strong>。備考期間我看了許多學長姐的心得文，獲益良多，所以考完也整理了一下準備過程發了這篇文，希望可以減緩明年考生備考期間的焦慮感。雖然我的讀書方式可能不適合所有人，但還是希望我小小的貢獻能讓大家從中找到一點點可能有幫助的內容，讓準備考試期間多一點自信少一點焦慮。</p>
 <hr>
-<h1 id="一、個人背景"><a href="#一、個人背景" class="headerlink" title="一、個人背景"></a>一、個人背景</h1><p>學歷：私立大學本科系，排名：24%<br>英文：多益 895 分<br>活動：實習＊2/ 競賽＊2<br>補習：有，比較多人上的那間<br>身份：全職考生<br>組別：管理組</p>
+<h1 id="一、個人背景"><a href="#一、個人背景" class="headerlink" title="一、個人背景"></a>一、個人背景</h1><p>學歷：私立大學本科系，排名：24%<br>英文：多益 895 分（但英文不好）<br>活動：實習＊2/ 競賽＊2<br>補習：有，比較多人上的那間<br>身份：全職考生<br>組別：管理組</p>
 <p>總結來說：個人經歷很普通（可參考台科書審分數），可以讀書時間非常多（從 6 月開始幾乎每天都唸 9+ 小時）。由於我有補習，這篇可能較不適合無補習的考生參考。</p>
 <hr>
 <h1 id="二、時間規劃：6-月-1月-8-個月"><a href="#二、時間規劃：6-月-1月-8-個月" class="headerlink" title="二、時間規劃：6 月-1月(8 個月)"></a>二、時間規劃：6 月-1月(8 個月)</h1><img src="https://imgur.com/JuyupXf.jpg">
@@ -1369,7 +1369,7 @@ table th:first-of-type {
 </li>
 <li><p>部分人會的題目：資管課程相關/考古題延伸<br>每年這類題目的出題方向都不太一樣，我覺得很難依靠猜題去準備（我考前針對每校猜的題目幾乎都沒中）。我讀不下書的時候會去看一些以前在資管系修過的東西，或者在網路文章看到一些沒看過的名詞就稍微查一下，然後整理在一個集中的筆記，確保我之後還會再看幾次。以我自己為例，考北大的前一天，由於已經無心念書（最後一間），所以我就在整理房間的一些廢紙，剛好看到 KPI 和 OKR 的比較，結果隔天北大計概就考出來，<strong>總之就是讀什麼都可以，確保基本題都沒問題後，我覺得可以廣泛的多讀一些其他各式各樣的內容，讀到考前最後一刻</strong>。<br>由於台/成/政過去都考過 Discovering Computer 的內容，所以我也有買這本書的二手中譯本來讀，不過今年考試印象中沒有考到相關的內容。</p>
 </li>
-<li><p>大家都不會的題目：<br>一些再讓我準備三年我也不會寫的題目。如果是簡答題我就盡量寫，考中央計概的時候我大部分的題目都不會寫，心裡想說完蛋要下去了，但還是硬寫滿了所有題目的答案，最後可能有些題目有稍微沾到一點邊，教授有給一些分數。選擇題的話，台大我都猜 E。</p>
+<li><p>大家都不會的題目：<br>一些再讓我準備三年我也不會寫的題目。如果是簡答題我就盡量寫，避免空白，考中央計概的時候我大部分的題目都不會寫，但還是寫了所有題目的答案，最後可能有些題目有稍微沾到一點邊，教授有給一些分數。選擇題的話，台大我都猜 E。</p>
 </li>
 </ol>
 <h3 id="準備方式"><a href="#準備方式" class="headerlink" title="準備方式"></a>準備方式</h3><p>我覺得讀過一輪正課內容後，可以早點開始寫考古題。我是 10 月中開始寫題庫班老師整理的考古題， 11 月開始寫整份的考古題，有稍微看過比較知道考試出題方向以及各個學校的出題風格，有些比較偏的內容（例如：數位邏輯）我花比較少時間，也可以針對各校整理常考題目的延伸。</p>
