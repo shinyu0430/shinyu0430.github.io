@@ -107,6 +107,36 @@
       </tags>
   </entry>
   <entry>
+    <title>解決兩個寬度 50％ 的子元素無法在同行的問題</title>
+    <url>/2021/09/19/inlineblockwidth50/</url>
+    <content><![CDATA[<p>行內區塊(<code>inline-block</code>)可以讓我們可以以行內（<code>inline</code>）的方式呈現，但同時擁有（<code>block</code>）的屬性，不過，在設定寬度上我們可能會遇到一個奇怪的問題：</p>
+<span id="more"></span>
+<p>假設我們想要新增兩個在同行的 div 元素，並讓他們各佔一半，我們會這樣撰寫：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>CHILD<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>CHILD<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span> <span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#d8e2dc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我們可能會預期畫面出現<br><img src="https://imgur.com/rUFostx.jpg"><br>卻發現結果兩個子元素沒有在同一行<br><img src="https://imgur.com/sfRoQzu.jpg"><br>而會有這樣的問題是因為<strong>換行符號</strong>。我們在第一個 <code>div</code> 標籤後方加上的換行符號，會相等於空白符號，這個空白符號的寬度加上兩個子元素的寬度就會超過 100%，導致兩個子元素無法放在同一行。</p>
+<p><strong>解決辦法有幾種：</strong></p>
+<ol>
+<li><p>刪除換行符號<br>最簡單的方式就是直接刪除換行符號，不過這會造成 HTML 結構的可讀性變差。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>CHILD<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span>CHILD<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>將字體大小設為 0<br>知道是因為空白符號造成無法在同行後，我們可以聯想到只要將字體設為 0 ，這個空白就不會佔有空間了。</p>
+</li>
+</ol>
+<p>實作放事就是直接在父層加上 font-size:0 （記得子層如果有文字要記得設定字體大小喔）。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">0</span>; <span class="comment">/* 隱藏空白符號 */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span> <span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">16px</span>;  <span class="comment">/* 設定子元素字體大小 */</span></span><br><span class="line">  <span class="attribute">width</span>:<span class="number">50%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>除了這些也可以使用負的 margin、letter-spacing、word-spacing 調整，但個人覺得沒有那麼實用，以上就是行內區塊無法同行的解決辦法說明囉。</p>
+<p><strong>參考資料</strong><br><a href="https://www.zhangxinxu.com/wordpress/2010/11/%E6%8B%9C%E6%8B%9C%E4%BA%86%E6%B5%AE%E5%8A%A8%E5%B8%83%E5%B1%80-%E5%9F%BA%E4%BA%8Edisplayinline-block%E7%9A%84%E5%88%97%E8%A1%A8%E5%B8%83%E5%B1%80/">拜拜了,浮动布局-基于display:inline-block的列表布局</a></p>
+]]></content>
+      <categories>
+        <category>HTML、CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>免費圖片空間 Imgur 使用教學</title>
     <url>/2021/09/19/imgurturtorial/</url>
     <content><![CDATA[<style>
@@ -136,44 +166,6 @@
       <categories>
         <category>其他</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Margin 和 Padding 的簡寫</title>
-    <url>/2021/09/18/marginpaddingshorthand/</url>
-    <content><![CDATA[<style>
-    img{
-        width:50%
-    }
-</style>
-<p>在撰寫 CSS 的時候，我們常會使用到 Margin 和 Padding 來調整元素的位置，<br>而透過簡寫可以讓我們的 CSS 更加整潔。</p>
-<p>Margin 和 Padding 的縮寫方式是相同的，有四種寫法：</p>
-<span id="more"></span>
-<ol>
-<li><p><code>margin: 10px</code>：margin:上下左右<br>同時設定「上下左右」的間距<br><img src="https://i.imgur.com/RqJy4GM.png"></p>
-</li>
-<li><p><code>margin:10px 20px</code>：margin:上下 左右<br>分別設定「上下」和「左右」的間距<br><img src="https://i.imgur.com/9j4szx2.png"></p>
-</li>
-<li><p><code>margin:10px 20px 30px</code>：margin:上 左右 下<br>分別設定「上」、「左右」和「下」的間距<br><img src="https://i.imgur.com/NPcVL8c.png"></p>
-</li>
-<li><p><code>margin:10px 30px 40px 20px</code>：margin: 上 右 下 左<br>分別設定「上」、「右」、「下」和「左」的間距<br><img src="https://i.imgur.com/I9mJQ89.png"></p>
-</li>
-</ol>
-<h2 id="縮寫練習"><a href="#縮寫練習" class="headerlink" title="縮寫練習"></a>縮寫練習</h2><h3 id="練習一"><a href="#練習一" class="headerlink" title="練習一"></a>練習一</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">10px</span> <span class="number">20px</span> <span class="number">30px</span> <span class="number">20px</span>; <span class="comment">/* 上、右、下、左 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>按照第三種方法簡化後，可以寫成：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">10px</span> <span class="number">20px</span> <span class="number">30px</span>; <span class="comment">/* 上、左右、下 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="練習二"><a href="#練習二" class="headerlink" title="練習二"></a>練習二</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">padding-top</span>:<span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">padding-bottom</span>:<span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>按照第二種方法簡化後，可以寫成：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">padding</span>:<span class="number">10px</span> <span class="number">0</span>;  <span class="comment">/* 上下、左右 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>如果希望了解其他的 CSS 縮寫，可以查看 <a href="https://www.kobzarev.com/wp-content/uploads/cheatsheets/css/css-cheat-sheet.pdf">CSS-Shorthand-Cheat-Sheet.pdf</a></p>
-]]></content>
-      <categories>
-        <category>HTML、CSS</category>
-      </categories>
-      <tags>
-        <tag>CSS</tag>
-      </tags>
   </entry>
   <entry>
     <title>JavaScript 字串方法整理</title>
@@ -324,6 +316,44 @@ table th:first-of-type {
       </tags>
   </entry>
   <entry>
+    <title>Margin 和 Padding 的簡寫</title>
+    <url>/2021/09/18/marginpaddingshorthand/</url>
+    <content><![CDATA[<style>
+    img{
+        width:50%
+    }
+</style>
+<p>在撰寫 CSS 的時候，我們常會使用到 Margin 和 Padding 來調整元素的位置，<br>而透過簡寫可以讓我們的 CSS 更加整潔。</p>
+<p>Margin 和 Padding 的縮寫方式是相同的，有四種寫法：</p>
+<span id="more"></span>
+<ol>
+<li><p><code>margin: 10px</code>：margin:上下左右<br>同時設定「上下左右」的間距<br><img src="https://i.imgur.com/RqJy4GM.png"></p>
+</li>
+<li><p><code>margin:10px 20px</code>：margin:上下 左右<br>分別設定「上下」和「左右」的間距<br><img src="https://i.imgur.com/9j4szx2.png"></p>
+</li>
+<li><p><code>margin:10px 20px 30px</code>：margin:上 左右 下<br>分別設定「上」、「左右」和「下」的間距<br><img src="https://i.imgur.com/NPcVL8c.png"></p>
+</li>
+<li><p><code>margin:10px 30px 40px 20px</code>：margin: 上 右 下 左<br>分別設定「上」、「右」、「下」和「左」的間距<br><img src="https://i.imgur.com/I9mJQ89.png"></p>
+</li>
+</ol>
+<h2 id="縮寫練習"><a href="#縮寫練習" class="headerlink" title="縮寫練習"></a>縮寫練習</h2><h3 id="練習一"><a href="#練習一" class="headerlink" title="練習一"></a>練習一</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">10px</span> <span class="number">20px</span> <span class="number">30px</span> <span class="number">20px</span>; <span class="comment">/* 上、右、下、左 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>按照第三種方法簡化後，可以寫成：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">10px</span> <span class="number">20px</span> <span class="number">30px</span>; <span class="comment">/* 上、左右、下 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="練習二"><a href="#練習二" class="headerlink" title="練習二"></a>練習二</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">padding-top</span>:<span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">padding-bottom</span>:<span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>按照第二種方法簡化後，可以寫成：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">padding</span>:<span class="number">10px</span> <span class="number">0</span>;  <span class="comment">/* 上下、左右 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果希望了解其他的 CSS 縮寫，可以查看 <a href="https://www.kobzarev.com/wp-content/uploads/cheatsheets/css/css-cheat-sheet.pdf">CSS-Shorthand-Cheat-Sheet.pdf</a></p>
+]]></content>
+      <categories>
+        <category>HTML、CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CSS 寬度自適應： max-width、min-width、fit-content 介紹</title>
     <url>/2021/09/21/maxwidthminwidthfitcontent/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在 CSS3 中新增了幾個設置寬度屬性的關鍵字：<code>max-width</code>、<code>min-width</code>、<code>fit-content</code> 就讓我們來一一了解這些觀念吧！</p>
@@ -398,51 +428,6 @@ table th:first-of-type {
       </tags>
   </entry>
   <entry>
-    <title>[資管所][MIS申論題][107政大資管] Omnichannel retailing is a critical topic in recent years...</title>
-    <url>/2023/03/13/misAmazonOmnichannel/</url>
-    <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><img src="https://imgur.com/JMa9FIm.jpg"></p>
-<span id="more"></span> 
-<h2 id="答題"><a href="#答題" class="headerlink" title="答題"></a>答題</h2><p>一、何謂全通路<br>（一）定義：以消費者為核心，透過實體通路與虛擬通路的融合，讓會員在不同通路有一致的體驗<br>（二）舉例：以 Uniqlo 為例<br>    1. 線下連結線上：「掃碼購」能讓顧客只要用 App 掃描商品條碼，就可以自行查詢庫存、得到穿搭推薦<br>    2. 線上連結線下：「U 先取」讓消費者能在線上下單，再到離自己最近的店舖取貨<br>    3. 兩者整合：可在會員 APP 上查詢線上/線下消費記錄</p>
-<p>二、Amazon 推廣線下原因</p>
-<ol>
-<li>增加顧客體驗：活用網路的顧客關係<ul>
-<li>Amazon Go：成為探索美食的新空間，有了全新的消費體驗</li>
-</ul>
-</li>
-<li>突破電商平台的限制<ul>
-<li>Amazon Go：開設 Amazon Go 進軍生鮮產品</li>
-</ul>
-</li>
-<li>以熱賣商品促進消費<ul>
-<li>Amazon Books：只販賣熱門書籍，避免過多選擇讓人陷入抉擇困難的心理負擔</li>
-</ul>
-</li>
-<li>收集顧客資料：更準確評估消費者心理<ul>
-<li>Amazon Go：店內感測器收集顧客在商店裡的移動方式、拿起了哪些商品、實際購買了哪些商品，全盤掌握來店時間、停留時間</li>
-</ul>
-</li>
-<li>更加貼近顧客：滿足顧客需求<ul>
-<li>Amazon Fresh：實體店面加入 amazon 網購的配送網路，也可當作退貨的據點</li>
-</ul>
-</li>
-<li>創新的商業模式：<ul>
-<li>Amazon 無人商店技術「Just Walk Out」授權給其他大型超市，打造無人商店服務</li>
-</ul>
-</li>
-</ol>
-<p>三、結論<br>雖然線上通路具有許多優勢，但仍有許多無法替代線下通路的功能，企業若能有效整合兩者，即可創造競爭優勢</p>
-<hr>
-<p>其他在準備考試期間寫的 MIS 申論題整理：<br><a href="https://shinyu0430.github.io/2023/03/10/misProposalCollect/">[資管所][MIS申論題]申論題練習題整理</a></p>
-]]></content>
-      <categories>
-        <category>資管所：MIS 申論題</category>
-      </categories>
-      <tags>
-        <tag>MIS</tag>
-        <tag>資管所</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[資管所][MIS申論題][105台大資管] 請說明何謂「長尾理論」以及「網路外部性」，並舉例說明這兩種網路經濟法則如何改變經營模式</title>
     <url>/2023/03/13/misBullwhipEffectNetworkExternality/</url>
     <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><img src="https://imgur.com/e0qwJLW.jpg"></p>
@@ -489,33 +474,48 @@ table th:first-of-type {
       </tags>
   </entry>
   <entry>
-    <title>解決兩個寬度 50％ 的子元素無法在同行的問題</title>
-    <url>/2021/09/19/inlineblockwidth50/</url>
-    <content><![CDATA[<p>行內區塊(<code>inline-block</code>)可以讓我們可以以行內（<code>inline</code>）的方式呈現，但同時擁有（<code>block</code>）的屬性，不過，在設定寬度上我們可能會遇到一個奇怪的問題：</p>
-<span id="more"></span>
-<p>假設我們想要新增兩個在同行的 div 元素，並讓他們各佔一半，我們會這樣撰寫：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>CHILD<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>CHILD<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span> <span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#d8e2dc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>我們可能會預期畫面出現<br><img src="https://imgur.com/rUFostx.jpg"><br>卻發現結果兩個子元素沒有在同一行<br><img src="https://imgur.com/sfRoQzu.jpg"><br>而會有這樣的問題是因為<strong>換行符號</strong>。我們在第一個 <code>div</code> 標籤後方加上的換行符號，會相等於空白符號，這個空白符號的寬度加上兩個子元素的寬度就會超過 100%，導致兩個子元素無法放在同一行。</p>
-<p><strong>解決辦法有幾種：</strong></p>
+    <title>[資管所][MIS申論題][107政大資管] Omnichannel retailing is a critical topic in recent years...</title>
+    <url>/2023/03/13/misAmazonOmnichannel/</url>
+    <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><img src="https://imgur.com/JMa9FIm.jpg"></p>
+<span id="more"></span> 
+<h2 id="答題"><a href="#答題" class="headerlink" title="答題"></a>答題</h2><p>一、何謂全通路<br>（一）定義：以消費者為核心，透過實體通路與虛擬通路的融合，讓會員在不同通路有一致的體驗<br>（二）舉例：以 Uniqlo 為例<br>    1. 線下連結線上：「掃碼購」能讓顧客只要用 App 掃描商品條碼，就可以自行查詢庫存、得到穿搭推薦<br>    2. 線上連結線下：「U 先取」讓消費者能在線上下單，再到離自己最近的店舖取貨<br>    3. 兩者整合：可在會員 APP 上查詢線上/線下消費記錄</p>
+<p>二、Amazon 推廣線下原因</p>
 <ol>
-<li><p>刪除換行符號<br>最簡單的方式就是直接刪除換行符號，不過這會造成 HTML 結構的可讀性變差。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>CHILD<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span>CHILD<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li><p>將字體大小設為 0<br>知道是因為空白符號造成無法在同行後，我們可以聯想到只要將字體設為 0 ，這個空白就不會佔有空間了。</p>
+<li>增加顧客體驗：活用網路的顧客關係<ul>
+<li>Amazon Go：成為探索美食的新空間，有了全新的消費體驗</li>
+</ul>
+</li>
+<li>突破電商平台的限制<ul>
+<li>Amazon Go：開設 Amazon Go 進軍生鮮產品</li>
+</ul>
+</li>
+<li>以熱賣商品促進消費<ul>
+<li>Amazon Books：只販賣熱門書籍，避免過多選擇讓人陷入抉擇困難的心理負擔</li>
+</ul>
+</li>
+<li>收集顧客資料：更準確評估消費者心理<ul>
+<li>Amazon Go：店內感測器收集顧客在商店裡的移動方式、拿起了哪些商品、實際購買了哪些商品，全盤掌握來店時間、停留時間</li>
+</ul>
+</li>
+<li>更加貼近顧客：滿足顧客需求<ul>
+<li>Amazon Fresh：實體店面加入 amazon 網購的配送網路，也可當作退貨的據點</li>
+</ul>
+</li>
+<li>創新的商業模式：<ul>
+<li>Amazon 無人商店技術「Just Walk Out」授權給其他大型超市，打造無人商店服務</li>
+</ul>
 </li>
 </ol>
-<p>實作放事就是直接在父層加上 font-size:0 （記得子層如果有文字要記得設定字體大小喔）。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">0</span>; <span class="comment">/* 隱藏空白符號 */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span> <span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">16px</span>;  <span class="comment">/* 設定子元素字體大小 */</span></span><br><span class="line">  <span class="attribute">width</span>:<span class="number">50%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>除了這些也可以使用負的 margin、letter-spacing、word-spacing 調整，但個人覺得沒有那麼實用，以上就是行內區塊無法同行的解決辦法說明囉。</p>
-<p><strong>參考資料</strong><br><a href="https://www.zhangxinxu.com/wordpress/2010/11/%E6%8B%9C%E6%8B%9C%E4%BA%86%E6%B5%AE%E5%8A%A8%E5%B8%83%E5%B1%80-%E5%9F%BA%E4%BA%8Edisplayinline-block%E7%9A%84%E5%88%97%E8%A1%A8%E5%B8%83%E5%B1%80/">拜拜了,浮动布局-基于display:inline-block的列表布局</a></p>
+<p>三、結論<br>雖然線上通路具有許多優勢，但仍有許多無法替代線下通路的功能，企業若能有效整合兩者，即可創造競爭優勢</p>
+<hr>
+<p>其他在準備考試期間寫的 MIS 申論題整理：<br><a href="https://shinyu0430.github.io/2023/03/10/misProposalCollect/">[資管所][MIS申論題]申論題練習題整理</a></p>
 ]]></content>
       <categories>
-        <category>HTML、CSS</category>
+        <category>資管所：MIS 申論題</category>
       </categories>
       <tags>
-        <tag>CSS</tag>
+        <tag>MIS</tag>
+        <tag>資管所</tag>
       </tags>
   </entry>
   <entry>
@@ -618,6 +618,26 @@ table th:first-of-type {
       </tags>
   </entry>
   <entry>
+    <title>[資管所][MIS申論題]申論題練習題整理</title>
+    <url>/2023/03/10/misProposalCollect/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在準備資管研究所時，練習了一些資訊管理導論 MIS 的申論題，以下整理了過去練習過的題目，希望可以提供給需要的考生做參考。緩慢整理中……</p>
+<span id="more"></span> 
+<h3 id="台大"><a href="#台大" class="headerlink" title="台大"></a>台大</h3><p><em>105</em><br><a href="https://shinyu0430.github.io/2023/03/13/misBullwhipEffectNetworkExternality/">2.長尾理論/網路外部性</a></p>
+<h3 id="政大"><a href="#政大" class="headerlink" title="政大"></a>政大</h3><p><em>107</em><br><a href="https://shinyu0430.github.io/2023/03/13/misAmazonOmnichannel/">2.全通路</a></p>
+<h3 id="中山"><a href="#中山" class="headerlink" title="中山"></a>中山</h3><p><em>112</em><br><a href="https://shinyu0430.github.io/2023/03/04/misISSuccessModel/">1.資訊系統成功模式</a><br><em>103</em><br><a href="https://shinyu0430.github.io/2023/03/04/misComplementaryAsset/">5.互補資產</a></p>
+<p><em>112</em><br><a href="">1.資訊系統成功模式</a></p>
+<h2 id="交大"><a href="#交大" class="headerlink" title="交大"></a>交大</h2><p><em>103</em><br><a href="https://shinyu0430.github.io/2023/03/10/misSimonIDC/">資訊系統比較</a></p>
+<h2 id="成大"><a href="#成大" class="headerlink" title="成大"></a>成大</h2><p>_100<br><a href="https://shinyu0430.github.io/2023/03/13/misThreeBusinessModel/">電商平台商業模式</a></p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3>]]></content>
+      <categories>
+        <category>資管所：MIS 申論題</category>
+      </categories>
+      <tags>
+        <tag>MIS</tag>
+        <tag>資管所</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[資管所][MIS申論題][112中山資管] 電子商務發展的趨勢之一為虛實整合、線上線下（O2O）的整合，進行形成所謂的全通路經營模式（Omni-Channel）...</title>
     <url>/2023/03/12/misOmnichannel/</url>
     <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><img src="https://imgur.com/lym8eOq.jpg"></p>
@@ -641,26 +661,6 @@ table th:first-of-type {
 <li>兩者整合：可在會員 APP 上查詢線上/線下消費記錄</li>
 </ol>
 ]]></content>
-      <categories>
-        <category>資管所：MIS 申論題</category>
-      </categories>
-      <tags>
-        <tag>MIS</tag>
-        <tag>資管所</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[資管所][MIS申論題]申論題練習題整理</title>
-    <url>/2023/03/10/misProposalCollect/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在準備資管研究所時，練習了一些資訊管理導論 MIS 的申論題，以下整理了過去練習過的題目，希望可以提供給需要的考生做參考。緩慢整理中……</p>
-<span id="more"></span> 
-<h3 id="台大"><a href="#台大" class="headerlink" title="台大"></a>台大</h3><p><em>105</em><br><a href="https://shinyu0430.github.io/2023/03/13/misBullwhipEffectNetworkExternality/">2.長尾理論/網路外部性</a></p>
-<h3 id="政大"><a href="#政大" class="headerlink" title="政大"></a>政大</h3><p><em>107</em><br><a href="https://shinyu0430.github.io/2023/03/13/misAmazonOmnichannel/">2.全通路</a></p>
-<h3 id="中山"><a href="#中山" class="headerlink" title="中山"></a>中山</h3><p><em>112</em><br><a href="https://shinyu0430.github.io/2023/03/04/misISSuccessModel/">1.資訊系統成功模式</a><br><em>103</em><br><a href="https://shinyu0430.github.io/2023/03/04/misComplementaryAsset/">5.互補資產</a></p>
-<p><em>112</em><br><a href="">1.資訊系統成功模式</a></p>
-<h2 id="交大"><a href="#交大" class="headerlink" title="交大"></a>交大</h2><p><em>103</em><br><a href="https://shinyu0430.github.io/2023/03/10/misSimonIDC/">資訊系統比較</a></p>
-<h2 id="成大"><a href="#成大" class="headerlink" title="成大"></a>成大</h2><p>_100<br><a href="https://shinyu0430.github.io/2023/03/13/misThreeBusinessModel/">電商平台商業模式</a></p>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3>]]></content>
       <categories>
         <category>資管所：MIS 申論題</category>
       </categories>

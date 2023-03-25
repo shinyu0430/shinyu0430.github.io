@@ -186,14 +186,14 @@
 
   
   <url>
-    <loc>https://shinyu0430.github.io/tags/JavaScript/</loc>
+    <loc>https://shinyu0430.github.io/tags/CSS/</loc>
     <lastmod>2023-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://shinyu0430.github.io/tags/CSS/</loc>
+    <loc>https://shinyu0430.github.io/tags/JavaScript/</loc>
     <lastmod>2023-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -237,13 +237,6 @@
 
   
   <url>
-    <loc>https://shinyu0430.github.io/categories/JavaScript/</loc>
-    <lastmod>2023-03-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://shinyu0430.github.io/categories/HTML%E3%80%81CSS/</loc>
     <lastmod>2023-03-25</lastmod>
     <changefreq>daily</changefreq>
@@ -251,14 +244,21 @@
   </url>
   
   <url>
-    <loc>https://shinyu0430.github.io/categories/%E8%B3%87%E7%AE%A1%E6%89%80%EF%BC%9AMIS-%E7%94%B3%E8%AB%96%E9%A1%8C/</loc>
+    <loc>https://shinyu0430.github.io/categories/%E5%85%B6%E4%BB%96/</loc>
     <lastmod>2023-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://shinyu0430.github.io/categories/%E5%85%B6%E4%BB%96/</loc>
+    <loc>https://shinyu0430.github.io/categories/JavaScript/</loc>
+    <lastmod>2023-03-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinyu0430.github.io/categories/%E8%B3%87%E7%AE%A1%E6%89%80%EF%BC%9AMIS-%E7%94%B3%E8%AB%96%E9%A1%8C/</loc>
     <lastmod>2023-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
