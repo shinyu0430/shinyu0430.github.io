@@ -216,6 +216,130 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://shinyu0430.github.io/2021/09/18/cssfilter/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headshot.png">
+      <meta itemprop="name" content="Mavis Tsai">
+      <meta itemprop="description" content="Mavis 的技術部落格">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mavis">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/18/cssfilter/" class="post-title-link" itemprop="url">CSS Filter 濾鏡效果</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2021-09-18 20:33:14" itemprop="dateCreated datePublished" datetime="2021-09-18T20:33:14+08:00">2021-09-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-09-20 17:47:05" itemprop="dateModified" datetime="2021-09-20T17:47:05+08:00">2021-09-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML%E3%80%81CSS/" itemprop="url" rel="index"><span itemprop="name">HTML、CSS</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2021/09/18/cssfilter/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/09/18/cssfilter/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+              <span>1 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>我們可以使用 CSS Filter 直接在元素上加上濾鏡效果，<br>先來個所有濾鏡效果的呈現 DEMO：</p>
+<p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="gOReYWK" data-user="0430shinyu" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/0430shinyu/pen/gOReYWK">
+  </a> by 蔡蔡 Mavis (<a target="_blank" rel="noopener" href="https://codepen.io/0430shinyu">@0430shinyu</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="10-種-filter-濾鏡效果"><a href="#10-種-filter-濾鏡效果" class="headerlink" title="10 種 filter 濾鏡效果"></a>10 種 filter 濾鏡效果</h2><p>filter 效果一共有 10 種，其中最常使用的是第 1 個 <code>blur()</code> 和第 8 個的 <code>opacity()</code>。</p>
+<h3 id="1-blur-模糊效果"><a href="#1-blur-模糊效果" class="headerlink" title="1. blur() 模糊效果"></a>1. blur() 模糊效果</h3><p>函示內放入模糊的程度，值越大越模糊</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">blur</span>(<span class="number">5px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-brightness-調整亮度"><a href="#2-brightness-調整亮度" class="headerlink" title="2. brightness() 調整亮度"></a>2. brightness() 調整亮度</h3><p>函示內放入 % 數來調整亮度，<br><code>&lt; 100%</code> 會減少亮度，<br><code>&gt; 100%</code> 會增加亮度。<br><code>0%</code> 會呈現全黑，預設值為 <code>1</code> 。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">brightness</span>(<span class="number">2</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/09/18/cssfilter/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://shinyu0430.github.io/2021/09/18/filterchildproblem/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -521,20 +645,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
