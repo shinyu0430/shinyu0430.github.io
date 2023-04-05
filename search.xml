@@ -428,41 +428,6 @@ table th:first-of-type {
       </tags>
   </entry>
   <entry>
-    <title>[資管所][MIS申論題][112中山資管]資訊人員的重要職責之一為確保資訊系統的成功實施...</title>
-    <url>/2023/03/04/misISSuccessModel/</url>
-    <content><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><img src="https://imgur.com/VDCeXyI.jpg"></p>
-<h2 id="答題"><a href="#答題" class="headerlink" title="答題"></a>答題</h2><p>一、舉例資訊系統成模式<br>學生以<br><img src="https://imgur.com/MvZHK3r.jpg"></p>
-<p>上述六大面為因果關係，成功的資訊系統需要先有好的系統品質和資訊品質，<br>而資訊系統成效評估指標分別為：</p>
-<ol>
-<li>系統品質：系統效率、使用的便利性、使用者需求落實</li>
-<li>資訊品質：重要性、有用性、清楚性</li>
-<li>資訊使用率：重複使用次數、上線時閒、使用規律性</li>
-<li>使用者滿意度：軟體滿意度、決策滿意度</li>
-<li>對個人影響：資訊了解度、決策所需時間、個人意願</li>
-<li>對組織的影響：節省的人力、整體產能的提升、增加的市場佔有率</li>
-</ol>
-<p>二、資訊系統實施失敗的因素</p>
-<p>（一） <strong>資訊品質</strong><br>    - 設計：在初期設計時未能掌握使用者需求，造成介面不佳、設計複雜，無法與作業流程相互配合<br>    - 資料：系統存放的資料不正確，特定的系統功能因為缺少某塊資料，而無法正常運作<br>    - 即時性：資料即時性低，無法即時提拱有用的資訊<br>（二） <strong>系統品質</strong><br>    - 成本 ：忽略導入所需的成本，造成系統所帶來的價值，無法彌補支出費用<br>    - 作業 ：系統運行不佳，作業當機，造成工作流程上延誤</p>
-<p>三、影響使用者抗拒資訊系統的因素</p>
-<ol>
-<li>習慣：人們常依循著自己熟悉的方式處理舊事物</li>
-<li>經濟因素：將低原有收入水準、失去擁有的事物</li>
-<li>選擇資訊過程偏差：因個人認知不同，對資料篩選而形成偏差</li>
-<li>安全感：變革產生的不確定性，產生安全感巨大的威脅</li>
-<li>害怕面對不確定性：變革後的情況無法預期或掌控而恐懼</li>
-</ol>
-<hr>
-<p>其他 MIS 申論題整理：<br><a href="https://shinyu0430.github.io/2023/03/10/misProposalCollect/">[資管所][MIS申論題]申論題練習題整理</a></p>
-]]></content>
-      <categories>
-        <category>資管所：MIS 申論題</category>
-      </categories>
-      <tags>
-        <tag>MIS</tag>
-        <tag>資管所</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Spring MVC 中使用 Kaptcha 簡易完成圖形驗證碼</title>
     <url>/2022/05/06/springKaptcha/</url>
     <content><![CDATA[<p><img src="https://i.imgur.com/RHwFh07.png"></p>
