@@ -36,17 +36,29 @@
 
 
 
-  <meta name="description" content="Mavis 的技術部落格">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mavis">
-<meta property="og:url" content="https://shinyu0430.github.io/tags/%E8%B3%87%E7%AE%A1%E6%89%80/index.html">
+  <meta name="description" content="前言各位好，今天我想分享如何在 Mac 中使用快捷鍵開啟 iterm。會使用到的工具包含 Applescript 和 Automator。 在開發的過程中我經常需要開啟 iterm ，雖然透過 spotlight 開啟也很方便，但還是希望能更節省時間，所以今天研究了一下怎麼快速使用快捷鍵開啟。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[工具] Mac 中使用快捷鍵開啟 iterm">
+<meta property="og:url" content="https://shinyu0430.github.io/2023/05/12/iterm-shortcut-mac-automator/index.html">
 <meta property="og:site_name" content="Mavis">
-<meta property="og:description" content="Mavis 的技術部落格">
+<meta property="og:description" content="前言各位好，今天我想分享如何在 Mac 中使用快捷鍵開啟 iterm。會使用到的工具包含 Applescript 和 Automator。 在開發的過程中我經常需要開啟 iterm ，雖然透過 spotlight 開啟也很方便，但還是希望能更節省時間，所以今天研究了一下怎麼快速使用快捷鍵開啟。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://shinyu0430.github.io/2023/05/12/iterm-shortcut-mac-automator/ry1gRis42.png">
+<meta property="og:image" content="https://shinyu0430.github.io/2023/05/12/iterm-shortcut-mac-automator/HJEIJ2oV2.png">
+<meta property="og:image" content="https://shinyu0430.github.io/2023/05/12/iterm-shortcut-mac-automator/B1GuyniE3.png">
+<meta property="og:image" content="https://shinyu0430.github.io/2023/05/12/iterm-shortcut-mac-automator/ByXkl3s43.png">
+<meta property="og:image" content="https://shinyu0430.github.io/2023/05/12/iterm-shortcut-mac-automator/HJROensN3.png">
+<meta property="article:published_time" content="2023-05-12T12:00:45.000Z">
+<meta property="article:modified_time" content="2023-05-12T15:21:26.611Z">
 <meta property="article:author" content="Mavis Tsai">
+<meta property="article:tag" content="mac">
+<meta property="article:tag" content="applescript">
+<meta property="article:tag" content="automator">
+<meta property="article:tag" content="shortcut">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://shinyu0430.github.io/2023/05/12/iterm-shortcut-mac-automator/ry1gRis42.png">
 
-<link rel="canonical" href="https://shinyu0430.github.io/tags/%E8%B3%87%E7%AE%A1%E6%89%80/">
+<link rel="canonical" href="https://shinyu0430.github.io/2023/05/12/iterm-shortcut-mac-automator/">
 
 
 <script id="page-configurations">
@@ -54,12 +66,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-TW'
   };
 </script>
 
-  <title>標籤: 資管所 | Mavis</title>
+  <title>[工具] Mac 中使用快捷鍵開啟 iterm | Mavis</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EY1HL3X0XW"></script>
     <script>
@@ -210,57 +222,163 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://shinyu0430.github.io/2023/05/12/iterm-shortcut-mac-automator/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headshot.png">
+      <meta itemprop="name" content="Mavis Tsai">
+      <meta itemprop="description" content="Mavis 的技術部落格">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mavis">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [工具] Mac 中使用快捷鍵開啟 iterm
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2023-05-12 20:00:45 / 修改時間：23:21:26" itemprop="dateCreated datePublished" datetime="2023-05-12T20:00:45+08:00">2023-05-12</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">資管所
-          <small>標籤</small>
-        </h2>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2023/05/12/iterm-shortcut-mac-automator/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/05/12/iterm-shortcut-mac-automator/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>672</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+              <span>1 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2023</span>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>各位好，今天我想分享如何在 Mac 中使用快捷鍵開啟 iterm。會使用到的工具包含 Applescript 和 Automator。</p>
+<p>在開發的過程中我經常需要開啟 iterm ，雖然透過 spotlight 開啟也很方便，但還是希望能更節省時間，所以今天研究了一下怎麼快速使用快捷鍵開啟。</p>
+<span id="more"></span> 
+<h2 id="Applescript-撰寫-寫自動化腳本"><a href="#Applescript-撰寫-寫自動化腳本" class="headerlink" title="Applescript 撰寫:寫自動化腳本"></a>Applescript 撰寫:寫自動化腳本</h2><p>AppleScript 是一種腳本語言可以用來控制執行於 Mac OS 上的程式，後面我們會用到它。首先我們要打開 Automator，選擇「快速動作（Quick Action）」</p>
+<p><img src="ry1gRis42.png"></p>
+<p>接著在左方的 Menu 選單中透過搜尋的方式找到「執行 AppleScript」，點擊兩下，右方會出現 AppleScript 。接著貼上以下語法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> application <span class="string">&quot;iTerm&quot;</span> <span class="keyword">is</span> running then</span><br><span class="line">	tell application <span class="string">&quot;iTerm&quot;</span></span><br><span class="line">		create window <span class="keyword">with</span> default profile</span><br><span class="line">	end tell</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	activate application <span class="string">&quot;iTerm&quot;</span></span><br><span class="line">end <span class="keyword">if</span></span><br></pre></td></tr></table></figure>
+<p><img src="HJEIJ2oV2.png"></p>
+<p>完成後儲存檔案，這裡我們命名為「開啟 iterm」<br><img src="B1GuyniE3.png"></p>
+<h2 id="快捷鍵設定"><a href="#快捷鍵設定" class="headerlink" title="快捷鍵設定"></a>快捷鍵設定</h2><p>打開「系統偏好設定」&gt;「鍵盤」&gt;「快速鍵」&gt;「服務」&gt;「一般」，就能看到我們剛剛設定的「開啟 iterm」。</p>
+<p><img src="ByXkl3s43.png"></p>
+<p>最後就只需要點擊「加入快速鍵」，並在鍵盤中敲上我們想使用的快捷鍵即可囉(這裡加入了 shift+cmd+4)。<br><img src="HJROensN3.png"></p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>希望上面的整理有幫到大家。AppleScript 真的好方便，之後再來研究一下還有什麼酷東西可以玩。</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
+        
+<div style="background:#f5f6f6;padding:3%;border-radius:10px;text-align:center">
+<p style="display:inline;border-bottom: 2px solid green;">如果上面這些內容對你有幫助的話，</p><br>
+<p style="display:inline;border-bottom: 2px solid green;">希望可以花你 30 秒登入 LikeCoin 並點擊下方拍手按鈕<b>免費</b>鼓勵我：）</p>
+    <script type="text/javascript">
+      document.write(
+        "<iframe scrolling='no' frameborder='0' sandbox='allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-storage-access-by-user-activation' style='height: 212px; width: 100%;' src='https://button.like.co/in/embed/0430shinyu/button?referrer=" +
+        encodeURIComponent(location.href.split("?")[0].split("#")[0]) + "'></iframe>");
+    </script>
+  </div>
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2023-03-10T11:35:45+08:00"
-              content="2023-03-10">
-          03-10
-        </time>
-      </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/03/10/misProposalCollect/" itemprop="url">
-            <span itemprop="name">[資管所][MIS申論題]申論題練習題整理</span>
-          </a>
-      </div>
 
-    </header>
-  </article>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/mac/" rel="tag"># mac</a>
+              <a href="/tags/applescript/" rel="tag"># applescript</a>
+              <a href="/tags/automator/" rel="tag"># automator</a>
+              <a href="/tags/shortcut/" rel="tag"># shortcut</a>
+          </div>
 
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
     </div>
   </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/03/22/IMPrepare/" rel="prev" title="112/2023 資管所(管理組)正取心得（政/山/央/興/北）">
+      <i class="fa fa-chevron-left"></i> 112/2023 資管所(管理組)正取心得（政/山/央/興/北）
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
   
   
   
 
-  
 
 
 
           </div>
           
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -307,6 +425,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Applescript-%E6%92%B0%E5%AF%AB-%E5%AF%AB%E8%87%AA%E5%8B%95%E5%8C%96%E8%85%B3%E6%9C%AC"><span class="nav-number">2.</span> <span class="nav-text">Applescript 撰寫:寫自動化腳本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%AB%E6%8D%B7%E9%8D%B5%E8%A8%AD%E5%AE%9A"><span class="nav-number">3.</span> <span class="nav-text">快捷鍵設定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AA%9E"><span class="nav-number">4.</span> <span class="nav-text">結語</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -488,6 +607,26 @@
   }
   // defer loading until the whole page loading is completed
   window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://shinyu0430.github.io/2023/05/12/iterm-shortcut-mac-automator/";
+    this.page.identifier = "2023/05/12/iterm-shortcut-mac-automator/";
+    this.page.title = "[工具] Mac 中使用快捷鍵開啟 iterm";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://Mavis.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
 </script>
 
 </body>

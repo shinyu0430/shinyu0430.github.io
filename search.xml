@@ -168,6 +168,30 @@
       </tags>
   </entry>
   <entry>
+    <title>[工具] Mac 中使用快捷鍵開啟 iterm</title>
+    <url>/2023/05/12/iterm-shortcut-mac-automator/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>各位好，今天我想分享如何在 Mac 中使用快捷鍵開啟 iterm。會使用到的工具包含 Applescript 和 Automator。</p>
+<p>在開發的過程中我經常需要開啟 iterm ，雖然透過 spotlight 開啟也很方便，但還是希望能更節省時間，所以今天研究了一下怎麼快速使用快捷鍵開啟。</p>
+<span id="more"></span> 
+<h2 id="Applescript-撰寫-寫自動化腳本"><a href="#Applescript-撰寫-寫自動化腳本" class="headerlink" title="Applescript 撰寫:寫自動化腳本"></a>Applescript 撰寫:寫自動化腳本</h2><p>AppleScript 是一種腳本語言可以用來控制執行於 Mac OS 上的程式，後面我們會用到它。首先我們要打開 Automator，選擇「快速動作（Quick Action）」</p>
+<p><img src="ry1gRis42.png"></p>
+<p>接著在左方的 Menu 選單中透過搜尋的方式找到「執行 AppleScript」，點擊兩下，右方會出現 AppleScript 。接著貼上以下語法：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> application <span class="string">&quot;iTerm&quot;</span> <span class="keyword">is</span> running then</span><br><span class="line">	tell application <span class="string">&quot;iTerm&quot;</span></span><br><span class="line">		create window <span class="keyword">with</span> default profile</span><br><span class="line">	end tell</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	activate application <span class="string">&quot;iTerm&quot;</span></span><br><span class="line">end <span class="keyword">if</span></span><br></pre></td></tr></table></figure>
+<p><img src="HJEIJ2oV2.png"></p>
+<p>完成後儲存檔案，這裡我們命名為「開啟 iterm」<br><img src="B1GuyniE3.png"></p>
+<h2 id="快捷鍵設定"><a href="#快捷鍵設定" class="headerlink" title="快捷鍵設定"></a>快捷鍵設定</h2><p>打開「系統偏好設定」&gt;「鍵盤」&gt;「快速鍵」&gt;「服務」&gt;「一般」，就能看到我們剛剛設定的「開啟 iterm」。</p>
+<p><img src="ByXkl3s43.png"></p>
+<p>最後就只需要點擊「加入快速鍵」，並在鍵盤中敲上我們想使用的快捷鍵即可囉(這裡加入了 shift+cmd+4)。<br><img src="HJROensN3.png"></p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>希望上面的整理有幫到大家。AppleScript 真的好方便，之後再來研究一下還有什麼酷東西可以玩。</p>
+]]></content>
+      <tags>
+        <tag>mac</tag>
+        <tag>applescript</tag>
+        <tag>automator</tag>
+        <tag>shortcut</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JavaScript 字串方法整理</title>
     <url>/2021/09/20/javascriptstringmethod/</url>
     <content><![CDATA[<p>以下針對不同類型的字串方法做分類整理：</p>
@@ -428,6 +452,20 @@ table th:first-of-type {
       </tags>
   </entry>
   <entry>
+    <title>[資管所][MIS申論題]申論題練習題整理</title>
+    <url>/2023/03/10/misProposalCollect/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在準備資管研究所時，練習了一些資訊管理導論 MIS 的申論題，以下整理了過去自己額外練習過的題目，希望可以提供給需要的考生做參考。緩慢整理中……</p>
+<span id="more"></span> 
+]]></content>
+      <categories>
+        <category>資管所：MIS 申論題</category>
+      </categories>
+      <tags>
+        <tag>MIS</tag>
+        <tag>資管所</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Spring MVC 中使用 Kaptcha 簡易完成圖形驗證碼</title>
     <url>/2022/05/06/springKaptcha/</url>
     <content><![CDATA[<p><img src="https://i.imgur.com/RHwFh07.png"></p>
@@ -617,26 +655,6 @@ table th:first-of-type {
       </tags>
   </entry>
   <entry>
-    <title>Vue - 使用 v-cloak 隱藏未編譯的程式碼</title>
-    <url>/2022/01/30/vue3-vcloak/</url>
-    <content><![CDATA[<p>當我們使用 Vue 時，如果網路速度慢，Vue 未載入完成，還沒經 Vue 解析的內容就會渲染到頁面上。這時我們可以使用 v-cloak 隱藏未編譯的 <code>&#123;&#123;&#125;&#125;</code> 標籤。</p>
-<p>範例中我們使用 <code>setTimeout</code> 來模擬網速慢的情境。可以看到在編譯結束前並不會顯示第一個有加上 v-cloak 的 <code>div</code>。</p>
-<iframe height="300" style="width: 100%;" scrolling="no" title="vee-validate 範例" src="https://codepen.io/0430shinyu/embed/preview/oNojPXM?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href="https://codepen.io/0430shinyu/pen/oNojPXM">
-  vee-validate 範例</a> by 蔡蔡 Mavis (<a href="https://codepen.io/0430shinyu">@0430shinyu</a>)
-  on <a href="https://codepen.io">CodePen</a>.
-</iframe>
-
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://v3.cn.vuejs.org/api/directives.html#v-cloak">Vue3 官方文件</a></p>
-]]></content>
-      <categories>
-        <category>Vue</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SpringMVC 中透過 MultipartFile 實現上傳圖片以及瀏覽圖片</title>
     <url>/2022/05/06/springUploadImage/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><img src="https://i.imgur.com/MVsF1h9.png"></p>
@@ -792,6 +810,26 @@ table th:first-of-type {
       </categories>
       <tags>
         <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue - 使用 v-cloak 隱藏未編譯的程式碼</title>
+    <url>/2022/01/30/vue3-vcloak/</url>
+    <content><![CDATA[<p>當我們使用 Vue 時，如果網路速度慢，Vue 未載入完成，還沒經 Vue 解析的內容就會渲染到頁面上。這時我們可以使用 v-cloak 隱藏未編譯的 <code>&#123;&#123;&#125;&#125;</code> 標籤。</p>
+<p>範例中我們使用 <code>setTimeout</code> 來模擬網速慢的情境。可以看到在編譯結束前並不會顯示第一個有加上 v-cloak 的 <code>div</code>。</p>
+<iframe height="300" style="width: 100%;" scrolling="no" title="vee-validate 範例" src="https://codepen.io/0430shinyu/embed/preview/oNojPXM?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/0430shinyu/pen/oNojPXM">
+  vee-validate 範例</a> by 蔡蔡 Mavis (<a href="https://codepen.io/0430shinyu">@0430shinyu</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://v3.cn.vuejs.org/api/directives.html#v-cloak">Vue3 官方文件</a></p>
+]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
       </tags>
   </entry>
   <entry>
@@ -1108,19 +1146,5 @@ table th:first-of-type {
 <p>我的這個口試成績放上來好丟臉（76.88）….很抱歉我沒有什麼有用的經驗可以分享，雖然我也沒有上，但還是想鼓勵之後進複試的考生不要跟我抱持著一樣的心態（覺得自己一定會被刷掉），要對自己有自信一點～～</p>
 <h1 id="九、結語"><a href="#九、結語" class="headerlink" title="九、結語"></a>九、結語</h1><p>以上我的心得都有看過其他人有完全相反的意見，所以大家還是可以視自己的準備情況調整，也可以多看看其他人的心得文。謝謝所有考試期間給予幫助的人，（尤其是去年上榜的朋友們，幫我少走很多彎路），讓我能在這裡寫這篇自大的心得文。最後再謝謝一次讀書會的大神們&gt;&lt;</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>[資管所][MIS申論題]申論題練習題整理</title>
-    <url>/2023/03/10/misProposalCollect/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在準備資管研究所時，練習了一些資訊管理導論 MIS 的申論題，以下整理了過去自己額外練習過的題目，希望可以提供給需要的考生做參考。緩慢整理中……</p>
-<span id="more"></span> 
-]]></content>
-      <categories>
-        <category>資管所：MIS 申論題</category>
-      </categories>
-      <tags>
-        <tag>MIS</tag>
-        <tag>資管所</tag>
-      </tags>
   </entry>
 </search>
