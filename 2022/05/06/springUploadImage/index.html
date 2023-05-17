@@ -1,42 +1,22 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW" data-default-color-scheme=auto>
+
+
+
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
-
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2925151017702819"
-     crossorigin="anonymous"></script>
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EY1HL3X0XW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-EY1HL3X0XW');
-</script>
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"shinyu0430.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
-
-
-
-  <meta name="description" content="前言 配置資源由於 Spring 的 CommonsMultipartResolver 依賴Apache Commons FileUpload 函式庫，Apache Commons FileUpload 依賴於Apache Commons IO，所以在開始實作前我們必須先將這兩個函式庫匯入專案中。 檢查 web&gt;lib 是否有以下兩個資源: 12commons-fileupload-1.2.">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/headshot.png">
+  <link rel="icon" href="/images/headshot.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Mavis Tsai">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="前言 配置資源由於 Spring 的 CommonsMultipartResolver 依賴Apache Commons FileUpload 函式庫，Apache Commons FileUpload 依賴於Apache Commons IO，所以在開始實作前我們必須先將這兩個函式庫匯入專案中。 檢查 web&gt;lib 是否有以下兩個資源: 12commons-fileupload-1.2.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringMVC 中透過 MultipartFile 實現上傳圖片以及瀏覽圖片">
 <meta property="og:url" content="https://shinyu0430.github.io/2022/05/06/springUploadImage/index.html">
@@ -50,293 +30,298 @@
 <meta property="article:author" content="Mavis Tsai">
 <meta property="article:tag" content="Java,">
 <meta property="article:tag" content="Spring">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://i.imgur.com/MVsF1h9.png">
-
-<link rel="canonical" href="https://shinyu0430.github.io/2022/05/06/springUploadImage/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-TW'
-  };
-</script>
-
-  <title>SpringMVC 中透過 MultipartFile 實現上傳圖片以及瀏覽圖片 | Mavis</title>
   
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EY1HL3X0XW"></script>
-    <script>
-      if (CONFIG.hostname === location.hostname) {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-EY1HL3X0XW');
-      }
-    </script>
+  
+  
+  <title>SpringMVC 中透過 MultipartFile 實現上傳圖片以及瀏覽圖片 - Mavis</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
 
 
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"shinyu0430.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":2,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
 
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
+  
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
+  
 
-</head>
+  
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+  
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切換導航欄">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
+  
 
-  <div class="site-meta">
+  
 
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Mavis</h1>
-      <span class="logo-line-after"><i></i></span>
+  
+
+
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Mavis 技術部落格</strong>
     </a>
-      <p class="site-subtitle" itemprop="description">Mavis 的技術部落格</p>
-  </div>
 
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首頁</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>歸檔</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分類</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>標籤</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>關於</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
     </div>
   </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
-        </a>
-      </li>
-  </ul>
 </nav>
 
+  
 
-
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜尋..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
-</div>
-
-    </div>
-  </div>
-
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
           
-
-          <div class="content post posts-expand">
-            
-
-    
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://shinyu0430.github.io/2022/05/06/springUploadImage/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headshot.png">
-      <meta itemprop="name" content="Mavis Tsai">
-      <meta itemprop="description" content="Mavis 的技術部落格">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mavis">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          SpringMVC 中透過 MultipartFile 實現上傳圖片以及瀏覽圖片
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-              
-
-              <time title="創建時間：2022-05-06 11:30:05 / 修改時間：11:38:36" itemprop="dateCreated datePublished" datetime="2022-05-06T11:30:05+08:00">2022-05-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
+            <span id="subtitle" data-typed-text="SpringMVC 中透過 MultipartFile 實現上傳圖片以及瀏覽圖片"></span>
           
-            <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">閱讀次數：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2022/05/06/springUploadImage/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/05/06/springUploadImage/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="文章字數">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">文章字數：</span>
-              <span>4.9k</span>
-            </span>
-            <span class="post-meta-item" title="所需閱讀時間">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-              <span>4 分鐘</span>
-            </span>
-
         </div>
-      </header>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-05-06 11:30" pubdate>
+          2022年5月6日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          42 分鐘
+        
+      </span>
+    
 
     
     
-    
+  </div>
 
 
-    <div class="post-body" itemprop="articleBody">
+        
+      </div>
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><img src="https://i.imgur.com/MVsF1h9.png"></p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">SpringMVC 中透過 MultipartFile 實現上傳圖片以及瀏覽圖片</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><img src="https://i.imgur.com/MVsF1h9.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="配置資源"><a href="#配置資源" class="headerlink" title="配置資源"></a>配置資源</h2><p>由於 Spring 的 CommonsMultipartResolver 依賴Apache Commons FileUpload 函式庫，Apache Commons FileUpload 依賴於Apache Commons IO，所以在開始實作前我們必須先將這兩個函式庫匯入專案中。</p>
 <p>檢查 web&gt;lib 是否有以下兩個資源:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">commons-fileupload-1.2.2.jar</span><br><span class="line">commons-io-2.1.jar</span><br></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">commons</span>-fileupload-<span class="hljs-number">1</span>.<span class="hljs-number">2</span>.<span class="hljs-number">2</span>.jar<br><span class="hljs-attribute">commons</span>-io-<span class="hljs-number">2</span>.<span class="hljs-number">1</span>.jar<br></code></pre></td></tr></table></figure>
 
 <p>接著，由於SpringMVC 使用 MultipartFile 來進行檔案上傳，所以我們要在 spring-servlet.xml 配置 MultipartResolve:</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;multipartResolver&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 單位bytes--&gt;</span> </span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxUploadSize&quot;</span> <span class="attr">value</span>=<span class="string">&quot;20971520&quot;</span> /&gt;</span> <span class="comment">&lt;!-- 20MB --&gt;</span><span class="comment">&lt;!-- 全部檔案最大上上傳大小, -1代表不限制 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxUploadSizePerFile&quot;</span> <span class="attr">value</span>=<span class="string">&quot;5242880&quot;</span>/&gt;</span> <span class="comment">&lt;!-- 5MB --&gt;</span><span class="comment">&lt;!-- 每個檔案最大上傳大小, -1代表不限制 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxInMemorySize&quot;</span> <span class="attr">value</span>=<span class="string">&quot;1048576&quot;</span> /&gt;</span> <span class="comment">&lt;!-- 1MB --&gt;</span><span class="comment">&lt;!-- 檔案上傳最大的暫存記憶體大小,預設為10240 bytes(1KB) --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;defaultEncoding&quot;</span> <span class="attr">value</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;multipartResolver&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;</span>&gt;</span><br>  <span class="hljs-comment">&lt;!-- 單位bytes--&gt;</span> <br>  <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;maxUploadSize&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;20971520&quot;</span> /&gt;</span> <span class="hljs-comment">&lt;!-- 20MB --&gt;</span><span class="hljs-comment">&lt;!-- 全部檔案最大上上傳大小, -1代表不限制 --&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;maxUploadSizePerFile&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;5242880&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 5MB --&gt;</span><span class="hljs-comment">&lt;!-- 每個檔案最大上傳大小, -1代表不限制 --&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;maxInMemorySize&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;1048576&quot;</span> /&gt;</span> <span class="hljs-comment">&lt;!-- 1MB --&gt;</span><span class="hljs-comment">&lt;!-- 檔案上傳最大的暫存記憶體大小,預設為10240 bytes(1KB) --&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;defaultEncoding&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;UTF-8&quot;</span> /&gt;</span> <br><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <p><em>若沒有配置會出現以下錯誤:<br>java.lang.IllegalStateException: Unable to process parts as no multi-part configuration has been provided</em></p>
 <h2 id="程式碼實作-上傳圖片"><a href="#程式碼實作-上傳圖片" class="headerlink" title="程式碼實作 - 上傳圖片"></a>程式碼實作 - 上傳圖片</h2><h3 id="建立資料表"><a href="#建立資料表" class="headerlink" title="建立資料表"></a>建立資料表</h3><p>在 SQL Server 中建立存放圖片的資料表（其他資料庫的語法可能不太一樣要注意一下）</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Image(</span><br><span class="line">	[id] [<span class="type">nchar</span>](<span class="number">32</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">PRIMARY</span> KEY,</span><br><span class="line">	[data] [<span class="type">varbinary</span>](max) <span class="keyword">NOT</span> <span class="keyword">NULL</span></span><br><span class="line">) </span><br></pre></td></tr></table></figure>
-<p><img src="https://i.imgur.com/GrgI8g2.png"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Image(<br>	[id] [<span class="hljs-type">nchar</span>](<span class="hljs-number">32</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">PRIMARY</span> KEY,<br>	[data] [<span class="hljs-type">varbinary</span>](max) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span><br>) <br></code></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/GrgI8g2.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="上傳圖片-前端"><a href="#上傳圖片-前端" class="headerlink" title="上傳圖片:前端"></a>上傳圖片:前端</h3><p>前端畫面的 form 表單記得需要加上 multipart/form-data，它是屬於 Content-Type 的其中之一，可以避免對字元編碼（Encoding），直接傳送二進位資料到後端。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">&quot;form&quot;</span> <span class="attr">enctype</span>=<span class="string">&quot;multipart/form-data&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">&quot;file&quot;</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">id</span>=<span class="string">&quot;image-input&quot;</span> <span class="attr">accept</span>=<span class="string">&quot;image/jpeg, image/png, image/jpg&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">id</span>=<span class="string">&quot;form-btn&quot;</span>&gt;</span></span><br><span class="line">        上傳圖片</span><br><span class="line">    <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;form&quot;</span> <span class="hljs-attr">enctype</span>=<span class="hljs-string">&quot;multipart/form-data&quot;</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;file&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;file&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;image-input&quot;</span> <span class="hljs-attr">accept</span>=<span class="hljs-string">&quot;image/jpeg, image/png, image/jpg&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;form-btn&quot;</span>&gt;</span><br>        上傳圖片<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <p>這裡我們使用 jQuery AJAX 去向後端發送我們上傳的圖片</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;#form-btn&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">let</span> formData = <span class="keyword">new</span> FormData($(<span class="string">&quot;#form&quot;</span>)[<span class="number">0</span>]);</span><br><span class="line">	formData.append(<span class="string">&quot;file&quot;</span>,$(<span class="string">&quot;#form&quot;</span>)[<span class="number">0</span>])</span><br><span class="line">	$.ajax(&#123;</span><br><span class="line">		<span class="attr">type</span> : <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">		<span class="attr">url</span> : <span class="string">&#x27;uploadImage&#x27;</span>,</span><br><span class="line">		<span class="attr">processData</span>:<span class="literal">false</span>,</span><br><span class="line">		<span class="attr">contentType</span> : <span class="literal">false</span>,</span><br><span class="line">		<span class="attr">data</span> :formData,</span><br><span class="line">		<span class="attr">success</span>:<span class="function"><span class="keyword">function</span>(<span class="params">rs</span>)</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(rs)</span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="attr">error</span> : <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(e)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs javascript">$(<span class="hljs-string">&quot;#form-btn&quot;</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>	<span class="hljs-keyword">let</span> formData = <span class="hljs-keyword">new</span> FormData($(<span class="hljs-string">&quot;#form&quot;</span>)[<span class="hljs-number">0</span>]);<br>	formData.append(<span class="hljs-string">&quot;file&quot;</span>,$(<span class="hljs-string">&quot;#form&quot;</span>)[<span class="hljs-number">0</span>])<br>	$.ajax(&#123;<br>		<span class="hljs-attr">type</span> : <span class="hljs-string">&#x27;POST&#x27;</span>,<br>		<span class="hljs-attr">url</span> : <span class="hljs-string">&#x27;uploadImage&#x27;</span>,<br>		<span class="hljs-attr">processData</span>:<span class="hljs-literal">false</span>,<br>		<span class="hljs-attr">contentType</span> : <span class="hljs-literal">false</span>,<br>		<span class="hljs-attr">data</span> :formData,<br>		<span class="hljs-attr">success</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">rs</span>)</span>&#123;<br>			<span class="hljs-built_in">console</span>.log(rs)<br>		&#125;,<br>		<span class="hljs-attr">error</span> : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>&#123;<br>			<span class="hljs-built_in">console</span>.log(e)<br>		&#125;<br>	&#125;);<br>&#125;)<br></code></pre></td></tr></table></figure>
 
 
 <h3 id="上傳圖片-後端"><a href="#上傳圖片-後端" class="headerlink" title="上傳圖片:後端"></a>上傳圖片:後端</h3><p>後端使用 MultipartFile 來接收檔案，它包含二進位資料和檔案名稱，接收到檔案後再透過 getInputStream() 轉換成 inputStream。</p>
 <p>這裡我們使用 BufferedInputStream 創建了一個輸入流。這是因為 InputStream 是一個抽像類，我們不能直接創建InputStream的物件。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(value=&quot;/uploadImage&quot;,method=RequestMethod.POST)</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">multipartResolver</span><span class="params">(<span class="meta">@RequestParam(value=&quot;file&quot;)</span> MultipartFile file)</span> </span>&#123;</span><br><span class="line">		InputStream stream = <span class="keyword">new</span> BufferedInputStream(file.getInputStream());</span><br><span class="line">		String result = util.uploadImage(stream);</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping(value=&quot;/uploadImage&quot;,method=RequestMethod.POST)</span><br>    <span class="hljs-meta">@ResponseBody</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">multipartResolver</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam(value=&quot;file&quot;)</span> MultipartFile file)</span> </span>&#123;<br>		InputStream stream = <span class="hljs-keyword">new</span> BufferedInputStream(file.getInputStream());<br>		String result = util.uploadImage(stream);<br>		<span class="hljs-keyword">return</span> result;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>在 Dao 中將剛剛取得到的 inputStream 輸入我們的資料表中。這裡我使用 UUID 建立 id，如果有別的需求也可以自行修改。成功新增後，後端會回傳新增的圖片id，而我們可以在前面的 AJAX success 中接收到它。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.util.UUID;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.jdbc.core.JdbcTemplate;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UtilDao</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	JdbcTemplate jdbcTemplate;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">uploadImage</span><span class="params">(InputStream stream)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			String sql = <span class="string">&quot;insert into Image(id,data) OUTPUT INSERTED.ID values(?,?)&quot;</span>;</span><br><span class="line">			String id = getUUID();</span><br><span class="line">			<span class="keyword">return</span> jdbcTemplate.queryForObject(sql, <span class="keyword">new</span> Object[] &#123; id, stream &#125;, String.class);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			System.out.println(e);</span><br><span class="line">			<span class="keyword">return</span> <span class="string">&quot;0&quot;</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getUUID</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		String uuid = UUID.randomUUID().toString().replaceAll(<span class="string">&quot;-&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> uuid;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> dao;<br><br><span class="hljs-keyword">import</span> java.io.InputStream;<br><span class="hljs-keyword">import</span> java.util.UUID;<br><br><span class="hljs-keyword">import</span> org.springframework.beans.factory.annotation.Autowired;<br><span class="hljs-keyword">import</span> org.springframework.jdbc.core.JdbcTemplate;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UtilDao</span> </span>&#123;<br>	<span class="hljs-meta">@Autowired</span><br>	JdbcTemplate jdbcTemplate;<br><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">uploadImage</span><span class="hljs-params">(InputStream stream)</span> </span>&#123;<br>		<span class="hljs-keyword">try</span> &#123;<br>			String sql = <span class="hljs-string">&quot;insert into Image(id,data) OUTPUT INSERTED.ID values(?,?)&quot;</span>;<br>			String id = getUUID();<br>			<span class="hljs-keyword">return</span> jdbcTemplate.queryForObject(sql, <span class="hljs-keyword">new</span> Object[] &#123; id, stream &#125;, String.class);<br>		&#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>			System.out.println(e);<br>			<span class="hljs-keyword">return</span> <span class="hljs-string">&quot;0&quot;</span>;<br>		&#125;<br>	&#125;<br><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getUUID</span><span class="hljs-params">()</span> </span>&#123;<br>		String uuid = UUID.randomUUID().toString().replaceAll(<span class="hljs-string">&quot;-&quot;</span>, <span class="hljs-string">&quot;&quot;</span>);<br>		<span class="hljs-keyword">return</span> uuid;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <h2 id="程式碼實作-瀏覽圖片"><a href="#程式碼實作-瀏覽圖片" class="headerlink" title="程式碼實作 - 瀏覽圖片"></a>程式碼實作 - 瀏覽圖片</h2><h3 id="瀏覽圖片-前端"><a href="#瀏覽圖片-前端" class="headerlink" title="瀏覽圖片:前端"></a>瀏覽圖片:前端</h3><p>前面我們已經成功將圖片存進資料庫，接著就要來嘗試顯示出我們加入的圖片。在前端我們可以透過 GET 加上 URL 中的 id 參數來顯示對應的圖片:<code>http://localhost:8080/專案名稱/getImage?id=???</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;/getImage?id=baa2d08bd84340faa1b2&quot;&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="瀏覽圖片-後端"><a href="#瀏覽圖片-後端" class="headerlink" title="瀏覽圖片:後端"></a>瀏覽圖片:後端</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(value=&quot;/getImage&quot;,method=RequestMethod.GET)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getDBImage</span><span class="params">(<span class="meta">@RequestParam(value=&quot;id&quot;)</span> String id,HttpServletRequest  request,HttpServletResponse response)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">byte</span>[] data = util.getImage(id);</span><br><span class="line">        response.setContentType(<span class="string">&quot;image/png&quot;</span>); <span class="comment">// 設定為回傳一個 png 檔案</span></span><br><span class="line">        ByteArrayInputStream bis = <span class="keyword">new</span> ByteArrayInputStream(data);</span><br><span class="line">        BufferedImage bImage = ImageIO.read(bis); <span class="comment">//  //讀取影象到影象緩衝區</span></span><br><span class="line">        ServletOutputStream out = response.getOutputStream(); <span class="comment">// 取得 ServletOutputStream 實例</span></span><br><span class="line">        ImageIO.write(bImage, <span class="string">&quot;png&quot;</span>, out);</span><br><span class="line">        out.close();</span><br><span class="line">    &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">        <span class="comment">// 錯誤處理</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">byte</span>[] getImage(String id) &#123;</span><br><span class="line">        String sql = <span class="string">&quot;select data from Image where id =?&quot;</span>;</span><br><span class="line">        <span class="keyword">byte</span>[] data = jdbcTemplate.queryForObject(sql, <span class="keyword">new</span> Object[] &#123; id &#125;, <span class="keyword">byte</span>[].class);</span><br><span class="line">        <span class="keyword">return</span> data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs htmlembedded">&lt;img src=&quot;/getImage?id=baa2d08bd84340faa1b2&quot;&gt;<br></code></pre></td></tr></table></figure>
+<h3 id="瀏覽圖片-後端"><a href="#瀏覽圖片-後端" class="headerlink" title="瀏覽圖片:後端"></a>瀏覽圖片:後端</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping(value=&quot;/getImage&quot;,method=RequestMethod.GET)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getDBImage</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam(value=&quot;id&quot;)</span> String id,HttpServletRequest  request,HttpServletResponse response)</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;<br>    <span class="hljs-keyword">try</span> &#123;<br>        <span class="hljs-keyword">byte</span>[] data = util.getImage(id);<br>        response.setContentType(<span class="hljs-string">&quot;image/png&quot;</span>); <span class="hljs-comment">// 設定為回傳一個 png 檔案</span><br>        ByteArrayInputStream bis = <span class="hljs-keyword">new</span> ByteArrayInputStream(data);<br>        BufferedImage bImage = ImageIO.read(bis); <span class="hljs-comment">//  //讀取影象到影象緩衝區</span><br>        ServletOutputStream out = response.getOutputStream(); <span class="hljs-comment">// 取得 ServletOutputStream 實例</span><br>        ImageIO.write(bImage, <span class="hljs-string">&quot;png&quot;</span>, out);<br>        out.close();<br>    &#125;<span class="hljs-keyword">catch</span>(Exception e)&#123;<br>        <span class="hljs-comment">// 錯誤處理</span><br>    &#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">byte</span>[] getImage(String id) &#123;<br>        String sql = <span class="hljs-string">&quot;select data from Image where id =?&quot;</span>;<br>        <span class="hljs-keyword">byte</span>[] data = jdbcTemplate.queryForObject(sql, <span class="hljs-keyword">new</span> Object[] &#123; id &#125;, <span class="hljs-keyword">byte</span>[].class);<br>        <span class="hljs-keyword">return</span> data;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p>Spring MVC 上傳檔案 java.lang.IllegalStateException: Unable to process parts as no multi-part configuration has been provided<br><a target="_blank" rel="noopener" href="https://matthung0807.blogspot.com/2018/03/spring-mvc-javalangillegalstateexceptio.html">https://matthung0807.blogspot.com/2018/03/spring-mvc-javalangillegalstateexceptio.html</a></p>
 <p>HTML:Form表單標籤的Enctype屬性的作用及應用示例介紹<br><a target="_blank" rel="noopener" href="https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/544448/">https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/544448/</a></p>
@@ -345,317 +330,374 @@
 <p>使用ajax，Jquery，Spring Boot，MultipartFile實現檔案上傳功能<br><a target="_blank" rel="noopener" href="https://www.796t.com/content/1547351102.html">https://www.796t.com/content/1547351102.html</a></p>
 <p>JavaWeb(實現文件上傳)（一）<br><a target="_blank" rel="noopener" href="https://www.796t.com/content/1513886170.html">https://www.796t.com/content/1513886170.html</a></p>
 
-    </div>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
 
+<span class="category-chains">
+  
+  
     
-    
-    
+      <span class="category-chain">
         
-<div style="background:#f5f6f6;padding:3%;border-radius:10px;text-align:center">
-<p style="display:inline;border-bottom: 2px solid green;">如果上面這些內容對你有幫助的話，</p><br>
-<p style="display:inline;border-bottom: 2px solid green;">希望可以花你 30 秒登入 LikeCoin 並點擊下方拍手按鈕<b>免費</b>鼓勵我：）</p>
-    <script type="text/javascript">
-      document.write(
-        "<iframe scrolling='no' frameborder='0' sandbox='allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-storage-access-by-user-activation' style='height: 212px; width: 100%;' src='https://button.like.co/in/embed/0430shinyu/button?referrer=" +
-        encodeURIComponent(location.href.split("?")[0].split("#")[0]) + "'></iframe>");
-    </script>
-  </div>
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
 
-
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/Java/" rel="tag"># Java,</a>
-              <a href="/tags/Spring/" rel="tag"># Spring</a>
-          </div>
-
-        
-  <div class="post-widgets">
-    <div class="wp_rating">
-      <div id="wpac-rating"></div>
-    </div>
-  </div>
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2022/05/06/springKaptcha/" rel="prev" title="Spring MVC 中使用 Kaptcha 簡易完成圖形驗證碼">
-      <i class="fa fa-chevron-left"></i> Spring MVC 中使用 Kaptcha 簡易完成圖形驗證碼
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2023/03/10/misProposalCollect/" rel="next" title="[資管所][MIS申論題]申論題練習題整理">
-      [資管所][MIS申論題]申論題練習題整理 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
+      </span>
     
-  </article>
   
-  
-  
+</span>
 
-
-
-
-          </div>
-          
-    
-  <div class="comments">
-    <div id="disqus_thread">
-      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
     </div>
-  </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java/">#Java,</a>
+      
+        <a href="/tags/Spring/">#Spring</a>
+      
+    </div>
+  
+</div>
+
+
+              
   
 
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>SpringMVC 中透過 MultipartFile 實現上傳圖片以及瀏覽圖片</div>
+      <div>https://shinyu0430.github.io/2022/05/06/springUploadImage/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Mavis Tsai</div>
         </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>發布於</div>
+          <div>2022年5月6日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>許可協議</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
   </div>
 
-  <aside class="sidebar">
-    <div class="sidebar-inner">
 
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目錄
-        </li>
-        <li class="sidebar-nav-overview">
-          本站概要
-        </li>
-      </ul>
 
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E8%B3%87%E6%BA%90"><span class="nav-number">2.</span> <span class="nav-text">配置資源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BC%8F%E7%A2%BC%E5%AF%A6%E4%BD%9C-%E4%B8%8A%E5%82%B3%E5%9C%96%E7%89%87"><span class="nav-number">3.</span> <span class="nav-text">程式碼實作 - 上傳圖片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E8%B3%87%E6%96%99%E8%A1%A8"><span class="nav-number">3.1.</span> <span class="nav-text">建立資料表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E5%82%B3%E5%9C%96%E7%89%87-%E5%89%8D%E7%AB%AF"><span class="nav-number">3.2.</span> <span class="nav-text">上傳圖片:前端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E5%82%B3%E5%9C%96%E7%89%87-%E5%BE%8C%E7%AB%AF"><span class="nav-number">3.3.</span> <span class="nav-text">上傳圖片:後端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BC%8F%E7%A2%BC%E5%AF%A6%E4%BD%9C-%E7%80%8F%E8%A6%BD%E5%9C%96%E7%89%87"><span class="nav-number">4.</span> <span class="nav-text">程式碼實作 - 瀏覽圖片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%80%8F%E8%A6%BD%E5%9C%96%E7%89%87-%E5%89%8D%E7%AB%AF"><span class="nav-number">4.1.</span> <span class="nav-text">瀏覽圖片:前端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%80%8F%E8%A6%BD%E5%9C%96%E7%89%87-%E5%BE%8C%E7%AB%AF"><span class="nav-number">4.2.</span> <span class="nav-text">瀏覽圖片:後端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number">5.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
-      </div>
-      <!--/noindex-->
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/03/22/IMPrepare/" title="112/2023 資管所(管理組)正取心得（政/山/央/興/北）">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">112/2023 資管所(管理組)正取心得（政/山/央/興/北）</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/05/06/springKaptcha/" title="SpringMVC 中使用 Kaptcha 簡易完成圖形驗證碼">
+                        <span class="hidden-mobile">SpringMVC 中使用 Kaptcha 簡易完成圖形驗證碼</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Mavis Tsai"
-      src="/images/headshot.png">
-  <p class="site-author-name" itemprop="name">Mavis Tsai</p>
-  <div class="site-description" itemprop="description">Mavis 的技術部落格</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">14</span>
-          <span class="site-state-item-name">文章</span>
-        </a>
+            
+          </article>
+        </div>
       </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">6</span>
-        <span class="site-state-item-name">分類</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">11</span>
-        <span class="site-state-item-name">標籤</span></a>
-      </div>
-  </nav>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目錄</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
 
 
-      </div>
+  </aside>
+
 
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2023</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Mavis Tsai</span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-chart-area"></i>
-    </span>
-      <span class="post-meta-item-text">總字數：</span>
-    <span title="總字數">48k</span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-coffee"></i>
-    </span>
-      <span class="post-meta-item-text">所需總閱讀時間 &asymp;</span>
-    <span title="所需總閱讀時間">44 分鐘</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 強力驅動
   </div>
-
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="訪客總數">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="總瀏覽次數">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
 </div>
 
 
 
 
 
+  
 
 
 
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-    </footer>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
   </div>
+</div>
 
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
   
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
-
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
   
+  
+  
+  
+</div>
 
+  </footer>
 
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
   <script>
-  if (CONFIG.page.isPost) {
-    wpac_init = window.wpac_init || [];
-    wpac_init.push({
-      widget: 'Rating',
-      id    : 31925,
-      el    : 'wpac-rating',
-      color : 'fc6423'
-    });
-    (function() {
-      if ('WIDGETPACK_LOADED' in window) return;
-      WIDGETPACK_LOADED = true;
-      var mc = document.createElement('script');
-      mc.type = 'text/javascript';
-      mc.async = true;
-      mc.src = '//embed.widgetpack.com/widget.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
-    })();
-  }
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
   </script>
 
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
   
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
+    <script  src="/js/img-lazyload.js" ></script>
+  
 
 
 
 
   
-
-  
-
 <script>
-  function loadCount() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://Mavis.disqus.com/count.js';
-    s.id = 'dsq-count-scr';
-    (d.head || d.body).appendChild(s);
-  }
-  // defer loading until the whole page loading is completed
-  window.addEventListener('load', loadCount, false);
-</script>
-<script>
-  var disqus_config = function() {
-    this.page.url = "https://shinyu0430.github.io/2022/05/06/springUploadImage/";
-    this.page.identifier = "2022/05/06/springUploadImage/";
-    this.page.title = "SpringMVC 中透過 MultipartFile 實現上傳圖片以及瀏覽圖片";
-    };
-  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
-    if (window.DISQUS) {
-      DISQUS.reset({
-        reload: true,
-        config: disqus_config
-      });
-    } else {
-      var d = document, s = d.createElement('script');
-      s.src = 'https://Mavis.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', '' + +new Date());
-      (d.head || d.body).appendChild(s);
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
     }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
   });
 </script>
 
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允許 JavaScript 運行的環境下瀏覽效果更佳</div>
+  </noscript>
 </body>
 </html>

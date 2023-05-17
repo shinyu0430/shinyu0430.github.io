@@ -1,42 +1,22 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW" data-default-color-scheme=auto>
+
+
+
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
-
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2925151017702819"
-     crossorigin="anonymous"></script>
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EY1HL3X0XW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-EY1HL3X0XW');
-</script>
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"shinyu0430.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
-
-
-
-  <meta name="description" content="以下針對不同類型的字串方法做分類整理：">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/headshot.png">
+  <link rel="icon" href="/images/headshot.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Mavis Tsai">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="以下針對不同類型的字串方法做分類整理：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript 字串方法整理">
 <meta property="og:url" content="https://shinyu0430.github.io/2021/09/20/javascriptstringmethod/index.html">
@@ -47,270 +27,269 @@
 <meta property="article:modified_time" content="2021-10-12T14:12:43.989Z">
 <meta property="article:author" content="Mavis Tsai">
 <meta property="article:tag" content="JavaScript">
-<meta name="twitter:card" content="summary">
-
-<link rel="canonical" href="https://shinyu0430.github.io/2021/09/20/javascriptstringmethod/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-TW'
-  };
-</script>
-
-  <title>JavaScript 字串方法整理 | Mavis</title>
+<meta name="twitter:card" content="summary_large_image">
   
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EY1HL3X0XW"></script>
-    <script>
-      if (CONFIG.hostname === location.hostname) {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-EY1HL3X0XW');
-      }
-    </script>
+  
+  
+  <title>JavaScript 字串方法整理 - Mavis</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
 
 
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"shinyu0430.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":2,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
 
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
+  
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
+  
 
-</head>
+  
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+  
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切換導航欄">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
+  
 
-  <div class="site-meta">
+  
 
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Mavis</h1>
-      <span class="logo-line-after"><i></i></span>
+  
+
+
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Mavis 技術部落格</strong>
     </a>
-      <p class="site-subtitle" itemprop="description">Mavis 的技術部落格</p>
-  </div>
 
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首頁</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>歸檔</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分類</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>標籤</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>關於</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
     </div>
   </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
-        </a>
-      </li>
-  </ul>
 </nav>
 
+  
 
-
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜尋..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
-</div>
-
-    </div>
-  </div>
-
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
           
-
-          <div class="content post posts-expand">
-            
-
-    
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://shinyu0430.github.io/2021/09/20/javascriptstringmethod/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headshot.png">
-      <meta itemprop="name" content="Mavis Tsai">
-      <meta itemprop="description" content="Mavis 的技術部落格">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mavis">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          JavaScript 字串方法整理
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2021-09-20 16:55:45" itemprop="dateCreated datePublished" datetime="2021-09-20T16:55:45+08:00">2021-09-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-10-12 22:12:43" itemprop="dateModified" datetime="2021-10-12T22:12:43+08:00">2021-10-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
-                </span>
-            </span>
-
+            <span id="subtitle" data-typed-text="JavaScript 字串方法整理"></span>
           
-            <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">閱讀次數：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2021/09/20/javascriptstringmethod/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/09/20/javascriptstringmethod/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="文章字數">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">文章字數：</span>
-              <span>5.1k</span>
-            </span>
-            <span class="post-meta-item" title="所需閱讀時間">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-              <span>5 分鐘</span>
-            </span>
-
         </div>
-      </header>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-09-20 16:55" pubdate>
+          2021年9月20日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          43 分鐘
+        
+      </span>
+    
 
     
     
-    
+  </div>
 
 
-    <div class="post-body" itemprop="articleBody">
+        
+      </div>
 
       
-        <p>以下針對不同類型的字串方法做分類整理：</p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">JavaScript 字串方法整理</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>以下針對不同類型的字串方法做分類整理：</p>
 <span id="more"></span>
 <style>
 table th:first-of-type {
@@ -347,96 +326,96 @@ table th:first-of-type {
 </tr>
 </tbody></table>
 <h2 id="回傳單一字元"><a href="#回傳單一字元" class="headerlink" title="回傳單一字元"></a>回傳單一字元</h2><h3 id="charAt-：回傳指定位置的字元"><a href="#charAt-：回傳指定位置的字元" class="headerlink" title="charAt()：回傳指定位置的字元"></a>charAt()：回傳指定位置的字元</h3><p>在參數中放入 0 到 字串長度-1 的數字，</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&quot;HELLO WORLD&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> char = str.charAt(<span class="number">2</span>) <span class="comment">//L</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;HELLO WORLD&quot;</span>;<br><span class="hljs-keyword">let</span> char = str.charAt(<span class="hljs-number">2</span>) <span class="hljs-comment">//L</span><br></code></pre></td></tr></table></figure>
 
 <h3 id="charCodeAt-：回傳指定位置字元的-Unicode-編碼"><a href="#charCodeAt-：回傳指定位置字元的-Unicode-編碼" class="headerlink" title="charCodeAt()：回傳指定位置字元的 Unicode 編碼"></a>charCodeAt()：回傳指定位置字元的 Unicode 編碼</h3><p>在參數中放入 0 到 字串長度-1 的數字。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&quot;HELLO WORLD&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> char = str.charCodeAt(<span class="number">0</span>);<span class="comment">//72</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;HELLO WORLD&quot;</span>;<br><span class="hljs-keyword">let</span> char = str.charCodeAt(<span class="hljs-number">0</span>);<span class="hljs-comment">//72</span><br></code></pre></td></tr></table></figure>
 
 <h2 id="回傳新字串"><a href="#回傳新字串" class="headerlink" title="回傳新字串"></a>回傳新字串</h2><h3 id="concat-：連接多個字串"><a href="#concat-：連接多個字串" class="headerlink" title="concat()：連接多個字串"></a>concat()：連接多個字串</h3><p>參數中放入欲連接的字串。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str1 = <span class="string">&quot;Hello &quot;</span>;</span><br><span class="line"><span class="keyword">let</span> str2 = <span class="string">&quot;world!&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> n = str1.concat(str2); <span class="comment">//&quot;Hello world!&quot;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 可以放入多個字串</span></span><br><span class="line"><span class="keyword">let</span> str1 = <span class="string">&quot;Hello &quot;</span>;</span><br><span class="line"><span class="keyword">let</span> str2 = <span class="string">&quot;world!&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> str3 = <span class="string">&quot;mavis!&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> n = str1.concat(str2,str3); <span class="comment">//&quot;Hello world!mavis!&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str1 = <span class="hljs-string">&quot;Hello &quot;</span>;<br><span class="hljs-keyword">let</span> str2 = <span class="hljs-string">&quot;world!&quot;</span>;<br><span class="hljs-keyword">let</span> n = str1.concat(str2); <span class="hljs-comment">//&quot;Hello world!&quot;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 可以放入多個字串</span><br><span class="hljs-keyword">let</span> str1 = <span class="hljs-string">&quot;Hello &quot;</span>;<br><span class="hljs-keyword">let</span> str2 = <span class="hljs-string">&quot;world!&quot;</span>;<br><span class="hljs-keyword">let</span> str3 = <span class="hljs-string">&quot;mavis!&quot;</span>;<br><span class="hljs-keyword">let</span> n = str1.concat(str2,str3); <span class="hljs-comment">//&quot;Hello world!mavis!&quot;</span><br></code></pre></td></tr></table></figure>
 <h3 id="repeat-：複製字串數次"><a href="#repeat-：複製字串數次" class="headerlink" title="repeat()：複製字串數次"></a>repeat()：複製字串數次</h3><p>參數中放入要複製的次數</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&quot;Hello!&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> n = str.repeat(<span class="number">3</span>);<span class="comment">//&quot;Hello!Hello!Hello!&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;Hello!&quot;</span>;<br><span class="hljs-keyword">let</span> n = str.repeat(<span class="hljs-number">3</span>);<span class="hljs-comment">//&quot;Hello!Hello!Hello!&quot;</span><br></code></pre></td></tr></table></figure>
 
 <h3 id="slice-：提取字串片段"><a href="#slice-：提取字串片段" class="headerlink" title="slice()：提取字串片段"></a>slice()：提取字串片段</h3><p>參數中可放入兩個值：<code>slice(起始位置,結束位置)</code></p>
 <ol>
 <li>起始位置，可為負值</li>
 <li>（選填）結束位置，可為負值，預設會傳到字串結尾</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&quot;Hello world!&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> n = str.slice(<span class="number">0</span>,<span class="number">5</span>); <span class="comment">//&quot;Hello&quot;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&quot;Hello world!&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> n = str.slice(-<span class="number">2</span>,<span class="number">4</span>); <span class="comment">//&quot;&quot;，</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;Hello world!&quot;</span>;<br><span class="hljs-keyword">let</span> n = str.slice(<span class="hljs-number">0</span>,<span class="hljs-number">5</span>); <span class="hljs-comment">//&quot;Hello&quot;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;Hello world!&quot;</span>;<br><span class="hljs-keyword">let</span> n = str.slice(-<span class="hljs-number">2</span>,<span class="hljs-number">4</span>); <span class="hljs-comment">//&quot;&quot;，</span><br></code></pre></td></tr></table></figure>
 
 <h3 id="substr-：提取字串片段"><a href="#substr-：提取字串片段" class="headerlink" title="substr()：提取字串片段"></a>substr()：提取字串片段</h3><p>參數中可放入兩個值：<code>substr(起始位置,提取字串長度)</code></p>
 <ol>
 <li>起始位置，可為負值</li>
 <li>（選填）提取字串長度，預設回傳到字串結尾</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str=<span class="string">&quot;Hello world!&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> n = str.substr(<span class="number">6</span>,<span class="number">5</span>)<span class="comment">//world</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello world!&quot;</span>;<br><span class="hljs-keyword">let</span> n = str.substr(<span class="hljs-number">6</span>,<span class="hljs-number">5</span>)<span class="hljs-comment">//world</span><br></code></pre></td></tr></table></figure>
 
 <h3 id="substring-：提取字串片段"><a href="#substring-：提取字串片段" class="headerlink" title="substring()：提取字串片段"></a>substring()：提取字串片段</h3><p>參數中可放入兩個值：<code>substring(起始位置,結束位置)</code></p>
 <ol>
 <li>起始位置，不可為負值</li>
 <li>（選填）結束位置，不可為負值，預設會傳到字串結尾</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&quot;Hello world!&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> n = str.substring(<span class="number">0</span>,<span class="number">5</span>); <span class="comment">//&quot;Hello&quot;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str=<span class="string">&quot;Hello world!&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> n = str.substring(-<span class="number">2</span>,<span class="number">5</span>); <span class="comment">//&quot;Hello&quot;，若帶入負值會從預設 0 開始</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;Hello world!&quot;</span>;<br><span class="hljs-keyword">let</span> n = str.substring(<span class="hljs-number">0</span>,<span class="hljs-number">5</span>); <span class="hljs-comment">//&quot;Hello&quot;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello world!&quot;</span>;<br><span class="hljs-keyword">let</span> n = str.substring(-<span class="hljs-number">2</span>,<span class="hljs-number">5</span>); <span class="hljs-comment">//&quot;Hello&quot;，若帶入負值會從預設 0 開始</span><br></code></pre></td></tr></table></figure>
 
 <h3 id="trim-：去除字串兩邊空白"><a href="#trim-：去除字串兩邊空白" class="headerlink" title="trim()：去除字串兩邊空白"></a>trim()：去除字串兩邊空白</h3><p>空白包含 enter、tab、換行符號，並不適用於 null, undefined。 </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str=<span class="string">&quot;  mavis  &quot;</span>;</span><br><span class="line"><span class="keyword">let</span> n = str.trim();<span class="comment">// &quot;Mavis&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;  mavis  &quot;</span>;<br><span class="hljs-keyword">let</span> n = str.trim();<span class="hljs-comment">// &quot;Mavis&quot;</span><br></code></pre></td></tr></table></figure>
 
 <h3 id="toLowerCase-：字串轉換成小寫"><a href="#toLowerCase-：字串轉換成小寫" class="headerlink" title="toLowerCase()：字串轉換成小寫"></a>toLowerCase()：字串轉換成小寫</h3><p>將字串轉換成小寫</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str=<span class="string">&quot;MAVIS&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> n = str.toLowerCase();<span class="comment">// &quot;mavis&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;MAVIS&quot;</span>;<br><span class="hljs-keyword">let</span> n = str.toLowerCase();<span class="hljs-comment">// &quot;mavis&quot;</span><br></code></pre></td></tr></table></figure>
 <h3 id="toUpperCase-：字符串轉換成大寫"><a href="#toUpperCase-：字符串轉換成大寫" class="headerlink" title="toUpperCase()：字符串轉換成大寫"></a>toUpperCase()：字符串轉換成大寫</h3><p>字串轉換成大寫</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str=<span class="string">&quot;mavis&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> n = str.toUpperCase();<span class="comment">// &quot;Mavis&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;mavis&quot;</span>;<br><span class="hljs-keyword">let</span> n = str.toUpperCase();<span class="hljs-comment">// &quot;Mavis&quot;</span><br></code></pre></td></tr></table></figure>
 <h2 id="檢查字串"><a href="#檢查字串" class="headerlink" title="檢查字串"></a>檢查字串</h2><h3 id="endsWith-：判斷字串是否以特定字串結尾"><a href="#endsWith-：判斷字串是否以特定字串結尾" class="headerlink" title="endsWith()：判斷字串是否以特定字串結尾"></a>endsWith()：判斷字串是否以特定字串結尾</h3><p>判斷字串是否以特定字串結尾，回傳 Boolean 值。參數放入要判斷的特定字串。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注意：會判斷大小寫</span></span><br><span class="line"><span class="keyword">let</span> str = <span class="string">&quot;Hello world&quot;</span>;</span><br><span class="line">str.endsWith(<span class="string">&quot;world&quot;</span>)   <span class="comment">// true</span></span><br><span class="line">str.endsWith(<span class="string">&quot;World&quot;</span>)   <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 注意：會判斷大小寫</span><br><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;Hello world&quot;</span>;<br>str.endsWith(<span class="hljs-string">&quot;world&quot;</span>)   <span class="hljs-comment">// true</span><br>str.endsWith(<span class="hljs-string">&quot;World&quot;</span>)   <span class="hljs-comment">// false</span><br></code></pre></td></tr></table></figure>
 <h3 id="startsWith-：判斷字串是否以特定字串開頭"><a href="#startsWith-：判斷字串是否以特定字串開頭" class="headerlink" title="startsWith()：判斷字串是否以特定字串開頭"></a>startsWith()：判斷字串是否以特定字串開頭</h3><p>判斷字串是否以特定字串開頭，回傳 Boolean 值。參數放入要判斷的特定字串。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注意：會區分大小寫</span></span><br><span class="line"><span class="keyword">let</span> str = <span class="string">&quot;Hello world&quot;</span>;</span><br><span class="line">str.endsWith(<span class="string">&quot;Hello&quot;</span>)   <span class="comment">// true</span></span><br><span class="line">str.endsWith(<span class="string">&quot;hello&quot;</span>)   <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 注意：會區分大小寫</span><br><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;Hello world&quot;</span>;<br>str.endsWith(<span class="hljs-string">&quot;Hello&quot;</span>)   <span class="hljs-comment">// true</span><br>str.endsWith(<span class="hljs-string">&quot;hello&quot;</span>)   <span class="hljs-comment">// false</span><br></code></pre></td></tr></table></figure>
 <h3 id="includes-：判斷字串中是否包含特定子串"><a href="#includes-：判斷字串中是否包含特定子串" class="headerlink" title="includes()：判斷字串中是否包含特定子串"></a>includes()：判斷字串中是否包含特定子串</h3><p>判斷字串中是否包含特定子串，回傳 Boolean 值，<br>參數中可放入兩個值：<code>includes(判斷的特定字串,起始位置)</code></p>
 <ol>
 <li>要判斷的特定字串</li>
 <li>（選填）起始位置，預設為 0</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&quot;Hello world!!!!&quot;</span>;</span><br><span class="line">str.includes(<span class="string">&quot;world&quot;</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 填入第二個參數，設定起始位置</span></span><br><span class="line"><span class="keyword">let</span> str = <span class="string">&quot;Hello world,nice to meet you!&quot;</span>;</span><br><span class="line">str.includes(<span class="string">&quot;world&quot;</span>, <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;Hello world!!!!&quot;</span>;<br>str.includes(<span class="hljs-string">&quot;world&quot;</span>); <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 填入第二個參數，設定起始位置</span><br><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;Hello world,nice to meet you!&quot;</span>;<br>str.includes(<span class="hljs-string">&quot;world&quot;</span>, <span class="hljs-number">10</span>);<br></code></pre></td></tr></table></figure>
 
 <h3 id="indexOf-：尋找字串首次出現的位置"><a href="#indexOf-：尋找字串首次出現的位置" class="headerlink" title="indexOf()：尋找字串首次出現的位置"></a>indexOf()：尋找字串首次出現的位置</h3><p>如果不包含，就回傳 -1。<br>參數中可放入兩個值：<code>indexOf(判斷的特定字串,起始位置)</code></p>
 <ol>
 <li>要判斷的特定字串</li>
 <li>（選填）起始位置，預設為 0</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注意：會區分大小寫</span></span><br><span class="line"><span class="keyword">let</span> str=<span class="string">&quot;Hello world!&quot;</span>;</span><br><span class="line">str.indexOf(<span class="string">&quot;world&quot;</span>); <span class="comment">//6</span></span><br><span class="line">str.indexOf(<span class="string">&quot;World&quot;</span>); <span class="comment">//-1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 注意：會區分大小寫</span><br><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello world!&quot;</span>;<br>str.indexOf(<span class="hljs-string">&quot;world&quot;</span>); <span class="hljs-comment">//6</span><br>str.indexOf(<span class="hljs-string">&quot;World&quot;</span>); <span class="hljs-comment">//-1</span><br></code></pre></td></tr></table></figure>
 <h3 id="lastIndexOf-：從後尋找字串首次出現的位置"><a href="#lastIndexOf-：從後尋找字串首次出現的位置" class="headerlink" title="lastIndexOf()：從後尋找字串首次出現的位置"></a>lastIndexOf()：從後尋找字串首次出現的位置</h3><p>如果不包含，就回傳 -1。<br>參數中可放入兩個值：<code>lastIndexOf(判斷的特定字串,起始位置)</code></p>
 <ol>
 <li>要判斷的特定字串</li>
 <li>（選填）起始位置，預設為 0</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注意：會區分大小寫</span></span><br><span class="line"><span class="keyword">let</span> str=<span class="string">&quot;Hello world!world!&quot;</span>;</span><br><span class="line">str.lastIndexOf(<span class="string">&quot;world&quot;</span>); <span class="comment">//12</span></span><br><span class="line">str.lastIndexOf(<span class="string">&quot;World&quot;</span>); <span class="comment">//-1</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 填入第二個參數，設定起始位置</span></span><br><span class="line"><span class="keyword">var</span> str=<span class="string">&quot;Hello world!Hello world!&quot;</span>;</span><br><span class="line">str.lastIndexOf(<span class="string">&quot;world&quot;</span>, <span class="number">10</span>);<span class="comment">//6</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 注意：會區分大小寫</span><br><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello world!world!&quot;</span>;<br>str.lastIndexOf(<span class="hljs-string">&quot;world&quot;</span>); <span class="hljs-comment">//12</span><br>str.lastIndexOf(<span class="hljs-string">&quot;World&quot;</span>); <span class="hljs-comment">//-1</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 填入第二個參數，設定起始位置</span><br><span class="hljs-keyword">var</span> str=<span class="hljs-string">&quot;Hello world!Hello world!&quot;</span>;<br>str.lastIndexOf(<span class="hljs-string">&quot;world&quot;</span>, <span class="hljs-number">10</span>);<span class="hljs-comment">//6</span><br></code></pre></td></tr></table></figure>
 <h2 id="檢查字串-可與正規表達式搭配"><a href="#檢查字串-可與正規表達式搭配" class="headerlink" title="檢查字串 - 可與正規表達式搭配"></a>檢查字串 - 可與正規表達式搭配</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Regular_Expressions">正規表達式</a>是被用來匹配字串中字元組合的模式，若還不清楚使用方法，可以參考<a target="_blank" rel="noopener" href="https://5xruby.tw/posts/15min-regular-expression">這篇文章</a>。</p>
 <h3 id="search-：尋找與字串或正規表達式相同的值"><a href="#search-：尋找與字串或正規表達式相同的值" class="headerlink" title="search()：尋找與字串或正規表達式相同的值"></a>search()：尋找與字串或正規表達式相同的值</h3><p>尋找與正規表達式相同的值，回傳字串開始的索引值，沒找到回傳 -1，參數中放入要尋找找的值。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str=<span class="string">&quot;Hello!world!Hello!world!&quot;</span>; </span><br><span class="line">str.search(<span class="string">&quot;world&quot;</span>);<span class="comment">//6</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 正規表達式</span></span><br><span class="line"><span class="keyword">let</span> str=<span class="string">&quot;Hello!world!Hello!world!&quot;</span>; </span><br><span class="line">str.search(<span class="regexp">/world/</span>);<span class="comment">//6</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world!Hello!world!&quot;</span>; <br>str.search(<span class="hljs-string">&quot;world&quot;</span>);<span class="hljs-comment">//6</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 正規表達式</span><br><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world!Hello!world!&quot;</span>; <br>str.search(<span class="hljs-regexp">/world/</span>);<span class="hljs-comment">//6</span><br></code></pre></td></tr></table></figure>
 <h3 id="match-：尋找與字串或正規表達式相同的多個值"><a href="#match-：尋找與字串或正規表達式相同的多個值" class="headerlink" title="match()：尋找與字串或正規表達式相同的多個值"></a>match()：尋找與字串或正規表達式相同的多個值</h3><p>尋找與字串或正規表達式相同的多個值，回傳第一個成功的詳細資料，參數中放入要尋找找的值。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str=<span class="string">&quot;Hello!world!Hello!world!&quot;</span>; </span><br><span class="line">str.match(<span class="string">&quot;world&quot;</span>);<span class="comment">//[&#x27;world&#x27;,index:6,....]</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  正規表達式</span></span><br><span class="line"><span class="keyword">let</span> str=<span class="string">&quot;Hello!world!Hello!world!&quot;</span>; </span><br><span class="line">str.match(<span class="regexp">/world/</span>);<span class="comment">//[&#x27;world&#x27;,index:6,....]</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 正規表達式：加上 g flag 會列出所有比對成功的字串</span></span><br><span class="line"><span class="keyword">let</span> str=<span class="string">&quot;Hello!world!Hello!world!&quot;</span>; </span><br><span class="line">str.match(<span class="regexp">/world/g</span>);<span class="comment">//[&#x27;world&#x27;, &#x27;world&#x27;]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world!Hello!world!&quot;</span>; <br>str.match(<span class="hljs-string">&quot;world&quot;</span>);<span class="hljs-comment">//[&#x27;world&#x27;,index:6,....]</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//  正規表達式</span><br><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world!Hello!world!&quot;</span>; <br>str.match(<span class="hljs-regexp">/world/</span>);<span class="hljs-comment">//[&#x27;world&#x27;,index:6,....]</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 正規表達式：加上 g flag 會列出所有比對成功的字串</span><br><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world!Hello!world!&quot;</span>; <br>str.match(<span class="hljs-regexp">/world/g</span>);<span class="hljs-comment">//[&#x27;world&#x27;, &#x27;world&#x27;]</span><br></code></pre></td></tr></table></figure>
 <h3 id="replace-：替換與字串或正規表達式相同的值"><a href="#replace-：替換與字串或正規表達式相同的值" class="headerlink" title="replace()：替換與字串或正規表達式相同的值"></a>replace()：替換與字串或正規表達式相同的值</h3><p>尋找與字串或正規表達式相同的值，並替換第一個值。<br>參數中放入兩個值：<code>replace(要體換掉的值,要替換上去的值)</code></p>
 <ol>
 <li>要替換掉的值</li>
 <li>要替換上去的值</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 正規表達式</span></span><br><span class="line"><span class="keyword">let</span> str=<span class="string">&quot;Hello!world!Hello!world!&quot;</span>; </span><br><span class="line">str.replace(<span class="string">&quot;world&quot;</span>,<span class="string">&quot;mavis&quot;</span>);<span class="comment">//Hello!mavis!Hello!world!</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 正規表達式</span></span><br><span class="line"><span class="keyword">let</span> str=<span class="string">&quot;Hello!world!Hello!world!&quot;</span>; </span><br><span class="line">str.replace(<span class="regexp">/world/</span>,<span class="string">&quot;mavis&quot;</span>);<span class="comment">//Hello!mavis!Hello!world!</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 正規表達式：加上 g flag 可以替換所有符合的值</span></span><br><span class="line"><span class="keyword">let</span> str=<span class="string">&quot;Hello!world!Hello!world!&quot;</span>; </span><br><span class="line">str.replace(<span class="regexp">/world/g</span>,<span class="string">&quot;mavis&quot;</span>);<span class="comment">//Hello!mavis!Hello!mavis!</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 正規表達式</span><br><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world!Hello!world!&quot;</span>; <br>str.replace(<span class="hljs-string">&quot;world&quot;</span>,<span class="hljs-string">&quot;mavis&quot;</span>);<span class="hljs-comment">//Hello!mavis!Hello!world!</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 正規表達式</span><br><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world!Hello!world!&quot;</span>; <br>str.replace(<span class="hljs-regexp">/world/</span>,<span class="hljs-string">&quot;mavis&quot;</span>);<span class="hljs-comment">//Hello!mavis!Hello!world!</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 正規表達式：加上 g flag 可以替換所有符合的值</span><br><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world!Hello!world!&quot;</span>; <br>str.replace(<span class="hljs-regexp">/world/g</span>,<span class="hljs-string">&quot;mavis&quot;</span>);<span class="hljs-comment">//Hello!mavis!Hello!mavis!</span><br></code></pre></td></tr></table></figure>
 
 <h3 id="replaceAll-：替換與字串或正規表達式相同的多個值"><a href="#replaceAll-：替換與字串或正規表達式相同的多個值" class="headerlink" title="replaceAll()：替換與字串或正規表達式相同的多個值"></a>replaceAll()：替換與字串或正規表達式相同的多個值</h3><p>尋找與字串或正規表達式相同的多個值，並替換所有值。<br>參數中放入兩個值：<code>replaceAll(要替換掉的值,要替換上去的值)</code></p>
 <ol>
 <li>要替換掉的值</li>
 <li>要替換上去的值</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str=<span class="string">&quot;Hello!world!Hello!world!&quot;</span>; </span><br><span class="line">str.replaceAll(<span class="string">&quot;world&quot;</span>,<span class="string">&quot;mavis&quot;</span>);<span class="comment">//Hello!mavis!Hello!mavis!</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 正規表達式</span></span><br><span class="line"><span class="keyword">let</span> str=<span class="string">&quot;Hello!world!Hello!world!&quot;</span>; </span><br><span class="line">str.replaceAll(<span class="regexp">/world/</span>,<span class="string">&quot;mavis&quot;</span>);<span class="comment">//Hello!mavis!Hello!mavis!</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world!Hello!world!&quot;</span>; <br>str.replaceAll(<span class="hljs-string">&quot;world&quot;</span>,<span class="hljs-string">&quot;mavis&quot;</span>);<span class="hljs-comment">//Hello!mavis!Hello!mavis!</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 正規表達式</span><br><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world!Hello!world!&quot;</span>; <br>str.replaceAll(<span class="hljs-regexp">/world/</span>,<span class="hljs-string">&quot;mavis&quot;</span>);<span class="hljs-comment">//Hello!mavis!Hello!mavis!</span><br></code></pre></td></tr></table></figure>
 
 
 <h2 id="字串與陣列"><a href="#字串與陣列" class="headerlink" title="字串與陣列"></a>字串與陣列</h2><h3 id="split-：字串分割為陣列"><a href="#split-：字串分割為陣列" class="headerlink" title="split()：字串分割為陣列"></a>split()：字串分割為陣列</h3><p>參數中可放入兩個值：<code>split(分割條件,回傳陣列最大長度)</code></p>
@@ -444,320 +423,376 @@ table th:first-of-type {
 <li>（選填）隔開陣列中每個元素的字串，預設不改變字串</li>
 <li>（選填）回傳陣列的最大長度，預設不考慮</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str=<span class="string">&quot;Hello!world&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> n = str.split(); <span class="comment">//[&quot;Hello!world&quot;]</span></span><br><span class="line">n = str.split(<span class="string">&quot;&quot;</span>); <span class="comment">//[&quot;H&quot;,&quot;e&quot;,&quot;l&quot;,&quot;l&quot;,&quot;o&quot;,&quot;!&quot;,&quot;w&quot;,&quot;o&quot;,&quot;r&quot;,&quot;l&quot;,&quot;d&quot;]</span></span><br><span class="line">n = str.split(<span class="string">&quot;!&quot;</span>); <span class="comment">//[&quot;Hello&quot;,&quot;world&quot;]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world&quot;</span>;<br><span class="hljs-keyword">let</span> n = str.split(); <span class="hljs-comment">//[&quot;Hello!world&quot;]</span><br>n = str.split(<span class="hljs-string">&quot;&quot;</span>); <span class="hljs-comment">//[&quot;H&quot;,&quot;e&quot;,&quot;l&quot;,&quot;l&quot;,&quot;o&quot;,&quot;!&quot;,&quot;w&quot;,&quot;o&quot;,&quot;r&quot;,&quot;l&quot;,&quot;d&quot;]</span><br>n = str.split(<span class="hljs-string">&quot;!&quot;</span>); <span class="hljs-comment">//[&quot;Hello&quot;,&quot;world&quot;]</span><br></code></pre></td></tr></table></figure>
 <h3 id="join-：陣列合併為字串"><a href="#join-：陣列合併為字串" class="headerlink" title="join()：陣列合併為字串"></a>join()：陣列合併為字串</h3><p>參數可（選填）放入隔開陣列中每個元素的字串：<code>join(分割字串)</code>，預設為<code>,</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">&quot;c&quot;</span>,<span class="string">&quot;a&quot;</span>,<span class="string">&quot;t&quot;</span>];</span><br><span class="line"><span class="keyword">let</span> n = arr.join(); <span class="comment">//&quot;c,a,t&quot;</span></span><br><span class="line">n = arr.join(<span class="string">&quot;&quot;</span>) <span class="comment">//cat</span></span><br><span class="line">n = arr.join(<span class="string">&quot;!&quot;</span>); <span class="comment">//&quot;c!a!t&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> arr = [<span class="hljs-string">&quot;c&quot;</span>,<span class="hljs-string">&quot;a&quot;</span>,<span class="hljs-string">&quot;t&quot;</span>];<br><span class="hljs-keyword">let</span> n = arr.join(); <span class="hljs-comment">//&quot;c,a,t&quot;</span><br>n = arr.join(<span class="hljs-string">&quot;&quot;</span>) <span class="hljs-comment">//cat</span><br>n = arr.join(<span class="hljs-string">&quot;!&quot;</span>); <span class="hljs-comment">//&quot;c!a!t&quot;</span><br></code></pre></td></tr></table></figure>
 
-    </div>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
 
+<span class="category-chains">
+  
+  
     
-    
-    
+      <span class="category-chain">
         
-<div style="background:#f5f6f6;padding:3%;border-radius:10px;text-align:center">
-<p style="display:inline;border-bottom: 2px solid green;">如果上面這些內容對你有幫助的話，</p><br>
-<p style="display:inline;border-bottom: 2px solid green;">希望可以花你 30 秒登入 LikeCoin 並點擊下方拍手按鈕<b>免費</b>鼓勵我：）</p>
-    <script type="text/javascript">
-      document.write(
-        "<iframe scrolling='no' frameborder='0' sandbox='allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-storage-access-by-user-activation' style='height: 212px; width: 100%;' src='https://button.like.co/in/embed/0430shinyu/button?referrer=" +
-        encodeURIComponent(location.href.split("?")[0].split("#")[0]) + "'></iframe>");
-    </script>
-  </div>
+  <a href="/categories/JavaScript/" class="category-chain-item">JavaScript</a>
+  
+  
 
-
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
-          </div>
-
-        
-  <div class="post-widgets">
-    <div class="wp_rating">
-      <div id="wpac-rating"></div>
-    </div>
-  </div>
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2021/09/19/imgurturtorial/" rel="prev" title="免費圖片空間 Imgur 使用教學">
-      <i class="fa fa-chevron-left"></i> 免費圖片空間 Imgur 使用教學
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/09/21/maxwidthminwidthfitcontent/" rel="next" title="CSS 寬度自適應： max-width、min-width、fit-content 介紹">
-      CSS 寬度自適應： max-width、min-width、fit-content 介紹 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
+      </span>
     
-  </article>
   
-  
-  
+</span>
 
-
-
-
-          </div>
-          
-    
-  <div class="comments">
-    <div id="disqus_thread">
-      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
     </div>
-  </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/JavaScript/">#JavaScript</a>
+      
+    </div>
+  
+</div>
+
+
+              
   
 
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>JavaScript 字串方法整理</div>
+      <div>https://shinyu0430.github.io/2021/09/20/javascriptstringmethod/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Mavis Tsai</div>
         </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>發布於</div>
+          <div>2021年9月20日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>許可協議</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
   </div>
 
-  <aside class="sidebar">
-    <div class="sidebar-inner">
 
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目錄
-        </li>
-        <li class="sidebar-nav-overview">
-          本站概要
-        </li>
-      </ul>
 
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E5%82%B3%E5%96%AE%E4%B8%80%E5%AD%97%E5%85%83"><span class="nav-number">1.</span> <span class="nav-text">回傳單一字元</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#charAt-%EF%BC%9A%E5%9B%9E%E5%82%B3%E6%8C%87%E5%AE%9A%E4%BD%8D%E7%BD%AE%E7%9A%84%E5%AD%97%E5%85%83"><span class="nav-number">1.1.</span> <span class="nav-text">charAt()：回傳指定位置的字元</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#charCodeAt-%EF%BC%9A%E5%9B%9E%E5%82%B3%E6%8C%87%E5%AE%9A%E4%BD%8D%E7%BD%AE%E5%AD%97%E5%85%83%E7%9A%84-Unicode-%E7%B7%A8%E7%A2%BC"><span class="nav-number">1.2.</span> <span class="nav-text">charCodeAt()：回傳指定位置字元的 Unicode 編碼</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E5%82%B3%E6%96%B0%E5%AD%97%E4%B8%B2"><span class="nav-number">2.</span> <span class="nav-text">回傳新字串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#concat-%EF%BC%9A%E9%80%A3%E6%8E%A5%E5%A4%9A%E5%80%8B%E5%AD%97%E4%B8%B2"><span class="nav-number">2.1.</span> <span class="nav-text">concat()：連接多個字串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#repeat-%EF%BC%9A%E8%A4%87%E8%A3%BD%E5%AD%97%E4%B8%B2%E6%95%B8%E6%AC%A1"><span class="nav-number">2.2.</span> <span class="nav-text">repeat()：複製字串數次</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#slice-%EF%BC%9A%E6%8F%90%E5%8F%96%E5%AD%97%E4%B8%B2%E7%89%87%E6%AE%B5"><span class="nav-number">2.3.</span> <span class="nav-text">slice()：提取字串片段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#substr-%EF%BC%9A%E6%8F%90%E5%8F%96%E5%AD%97%E4%B8%B2%E7%89%87%E6%AE%B5"><span class="nav-number">2.4.</span> <span class="nav-text">substr()：提取字串片段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#substring-%EF%BC%9A%E6%8F%90%E5%8F%96%E5%AD%97%E4%B8%B2%E7%89%87%E6%AE%B5"><span class="nav-number">2.5.</span> <span class="nav-text">substring()：提取字串片段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#trim-%EF%BC%9A%E5%8E%BB%E9%99%A4%E5%AD%97%E4%B8%B2%E5%85%A9%E9%82%8A%E7%A9%BA%E7%99%BD"><span class="nav-number">2.6.</span> <span class="nav-text">trim()：去除字串兩邊空白</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#toLowerCase-%EF%BC%9A%E5%AD%97%E4%B8%B2%E8%BD%89%E6%8F%9B%E6%88%90%E5%B0%8F%E5%AF%AB"><span class="nav-number">2.7.</span> <span class="nav-text">toLowerCase()：字串轉換成小寫</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#toUpperCase-%EF%BC%9A%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%89%E6%8F%9B%E6%88%90%E5%A4%A7%E5%AF%AB"><span class="nav-number">2.8.</span> <span class="nav-text">toUpperCase()：字符串轉換成大寫</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AA%A2%E6%9F%A5%E5%AD%97%E4%B8%B2"><span class="nav-number">3.</span> <span class="nav-text">檢查字串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#endsWith-%EF%BC%9A%E5%88%A4%E6%96%B7%E5%AD%97%E4%B8%B2%E6%98%AF%E5%90%A6%E4%BB%A5%E7%89%B9%E5%AE%9A%E5%AD%97%E4%B8%B2%E7%B5%90%E5%B0%BE"><span class="nav-number">3.1.</span> <span class="nav-text">endsWith()：判斷字串是否以特定字串結尾</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#startsWith-%EF%BC%9A%E5%88%A4%E6%96%B7%E5%AD%97%E4%B8%B2%E6%98%AF%E5%90%A6%E4%BB%A5%E7%89%B9%E5%AE%9A%E5%AD%97%E4%B8%B2%E9%96%8B%E9%A0%AD"><span class="nav-number">3.2.</span> <span class="nav-text">startsWith()：判斷字串是否以特定字串開頭</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#includes-%EF%BC%9A%E5%88%A4%E6%96%B7%E5%AD%97%E4%B8%B2%E4%B8%AD%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E7%89%B9%E5%AE%9A%E5%AD%90%E4%B8%B2"><span class="nav-number">3.3.</span> <span class="nav-text">includes()：判斷字串中是否包含特定子串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#indexOf-%EF%BC%9A%E5%B0%8B%E6%89%BE%E5%AD%97%E4%B8%B2%E9%A6%96%E6%AC%A1%E5%87%BA%E7%8F%BE%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="nav-number">3.4.</span> <span class="nav-text">indexOf()：尋找字串首次出現的位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lastIndexOf-%EF%BC%9A%E5%BE%9E%E5%BE%8C%E5%B0%8B%E6%89%BE%E5%AD%97%E4%B8%B2%E9%A6%96%E6%AC%A1%E5%87%BA%E7%8F%BE%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="nav-number">3.5.</span> <span class="nav-text">lastIndexOf()：從後尋找字串首次出現的位置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AA%A2%E6%9F%A5%E5%AD%97%E4%B8%B2-%E5%8F%AF%E8%88%87%E6%AD%A3%E8%A6%8F%E8%A1%A8%E9%81%94%E5%BC%8F%E6%90%AD%E9%85%8D"><span class="nav-number">4.</span> <span class="nav-text">檢查字串 - 可與正規表達式搭配</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#search-%EF%BC%9A%E5%B0%8B%E6%89%BE%E8%88%87%E5%AD%97%E4%B8%B2%E6%88%96%E6%AD%A3%E8%A6%8F%E8%A1%A8%E9%81%94%E5%BC%8F%E7%9B%B8%E5%90%8C%E7%9A%84%E5%80%BC"><span class="nav-number">4.1.</span> <span class="nav-text">search()：尋找與字串或正規表達式相同的值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#match-%EF%BC%9A%E5%B0%8B%E6%89%BE%E8%88%87%E5%AD%97%E4%B8%B2%E6%88%96%E6%AD%A3%E8%A6%8F%E8%A1%A8%E9%81%94%E5%BC%8F%E7%9B%B8%E5%90%8C%E7%9A%84%E5%A4%9A%E5%80%8B%E5%80%BC"><span class="nav-number">4.2.</span> <span class="nav-text">match()：尋找與字串或正規表達式相同的多個值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#replace-%EF%BC%9A%E6%9B%BF%E6%8F%9B%E8%88%87%E5%AD%97%E4%B8%B2%E6%88%96%E6%AD%A3%E8%A6%8F%E8%A1%A8%E9%81%94%E5%BC%8F%E7%9B%B8%E5%90%8C%E7%9A%84%E5%80%BC"><span class="nav-number">4.3.</span> <span class="nav-text">replace()：替換與字串或正規表達式相同的值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#replaceAll-%EF%BC%9A%E6%9B%BF%E6%8F%9B%E8%88%87%E5%AD%97%E4%B8%B2%E6%88%96%E6%AD%A3%E8%A6%8F%E8%A1%A8%E9%81%94%E5%BC%8F%E7%9B%B8%E5%90%8C%E7%9A%84%E5%A4%9A%E5%80%8B%E5%80%BC"><span class="nav-number">4.4.</span> <span class="nav-text">replaceAll()：替換與字串或正規表達式相同的多個值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E4%B8%B2%E8%88%87%E9%99%A3%E5%88%97"><span class="nav-number">5.</span> <span class="nav-text">字串與陣列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#split-%EF%BC%9A%E5%AD%97%E4%B8%B2%E5%88%86%E5%89%B2%E7%82%BA%E9%99%A3%E5%88%97"><span class="nav-number">5.1.</span> <span class="nav-text">split()：字串分割為陣列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#join-%EF%BC%9A%E9%99%A3%E5%88%97%E5%90%88%E4%BD%B5%E7%82%BA%E5%AD%97%E4%B8%B2"><span class="nav-number">5.2.</span> <span class="nav-text">join()：陣列合併為字串</span></a></li></ol></li></ol></div>
-      </div>
-      <!--/noindex-->
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/09/21/maxwidthminwidthfitcontent/" title="CSS 寬度自適應： max-width、min-width、fit-content 介紹">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">CSS 寬度自適應： max-width、min-width、fit-content 介紹</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/09/19/imgurturtorial/" title="免費圖片空間 Imgur 使用教學">
+                        <span class="hidden-mobile">免費圖片空間 Imgur 使用教學</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Mavis Tsai"
-      src="/images/headshot.png">
-  <p class="site-author-name" itemprop="name">Mavis Tsai</p>
-  <div class="site-description" itemprop="description">Mavis 的技術部落格</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">14</span>
-          <span class="site-state-item-name">文章</span>
-        </a>
+            
+          </article>
+        </div>
       </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">6</span>
-        <span class="site-state-item-name">分類</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">11</span>
-        <span class="site-state-item-name">標籤</span></a>
-      </div>
-  </nav>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目錄</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
 
 
-      </div>
+  </aside>
+
 
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2023</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Mavis Tsai</span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-chart-area"></i>
-    </span>
-      <span class="post-meta-item-text">總字數：</span>
-    <span title="總字數">48k</span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-coffee"></i>
-    </span>
-      <span class="post-meta-item-text">所需總閱讀時間 &asymp;</span>
-    <span title="所需總閱讀時間">44 分鐘</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 強力驅動
   </div>
-
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="訪客總數">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="總瀏覽次數">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
 </div>
 
 
 
 
 
+  
 
 
 
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-    </footer>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
   </div>
+</div>
 
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
   
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
-
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
   
+  
+  
+  
+</div>
 
+  </footer>
 
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
   <script>
-  if (CONFIG.page.isPost) {
-    wpac_init = window.wpac_init || [];
-    wpac_init.push({
-      widget: 'Rating',
-      id    : 31925,
-      el    : 'wpac-rating',
-      color : 'fc6423'
-    });
-    (function() {
-      if ('WIDGETPACK_LOADED' in window) return;
-      WIDGETPACK_LOADED = true;
-      var mc = document.createElement('script');
-      mc.type = 'text/javascript';
-      mc.async = true;
-      mc.src = '//embed.widgetpack.com/widget.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
-    })();
-  }
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
   </script>
 
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
   
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
+    <script  src="/js/img-lazyload.js" ></script>
+  
 
 
 
 
   
-
-  
-
 <script>
-  function loadCount() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://Mavis.disqus.com/count.js';
-    s.id = 'dsq-count-scr';
-    (d.head || d.body).appendChild(s);
-  }
-  // defer loading until the whole page loading is completed
-  window.addEventListener('load', loadCount, false);
-</script>
-<script>
-  var disqus_config = function() {
-    this.page.url = "https://shinyu0430.github.io/2021/09/20/javascriptstringmethod/";
-    this.page.identifier = "2021/09/20/javascriptstringmethod/";
-    this.page.title = "JavaScript 字串方法整理";
-    };
-  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
-    if (window.DISQUS) {
-      DISQUS.reset({
-        reload: true,
-        config: disqus_config
-      });
-    } else {
-      var d = document, s = d.createElement('script');
-      s.src = 'https://Mavis.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', '' + +new Date());
-      (d.head || d.body).appendChild(s);
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
     }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
   });
 </script>
 
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允許 JavaScript 運行的環境下瀏覽效果更佳</div>
+  </noscript>
 </body>
 </html>
