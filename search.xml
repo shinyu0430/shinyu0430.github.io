@@ -636,8 +636,8 @@ table th:first-of-type {
         <category>Java</category>
       </categories>
       <tags>
-        <tag>Spring</tag>
         <tag>Java</tag>
+        <tag>Spring</tag>
       </tags>
   </entry>
   <entry>
@@ -684,8 +684,8 @@ table th:first-of-type {
         <category>Java</category>
       </categories>
       <tags>
-        <tag>Java,</tag>
         <tag>Spring</tag>
+        <tag>Java,</tag>
       </tags>
   </entry>
   <entry>
