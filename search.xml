@@ -1,6 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>CSS Filter 濾鏡效果</title>
+    <url>/2021/09/18/cssfilter/</url>
+    <content><![CDATA[<p>我們可以使用 CSS Filter 直接在元素上加上濾鏡效果，<br>先來個所有濾鏡效果的呈現 DEMO：</p>
+<p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="gOReYWK" data-user="0430shinyu" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/0430shinyu/pen/gOReYWK">
+  </a> by 蔡蔡 Mavis (<a href="https://codepen.io/0430shinyu">@0430shinyu</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="10-種-filter-濾鏡效果"><a href="#10-種-filter-濾鏡效果" class="headerlink" title="10 種 filter 濾鏡效果"></a>10 種 filter 濾鏡效果</h2><p>filter 效果一共有 10 種，其中最常使用的是第 1 個 <code>blur()</code> 和第 8 個的 <code>opacity()</code>。</p>
+<h3 id="1-blur-模糊效果"><a href="#1-blur-模糊效果" class="headerlink" title="1. blur() 模糊效果"></a>1. blur() 模糊效果</h3><p>函示內放入模糊的程度，值越大越模糊</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">img</span>&#123;<br>    <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">blur</span>(<span class="hljs-number">5px</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="2-brightness-調整亮度"><a href="#2-brightness-調整亮度" class="headerlink" title="2. brightness() 調整亮度"></a>2. brightness() 調整亮度</h3><p>函示內放入 % 數來調整亮度，<br><code>&lt; 100%</code> 會減少亮度，<br><code>&gt; 100%</code> 會增加亮度。<br><code>0%</code> 會呈現全黑，預設值為 <code>1</code> 。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">img</span>&#123;<br>    <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">brightness</span>(<span class="hljs-number">2</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="3-contrast-調整對比度"><a href="#3-contrast-調整對比度" class="headerlink" title="3. contrast() 調整對比度"></a>3. contrast() 調整對比度</h3><p>函示內放入 % 數來調整對比度，<br><code>&lt; 100%</code> 會減少對比度，<br><code>&gt; 100%</code> 會增加對比度。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">img</span>&#123;<br>    <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">contrast</span>(<span class="hljs-number">200%</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="4-drop-shadow-陰影效果"><a href="#4-drop-shadow-陰影效果" class="headerlink" title="4. drop-shadow() 陰影效果"></a>4. drop-shadow() 陰影效果</h3><p>這個函數的特性和 box-shadow 的屬性很相似，<br>但 drop-shadow 可以製作和物件不透明區域完全相同形狀的陰影，詳細比較可以參考<a href="http://blog.shihshih.com/drop-shadow-vs-box-shadow/">這篇文章</a></p>
+<p><code>drop-shadow()</code> 可帶入的 4 個參數分別為：</p>
+<ol>
+<li>(必填)offset-x：陰影水平偏移量的長度</li>
+<li>(必填)offset-y：陰影垂直偏移量的長度</li>
+<li>blur-radius：隱影模糊程度，值越大越模糊</li>
+<li>color：陰影顏色<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">img</span>&#123;<br>    <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">drop-shadow</span>(<span class="hljs-number">16px</span> <span class="hljs-number">16px</span> <span class="hljs-number">10px</span> black)<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="5-grayscale-調整灰階程度"><a href="#5-grayscale-調整灰階程度" class="headerlink" title="5. grayscale() 調整灰階程度"></a>5. grayscale() 調整灰階程度</h3><p>函示內放入 % 數或、0-1 來調整圖像灰度，<br>值介於 0-100% 或 0-1，<br>0% 和 0 代表顏色不變，為預設值，100% 和 1 代表變黑白的。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">img</span>&#123;<br>    <span class="hljs-attribute">filter</span>:<span class="hljs-built_in">grayscale</span>(<span class="hljs-number">1</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="6-hue-rotate-色相相轉"><a href="#6-hue-rotate-色相相轉" class="headerlink" title="6. hue-rotate() 色相相轉"></a>6. hue-rotate() 色相相轉</h3><p>透過色相旋轉來調整顏色呈現，函示內放入 deg 色環角度值來調整圖像灰度，<br>值介於 0deg - 360deg 間，超過 <code>360deg</code> 的值相當於繞了一圈。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">img</span>&#123;<br>    <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">hue-rotate</span>(<span class="hljs-number">90deg</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="7-invert-負面效果"><a href="#7-invert-負面效果" class="headerlink" title="7. invert() 負面效果"></a>7. invert() 負面效果</h3><p>所謂的負片就是反轉成顏色和明暗程度，<br>函示內放入 % 數設定反轉的程度，值介於 0-100% 間，預設值為 0%。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">img</span>&#123;<br>    <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">invert</span>(<span class="hljs-number">100%</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="8-opactiy-調整透明度"><a href="#8-opactiy-調整透明度" class="headerlink" title="8.opactiy 調整透明度"></a>8.opactiy 調整透明度</h3><p>函示內放入 % 數設定透明度，值介於 0-100% 間，預設值為 100%。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">img</span>&#123;<br>    <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">opacity</span>(<span class="hljs-number">50%</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="9-saturate-調整飽和度"><a href="#9-saturate-調整飽和度" class="headerlink" title="9.saturate() 調整飽和度"></a>9.saturate() 調整飽和度</h3><p>函示內放入 % 數設定飽和度，預設值為 1<br><code>&lt;100%</code> 越來越不飽和<br><code>&gt;100％</code> 高度飽和</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">img</span>&#123;<br>    <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">saturate</span>(<span class="hljs-number">200%</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="10-sepia-深褐色效果"><a href="#10-sepia-深褐色效果" class="headerlink" title="10. sepia() 深褐色效果"></a>10. sepia() 深褐色效果</h3><p>函示內放入 % 數設定深褐色的程度，值介於 0-100% 之間，預設值是 0。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">img</span>&#123;<br>    <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">sepia</span>(<span class="hljs-number">100%</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="複合效果"><a href="#複合效果" class="headerlink" title="複合效果"></a>複合效果</h3><p>除了單獨的使用濾鏡外，我們也可以組合任意數量的函數來設定效果。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-comment">/* 同時設定對比度、亮度、飽和度*/</span><br><span class="hljs-selector-tag">img</span>&#123;<br>    <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">contrast</span>(<span class="hljs-number">175%</span>) <span class="hljs-built_in">brightness</span>(<span class="hljs-number">3%</span>) <span class="hljs-built_in">saturate</span>(<span class="hljs-number">200%</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上就是不同 filter 的介紹，實作上如果有遇到子元素被 filter 影響的問題，<br>可以參考這篇文章 -<a href="https://shinyu0430.github.io/2021/09/18/filterchildproblem/">CSS Filter 影響子元素的解決辦法</a></p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/filter">MDN Web Docs-filter</a></p>
+]]></content>
+      <categories>
+        <category>HTML、CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CSS Filter 影響子元素的解決辦法</title>
     <url>/2021/09/18/filterchildproblem/</url>
     <content><![CDATA[<p>透過 filter 我們可以為元素加上不同的效果，像是模糊，色彩偏移等(<a href="https://shinyu0430.github.io/2021/09/18/cssfilter">filter 介紹</a>)。但我們可能會發現一個奇怪的現象：</p>
@@ -57,53 +107,268 @@
       </tags>
   </entry>
   <entry>
-    <title>CSS Filter 濾鏡效果</title>
-    <url>/2021/09/18/cssfilter/</url>
-    <content><![CDATA[<p>我們可以使用 CSS Filter 直接在元素上加上濾鏡效果，<br>先來個所有濾鏡效果的呈現 DEMO：</p>
-<p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="gOReYWK" data-user="0430shinyu" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-  <span>See the Pen <a href="https://codepen.io/0430shinyu/pen/gOReYWK">
-  </a> by 蔡蔡 Mavis (<a href="https://codepen.io/0430shinyu">@0430shinyu</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+    <title>[爬蟲][反反爬]使用 undetected_chromedriver 爬取 Dcard 文章資料</title>
+    <url>/2023/05/17/dcard-webcrawl-uc/</url>
+    <content><![CDATA[<p><img src="SkqawaxS2.png"></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在爬 Dcard 的資料時，試了許多反反爬的方式。今天就來分享可以解決 Dcard 反爬機制的工具 —— 「undetected_chromedriver」 。它可以幫助我們解決被擋的問題，並實現穩定的網頁爬蟲。</p>
+<p>當我們頻繁去爬取 Dcard 頁面資料時，可能會出現以下的畫面：<br><img src="ryJvdpxB3.png"></p>
+<p>“Error 1020: Access Denied” 是 Cloudflare 防火牆保護的網站上可能出現的錯誤訊息。當我們嘗試訪問一個受到 Cloudflare 保護的網址時，Cloudflare 會封鎖我們的 IP 地址，導致我們無法訪問這個網站。</p>
+<h2 id="什麼是-undetected-chromedriver"><a href="#什麼是-undetected-chromedriver" class="headerlink" title="什麼是 undetected_chromedriver"></a>什麼是 undetected_chromedriver</h2><p>undetected_chromedriver 是一個基於 ChromeDriver 的 Python Library，它提供了一個穩定和不被檢測的瀏覽器環境，繞過網站的反爬蟲機制，讓我們可以順利爬取數據。</p>
+<h2 id="爬取-Dcard-範例"><a href="#爬取-Dcard-範例" class="headerlink" title="爬取 Dcard 範例"></a>爬取 Dcard 範例</h2><p>首先，我們需要安裝 undetected_chromedriver 庫</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">pip <span class="hljs-keyword">install</span> undetected-chromedriver<br></code></pre></td></tr></table></figure>
 
-<h2 id="10-種-filter-濾鏡效果"><a href="#10-種-filter-濾鏡效果" class="headerlink" title="10 種 filter 濾鏡效果"></a>10 種 filter 濾鏡效果</h2><p>filter 效果一共有 10 種，其中最常使用的是第 1 個 <code>blur()</code> 和第 8 個的 <code>opacity()</code>。</p>
-<h3 id="1-blur-模糊效果"><a href="#1-blur-模糊效果" class="headerlink" title="1. blur() 模糊效果"></a>1. blur() 模糊效果</h3><p>函示內放入模糊的程度，值越大越模糊</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">img</span>&#123;<br>    <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">blur</span>(<span class="hljs-number">5px</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="2-brightness-調整亮度"><a href="#2-brightness-調整亮度" class="headerlink" title="2. brightness() 調整亮度"></a>2. brightness() 調整亮度</h3><p>函示內放入 % 數來調整亮度，<br><code>&lt; 100%</code> 會減少亮度，<br><code>&gt; 100%</code> 會增加亮度。<br><code>0%</code> 會呈現全黑，預設值為 <code>1</code> 。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">img</span>&#123;<br>    <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">brightness</span>(<span class="hljs-number">2</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="3-contrast-調整對比度"><a href="#3-contrast-調整對比度" class="headerlink" title="3. contrast() 調整對比度"></a>3. contrast() 調整對比度</h3><p>函示內放入 % 數來調整對比度，<br><code>&lt; 100%</code> 會減少對比度，<br><code>&gt; 100%</code> 會增加對比度。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">img</span>&#123;<br>    <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">contrast</span>(<span class="hljs-number">200%</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="4-drop-shadow-陰影效果"><a href="#4-drop-shadow-陰影效果" class="headerlink" title="4. drop-shadow() 陰影效果"></a>4. drop-shadow() 陰影效果</h3><p>這個函數的特性和 box-shadow 的屬性很相似，<br>但 drop-shadow 可以製作和物件不透明區域完全相同形狀的陰影，詳細比較可以參考<a href="http://blog.shihshih.com/drop-shadow-vs-box-shadow/">這篇文章</a></p>
-<p><code>drop-shadow()</code> 可帶入的 4 個參數分別為：</p>
+<p>接著就能使用它了 </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> undetected_chromedriver <span class="hljs-keyword">as</span> uc<br><br><br>driver = uc.Chrome()<br>driver.get( <span class="hljs-string">&#x27;要讀取的網站&#x27;</span> )<br></code></pre></td></tr></table></figure>
+<h3 id="實作範例：爬取-Dcard-手搖板文章-URL"><a href="#實作範例：爬取-Dcard-手搖板文章-URL" class="headerlink" title="實作範例：爬取 Dcard 手搖板文章 URL"></a>實作範例：爬取 Dcard 手搖板文章 URL</h3><p>接著我們使用它來爬取 Dcard 手搖版的連結</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> selenium.webdriver.common.by <span class="hljs-keyword">import</span> By<br><span class="hljs-keyword">from</span> selenium.webdriver.common.keys <span class="hljs-keyword">import</span> Keys<br><span class="hljs-keyword">from</span> selenium.webdriver.support.ui <span class="hljs-keyword">import</span> WebDriverWait<br><span class="hljs-keyword">from</span> selenium.webdriver.support <span class="hljs-keyword">import</span> expected_conditions <span class="hljs-keyword">as</span> EC<br><span class="hljs-keyword">from</span> time <span class="hljs-keyword">import</span> sleep<br><span class="hljs-keyword">import</span> random<br><span class="hljs-keyword">import</span> undetected_chromedriver <span class="hljs-keyword">as</span> uc<br><br><span class="hljs-comment"># 使用 undetected_chromedriver 初始化 Chrome 瀏覽器</span><br>driver = uc.Chrome()<br><br><span class="hljs-comment"># 前往手搖版</span><br>driver.get(<span class="hljs-string">&quot;https://www.dcard.tw/f/boba&quot;</span>)<br><br><span class="hljs-comment"># 等待頁面載入</span><br>sleep(<span class="hljs-number">5</span>)<br><br><br><span class="hljs-keyword">try</span>:<br>    <span class="hljs-comment"># 等待文章元素出現</span><br>    wait = WebDriverWait(driver, <span class="hljs-number">10</span>)<br>    articles = wait.until(EC.presence_of_all_elements_located((By.TAG_NAME, <span class="hljs-string">&quot;article&quot;</span>)))<br><br>    <span class="hljs-comment"># 提取文章的連結</span><br>    urls = [article.find_element(By.TAG_NAME, <span class="hljs-string">&quot;a&quot;</span>).get_attribute(<span class="hljs-string">&quot;href&quot;</span>) <span class="hljs-keyword">for</span> article <span class="hljs-keyword">in</span> articles]<br>    <span class="hljs-built_in">print</span>(urls)<br><br><span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;錯誤:&quot;</span>, e)<br><br><span class="hljs-comment"># 關閉瀏覽器</span><br>driver.quit()<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>除了 Dcard 的爬取，undetected_chromedriver 當然也可以應用於其他類似的情境中。祝大家在爬取網頁資料的旅程中順利！</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://github.com/ultrafunkamsterdam/undetected-chromedriver">undetected_chromedriver Github</a></p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>爬蟲</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>免費圖片空間 Imgur 使用教學</title>
+    <url>/2021/09/19/imgurturtorial/</url>
+    <content><![CDATA[<style>
+    img{
+        width:70%;
+    }
+</style>
+
+<p>Imgur 是一個網路相簿網站，2009年創立，主要提供免費的相片儲存服務，現今每日使用者達數百萬。Imgur 最大的優點就是它沒有流量限制，也不需要註冊帳號就可以直接使用，使用上非常方便。</p>
+<span id="more"></span>
+<h2 id="Imgur-網頁介紹"><a href="#Imgur-網頁介紹" class="headerlink" title="Imgur 網頁介紹"></a>Imgur 網頁介紹</h2><p>進到 imgur 的網頁後，我們可以看到下方有許多其他使用者上傳的圖片，<br><img src="https://imgur.com/XJfw5tc.jpg"><br>我們也可以透過上方的搜尋欄，搜尋特定的圖片<br><img src="https://imgur.com/k2sSTN1.jpg"></p>
+<h2 id="上傳檔案"><a href="#上傳檔案" class="headerlink" title="上傳檔案"></a>上傳檔案</h2><p>如果我們想要上傳圖片，可以點擊首頁左上方的 New Post<br><img src="https://imgur.com/56WlOl4.jpg"><br>點擊後會跳轉到這個畫面，可以透過拖移或是點擊的方式上傳我們本地端的圖片，imgur 支援多種圖片格式，單張非動畫圖片最大容量限制為 20 MB，每小時最多上傳 50 張，詳細限制可以參考<a href="https://help.imgur.com/hc/en-us/articles/115000083326-What-files-can-I-upload-What-is-the-size-limit-">Imgur Help</a>的說明。</p>
+<p><img src="https://imgur.com/TWYw3Mm.jpg"><br>成功上傳後會出現這樣的畫面，雖然前面有提到首頁可以看到其他使用者上傳的圖片，但<strong>預設</strong>上傳的圖片是<strong>不會</strong>連結到 Imgur 社群的喔，如果希望上傳到社群，可以替圖片加上標題(title)和說明(description)，再點擊「To Community」就可以公開囉。<br><img src="https://imgur.com/iOHIZ9E.jpg"><br>複製圖片網址的方式也很簡單，將滑鼠移到圖片上，並點擊 Copy link 就能成功複製圖片網址了（<a href="https://imgur.com/ipZyGmJ.jpg">https://imgur.com/ipZyGmJ.jpg</a>），點擊「···」則可以對圖片進行編輯（調整大小、旋轉圖片）、分享連結、下載、刪除。<br><img src="https://imgur.com/rhF08TY.jpg"></p>
+<h2 id="在-HTML-中插入外部圖片"><a href="#在-HTML-中插入外部圖片" class="headerlink" title="在 HTML 中插入外部圖片"></a>在 HTML 中插入外部圖片</h2><p>使用 Imgur 在 HTML 中插入圖片有兩種方式</p>
 <ol>
-<li>(必填)offset-x：陰影水平偏移量的長度</li>
-<li>(必填)offset-y：陰影垂直偏移量的長度</li>
-<li>blur-radius：隱影模糊程度，值越大越模糊</li>
-<li>color：陰影顏色<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">img</span>&#123;<br>    <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">drop-shadow</span>(<span class="hljs-number">16px</span> <span class="hljs-number">16px</span> <span class="hljs-number">10px</span> black)<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li>將 Imgur 嵌入<br>呈現效果如下：<blockquote class="imgur-embed-pub" lang="en" data-id="rhF08TY"><a href="https://imgur.com/rhF08TY">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script></li>
 </ol>
-<h3 id="5-grayscale-調整灰階程度"><a href="#5-grayscale-調整灰階程度" class="headerlink" title="5. grayscale() 調整灰階程度"></a>5. grayscale() 調整灰階程度</h3><p>函示內放入 % 數或、0-1 來調整圖像灰度，<br>值介於 0-100% 或 0-1，<br>0% 和 0 代表顏色不變，為預設值，100% 和 1 代表變黑白的。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">img</span>&#123;<br>    <span class="hljs-attribute">filter</span>:<span class="hljs-built_in">grayscale</span>(<span class="hljs-number">1</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="6-hue-rotate-色相相轉"><a href="#6-hue-rotate-色相相轉" class="headerlink" title="6. hue-rotate() 色相相轉"></a>6. hue-rotate() 色相相轉</h3><p>透過色相旋轉來調整顏色呈現，函示內放入 deg 色環角度值來調整圖像灰度，<br>值介於 0deg - 360deg 間，超過 <code>360deg</code> 的值相當於繞了一圈。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">img</span>&#123;<br>    <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">hue-rotate</span>(<span class="hljs-number">90deg</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="7-invert-負面效果"><a href="#7-invert-負面效果" class="headerlink" title="7. invert() 負面效果"></a>7. invert() 負面效果</h3><p>所謂的負片就是反轉成顏色和明暗程度，<br>函示內放入 % 數設定反轉的程度，值介於 0-100% 間，預設值為 0%。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">img</span>&#123;<br>    <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">invert</span>(<span class="hljs-number">100%</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="8-opactiy-調整透明度"><a href="#8-opactiy-調整透明度" class="headerlink" title="8.opactiy 調整透明度"></a>8.opactiy 調整透明度</h3><p>函示內放入 % 數設定透明度，值介於 0-100% 間，預設值為 100%。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">img</span>&#123;<br>    <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">opacity</span>(<span class="hljs-number">50%</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="9-saturate-調整飽和度"><a href="#9-saturate-調整飽和度" class="headerlink" title="9.saturate() 調整飽和度"></a>9.saturate() 調整飽和度</h3><p>函示內放入 % 數設定飽和度，預設值為 1<br><code>&lt;100%</code> 越來越不飽和<br><code>&gt;100％</code> 高度飽和</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">img</span>&#123;<br>    <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">saturate</span>(<span class="hljs-number">200%</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="10-sepia-深褐色效果"><a href="#10-sepia-深褐色效果" class="headerlink" title="10. sepia() 深褐色效果"></a>10. sepia() 深褐色效果</h3><p>函示內放入 % 數設定深褐色的程度，值介於 0-100% 之間，預設值是 0。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">img</span>&#123;<br>    <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">sepia</span>(<span class="hljs-number">100%</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="複合效果"><a href="#複合效果" class="headerlink" title="複合效果"></a>複合效果</h3><p>除了單獨的使用濾鏡外，我們也可以組合任意數量的函數來設定效果。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-comment">/* 同時設定對比度、亮度、飽和度*/</span><br><span class="hljs-selector-tag">img</span>&#123;<br>    <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">contrast</span>(<span class="hljs-number">175%</span>) <span class="hljs-built_in">brightness</span>(<span class="hljs-number">3%</span>) <span class="hljs-built_in">saturate</span>(<span class="hljs-number">200%</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上就是不同 filter 的介紹，實作上如果有遇到子元素被 filter 影響的問題，<br>可以參考這篇文章 -<a href="https://shinyu0430.github.io/2021/09/18/filterchildproblem/">CSS Filter 影響子元素的解決辦法</a></p>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/filter">MDN Web Docs-filter</a></p>
+<p>使用的方式為點擊圖片上方的「···」，選取 Get share links<br><img src="https://imgur.com/yE1mDlY.jpg"><br>再複製 HTML Embed 的語法，貼上到我們的網頁中。<br><img src="https://imgur.com/vdEGgvT.jpg"></p>
+<ol start="2">
+<li>使用 img 語法<br>如果不希望保留 Imgur 的外框，可以直接使用 img 標籤，呈現效果如下：<img src="https://imgur.com/ipZyGmJ.jpg" alt="範例圖片"> </li>
+</ol>
+<p>，並放入我們點擊 Copy Link 得到的「<a href="https://imgur.com/ipZyGmJ%E3%80%8D%EF%BC%8C%E5%9C%A8%E5%BE%8C%E9%9D%A2">https://imgur.com/ipZyGmJ」，在後面</a> <strong>加上副檔名<code>.jpg</code></strong> ，就可以正確插入圖片囉。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://imgur.com/ipZyGmJ.jpg&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;範例圖片&quot;</span>&gt;</span> <br></code></pre></td></tr></table></figure>
+
+<h2 id="帳號註冊"><a href="#帳號註冊" class="headerlink" title="帳號註冊"></a>帳號註冊</h2><p>如果我們希望上傳後還能對這些圖片進行管理的話，可以註冊 Imgur 帳號。註冊的方式也很簡單，到首頁點擊右上方的 SignUp 就可以註冊了。<br><img src="https://imgur.com/VuWJi0Q.jpg"><br>成功登入後我們就可以在這管理自己上傳的圖片囉。<br><img src="https://imgur.com/o5CzMa2.jpg"></p>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>解決兩個寬度 50％ 的子元素無法在同行的問題</title>
+    <url>/2021/09/19/inlineblockwidth50/</url>
+    <content><![CDATA[<p>行內區塊(<code>inline-block</code>)可以讓我們可以以行內（<code>inline</code>）的方式呈現，但同時擁有（<code>block</code>）的屬性，不過，在設定寬度上我們可能會遇到一個奇怪的問題：</p>
+<span id="more"></span>
+<p>假設我們想要新增兩個在同行的 div 元素，並讓他們各佔一半，我們會這樣撰寫：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;box&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>CHILD<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>CHILD<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.box</span>&#123;<br>  <span class="hljs-attribute">width</span>:<span class="hljs-number">200px</span>;<br>  <span class="hljs-attribute">background-color</span>: blue;<br>&#125;<br><span class="hljs-selector-class">.box</span> <span class="hljs-selector-tag">div</span>&#123;<br>  <span class="hljs-attribute">text-align</span>: center;<br>  <span class="hljs-attribute">display</span>: inline-block;<br>  <span class="hljs-attribute">width</span>:<span class="hljs-number">50%</span>;<br>  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#d8e2dc</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>我們可能會預期畫面出現<br><img src="https://imgur.com/rUFostx.jpg"><br>卻發現結果兩個子元素沒有在同一行<br><img src="https://imgur.com/sfRoQzu.jpg"><br>而會有這樣的問題是因為<strong>換行符號</strong>。我們在第一個 <code>div</code> 標籤後方加上的換行符號，會相等於空白符號，這個空白符號的寬度加上兩個子元素的寬度就會超過 100%，導致兩個子元素無法放在同一行。</p>
+<p><strong>解決辦法有幾種：</strong></p>
+<ol>
+<li><p>刪除換行符號<br>最簡單的方式就是直接刪除換行符號，不過這會造成 HTML 結構的可讀性變差。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;box&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>CHILD<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>CHILD<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
+<li><p>將字體大小設為 0<br>知道是因為空白符號造成無法在同行後，我們可以聯想到只要將字體設為 0 ，這個空白就不會佔有空間了。</p>
+</li>
+</ol>
+<p>實作放事就是直接在父層加上 font-size:0 （記得子層如果有文字要記得設定字體大小喔）。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.box</span>&#123;<br>  <span class="hljs-attribute">width</span>:<span class="hljs-number">200px</span>;<br>  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">0</span>; <span class="hljs-comment">/* 隱藏空白符號 */</span><br>&#125;<br><span class="hljs-selector-class">.box</span> <span class="hljs-selector-tag">div</span>&#123;<br>  <span class="hljs-attribute">display</span>: inline-block;<br>  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">16px</span>;  <span class="hljs-comment">/* 設定子元素字體大小 */</span><br>  <span class="hljs-attribute">width</span>:<span class="hljs-number">50%</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>除了這些也可以使用負的 margin、letter-spacing、word-spacing 調整，但個人覺得沒有那麼實用，以上就是行內區塊無法同行的解決辦法說明囉。</p>
+<p><strong>參考資料</strong><br><a href="https://www.zhangxinxu.com/wordpress/2010/11/%E6%8B%9C%E6%8B%9C%E4%BA%86%E6%B5%AE%E5%8A%A8%E5%B8%83%E5%B1%80-%E5%9F%BA%E4%BA%8Edisplayinline-block%E7%9A%84%E5%88%97%E8%A1%A8%E5%B8%83%E5%B1%80/">拜拜了,浮动布局-基于display:inline-block的列表布局</a></p>
 ]]></content>
       <categories>
         <category>HTML、CSS</category>
       </categories>
       <tags>
         <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaScript 字串方法整理</title>
+    <url>/2021/09/20/javascriptstringmethod/</url>
+    <content><![CDATA[<p>以下針對不同類型的字串方法做分類整理：</p>
+<span id="more"></span>
+<style>
+table th:first-of-type {
+    width: 34%;
+}
+
+</style>
+<table>
+<thead>
+<tr>
+<th>分類</th>
+<th>語法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>回傳單一字元</td>
+<td><a href="#charAt-%EF%BC%9A%E5%9B%9E%E5%82%B3%E6%8C%87%E5%AE%9A%E4%BD%8D%E7%BD%AE%E7%9A%84%E5%AD%97%E5%85%83">charAt()</a>、<a href="#charCodeAt-%EF%BC%9A%E5%9B%9E%E5%82%B3%E6%8C%87%E5%AE%9A%E4%BD%8D%E7%BD%AE%E5%AD%97%E5%85%83%E7%9A%84-Unicode-%E7%B7%A8%E7%A2%BC">charCodeAt()</a></td>
+</tr>
+<tr>
+<td>回傳新字串</td>
+<td><a href="#concat-%EF%BC%9A%E9%80%A3%E6%8E%A5%E5%A4%9A%E5%80%8B%E5%AD%97%E4%B8%B2">concat()</a>、<a href="#repeat-%EF%BC%9A%E8%A4%87%E8%A3%BD%E5%AD%97%E4%B8%B2%E6%95%B8%E6%AC%A1">repeat()</a>、<a href="#slice-%EF%BC%9A%E6%8F%90%E5%8F%96%E5%AD%97%E4%B8%B2%E7%89%87%E6%AE%B5">slice()</a>、<a href="#substr-%EF%BC%9A%E6%8F%90%E5%8F%96%E5%AD%97%E4%B8%B2%E7%89%87%E6%AE%B5">substr()</a>、<a href="#substring-%EF%BC%9A%E6%8F%90%E5%8F%96%E5%AD%97%E4%B8%B2%E7%89%87%E6%AE%B5">substring()</a>、<a href="#trim-%EF%BC%9A%E5%8E%BB%E9%99%A4%E5%AD%97%E4%B8%B2%E5%85%A9%E9%82%8A%E7%A9%BA%E7%99%BD">trim()</a>、<a href="#toLowerCase-%EF%BC%9A%E5%AD%97%E4%B8%B2%E8%BD%89%E6%8F%9B%E6%88%90%E5%B0%8F%E5%AF%AB">toLowerCase()</a>、<a href="#toUpperCase-%EF%BC%9A%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%89%E6%8F%9B%E6%88%90%E5%A4%A7%E5%AF%AB">toUpperCase()</a></td>
+</tr>
+<tr>
+<td>檢查字串</td>
+<td><a href="#endsWith-%EF%BC%9A%E5%88%A4%E6%96%B7%E5%AD%97%E4%B8%B2%E6%98%AF%E5%90%A6%E4%BB%A5%E7%89%B9%E5%AE%9A%E5%AD%97%E4%B8%B2%E7%B5%90%E5%B0%BE">endsWith()</a>、<a href="#startsWith-%EF%BC%9A%E5%88%A4%E6%96%B7%E5%AD%97%E4%B8%B2%E6%98%AF%E5%90%A6%E4%BB%A5%E7%89%B9%E5%AE%9A%E5%AD%97%E4%B8%B2%E9%96%8B%E9%A0%AD">startsWith()</a>、<a href="#includes-%EF%BC%9A%E5%88%A4%E6%96%B7%E5%AD%97%E4%B8%B2%E4%B8%AD%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E7%89%B9%E5%AE%9A%E5%AD%90%E4%B8%B2">includes()</a>、<a href="#indexOf-%EF%BC%9A%E5%B0%8B%E6%89%BE%E5%AD%97%E4%B8%B2%E9%A6%96%E6%AC%A1%E5%87%BA%E7%8F%BE%E7%9A%84%E4%BD%8D%E7%BD%AE">indexOf()</a></td>
+</tr>
+<tr>
+<td>檢查字串 - 可與正規表達式搭配</td>
+<td><a href="#search-%EF%BC%9A%E5%B0%8B%E6%89%BE%E8%88%87%E5%AD%97%E4%B8%B2%E6%88%96%E6%AD%A3%E8%A6%8F%E8%A1%A8%E9%81%94%E5%BC%8F%E7%9B%B8%E5%90%8C%E7%9A%84%E5%80%BC">search()</a>、<a href="#match-%EF%BC%9A%E5%B0%8B%E6%89%BE%E8%88%87%E5%AD%97%E4%B8%B2%E6%88%96%E6%AD%A3%E8%A6%8F%E8%A1%A8%E9%81%94%E5%BC%8F%E7%9B%B8%E5%90%8C%E7%9A%84%E5%A4%9A%E5%80%8B%E5%80%BC">match()</a>、<a href="#replace-%EF%BC%9A%E6%9B%BF%E6%8F%9B%E8%88%87%E5%AD%97%E4%B8%B2%E6%88%96%E6%AD%A3%E8%A6%8F%E8%A1%A8%E9%81%94%E5%BC%8F%E7%9B%B8%E5%90%8C%E7%9A%84%E5%80%BC">replace()</a>、<a href="#replaceall-%EF%BC%9A%E6%9B%BF%E6%8F%9B%E8%88%87%E5%AD%97%E4%B8%B2%E6%88%96%E6%AD%A3%E8%A6%8F%E8%A1%A8%E9%81%94%E5%BC%8F%E7%9B%B8%E5%90%8C%E7%9A%84%E5%A4%9A%E5%80%8B%E5%80%BC">relaceAll()</a></td>
+</tr>
+<tr>
+<td>字串與陣列</td>
+<td><a href="#split-%EF%BC%9A%E5%AD%97%E4%B8%B2%E5%88%86%E5%89%B2%E7%82%BA%E9%99%A3%E5%88%97">split()</a>、<a href="#join-%EF%BC%9A%E9%99%A3%E5%88%97%E5%90%88%E4%BD%B5%E7%82%BA%E5%AD%97%E4%B8%B2">join()</a></td>
+</tr>
+</tbody></table>
+<h2 id="回傳單一字元"><a href="#回傳單一字元" class="headerlink" title="回傳單一字元"></a>回傳單一字元</h2><h3 id="charAt-：回傳指定位置的字元"><a href="#charAt-：回傳指定位置的字元" class="headerlink" title="charAt()：回傳指定位置的字元"></a>charAt()：回傳指定位置的字元</h3><p>在參數中放入 0 到 字串長度-1 的數字，</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;HELLO WORLD&quot;</span>;<br><span class="hljs-keyword">let</span> char = str.charAt(<span class="hljs-number">2</span>) <span class="hljs-comment">//L</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="charCodeAt-：回傳指定位置字元的-Unicode-編碼"><a href="#charCodeAt-：回傳指定位置字元的-Unicode-編碼" class="headerlink" title="charCodeAt()：回傳指定位置字元的 Unicode 編碼"></a>charCodeAt()：回傳指定位置字元的 Unicode 編碼</h3><p>在參數中放入 0 到 字串長度-1 的數字。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;HELLO WORLD&quot;</span>;<br><span class="hljs-keyword">let</span> char = str.charCodeAt(<span class="hljs-number">0</span>);<span class="hljs-comment">//72</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="回傳新字串"><a href="#回傳新字串" class="headerlink" title="回傳新字串"></a>回傳新字串</h2><h3 id="concat-：連接多個字串"><a href="#concat-：連接多個字串" class="headerlink" title="concat()：連接多個字串"></a>concat()：連接多個字串</h3><p>參數中放入欲連接的字串。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str1 = <span class="hljs-string">&quot;Hello &quot;</span>;<br><span class="hljs-keyword">let</span> str2 = <span class="hljs-string">&quot;world!&quot;</span>;<br><span class="hljs-keyword">let</span> n = str1.concat(str2); <span class="hljs-comment">//&quot;Hello world!&quot;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 可以放入多個字串</span><br><span class="hljs-keyword">let</span> str1 = <span class="hljs-string">&quot;Hello &quot;</span>;<br><span class="hljs-keyword">let</span> str2 = <span class="hljs-string">&quot;world!&quot;</span>;<br><span class="hljs-keyword">let</span> str3 = <span class="hljs-string">&quot;mavis!&quot;</span>;<br><span class="hljs-keyword">let</span> n = str1.concat(str2,str3); <span class="hljs-comment">//&quot;Hello world!mavis!&quot;</span><br></code></pre></td></tr></table></figure>
+<h3 id="repeat-：複製字串數次"><a href="#repeat-：複製字串數次" class="headerlink" title="repeat()：複製字串數次"></a>repeat()：複製字串數次</h3><p>參數中放入要複製的次數</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;Hello!&quot;</span>;<br><span class="hljs-keyword">let</span> n = str.repeat(<span class="hljs-number">3</span>);<span class="hljs-comment">//&quot;Hello!Hello!Hello!&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="slice-：提取字串片段"><a href="#slice-：提取字串片段" class="headerlink" title="slice()：提取字串片段"></a>slice()：提取字串片段</h3><p>參數中可放入兩個值：<code>slice(起始位置,結束位置)</code></p>
+<ol>
+<li>起始位置，可為負值</li>
+<li>（選填）結束位置，可為負值，預設會傳到字串結尾</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;Hello world!&quot;</span>;<br><span class="hljs-keyword">let</span> n = str.slice(<span class="hljs-number">0</span>,<span class="hljs-number">5</span>); <span class="hljs-comment">//&quot;Hello&quot;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;Hello world!&quot;</span>;<br><span class="hljs-keyword">let</span> n = str.slice(-<span class="hljs-number">2</span>,<span class="hljs-number">4</span>); <span class="hljs-comment">//&quot;&quot;，</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="substr-：提取字串片段"><a href="#substr-：提取字串片段" class="headerlink" title="substr()：提取字串片段"></a>substr()：提取字串片段</h3><p>參數中可放入兩個值：<code>substr(起始位置,提取字串長度)</code></p>
+<ol>
+<li>起始位置，可為負值</li>
+<li>（選填）提取字串長度，預設回傳到字串結尾</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello world!&quot;</span>;<br><span class="hljs-keyword">let</span> n = str.substr(<span class="hljs-number">6</span>,<span class="hljs-number">5</span>)<span class="hljs-comment">//world</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="substring-：提取字串片段"><a href="#substring-：提取字串片段" class="headerlink" title="substring()：提取字串片段"></a>substring()：提取字串片段</h3><p>參數中可放入兩個值：<code>substring(起始位置,結束位置)</code></p>
+<ol>
+<li>起始位置，不可為負值</li>
+<li>（選填）結束位置，不可為負值，預設會傳到字串結尾</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;Hello world!&quot;</span>;<br><span class="hljs-keyword">let</span> n = str.substring(<span class="hljs-number">0</span>,<span class="hljs-number">5</span>); <span class="hljs-comment">//&quot;Hello&quot;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello world!&quot;</span>;<br><span class="hljs-keyword">let</span> n = str.substring(-<span class="hljs-number">2</span>,<span class="hljs-number">5</span>); <span class="hljs-comment">//&quot;Hello&quot;，若帶入負值會從預設 0 開始</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="trim-：去除字串兩邊空白"><a href="#trim-：去除字串兩邊空白" class="headerlink" title="trim()：去除字串兩邊空白"></a>trim()：去除字串兩邊空白</h3><p>空白包含 enter、tab、換行符號，並不適用於 null, undefined。 </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;  mavis  &quot;</span>;<br><span class="hljs-keyword">let</span> n = str.trim();<span class="hljs-comment">// &quot;Mavis&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="toLowerCase-：字串轉換成小寫"><a href="#toLowerCase-：字串轉換成小寫" class="headerlink" title="toLowerCase()：字串轉換成小寫"></a>toLowerCase()：字串轉換成小寫</h3><p>將字串轉換成小寫</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;MAVIS&quot;</span>;<br><span class="hljs-keyword">let</span> n = str.toLowerCase();<span class="hljs-comment">// &quot;mavis&quot;</span><br></code></pre></td></tr></table></figure>
+<h3 id="toUpperCase-：字符串轉換成大寫"><a href="#toUpperCase-：字符串轉換成大寫" class="headerlink" title="toUpperCase()：字符串轉換成大寫"></a>toUpperCase()：字符串轉換成大寫</h3><p>字串轉換成大寫</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;mavis&quot;</span>;<br><span class="hljs-keyword">let</span> n = str.toUpperCase();<span class="hljs-comment">// &quot;Mavis&quot;</span><br></code></pre></td></tr></table></figure>
+<h2 id="檢查字串"><a href="#檢查字串" class="headerlink" title="檢查字串"></a>檢查字串</h2><h3 id="endsWith-：判斷字串是否以特定字串結尾"><a href="#endsWith-：判斷字串是否以特定字串結尾" class="headerlink" title="endsWith()：判斷字串是否以特定字串結尾"></a>endsWith()：判斷字串是否以特定字串結尾</h3><p>判斷字串是否以特定字串結尾，回傳 Boolean 值。參數放入要判斷的特定字串。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 注意：會判斷大小寫</span><br><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;Hello world&quot;</span>;<br>str.endsWith(<span class="hljs-string">&quot;world&quot;</span>)   <span class="hljs-comment">// true</span><br>str.endsWith(<span class="hljs-string">&quot;World&quot;</span>)   <span class="hljs-comment">// false</span><br></code></pre></td></tr></table></figure>
+<h3 id="startsWith-：判斷字串是否以特定字串開頭"><a href="#startsWith-：判斷字串是否以特定字串開頭" class="headerlink" title="startsWith()：判斷字串是否以特定字串開頭"></a>startsWith()：判斷字串是否以特定字串開頭</h3><p>判斷字串是否以特定字串開頭，回傳 Boolean 值。參數放入要判斷的特定字串。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 注意：會區分大小寫</span><br><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;Hello world&quot;</span>;<br>str.endsWith(<span class="hljs-string">&quot;Hello&quot;</span>)   <span class="hljs-comment">// true</span><br>str.endsWith(<span class="hljs-string">&quot;hello&quot;</span>)   <span class="hljs-comment">// false</span><br></code></pre></td></tr></table></figure>
+<h3 id="includes-：判斷字串中是否包含特定子串"><a href="#includes-：判斷字串中是否包含特定子串" class="headerlink" title="includes()：判斷字串中是否包含特定子串"></a>includes()：判斷字串中是否包含特定子串</h3><p>判斷字串中是否包含特定子串，回傳 Boolean 值，<br>參數中可放入兩個值：<code>includes(判斷的特定字串,起始位置)</code></p>
+<ol>
+<li>要判斷的特定字串</li>
+<li>（選填）起始位置，預設為 0</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;Hello world!!!!&quot;</span>;<br>str.includes(<span class="hljs-string">&quot;world&quot;</span>); <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 填入第二個參數，設定起始位置</span><br><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;Hello world,nice to meet you!&quot;</span>;<br>str.includes(<span class="hljs-string">&quot;world&quot;</span>, <span class="hljs-number">10</span>);<br></code></pre></td></tr></table></figure>
+
+<h3 id="indexOf-：尋找字串首次出現的位置"><a href="#indexOf-：尋找字串首次出現的位置" class="headerlink" title="indexOf()：尋找字串首次出現的位置"></a>indexOf()：尋找字串首次出現的位置</h3><p>如果不包含，就回傳 -1。<br>參數中可放入兩個值：<code>indexOf(判斷的特定字串,起始位置)</code></p>
+<ol>
+<li>要判斷的特定字串</li>
+<li>（選填）起始位置，預設為 0</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 注意：會區分大小寫</span><br><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello world!&quot;</span>;<br>str.indexOf(<span class="hljs-string">&quot;world&quot;</span>); <span class="hljs-comment">//6</span><br>str.indexOf(<span class="hljs-string">&quot;World&quot;</span>); <span class="hljs-comment">//-1</span><br></code></pre></td></tr></table></figure>
+<h3 id="lastIndexOf-：從後尋找字串首次出現的位置"><a href="#lastIndexOf-：從後尋找字串首次出現的位置" class="headerlink" title="lastIndexOf()：從後尋找字串首次出現的位置"></a>lastIndexOf()：從後尋找字串首次出現的位置</h3><p>如果不包含，就回傳 -1。<br>參數中可放入兩個值：<code>lastIndexOf(判斷的特定字串,起始位置)</code></p>
+<ol>
+<li>要判斷的特定字串</li>
+<li>（選填）起始位置，預設為 0</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 注意：會區分大小寫</span><br><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello world!world!&quot;</span>;<br>str.lastIndexOf(<span class="hljs-string">&quot;world&quot;</span>); <span class="hljs-comment">//12</span><br>str.lastIndexOf(<span class="hljs-string">&quot;World&quot;</span>); <span class="hljs-comment">//-1</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 填入第二個參數，設定起始位置</span><br><span class="hljs-keyword">var</span> str=<span class="hljs-string">&quot;Hello world!Hello world!&quot;</span>;<br>str.lastIndexOf(<span class="hljs-string">&quot;world&quot;</span>, <span class="hljs-number">10</span>);<span class="hljs-comment">//6</span><br></code></pre></td></tr></table></figure>
+<h2 id="檢查字串-可與正規表達式搭配"><a href="#檢查字串-可與正規表達式搭配" class="headerlink" title="檢查字串 - 可與正規表達式搭配"></a>檢查字串 - 可與正規表達式搭配</h2><p><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Regular_Expressions">正規表達式</a>是被用來匹配字串中字元組合的模式，若還不清楚使用方法，可以參考<a href="https://5xruby.tw/posts/15min-regular-expression">這篇文章</a>。</p>
+<h3 id="search-：尋找與字串或正規表達式相同的值"><a href="#search-：尋找與字串或正規表達式相同的值" class="headerlink" title="search()：尋找與字串或正規表達式相同的值"></a>search()：尋找與字串或正規表達式相同的值</h3><p>尋找與正規表達式相同的值，回傳字串開始的索引值，沒找到回傳 -1，參數中放入要尋找找的值。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world!Hello!world!&quot;</span>; <br>str.search(<span class="hljs-string">&quot;world&quot;</span>);<span class="hljs-comment">//6</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 正規表達式</span><br><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world!Hello!world!&quot;</span>; <br>str.search(<span class="hljs-regexp">/world/</span>);<span class="hljs-comment">//6</span><br></code></pre></td></tr></table></figure>
+<h3 id="match-：尋找與字串或正規表達式相同的多個值"><a href="#match-：尋找與字串或正規表達式相同的多個值" class="headerlink" title="match()：尋找與字串或正規表達式相同的多個值"></a>match()：尋找與字串或正規表達式相同的多個值</h3><p>尋找與字串或正規表達式相同的多個值，回傳第一個成功的詳細資料，參數中放入要尋找找的值。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world!Hello!world!&quot;</span>; <br>str.match(<span class="hljs-string">&quot;world&quot;</span>);<span class="hljs-comment">//[&#x27;world&#x27;,index:6,....]</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//  正規表達式</span><br><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world!Hello!world!&quot;</span>; <br>str.match(<span class="hljs-regexp">/world/</span>);<span class="hljs-comment">//[&#x27;world&#x27;,index:6,....]</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 正規表達式：加上 g flag 會列出所有比對成功的字串</span><br><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world!Hello!world!&quot;</span>; <br>str.match(<span class="hljs-regexp">/world/g</span>);<span class="hljs-comment">//[&#x27;world&#x27;, &#x27;world&#x27;]</span><br></code></pre></td></tr></table></figure>
+<h3 id="replace-：替換與字串或正規表達式相同的值"><a href="#replace-：替換與字串或正規表達式相同的值" class="headerlink" title="replace()：替換與字串或正規表達式相同的值"></a>replace()：替換與字串或正規表達式相同的值</h3><p>尋找與字串或正規表達式相同的值，並替換第一個值。<br>參數中放入兩個值：<code>replace(要體換掉的值,要替換上去的值)</code></p>
+<ol>
+<li>要替換掉的值</li>
+<li>要替換上去的值</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 正規表達式</span><br><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world!Hello!world!&quot;</span>; <br>str.replace(<span class="hljs-string">&quot;world&quot;</span>,<span class="hljs-string">&quot;mavis&quot;</span>);<span class="hljs-comment">//Hello!mavis!Hello!world!</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 正規表達式</span><br><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world!Hello!world!&quot;</span>; <br>str.replace(<span class="hljs-regexp">/world/</span>,<span class="hljs-string">&quot;mavis&quot;</span>);<span class="hljs-comment">//Hello!mavis!Hello!world!</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 正規表達式：加上 g flag 可以替換所有符合的值</span><br><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world!Hello!world!&quot;</span>; <br>str.replace(<span class="hljs-regexp">/world/g</span>,<span class="hljs-string">&quot;mavis&quot;</span>);<span class="hljs-comment">//Hello!mavis!Hello!mavis!</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="replaceAll-：替換與字串或正規表達式相同的多個值"><a href="#replaceAll-：替換與字串或正規表達式相同的多個值" class="headerlink" title="replaceAll()：替換與字串或正規表達式相同的多個值"></a>replaceAll()：替換與字串或正規表達式相同的多個值</h3><p>尋找與字串或正規表達式相同的多個值，並替換所有值。<br>參數中放入兩個值：<code>replaceAll(要替換掉的值,要替換上去的值)</code></p>
+<ol>
+<li>要替換掉的值</li>
+<li>要替換上去的值</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world!Hello!world!&quot;</span>; <br>str.replaceAll(<span class="hljs-string">&quot;world&quot;</span>,<span class="hljs-string">&quot;mavis&quot;</span>);<span class="hljs-comment">//Hello!mavis!Hello!mavis!</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 正規表達式</span><br><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world!Hello!world!&quot;</span>; <br>str.replaceAll(<span class="hljs-regexp">/world/</span>,<span class="hljs-string">&quot;mavis&quot;</span>);<span class="hljs-comment">//Hello!mavis!Hello!mavis!</span><br></code></pre></td></tr></table></figure>
+
+
+<h2 id="字串與陣列"><a href="#字串與陣列" class="headerlink" title="字串與陣列"></a>字串與陣列</h2><h3 id="split-：字串分割為陣列"><a href="#split-：字串分割為陣列" class="headerlink" title="split()：字串分割為陣列"></a>split()：字串分割為陣列</h3><p>參數中可放入兩個值：<code>split(分割條件,回傳陣列最大長度)</code></p>
+<ol>
+<li>（選填）隔開陣列中每個元素的字串，預設不改變字串</li>
+<li>（選填）回傳陣列的最大長度，預設不考慮</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world&quot;</span>;<br><span class="hljs-keyword">let</span> n = str.split(); <span class="hljs-comment">//[&quot;Hello!world&quot;]</span><br>n = str.split(<span class="hljs-string">&quot;&quot;</span>); <span class="hljs-comment">//[&quot;H&quot;,&quot;e&quot;,&quot;l&quot;,&quot;l&quot;,&quot;o&quot;,&quot;!&quot;,&quot;w&quot;,&quot;o&quot;,&quot;r&quot;,&quot;l&quot;,&quot;d&quot;]</span><br>n = str.split(<span class="hljs-string">&quot;!&quot;</span>); <span class="hljs-comment">//[&quot;Hello&quot;,&quot;world&quot;]</span><br></code></pre></td></tr></table></figure>
+<h3 id="join-：陣列合併為字串"><a href="#join-：陣列合併為字串" class="headerlink" title="join()：陣列合併為字串"></a>join()：陣列合併為字串</h3><p>參數可（選填）放入隔開陣列中每個元素的字串：<code>join(分割字串)</code>，預設為<code>,</code></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> arr = [<span class="hljs-string">&quot;c&quot;</span>,<span class="hljs-string">&quot;a&quot;</span>,<span class="hljs-string">&quot;t&quot;</span>];<br><span class="hljs-keyword">let</span> n = arr.join(); <span class="hljs-comment">//&quot;c,a,t&quot;</span><br>n = arr.join(<span class="hljs-string">&quot;&quot;</span>) <span class="hljs-comment">//cat</span><br>n = arr.join(<span class="hljs-string">&quot;!&quot;</span>); <span class="hljs-comment">//&quot;c!a!t&quot;</span><br></code></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[工具] Mac 中使用快捷鍵開啟 iterm</title>
+    <url>/2023/05/12/iterm-shortcut-mac-automator/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>各位好，今天我想分享如何在 Mac 中使用快捷鍵開啟 iterm。會使用到的工具包含 Applescript 和 Automator。</p>
+<p>在開發的過程中我經常需要開啟 iterm ，雖然透過 spotlight 開啟也很方便，但還是希望能更節省時間，所以今天研究了一下怎麼快速使用快捷鍵開啟。</p>
+<span id="more"></span> 
+<h2 id="Applescript-撰寫"><a href="#Applescript-撰寫" class="headerlink" title="Applescript 撰寫"></a>Applescript 撰寫</h2><p>AppleScript 是一種腳本語言可以用來控制執行於 Mac OS 上的程式，後面我們會用到它。首先我們要打開 Automator，選擇「快速動作（Quick Action）」</p>
+<p><img src="ry1gRis42.png"></p>
+<p>接著在左方的 Menu 選單中透過搜尋的方式找到「執行 AppleScript」，點擊兩下，右方會出現 AppleScript 。接著貼上以下語法：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">if</span> application <span class="hljs-string">&quot;iTerm&quot;</span> <span class="hljs-keyword">is</span> running then<br>	tell application <span class="hljs-string">&quot;iTerm&quot;</span><br>		activate<br>    end tell<br><span class="hljs-keyword">else</span><br>	activate application <span class="hljs-string">&quot;iTerm&quot;</span><br>end <span class="hljs-keyword">if</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://imgur.com/fGWwBDV.jpg"></p>
+<p>完成後儲存檔案，這裡我們命名為「開啟 iterm」<br><img src="B1GuyniE3.png"></p>
+<h2 id="快捷鍵設定"><a href="#快捷鍵設定" class="headerlink" title="快捷鍵設定"></a>快捷鍵設定</h2><p>打開「系統偏好設定」&gt;「鍵盤」&gt;「快速鍵」&gt;「服務」&gt;「一般」，就能看到我們剛剛設定的「開啟 iterm」。</p>
+<p><img src="ByXkl3s43.png"></p>
+<p>最後就只需要點擊「加入快速鍵」，並在鍵盤中敲上我們想使用的快捷鍵即可囉(這裡加入了 ctrl+command+i)。<br><img src="https://imgur.com/9rZxCqz.jpg"></p>
+<h2 id="其他快捷鍵設定"><a href="#其他快捷鍵設定" class="headerlink" title="其他快捷鍵設定"></a>其他快捷鍵設定</h2><h3 id="半透明視窗：由上至下顯示-terminal"><a href="#半透明視窗：由上至下顯示-terminal" class="headerlink" title="半透明視窗：由上至下顯示 terminal"></a>半透明視窗：由上至下顯示 terminal</h3><p>除了使用 Applescript 直接開啟跳轉到 iterm 的介面，我們也可以設定一個半透明的下滑視窗讓我們能直接在其他頁面同時使用 iterm。我最常會在寫LeetCode 題目和寫部落格中搭配 nvim 使用。<br><img src="https://imgur.com/AobHtgN.gif"></p>
+<p>加入的方式也很簡單，我們只要到左上的 iterm2 &gt; Preferences &gt; Key 點擊「Create a dedicated window」。<br><a href="https://imgur.com/QDJ874K.jpg"></a><br>然後點擊視窗中的 Click to set 錄製我們的快捷鍵，我自己是設定 shift+cmd+i。<br><a href="https://imgur.com/UeS9Vhv.jpg"></a><br>如果我們希望他在全螢幕的視窗也可以浮動顯示的話可以勾選「Floating window」。<br><a href="https://imgur.com/FJtvBbz.jpg"></a></p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>希望上面的整理有幫到大家。AppleScript 真的好方便，之後再來研究一下還有什麼酷東西可以玩。<br>Have a nice day:)</p>
+]]></content>
+      <categories>
+        <category>tools</category>
+      </categories>
+      <tags>
+        <tag>mac</tag>
+        <tag>applescript</tag>
+        <tag>automator</tag>
+        <tag>shortcut</tag>
       </tags>
   </entry>
   <entry>
@@ -145,85 +410,71 @@
       </tags>
   </entry>
   <entry>
-    <title>免費圖片空間 Imgur 使用教學</title>
-    <url>/2021/09/19/imgurturtorial/</url>
-    <content><![CDATA[<style>
-    img{
-        width:70%;
-    }
-</style>
+    <title>CSS 寬度自適應： max-width、min-width、fit-content 介紹</title>
+    <url>/2021/09/21/maxwidthminwidthfitcontent/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在 CSS3 中新增了幾個設置寬度屬性的關鍵字：<code>max-width</code>、<code>min-width</code>、<code>fit-content</code> 就讓我們來一一了解這些觀念吧！</p>
+<p>注意：這裡的「寬度」指的是語意上的寬度，而不是 CSS 的 width，也就是說，如果文字方向是垂直的或在 flexbox 或 Grid 中，這些值也對 CSS 的 height 有效。另外，它們在 min-width、min-height、max-width、max-height 中也都是有效的。</p>
+<h2 id="max-content：寬度等於內容最大寬度"><a href="#max-content：寬度等於內容最大寬度" class="headerlink" title="max-content：寬度等於內容最大寬度"></a>max-content：寬度等於內容最大寬度</h2><blockquote>
+<p>The max-content sizing keyword represents the intrinsic maximum width or height of the content. For text content this means that the content will not wrap at all even if it causes overflows. –<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/max-content">MDN Web Docs</a></p>
+</blockquote>
+<p>max-content 表示內容固有的最大的寬度或高度，以 text 內容來說，就算會溢出（overflow）也不會換行。</p>
+<p>我們可以從下面的範例中看到，當我們在 <code>item</code> 加上 <code>max-content</code> 後，文字便不會換行，做用和 <code>white-space:nowrap</code> 很相似。</p>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="ZEyowRg" data-user="0430shinyu" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/0430shinyu/pen/ZEyowRg">
+  </a> by 蔡蔡 Mavis (<a href="https://codepen.io/0430shinyu">@0430shinyu</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
-<p>Imgur 是一個網路相簿網站，2009年創立，主要提供免費的相片儲存服務，現今每日使用者達數百萬。Imgur 最大的優點就是它沒有流量限制，也不需要註冊帳號就可以直接使用，使用上非常方便。</p>
-<span id="more"></span>
-<h2 id="Imgur-網頁介紹"><a href="#Imgur-網頁介紹" class="headerlink" title="Imgur 網頁介紹"></a>Imgur 網頁介紹</h2><p>進到 imgur 的網頁後，我們可以看到下方有許多其他使用者上傳的圖片，<br><img src="https://imgur.com/XJfw5tc.jpg"><br>我們也可以透過上方的搜尋欄，搜尋特定的圖片<br><img src="https://imgur.com/k2sSTN1.jpg"></p>
-<h2 id="上傳檔案"><a href="#上傳檔案" class="headerlink" title="上傳檔案"></a>上傳檔案</h2><p>如果我們想要上傳圖片，可以點擊首頁左上方的 New Post<br><img src="https://imgur.com/56WlOl4.jpg"><br>點擊後會跳轉到這個畫面，可以透過拖移或是點擊的方式上傳我們本地端的圖片，imgur 支援多種圖片格式，單張非動畫圖片最大容量限制為 20 MB，每小時最多上傳 50 張，詳細限制可以參考<a href="https://help.imgur.com/hc/en-us/articles/115000083326-What-files-can-I-upload-What-is-the-size-limit-">Imgur Help</a>的說明。</p>
-<p><img src="https://imgur.com/TWYw3Mm.jpg"><br>成功上傳後會出現這樣的畫面，雖然前面有提到首頁可以看到其他使用者上傳的圖片，但<strong>預設</strong>上傳的圖片是<strong>不會</strong>連結到 Imgur 社群的喔，如果希望上傳到社群，可以替圖片加上標題(title)和說明(description)，再點擊「To Community」就可以公開囉。<br><img src="https://imgur.com/iOHIZ9E.jpg"><br>複製圖片網址的方式也很簡單，將滑鼠移到圖片上，並點擊 Copy link 就能成功複製圖片網址了（<a href="https://imgur.com/ipZyGmJ.jpg">https://imgur.com/ipZyGmJ.jpg</a>），點擊「···」則可以對圖片進行編輯（調整大小、旋轉圖片）、分享連結、下載、刪除。<br><img src="https://imgur.com/rhF08TY.jpg"></p>
-<h2 id="在-HTML-中插入外部圖片"><a href="#在-HTML-中插入外部圖片" class="headerlink" title="在 HTML 中插入外部圖片"></a>在 HTML 中插入外部圖片</h2><p>使用 Imgur 在 HTML 中插入圖片有兩種方式</p>
+
+<h2 id="min-content：寬度等於內容最小寬度"><a href="#min-content：寬度等於內容最小寬度" class="headerlink" title="min-content：寬度等於內容最小寬度"></a>min-content：寬度等於內容最小寬度</h2><blockquote>
+<p>The smallest size a box could take that doesn’t lead to overflow that could be avoided by choosing a larger size. — <a href="https://www.w3.org/TR/css-sizing-3/#min-content">W3C</a></p>
+</blockquote>
+<p>min-content 表示最小不會造成溢出（overflow）的寬度。對於文字（text）內容來說，會變得與最長的單詞一樣的寬度。</p>
+<p>以下面這個範例來看，我們可以看到加上了 <code>min-content</code> 的 <code>item</code> ，會以最長單字（consecteturctetur）的寬度作為 <code>item</code> 的寬度。</p>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="VwWxgEW" data-user="0430shinyu" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/0430shinyu/pen/VwWxgEW">
+  css-max-content-demo</a> by 蔡蔡 Mavis (<a href="https://codepen.io/0430shinyu">@0430shinyu</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<p>再來我們可以查看下方這個範例，會發現未加上 <code>min-content</code> 的區塊元素 item 會繼承父成的寬度 ，而加上了 <code>min-content</code> 的 item 則以圖片的寬度做為 item 的寬度，這是因為 <code>width:100px</code> 的圖片是最小不會造成溢出（overflow）的寬度。</p>
+<p class="codepen" data-height="400" data-default-tab="html,result" data-slug-hash="jOwxoRR" data-user="0430shinyu" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/0430shinyu/pen/jOwxoRR">
+  css-min-content-demo</a> by 蔡蔡 Mavis (<a href="https://codepen.io/0430shinyu">@0430shinyu</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+
+<h2 id="fit-content：依照內容寬度伸縮"><a href="#fit-content：依照內容寬度伸縮" class="headerlink" title="fit-content：依照內容寬度伸縮"></a>fit-content：依照內容寬度伸縮</h2><blockquote>
+<p>The fit-content behaves as fit-content(stretch). In practice this means that the box will use the available space, but never more than max-content. –<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/max-content">MDN Web Docs</a></p>
+</blockquote>
+<p>fit-content 會讓元素使用可用空間，但不會大於 max-content。</p>
+<p>在下面這個範例中可以看到，區塊元素 <code>item</code> 加上 <code>fit-content</code> 後，寬度會與內容寬度相同。</p>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="dyReERp" data-user="0430shinyu" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/0430shinyu/pen/dyReERp">
+  css-fill-available</a> by 蔡蔡 Mavis (<a href="https://codepen.io/0430shinyu">@0430shinyu</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<p>這個特性在處理區塊水平置中上非常方便</p>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="wvejVBK" data-user="0430shinyu" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/0430shinyu/pen/wvejVBK">
+  css-fit-content-demo</a> by 蔡蔡 Mavis (<a href="https://codepen.io/0430shinyu">@0430shinyu</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>最後，在針對三個做個總結：</p>
 <ol>
-<li>將 Imgur 嵌入<br>呈現效果如下：<blockquote class="imgur-embed-pub" lang="en" data-id="rhF08TY"><a href="https://imgur.com/rhF08TY">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script></li>
+<li>max-content：寬度等於子元素最小寬度</li>
+<li>min-content：寬度等於子元素最大寬度</li>
+<li>fit-content：<br>如果可用空間比<code>max-content</code>大，寬度就等於 <code>max-content</code>，<br>如果可用空間比<code>max-content</code>小，寬度就等於可用空間的寬，<br>如果可用空間比<code>min-content</code>小，那麼寬度就等於 <code>min-content</code>。</li>
 </ol>
-<p>使用的方式為點擊圖片上方的「···」，選取 Get share links<br><img src="https://imgur.com/yE1mDlY.jpg"><br>再複製 HTML Embed 的語法，貼上到我們的網頁中。<br><img src="https://imgur.com/vdEGgvT.jpg"></p>
-<ol start="2">
-<li>使用 img 語法<br>如果不希望保留 Imgur 的外框，可以直接使用 img 標籤，呈現效果如下：<img src="https://imgur.com/ipZyGmJ.jpg" alt="範例圖片"> </li>
-</ol>
-<p>，並放入我們點擊 Copy Link 得到的「<a href="https://imgur.com/ipZyGmJ%E3%80%8D%EF%BC%8C%E5%9C%A8%E5%BE%8C%E9%9D%A2">https://imgur.com/ipZyGmJ」，在後面</a> <strong>加上副檔名<code>.jpg</code></strong> ，就可以正確插入圖片囉。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://imgur.com/ipZyGmJ.jpg&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;範例圖片&quot;</span>&gt;</span> <br></code></pre></td></tr></table></figure>
-
-<h2 id="帳號註冊"><a href="#帳號註冊" class="headerlink" title="帳號註冊"></a>帳號註冊</h2><p>如果我們希望上傳後還能對這些圖片進行管理的話，可以註冊 Imgur 帳號。註冊的方式也很簡單，到首頁點擊右上方的 SignUp 就可以註冊了。<br><img src="https://imgur.com/VuWJi0Q.jpg"><br>成功登入後我們就可以在這管理自己上傳的圖片囉。<br><img src="https://imgur.com/o5CzMa2.jpg"></p>
-]]></content>
-      <categories>
-        <category>其他</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>[工具] Mac 中使用快捷鍵開啟 iterm</title>
-    <url>/2023/05/12/iterm-shortcut-mac-automator/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>各位好，今天我想分享如何在 Mac 中使用快捷鍵開啟 iterm。會使用到的工具包含 Applescript 和 Automator。</p>
-<p>在開發的過程中我經常需要開啟 iterm ，雖然透過 spotlight 開啟也很方便，但還是希望能更節省時間，所以今天研究了一下怎麼快速使用快捷鍵開啟。</p>
-<span id="more"></span> 
-<h2 id="Applescript-撰寫-寫自動化腳本"><a href="#Applescript-撰寫-寫自動化腳本" class="headerlink" title="Applescript 撰寫:寫自動化腳本"></a>Applescript 撰寫:寫自動化腳本</h2><p>AppleScript 是一種腳本語言可以用來控制執行於 Mac OS 上的程式，後面我們會用到它。首先我們要打開 Automator，選擇「快速動作（Quick Action）」</p>
-<p><img src="ry1gRis42.png"></p>
-<p>接著在左方的 Menu 選單中透過搜尋的方式找到「執行 AppleScript」，點擊兩下，右方會出現 AppleScript 。接著貼上以下語法：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">if</span> application <span class="hljs-string">&quot;iTerm&quot;</span> <span class="hljs-keyword">is</span> running then<br>	tell application <span class="hljs-string">&quot;iTerm&quot;</span><br>		create window <span class="hljs-keyword">with</span> default profile<br>	end tell<br><span class="hljs-keyword">else</span><br>	activate application <span class="hljs-string">&quot;iTerm&quot;</span><br>end <span class="hljs-keyword">if</span><br></code></pre></td></tr></table></figure>
-<p><img src="HJEIJ2oV2.png"></p>
-<p>完成後儲存檔案，這裡我們命名為「開啟 iterm」<br><img src="B1GuyniE3.png"></p>
-<h2 id="快捷鍵設定"><a href="#快捷鍵設定" class="headerlink" title="快捷鍵設定"></a>快捷鍵設定</h2><p>打開「系統偏好設定」&gt;「鍵盤」&gt;「快速鍵」&gt;「服務」&gt;「一般」，就能看到我們剛剛設定的「開啟 iterm」。</p>
-<p><img src="ByXkl3s43.png"></p>
-<p>最後就只需要點擊「加入快速鍵」，並在鍵盤中敲上我們想使用的快捷鍵即可囉(這裡加入了 shift+cmd+4)。<br><img src="HJROensN3.png"></p>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>希望上面的整理有幫到大家。AppleScript 真的好方便，之後再來研究一下還有什麼酷東西可以玩。</p>
-]]></content>
-      <categories>
-        <category>Tools</category>
-      </categories>
-      <tags>
-        <tag>mac</tag>
-        <tag>applescript</tag>
-        <tag>automator</tag>
-        <tag>shortcut</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解決兩個寬度 50％ 的子元素無法在同行的問題</title>
-    <url>/2021/09/19/inlineblockwidth50/</url>
-    <content><![CDATA[<p>行內區塊(<code>inline-block</code>)可以讓我們可以以行內（<code>inline</code>）的方式呈現，但同時擁有（<code>block</code>）的屬性，不過，在設定寬度上我們可能會遇到一個奇怪的問題：</p>
-<span id="more"></span>
-<p>假設我們想要新增兩個在同行的 div 元素，並讓他們各佔一半，我們會這樣撰寫：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;box&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>CHILD<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>CHILD<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.box</span>&#123;<br>  <span class="hljs-attribute">width</span>:<span class="hljs-number">200px</span>;<br>  <span class="hljs-attribute">background-color</span>: blue;<br>&#125;<br><span class="hljs-selector-class">.box</span> <span class="hljs-selector-tag">div</span>&#123;<br>  <span class="hljs-attribute">text-align</span>: center;<br>  <span class="hljs-attribute">display</span>: inline-block;<br>  <span class="hljs-attribute">width</span>:<span class="hljs-number">50%</span>;<br>  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#d8e2dc</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>我們可能會預期畫面出現<br><img src="https://imgur.com/rUFostx.jpg"><br>卻發現結果兩個子元素沒有在同一行<br><img src="https://imgur.com/sfRoQzu.jpg"><br>而會有這樣的問題是因為<strong>換行符號</strong>。我們在第一個 <code>div</code> 標籤後方加上的換行符號，會相等於空白符號，這個空白符號的寬度加上兩個子元素的寬度就會超過 100%，導致兩個子元素無法放在同一行。</p>
-<p><strong>解決辦法有幾種：</strong></p>
-<ol>
-<li><p>刪除換行符號<br>最簡單的方式就是直接刪除換行符號，不過這會造成 HTML 結構的可讀性變差。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;box&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>CHILD<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>CHILD<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
-<li><p>將字體大小設為 0<br>知道是因為空白符號造成無法在同行後，我們可以聯想到只要將字體設為 0 ，這個空白就不會佔有空間了。</p>
-</li>
-</ol>
-<p>實作放事就是直接在父層加上 font-size:0 （記得子層如果有文字要記得設定字體大小喔）。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.box</span>&#123;<br>  <span class="hljs-attribute">width</span>:<span class="hljs-number">200px</span>;<br>  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">0</span>; <span class="hljs-comment">/* 隱藏空白符號 */</span><br>&#125;<br><span class="hljs-selector-class">.box</span> <span class="hljs-selector-tag">div</span>&#123;<br>  <span class="hljs-attribute">display</span>: inline-block;<br>  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">16px</span>;  <span class="hljs-comment">/* 設定子元素字體大小 */</span><br>  <span class="hljs-attribute">width</span>:<span class="hljs-number">50%</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>除了這些也可以使用負的 margin、letter-spacing、word-spacing 調整，但個人覺得沒有那麼實用，以上就是行內區塊無法同行的解決辦法說明囉。</p>
-<p><strong>參考資料</strong><br><a href="https://www.zhangxinxu.com/wordpress/2010/11/%E6%8B%9C%E6%8B%9C%E4%BA%86%E6%B5%AE%E5%8A%A8%E5%B8%83%E5%B1%80-%E5%9F%BA%E4%BA%8Edisplayinline-block%E7%9A%84%E5%88%97%E8%A1%A8%E5%B8%83%E5%B1%80/">拜拜了,浮动布局-基于display:inline-block的列表布局</a></p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://stackoverflow.com/questions/51285308/how-do-min-content-and-max-content-work">How do min-content and max-content work?</a></p>
 ]]></content>
       <categories>
         <category>HTML、CSS</category>
@@ -470,100 +721,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CSS 寬度自適應： max-width、min-width、fit-content 介紹</title>
-    <url>/2021/09/21/maxwidthminwidthfitcontent/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在 CSS3 中新增了幾個設置寬度屬性的關鍵字：<code>max-width</code>、<code>min-width</code>、<code>fit-content</code> 就讓我們來一一了解這些觀念吧！</p>
-<p>注意：這裡的「寬度」指的是語意上的寬度，而不是 CSS 的 width，也就是說，如果文字方向是垂直的或在 flexbox 或 Grid 中，這些值也對 CSS 的 height 有效。另外，它們在 min-width、min-height、max-width、max-height 中也都是有效的。</p>
-<h2 id="max-content：寬度等於內容最大寬度"><a href="#max-content：寬度等於內容最大寬度" class="headerlink" title="max-content：寬度等於內容最大寬度"></a>max-content：寬度等於內容最大寬度</h2><blockquote>
-<p>The max-content sizing keyword represents the intrinsic maximum width or height of the content. For text content this means that the content will not wrap at all even if it causes overflows. –<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/max-content">MDN Web Docs</a></p>
-</blockquote>
-<p>max-content 表示內容固有的最大的寬度或高度，以 text 內容來說，就算會溢出（overflow）也不會換行。</p>
-<p>我們可以從下面的範例中看到，當我們在 <code>item</code> 加上 <code>max-content</code> 後，文字便不會換行，做用和 <code>white-space:nowrap</code> 很相似。</p>
-<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="ZEyowRg" data-user="0430shinyu" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-  <span>See the Pen <a href="https://codepen.io/0430shinyu/pen/ZEyowRg">
-  </a> by 蔡蔡 Mavis (<a href="https://codepen.io/0430shinyu">@0430shinyu</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
-
-
-<h2 id="min-content：寬度等於內容最小寬度"><a href="#min-content：寬度等於內容最小寬度" class="headerlink" title="min-content：寬度等於內容最小寬度"></a>min-content：寬度等於內容最小寬度</h2><blockquote>
-<p>The smallest size a box could take that doesn’t lead to overflow that could be avoided by choosing a larger size. — <a href="https://www.w3.org/TR/css-sizing-3/#min-content">W3C</a></p>
-</blockquote>
-<p>min-content 表示最小不會造成溢出（overflow）的寬度。對於文字（text）內容來說，會變得與最長的單詞一樣的寬度。</p>
-<p>以下面這個範例來看，我們可以看到加上了 <code>min-content</code> 的 <code>item</code> ，會以最長單字（consecteturctetur）的寬度作為 <code>item</code> 的寬度。</p>
-<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="VwWxgEW" data-user="0430shinyu" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-  <span>See the Pen <a href="https://codepen.io/0430shinyu/pen/VwWxgEW">
-  css-max-content-demo</a> by 蔡蔡 Mavis (<a href="https://codepen.io/0430shinyu">@0430shinyu</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
-
-<p>再來我們可以查看下方這個範例，會發現未加上 <code>min-content</code> 的區塊元素 item 會繼承父成的寬度 ，而加上了 <code>min-content</code> 的 item 則以圖片的寬度做為 item 的寬度，這是因為 <code>width:100px</code> 的圖片是最小不會造成溢出（overflow）的寬度。</p>
-<p class="codepen" data-height="400" data-default-tab="html,result" data-slug-hash="jOwxoRR" data-user="0430shinyu" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-  <span>See the Pen <a href="https://codepen.io/0430shinyu/pen/jOwxoRR">
-  css-min-content-demo</a> by 蔡蔡 Mavis (<a href="https://codepen.io/0430shinyu">@0430shinyu</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
-
-
-<h2 id="fit-content：依照內容寬度伸縮"><a href="#fit-content：依照內容寬度伸縮" class="headerlink" title="fit-content：依照內容寬度伸縮"></a>fit-content：依照內容寬度伸縮</h2><blockquote>
-<p>The fit-content behaves as fit-content(stretch). In practice this means that the box will use the available space, but never more than max-content. –<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/max-content">MDN Web Docs</a></p>
-</blockquote>
-<p>fit-content 會讓元素使用可用空間，但不會大於 max-content。</p>
-<p>在下面這個範例中可以看到，區塊元素 <code>item</code> 加上 <code>fit-content</code> 後，寬度會與內容寬度相同。</p>
-<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="dyReERp" data-user="0430shinyu" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-  <span>See the Pen <a href="https://codepen.io/0430shinyu/pen/dyReERp">
-  css-fill-available</a> by 蔡蔡 Mavis (<a href="https://codepen.io/0430shinyu">@0430shinyu</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
-
-<p>這個特性在處理區塊水平置中上非常方便</p>
-<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="wvejVBK" data-user="0430shinyu" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-  <span>See the Pen <a href="https://codepen.io/0430shinyu/pen/wvejVBK">
-  css-fit-content-demo</a> by 蔡蔡 Mavis (<a href="https://codepen.io/0430shinyu">@0430shinyu</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
-
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>最後，在針對三個做個總結：</p>
-<ol>
-<li>max-content：寬度等於子元素最小寬度</li>
-<li>min-content：寬度等於子元素最大寬度</li>
-<li>fit-content：<br>如果可用空間比<code>max-content</code>大，寬度就等於 <code>max-content</code>，<br>如果可用空間比<code>max-content</code>小，寬度就等於可用空間的寬，<br>如果可用空間比<code>min-content</code>小，那麼寬度就等於 <code>min-content</code>。</li>
-</ol>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://stackoverflow.com/questions/51285308/how-do-min-content-and-max-content-work">How do min-content and max-content work?</a></p>
-]]></content>
-      <categories>
-        <category>HTML、CSS</category>
-      </categories>
-      <tags>
-        <tag>CSS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Vue - 使用 v-cloak 隱藏未編譯的程式碼</title>
-    <url>/2022/01/30/vue3-vcloak/</url>
-    <content><![CDATA[<p>當我們使用 Vue 時，如果網路速度慢，Vue 未載入完成，還沒經 Vue 解析的內容就會渲染到頁面上。這時我們可以使用 v-cloak 隱藏未編譯的 <code>&#123;&#123;&#125;&#125;</code> 標籤。</p>
-<p>範例中我們使用 <code>setTimeout</code> 來模擬網速慢的情境。可以看到在編譯結束前並不會顯示第一個有加上 v-cloak 的 <code>div</code>。</p>
-<iframe height="300" style="width: 100%;" scrolling="no" title="vee-validate 範例" src="https://codepen.io/0430shinyu/embed/preview/oNojPXM?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href="https://codepen.io/0430shinyu/pen/oNojPXM">
-  vee-validate 範例</a> by 蔡蔡 Mavis (<a href="https://codepen.io/0430shinyu">@0430shinyu</a>)
-  on <a href="https://codepen.io">CodePen</a>.
-</iframe>
-
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://v3.cn.vuejs.org/api/directives.html#v-cloak">Vue3 官方文件</a></p>
-]]></content>
-      <categories>
-        <category>Vue</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用 Validate.JS 簡易完成表單驗證功能</title>
     <url>/2022/01/09/validatejs/</url>
     <content><![CDATA[<p><img src="https://i.imgur.com/ziX6OaG.png"></p>
@@ -674,151 +831,23 @@
       </tags>
   </entry>
   <entry>
-    <title>JavaScript 字串方法整理</title>
-    <url>/2021/09/20/javascriptstringmethod/</url>
-    <content><![CDATA[<p>以下針對不同類型的字串方法做分類整理：</p>
-<span id="more"></span>
-<style>
-table th:first-of-type {
-    width: 34%;
-}
+    <title>Vue - 使用 v-cloak 隱藏未編譯的程式碼</title>
+    <url>/2022/01/30/vue3-vcloak/</url>
+    <content><![CDATA[<p>當我們使用 Vue 時，如果網路速度慢，Vue 未載入完成，還沒經 Vue 解析的內容就會渲染到頁面上。這時我們可以使用 v-cloak 隱藏未編譯的 <code>&#123;&#123;&#125;&#125;</code> 標籤。</p>
+<p>範例中我們使用 <code>setTimeout</code> 來模擬網速慢的情境。可以看到在編譯結束前並不會顯示第一個有加上 v-cloak 的 <code>div</code>。</p>
+<iframe height="300" style="width: 100%;" scrolling="no" title="vee-validate 範例" src="https://codepen.io/0430shinyu/embed/preview/oNojPXM?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/0430shinyu/pen/oNojPXM">
+  vee-validate 範例</a> by 蔡蔡 Mavis (<a href="https://codepen.io/0430shinyu">@0430shinyu</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
 
-</style>
-<table>
-<thead>
-<tr>
-<th>分類</th>
-<th>語法</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>回傳單一字元</td>
-<td><a href="#charAt-%EF%BC%9A%E5%9B%9E%E5%82%B3%E6%8C%87%E5%AE%9A%E4%BD%8D%E7%BD%AE%E7%9A%84%E5%AD%97%E5%85%83">charAt()</a>、<a href="#charCodeAt-%EF%BC%9A%E5%9B%9E%E5%82%B3%E6%8C%87%E5%AE%9A%E4%BD%8D%E7%BD%AE%E5%AD%97%E5%85%83%E7%9A%84-Unicode-%E7%B7%A8%E7%A2%BC">charCodeAt()</a></td>
-</tr>
-<tr>
-<td>回傳新字串</td>
-<td><a href="#concat-%EF%BC%9A%E9%80%A3%E6%8E%A5%E5%A4%9A%E5%80%8B%E5%AD%97%E4%B8%B2">concat()</a>、<a href="#repeat-%EF%BC%9A%E8%A4%87%E8%A3%BD%E5%AD%97%E4%B8%B2%E6%95%B8%E6%AC%A1">repeat()</a>、<a href="#slice-%EF%BC%9A%E6%8F%90%E5%8F%96%E5%AD%97%E4%B8%B2%E7%89%87%E6%AE%B5">slice()</a>、<a href="#substr-%EF%BC%9A%E6%8F%90%E5%8F%96%E5%AD%97%E4%B8%B2%E7%89%87%E6%AE%B5">substr()</a>、<a href="#substring-%EF%BC%9A%E6%8F%90%E5%8F%96%E5%AD%97%E4%B8%B2%E7%89%87%E6%AE%B5">substring()</a>、<a href="#trim-%EF%BC%9A%E5%8E%BB%E9%99%A4%E5%AD%97%E4%B8%B2%E5%85%A9%E9%82%8A%E7%A9%BA%E7%99%BD">trim()</a>、<a href="#toLowerCase-%EF%BC%9A%E5%AD%97%E4%B8%B2%E8%BD%89%E6%8F%9B%E6%88%90%E5%B0%8F%E5%AF%AB">toLowerCase()</a>、<a href="#toUpperCase-%EF%BC%9A%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%89%E6%8F%9B%E6%88%90%E5%A4%A7%E5%AF%AB">toUpperCase()</a></td>
-</tr>
-<tr>
-<td>檢查字串</td>
-<td><a href="#endsWith-%EF%BC%9A%E5%88%A4%E6%96%B7%E5%AD%97%E4%B8%B2%E6%98%AF%E5%90%A6%E4%BB%A5%E7%89%B9%E5%AE%9A%E5%AD%97%E4%B8%B2%E7%B5%90%E5%B0%BE">endsWith()</a>、<a href="#startsWith-%EF%BC%9A%E5%88%A4%E6%96%B7%E5%AD%97%E4%B8%B2%E6%98%AF%E5%90%A6%E4%BB%A5%E7%89%B9%E5%AE%9A%E5%AD%97%E4%B8%B2%E9%96%8B%E9%A0%AD">startsWith()</a>、<a href="#includes-%EF%BC%9A%E5%88%A4%E6%96%B7%E5%AD%97%E4%B8%B2%E4%B8%AD%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E7%89%B9%E5%AE%9A%E5%AD%90%E4%B8%B2">includes()</a>、<a href="#indexOf-%EF%BC%9A%E5%B0%8B%E6%89%BE%E5%AD%97%E4%B8%B2%E9%A6%96%E6%AC%A1%E5%87%BA%E7%8F%BE%E7%9A%84%E4%BD%8D%E7%BD%AE">indexOf()</a></td>
-</tr>
-<tr>
-<td>檢查字串 - 可與正規表達式搭配</td>
-<td><a href="#search-%EF%BC%9A%E5%B0%8B%E6%89%BE%E8%88%87%E5%AD%97%E4%B8%B2%E6%88%96%E6%AD%A3%E8%A6%8F%E8%A1%A8%E9%81%94%E5%BC%8F%E7%9B%B8%E5%90%8C%E7%9A%84%E5%80%BC">search()</a>、<a href="#match-%EF%BC%9A%E5%B0%8B%E6%89%BE%E8%88%87%E5%AD%97%E4%B8%B2%E6%88%96%E6%AD%A3%E8%A6%8F%E8%A1%A8%E9%81%94%E5%BC%8F%E7%9B%B8%E5%90%8C%E7%9A%84%E5%A4%9A%E5%80%8B%E5%80%BC">match()</a>、<a href="#replace-%EF%BC%9A%E6%9B%BF%E6%8F%9B%E8%88%87%E5%AD%97%E4%B8%B2%E6%88%96%E6%AD%A3%E8%A6%8F%E8%A1%A8%E9%81%94%E5%BC%8F%E7%9B%B8%E5%90%8C%E7%9A%84%E5%80%BC">replace()</a>、<a href="#replaceall-%EF%BC%9A%E6%9B%BF%E6%8F%9B%E8%88%87%E5%AD%97%E4%B8%B2%E6%88%96%E6%AD%A3%E8%A6%8F%E8%A1%A8%E9%81%94%E5%BC%8F%E7%9B%B8%E5%90%8C%E7%9A%84%E5%A4%9A%E5%80%8B%E5%80%BC">relaceAll()</a></td>
-</tr>
-<tr>
-<td>字串與陣列</td>
-<td><a href="#split-%EF%BC%9A%E5%AD%97%E4%B8%B2%E5%88%86%E5%89%B2%E7%82%BA%E9%99%A3%E5%88%97">split()</a>、<a href="#join-%EF%BC%9A%E9%99%A3%E5%88%97%E5%90%88%E4%BD%B5%E7%82%BA%E5%AD%97%E4%B8%B2">join()</a></td>
-</tr>
-</tbody></table>
-<h2 id="回傳單一字元"><a href="#回傳單一字元" class="headerlink" title="回傳單一字元"></a>回傳單一字元</h2><h3 id="charAt-：回傳指定位置的字元"><a href="#charAt-：回傳指定位置的字元" class="headerlink" title="charAt()：回傳指定位置的字元"></a>charAt()：回傳指定位置的字元</h3><p>在參數中放入 0 到 字串長度-1 的數字，</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;HELLO WORLD&quot;</span>;<br><span class="hljs-keyword">let</span> char = str.charAt(<span class="hljs-number">2</span>) <span class="hljs-comment">//L</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="charCodeAt-：回傳指定位置字元的-Unicode-編碼"><a href="#charCodeAt-：回傳指定位置字元的-Unicode-編碼" class="headerlink" title="charCodeAt()：回傳指定位置字元的 Unicode 編碼"></a>charCodeAt()：回傳指定位置字元的 Unicode 編碼</h3><p>在參數中放入 0 到 字串長度-1 的數字。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;HELLO WORLD&quot;</span>;<br><span class="hljs-keyword">let</span> char = str.charCodeAt(<span class="hljs-number">0</span>);<span class="hljs-comment">//72</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="回傳新字串"><a href="#回傳新字串" class="headerlink" title="回傳新字串"></a>回傳新字串</h2><h3 id="concat-：連接多個字串"><a href="#concat-：連接多個字串" class="headerlink" title="concat()：連接多個字串"></a>concat()：連接多個字串</h3><p>參數中放入欲連接的字串。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str1 = <span class="hljs-string">&quot;Hello &quot;</span>;<br><span class="hljs-keyword">let</span> str2 = <span class="hljs-string">&quot;world!&quot;</span>;<br><span class="hljs-keyword">let</span> n = str1.concat(str2); <span class="hljs-comment">//&quot;Hello world!&quot;</span><br></code></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 可以放入多個字串</span><br><span class="hljs-keyword">let</span> str1 = <span class="hljs-string">&quot;Hello &quot;</span>;<br><span class="hljs-keyword">let</span> str2 = <span class="hljs-string">&quot;world!&quot;</span>;<br><span class="hljs-keyword">let</span> str3 = <span class="hljs-string">&quot;mavis!&quot;</span>;<br><span class="hljs-keyword">let</span> n = str1.concat(str2,str3); <span class="hljs-comment">//&quot;Hello world!mavis!&quot;</span><br></code></pre></td></tr></table></figure>
-<h3 id="repeat-：複製字串數次"><a href="#repeat-：複製字串數次" class="headerlink" title="repeat()：複製字串數次"></a>repeat()：複製字串數次</h3><p>參數中放入要複製的次數</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;Hello!&quot;</span>;<br><span class="hljs-keyword">let</span> n = str.repeat(<span class="hljs-number">3</span>);<span class="hljs-comment">//&quot;Hello!Hello!Hello!&quot;</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="slice-：提取字串片段"><a href="#slice-：提取字串片段" class="headerlink" title="slice()：提取字串片段"></a>slice()：提取字串片段</h3><p>參數中可放入兩個值：<code>slice(起始位置,結束位置)</code></p>
-<ol>
-<li>起始位置，可為負值</li>
-<li>（選填）結束位置，可為負值，預設會傳到字串結尾</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;Hello world!&quot;</span>;<br><span class="hljs-keyword">let</span> n = str.slice(<span class="hljs-number">0</span>,<span class="hljs-number">5</span>); <span class="hljs-comment">//&quot;Hello&quot;</span><br></code></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;Hello world!&quot;</span>;<br><span class="hljs-keyword">let</span> n = str.slice(-<span class="hljs-number">2</span>,<span class="hljs-number">4</span>); <span class="hljs-comment">//&quot;&quot;，</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="substr-：提取字串片段"><a href="#substr-：提取字串片段" class="headerlink" title="substr()：提取字串片段"></a>substr()：提取字串片段</h3><p>參數中可放入兩個值：<code>substr(起始位置,提取字串長度)</code></p>
-<ol>
-<li>起始位置，可為負值</li>
-<li>（選填）提取字串長度，預設回傳到字串結尾</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello world!&quot;</span>;<br><span class="hljs-keyword">let</span> n = str.substr(<span class="hljs-number">6</span>,<span class="hljs-number">5</span>)<span class="hljs-comment">//world</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="substring-：提取字串片段"><a href="#substring-：提取字串片段" class="headerlink" title="substring()：提取字串片段"></a>substring()：提取字串片段</h3><p>參數中可放入兩個值：<code>substring(起始位置,結束位置)</code></p>
-<ol>
-<li>起始位置，不可為負值</li>
-<li>（選填）結束位置，不可為負值，預設會傳到字串結尾</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;Hello world!&quot;</span>;<br><span class="hljs-keyword">let</span> n = str.substring(<span class="hljs-number">0</span>,<span class="hljs-number">5</span>); <span class="hljs-comment">//&quot;Hello&quot;</span><br></code></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello world!&quot;</span>;<br><span class="hljs-keyword">let</span> n = str.substring(-<span class="hljs-number">2</span>,<span class="hljs-number">5</span>); <span class="hljs-comment">//&quot;Hello&quot;，若帶入負值會從預設 0 開始</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="trim-：去除字串兩邊空白"><a href="#trim-：去除字串兩邊空白" class="headerlink" title="trim()：去除字串兩邊空白"></a>trim()：去除字串兩邊空白</h3><p>空白包含 enter、tab、換行符號，並不適用於 null, undefined。 </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;  mavis  &quot;</span>;<br><span class="hljs-keyword">let</span> n = str.trim();<span class="hljs-comment">// &quot;Mavis&quot;</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="toLowerCase-：字串轉換成小寫"><a href="#toLowerCase-：字串轉換成小寫" class="headerlink" title="toLowerCase()：字串轉換成小寫"></a>toLowerCase()：字串轉換成小寫</h3><p>將字串轉換成小寫</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;MAVIS&quot;</span>;<br><span class="hljs-keyword">let</span> n = str.toLowerCase();<span class="hljs-comment">// &quot;mavis&quot;</span><br></code></pre></td></tr></table></figure>
-<h3 id="toUpperCase-：字符串轉換成大寫"><a href="#toUpperCase-：字符串轉換成大寫" class="headerlink" title="toUpperCase()：字符串轉換成大寫"></a>toUpperCase()：字符串轉換成大寫</h3><p>字串轉換成大寫</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;mavis&quot;</span>;<br><span class="hljs-keyword">let</span> n = str.toUpperCase();<span class="hljs-comment">// &quot;Mavis&quot;</span><br></code></pre></td></tr></table></figure>
-<h2 id="檢查字串"><a href="#檢查字串" class="headerlink" title="檢查字串"></a>檢查字串</h2><h3 id="endsWith-：判斷字串是否以特定字串結尾"><a href="#endsWith-：判斷字串是否以特定字串結尾" class="headerlink" title="endsWith()：判斷字串是否以特定字串結尾"></a>endsWith()：判斷字串是否以特定字串結尾</h3><p>判斷字串是否以特定字串結尾，回傳 Boolean 值。參數放入要判斷的特定字串。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 注意：會判斷大小寫</span><br><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;Hello world&quot;</span>;<br>str.endsWith(<span class="hljs-string">&quot;world&quot;</span>)   <span class="hljs-comment">// true</span><br>str.endsWith(<span class="hljs-string">&quot;World&quot;</span>)   <span class="hljs-comment">// false</span><br></code></pre></td></tr></table></figure>
-<h3 id="startsWith-：判斷字串是否以特定字串開頭"><a href="#startsWith-：判斷字串是否以特定字串開頭" class="headerlink" title="startsWith()：判斷字串是否以特定字串開頭"></a>startsWith()：判斷字串是否以特定字串開頭</h3><p>判斷字串是否以特定字串開頭，回傳 Boolean 值。參數放入要判斷的特定字串。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 注意：會區分大小寫</span><br><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;Hello world&quot;</span>;<br>str.endsWith(<span class="hljs-string">&quot;Hello&quot;</span>)   <span class="hljs-comment">// true</span><br>str.endsWith(<span class="hljs-string">&quot;hello&quot;</span>)   <span class="hljs-comment">// false</span><br></code></pre></td></tr></table></figure>
-<h3 id="includes-：判斷字串中是否包含特定子串"><a href="#includes-：判斷字串中是否包含特定子串" class="headerlink" title="includes()：判斷字串中是否包含特定子串"></a>includes()：判斷字串中是否包含特定子串</h3><p>判斷字串中是否包含特定子串，回傳 Boolean 值，<br>參數中可放入兩個值：<code>includes(判斷的特定字串,起始位置)</code></p>
-<ol>
-<li>要判斷的特定字串</li>
-<li>（選填）起始位置，預設為 0</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;Hello world!!!!&quot;</span>;<br>str.includes(<span class="hljs-string">&quot;world&quot;</span>); <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 填入第二個參數，設定起始位置</span><br><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;Hello world,nice to meet you!&quot;</span>;<br>str.includes(<span class="hljs-string">&quot;world&quot;</span>, <span class="hljs-number">10</span>);<br></code></pre></td></tr></table></figure>
-
-<h3 id="indexOf-：尋找字串首次出現的位置"><a href="#indexOf-：尋找字串首次出現的位置" class="headerlink" title="indexOf()：尋找字串首次出現的位置"></a>indexOf()：尋找字串首次出現的位置</h3><p>如果不包含，就回傳 -1。<br>參數中可放入兩個值：<code>indexOf(判斷的特定字串,起始位置)</code></p>
-<ol>
-<li>要判斷的特定字串</li>
-<li>（選填）起始位置，預設為 0</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 注意：會區分大小寫</span><br><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello world!&quot;</span>;<br>str.indexOf(<span class="hljs-string">&quot;world&quot;</span>); <span class="hljs-comment">//6</span><br>str.indexOf(<span class="hljs-string">&quot;World&quot;</span>); <span class="hljs-comment">//-1</span><br></code></pre></td></tr></table></figure>
-<h3 id="lastIndexOf-：從後尋找字串首次出現的位置"><a href="#lastIndexOf-：從後尋找字串首次出現的位置" class="headerlink" title="lastIndexOf()：從後尋找字串首次出現的位置"></a>lastIndexOf()：從後尋找字串首次出現的位置</h3><p>如果不包含，就回傳 -1。<br>參數中可放入兩個值：<code>lastIndexOf(判斷的特定字串,起始位置)</code></p>
-<ol>
-<li>要判斷的特定字串</li>
-<li>（選填）起始位置，預設為 0</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 注意：會區分大小寫</span><br><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello world!world!&quot;</span>;<br>str.lastIndexOf(<span class="hljs-string">&quot;world&quot;</span>); <span class="hljs-comment">//12</span><br>str.lastIndexOf(<span class="hljs-string">&quot;World&quot;</span>); <span class="hljs-comment">//-1</span><br></code></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 填入第二個參數，設定起始位置</span><br><span class="hljs-keyword">var</span> str=<span class="hljs-string">&quot;Hello world!Hello world!&quot;</span>;<br>str.lastIndexOf(<span class="hljs-string">&quot;world&quot;</span>, <span class="hljs-number">10</span>);<span class="hljs-comment">//6</span><br></code></pre></td></tr></table></figure>
-<h2 id="檢查字串-可與正規表達式搭配"><a href="#檢查字串-可與正規表達式搭配" class="headerlink" title="檢查字串 - 可與正規表達式搭配"></a>檢查字串 - 可與正規表達式搭配</h2><p><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Regular_Expressions">正規表達式</a>是被用來匹配字串中字元組合的模式，若還不清楚使用方法，可以參考<a href="https://5xruby.tw/posts/15min-regular-expression">這篇文章</a>。</p>
-<h3 id="search-：尋找與字串或正規表達式相同的值"><a href="#search-：尋找與字串或正規表達式相同的值" class="headerlink" title="search()：尋找與字串或正規表達式相同的值"></a>search()：尋找與字串或正規表達式相同的值</h3><p>尋找與正規表達式相同的值，回傳字串開始的索引值，沒找到回傳 -1，參數中放入要尋找找的值。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world!Hello!world!&quot;</span>; <br>str.search(<span class="hljs-string">&quot;world&quot;</span>);<span class="hljs-comment">//6</span><br></code></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 正規表達式</span><br><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world!Hello!world!&quot;</span>; <br>str.search(<span class="hljs-regexp">/world/</span>);<span class="hljs-comment">//6</span><br></code></pre></td></tr></table></figure>
-<h3 id="match-：尋找與字串或正規表達式相同的多個值"><a href="#match-：尋找與字串或正規表達式相同的多個值" class="headerlink" title="match()：尋找與字串或正規表達式相同的多個值"></a>match()：尋找與字串或正規表達式相同的多個值</h3><p>尋找與字串或正規表達式相同的多個值，回傳第一個成功的詳細資料，參數中放入要尋找找的值。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world!Hello!world!&quot;</span>; <br>str.match(<span class="hljs-string">&quot;world&quot;</span>);<span class="hljs-comment">//[&#x27;world&#x27;,index:6,....]</span><br></code></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//  正規表達式</span><br><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world!Hello!world!&quot;</span>; <br>str.match(<span class="hljs-regexp">/world/</span>);<span class="hljs-comment">//[&#x27;world&#x27;,index:6,....]</span><br></code></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 正規表達式：加上 g flag 會列出所有比對成功的字串</span><br><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world!Hello!world!&quot;</span>; <br>str.match(<span class="hljs-regexp">/world/g</span>);<span class="hljs-comment">//[&#x27;world&#x27;, &#x27;world&#x27;]</span><br></code></pre></td></tr></table></figure>
-<h3 id="replace-：替換與字串或正規表達式相同的值"><a href="#replace-：替換與字串或正規表達式相同的值" class="headerlink" title="replace()：替換與字串或正規表達式相同的值"></a>replace()：替換與字串或正規表達式相同的值</h3><p>尋找與字串或正規表達式相同的值，並替換第一個值。<br>參數中放入兩個值：<code>replace(要體換掉的值,要替換上去的值)</code></p>
-<ol>
-<li>要替換掉的值</li>
-<li>要替換上去的值</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 正規表達式</span><br><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world!Hello!world!&quot;</span>; <br>str.replace(<span class="hljs-string">&quot;world&quot;</span>,<span class="hljs-string">&quot;mavis&quot;</span>);<span class="hljs-comment">//Hello!mavis!Hello!world!</span><br></code></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 正規表達式</span><br><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world!Hello!world!&quot;</span>; <br>str.replace(<span class="hljs-regexp">/world/</span>,<span class="hljs-string">&quot;mavis&quot;</span>);<span class="hljs-comment">//Hello!mavis!Hello!world!</span><br></code></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 正規表達式：加上 g flag 可以替換所有符合的值</span><br><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world!Hello!world!&quot;</span>; <br>str.replace(<span class="hljs-regexp">/world/g</span>,<span class="hljs-string">&quot;mavis&quot;</span>);<span class="hljs-comment">//Hello!mavis!Hello!mavis!</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="replaceAll-：替換與字串或正規表達式相同的多個值"><a href="#replaceAll-：替換與字串或正規表達式相同的多個值" class="headerlink" title="replaceAll()：替換與字串或正規表達式相同的多個值"></a>replaceAll()：替換與字串或正規表達式相同的多個值</h3><p>尋找與字串或正規表達式相同的多個值，並替換所有值。<br>參數中放入兩個值：<code>replaceAll(要替換掉的值,要替換上去的值)</code></p>
-<ol>
-<li>要替換掉的值</li>
-<li>要替換上去的值</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world!Hello!world!&quot;</span>; <br>str.replaceAll(<span class="hljs-string">&quot;world&quot;</span>,<span class="hljs-string">&quot;mavis&quot;</span>);<span class="hljs-comment">//Hello!mavis!Hello!mavis!</span><br></code></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 正規表達式</span><br><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world!Hello!world!&quot;</span>; <br>str.replaceAll(<span class="hljs-regexp">/world/</span>,<span class="hljs-string">&quot;mavis&quot;</span>);<span class="hljs-comment">//Hello!mavis!Hello!mavis!</span><br></code></pre></td></tr></table></figure>
-
-
-<h2 id="字串與陣列"><a href="#字串與陣列" class="headerlink" title="字串與陣列"></a>字串與陣列</h2><h3 id="split-：字串分割為陣列"><a href="#split-：字串分割為陣列" class="headerlink" title="split()：字串分割為陣列"></a>split()：字串分割為陣列</h3><p>參數中可放入兩個值：<code>split(分割條件,回傳陣列最大長度)</code></p>
-<ol>
-<li>（選填）隔開陣列中每個元素的字串，預設不改變字串</li>
-<li>（選填）回傳陣列的最大長度，預設不考慮</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> str=<span class="hljs-string">&quot;Hello!world&quot;</span>;<br><span class="hljs-keyword">let</span> n = str.split(); <span class="hljs-comment">//[&quot;Hello!world&quot;]</span><br>n = str.split(<span class="hljs-string">&quot;&quot;</span>); <span class="hljs-comment">//[&quot;H&quot;,&quot;e&quot;,&quot;l&quot;,&quot;l&quot;,&quot;o&quot;,&quot;!&quot;,&quot;w&quot;,&quot;o&quot;,&quot;r&quot;,&quot;l&quot;,&quot;d&quot;]</span><br>n = str.split(<span class="hljs-string">&quot;!&quot;</span>); <span class="hljs-comment">//[&quot;Hello&quot;,&quot;world&quot;]</span><br></code></pre></td></tr></table></figure>
-<h3 id="join-：陣列合併為字串"><a href="#join-：陣列合併為字串" class="headerlink" title="join()：陣列合併為字串"></a>join()：陣列合併為字串</h3><p>參數可（選填）放入隔開陣列中每個元素的字串：<code>join(分割字串)</code>，預設為<code>,</code></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> arr = [<span class="hljs-string">&quot;c&quot;</span>,<span class="hljs-string">&quot;a&quot;</span>,<span class="hljs-string">&quot;t&quot;</span>];<br><span class="hljs-keyword">let</span> n = arr.join(); <span class="hljs-comment">//&quot;c,a,t&quot;</span><br>n = arr.join(<span class="hljs-string">&quot;&quot;</span>) <span class="hljs-comment">//cat</span><br>n = arr.join(<span class="hljs-string">&quot;!&quot;</span>); <span class="hljs-comment">//&quot;c!a!t&quot;</span><br></code></pre></td></tr></table></figure>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://v3.cn.vuejs.org/api/directives.html#v-cloak">Vue3 官方文件</a></p>
 ]]></content>
       <categories>
-        <category>JavaScript</category>
+        <category>Vue</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
+        <tag>Vue</tag>
       </tags>
   </entry>
   <entry>
@@ -1137,33 +1166,6 @@ table th:first-of-type {
       </categories>
       <tags>
         <tag>心得</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[爬蟲][反反爬]使用 undetected_chromedriver 爬取 Dcard 文章資料</title>
-    <url>/2023/05/17/dcard-webcrawl-uc/</url>
-    <content><![CDATA[<p><img src="SkqawaxS2.png"></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在爬 Dcard 的資料時，試了許多反反爬的方式。今天就來分享可以解決 Dcard 反爬機制的工具 —— 「undetected_chromedriver」 。它可以幫助我們解決被擋的問題，並實現穩定的網頁爬蟲。</p>
-<p>當我們頻繁去爬取 Dcard 頁面資料時，可能會出現以下的畫面：<br><img src="ryJvdpxB3.png"></p>
-<p>“Error 1020: Access Denied” 是 Cloudflare 防火牆保護的網站上可能出現的錯誤訊息。當我們嘗試訪問一個受到 Cloudflare 保護的網址時，Cloudflare 會封鎖我們的 IP 地址，導致我們無法訪問這個網站。</p>
-<h2 id="什麼是-undetected-chromedriver"><a href="#什麼是-undetected-chromedriver" class="headerlink" title="什麼是 undetected_chromedriver"></a>什麼是 undetected_chromedriver</h2><p>undetected_chromedriver 是一個基於 ChromeDriver 的 Python Library，它提供了一個穩定和不被檢測的瀏覽器環境，繞過網站的反爬蟲機制，讓我們可以順利爬取數據。</p>
-<h2 id="爬取-Dcard-範例"><a href="#爬取-Dcard-範例" class="headerlink" title="爬取 Dcard 範例"></a>爬取 Dcard 範例</h2><p>首先，我們需要安裝 undetected_chromedriver 庫</p>
-<figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">pip <span class="hljs-keyword">install</span> undetected-chromedriver<br></code></pre></td></tr></table></figure>
-
-<p>接著就能使用它了 </p>
-<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> undetected_chromedriver <span class="hljs-keyword">as</span> uc<br><br><br>driver = uc.Chrome()<br>driver.get( <span class="hljs-string">&#x27;要讀取的網站&#x27;</span> )<br></code></pre></td></tr></table></figure>
-<h3 id="實作範例：爬取-Dcard-手搖板文章-URL"><a href="#實作範例：爬取-Dcard-手搖板文章-URL" class="headerlink" title="實作範例：爬取 Dcard 手搖板文章 URL"></a>實作範例：爬取 Dcard 手搖板文章 URL</h3><p>接著我們使用它來爬取 Dcard 手搖版的連結</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> selenium.webdriver.common.by <span class="hljs-keyword">import</span> By<br><span class="hljs-keyword">from</span> selenium.webdriver.common.keys <span class="hljs-keyword">import</span> Keys<br><span class="hljs-keyword">from</span> selenium.webdriver.support.ui <span class="hljs-keyword">import</span> WebDriverWait<br><span class="hljs-keyword">from</span> selenium.webdriver.support <span class="hljs-keyword">import</span> expected_conditions <span class="hljs-keyword">as</span> EC<br><span class="hljs-keyword">from</span> time <span class="hljs-keyword">import</span> sleep<br><span class="hljs-keyword">import</span> random<br><span class="hljs-keyword">import</span> undetected_chromedriver <span class="hljs-keyword">as</span> uc<br><br><span class="hljs-comment"># 使用 undetected_chromedriver 初始化 Chrome 瀏覽器</span><br>driver = uc.Chrome()<br><br><span class="hljs-comment"># 前往手搖版</span><br>driver.get(<span class="hljs-string">&quot;https://www.dcard.tw/f/boba&quot;</span>)<br><br><span class="hljs-comment"># 等待頁面載入</span><br>sleep(<span class="hljs-number">5</span>)<br><br><br><span class="hljs-keyword">try</span>:<br>    <span class="hljs-comment"># 等待文章元素出現</span><br>    wait = WebDriverWait(driver, <span class="hljs-number">10</span>)<br>    articles = wait.until(EC.presence_of_all_elements_located((By.TAG_NAME, <span class="hljs-string">&quot;article&quot;</span>)))<br><br>    <span class="hljs-comment"># 提取文章的連結</span><br>    urls = [article.find_element(By.TAG_NAME, <span class="hljs-string">&quot;a&quot;</span>).get_attribute(<span class="hljs-string">&quot;href&quot;</span>) <span class="hljs-keyword">for</span> article <span class="hljs-keyword">in</span> articles]<br>    <span class="hljs-built_in">print</span>(urls)<br><br><span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;錯誤:&quot;</span>, e)<br><br><span class="hljs-comment"># 關閉瀏覽器</span><br>driver.quit()<br><br></code></pre></td></tr></table></figure>
-
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>除了 Dcard 的爬取，undetected_chromedriver 當然也可以應用於其他類似的情境中。祝大家在爬取網頁資料的旅程中順利！</p>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://github.com/ultrafunkamsterdam/undetected-chromedriver">undetected_chromedriver Github</a></p>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>爬蟲</tag>
-        <tag>Python</tag>
       </tags>
   </entry>
 </search>
